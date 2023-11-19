@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="HumanResourcesApplication_DoAn.Views.Login.LoginWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Login"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             mc:Ignorable="d" 
+             d:DesignHeight="916" d:DesignWidth="1440">
+    <Grid>
+        <Grid Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Background="#2494ea" Grid.Column="1">
+                <Border BorderBrush="#1a8eeb" BorderThickness="1"></Border>
+            </Grid>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" ></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Background="#2494ea" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="200" Grid.Row="0">
+                    <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Width="200" Height="100" FontSize="50" Text="LOGO" Foreground="White" FontWeight="Medium"></TextBlock>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <StackPanel Margin="0,100,0,0">
+                        <StackPanel Orientation="Horizontal" Margin="128,0,0,47" VerticalAlignment="Center">
+                            <fa:FontAwesome Margin="0,0,10,0" VerticalAlignment="Center" Icon="ArrowRight" FontSize="30" FontWeight="Light"></fa:FontAwesome>
+                            <TextBlock Text="Welcome" VerticalAlignment="Center" FontSize="40" Foreground="black" FontWeight="Medium"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,47" Orientation="Vertical">
+                            <StackPanel Width="460" Height="50" VerticalAlignment="Center" Background="#f2f2f2" Orientation="Horizontal">
+                                <Border BorderBrush="Transparent" BorderThickness="0.6"></Border>
+                                <fa:FontAwesome Margin="20,0,0,0" Icon="User" FontSize="30" VerticalAlignment="Center"></fa:FontAwesome>
+                                <TextBox x:Name="UserName_box"  Width="420" BorderThickness="0" FontSize="40" Background="#f2f2f2"   Height="50"></TextBox>
+                            </StackPanel>
+                            <TextBlock Margin="128,0,0,0" Text="UserName" Foreground="#8F9BB3" FontSize="25" FontWeight="Medium"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Width="460" Height="50" VerticalAlignment="Center" Background="#f2f2f2" Orientation="Horizontal">
+                                <Border BorderBrush="Transparent" BorderThickness="0.6"></Border>
+                                <fa:FontAwesome  Margin="20,0,0,0" Icon="Lock" FontSize="30" VerticalAlignment="Center"></fa:FontAwesome>
+                                <TextBox x:Name="Password_box" BorderThickness="0" FontSize="40" Background="#f2f2f2"  Width="420"  Height="50"></TextBox>
+                            </StackPanel>
+                            <TextBlock Margin="128,0,0,0"  Text="Password" Foreground="#8F9BB3" FontSize="25" FontWeight="Medium"></TextBlock>
+                            <TextBlock x:Name="ForgotLink" Margin="425,20,0,47" Text="Forgot Password?" Foreground="#6bb5e8" FontSize="20" FontWeight="Bold"></TextBlock>
+                        </StackPanel>
+                        <Button x:Name="SignIn_button" Content="Sign in" Width="460" Height="70" Foreground="White" Background="#339ae5" FontSize="40"></Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
