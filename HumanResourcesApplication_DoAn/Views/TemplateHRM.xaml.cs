@@ -13,26 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HumanResourcesApplication_DoAn.Views.Login
+namespace HumanResourcesApplication_DoAn.Views
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for TemplateHRM.xaml
     /// </summary>
-    public partial class LoginWindow : UserControl
+    public partial class TemplateHRM : UserControl
     {
-        public LoginWindow()
+        public TemplateHRM()
         {
             InitializeComponent();
-        }
-
-        private void UserName_box_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void SignIn_button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
