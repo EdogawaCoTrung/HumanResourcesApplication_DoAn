@@ -26,6 +26,8 @@
 
   <ItemGroup>
     <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
+    <PackageReference Include="MySql.Data" Version="8.2.0" />
+    <PackageReference Include="NuGet.Frameworks" Version="6.8.0" />
   </ItemGroup>
 
 </Project>
