@@ -24,5 +24,15 @@ namespace HumanResourcesApplication_DoAn.Views.Login
         {
             InitializeComponent();
         }
+
+        private void UserName_box_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void SignIn_button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

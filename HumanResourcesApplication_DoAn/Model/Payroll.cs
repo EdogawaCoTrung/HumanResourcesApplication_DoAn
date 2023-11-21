@@ -8,5 +8,8 @@ namespace HumanResourcesApplication_DoAn.Model
 {
     internal class Payroll
     {
+        public string payrollId { get; set; }
+        public string roleID { get; set; }
+        public string salaryName { get; set; }
     }
 }

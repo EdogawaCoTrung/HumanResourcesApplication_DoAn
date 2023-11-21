@@ -47,7 +47,7 @@
                             <TextBlock Margin="128,0,0,0"  Text="Password" Foreground="#8F9BB3" FontSize="25" FontWeight="Medium"></TextBlock>
                             <TextBlock x:Name="ForgotLink" Margin="425,20,0,47" Text="Forgot Password?" Foreground="#6bb5e8" FontSize="20" FontWeight="Bold"></TextBlock>
                         </StackPanel>
-                        <Button x:Name="SignIn_button" Content="Sign in" Width="460" Height="70" Foreground="White" Background="#339ae5" FontSize="40"></Button>
+                        <Button x:Name="SignIn_button" Content="Sign in" Width="460" Height="70" Foreground="White" Background="#339ae5" FontSize="40" Click="SignIn_button_Click"></Button>
                     </StackPanel>
                 </Grid>
             </Grid>
