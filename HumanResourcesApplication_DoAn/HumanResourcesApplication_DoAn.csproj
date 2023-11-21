@@ -7,4 +7,27 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Model\Admin\" />
+    <Folder Include="Model\Employee\" />
+    <Folder Include="Resources\Fonts\" />
+    <Folder Include="Resources\Icons\" />
+    <Folder Include="Resources\Images\" />
+    <Folder Include="Resources\ResourceXAML\" />
+    <Folder Include="ViewModel\Admin\" />
+    <Folder Include="ViewModel\EmployeeVM\" />
+    <Folder Include="ViewModel\Login\" />
+    <Folder Include="Utils\" />
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Employee\" />
+    <Folder Include="Views\Login\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="MySql.Data" Version="8.2.0" />
+    <PackageReference Include="NuGet.Frameworks" Version="6.8.0" />
+  </ItemGroup>
+
 </Project>

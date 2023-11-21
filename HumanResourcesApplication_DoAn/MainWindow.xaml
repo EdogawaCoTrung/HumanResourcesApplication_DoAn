@@ -3,22 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:HumanResourcesApplication_DoAn"
+        xmlns:local="clr-namespace:HumanResourcesApplication_DoAn" xmlns:login="clr-namespace:HumanResourcesApplication_DoAn.Views.Login" xmlns:admin="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
         mc:Ignorable="d"
-        Title="MainWindow" Height="871" Width="1416">
+        Title="MainWindow" Height="871" Width="1440">
     <Grid>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50"></ColumnDefinition>
-                <ColumnDefinition Width="196"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="70"></RowDefinition>
-                    <RowDefinition Height="544"></RowDefinition>
-                </Grid.RowDefinitions>
-            </Grid>
-        </Grid>
+        <admin:Department></admin:Department>
     </Grid>
 </Window>
