@@ -34,9 +34,9 @@
                             <StackPanel Width="460" Height="50" VerticalAlignment="Center" Background="#f2f2f2" Orientation="Horizontal">
                                 <Border BorderBrush="Transparent" BorderThickness="0.6"></Border>
                                 <fa:FontAwesome Margin="20,0,0,0" Icon="User" FontSize="30" VerticalAlignment="Center"></fa:FontAwesome>
-                                <TextBox x:Name="UserName_box" Width="420" BorderThickness="0" FontSize="40" Background="#f2f2f2"   Height="50" TextChanged="UserName_box_TextChanged"></TextBox>
+                                <TextBox x:Name="LoginName_Box"  Width="420" BorderThickness="0" FontSize="40" Background="#f2f2f2"   Height="50"></TextBox>
                             </StackPanel>
-                            <TextBlock Margin="128,0,0,0" Text="UserName" Foreground="#8F9BB3" FontSize="25" FontWeight="Medium"></TextBlock>
+                            <TextBlock Margin="128,0,0,0" Text="LoginName" Foreground="#8F9BB3" FontSize="25" FontWeight="Medium"></TextBlock>
                         </StackPanel>
                         <StackPanel Orientation="Vertical">
                             <StackPanel Width="460" Height="50" VerticalAlignment="Center" Background="#f2f2f2" Orientation="Horizontal">

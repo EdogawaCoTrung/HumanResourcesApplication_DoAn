@@ -11,7 +11,6 @@
     <Folder Include="Resources\Fonts\" />
     <Folder Include="Resources\Icons\" />
     <Folder Include="Resources\Images\" />
-    <Folder Include="Resources\Styles\" />
     <Folder Include="Resources\ResourceXAML\" />
     <Folder Include="ViewModel\Admin\" />
     <Folder Include="ViewModel\EmployeeVM\" />
@@ -23,6 +22,7 @@
 
   <ItemGroup>
     <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
     <PackageReference Include="MySql.Data" Version="8.2.0" />
     <PackageReference Include="NuGet.Frameworks" Version="6.8.0" />
   </ItemGroup>

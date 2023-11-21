@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+   
+        <!--Background Color-->
+        <SolidColorBrush x:Key="Color1" Color="#0095ff"></SolidColorBrush>
+        <SolidColorBrush x:Key="Color2" Color="#ffffff"></SolidColorBrush>
+        <!--SecondSideMenu-->
+        <SolidColorBrush x:Key="Color3" Color="#f9fbfd"></SolidColorBrush>
+        <!--MainView-->
+
+        <!--FontColor-->
+        <SolidColorBrush x:Key="FontColor1" Color="Black"></SolidColorBrush>
+        <SolidColorBrush x:Key="FontColor2" Color="#8F9BB3"></SolidColorBrush>
+        <SolidColorBrush x:Key="FontColor3" Color="#0095FF"></SolidColorBrush>
+        <SolidColorBrush x:Key="FontColor4" Color="#FF6623"></SolidColorBrush>
+        <SolidColorBrush x:Key="FontColor5" Color="Red"></SolidColorBrush>
+        <SolidColorBrush x:Key="FontColor6" Color="#1ee0b4"></SolidColorBrush>
+        <SolidColorBrush x:Key="FontColor7" Color="#98d4ff"></SolidColorBrush>
+
+        <!--PanelColor-->
+        <SolidColorBrush x:Key="PanelColor1" Color="White"></SolidColorBrush>
+        <SolidColorBrush x:Key="PanelColor2" Color="#eff4fa"></SolidColorBrush>
+        <SolidColorBrush x:Key="PanelColor3" Color="#0095ff"></SolidColorBrush>
+        <SolidColorBrush x:Key="PanelColor4" Color="#ff2d55"></SolidColorBrush>
+        <SolidColorBrush x:Key="PanelColor5" Color="#884dff"></SolidColorBrush>
+        <SolidColorBrush x:Key="PanelColor6" Color="#1ee0b4"></SolidColorBrush>
+
+        <!--ButtonColor-->
+        <SolidColorBrush x:Key="ButtonColor1" Color="Black"></SolidColorBrush>
+        <SolidColorBrush x:Key="ButtonColor2" Color="#00e096"></SolidColorBrush>
+        <SolidColorBrush x:Key="ButtonColor3" Color="#0095ff"></SolidColorBrush>
+        <SolidColorBrush x:Key="ButtonColor4" Color="White"></SolidColorBrush>
+        <SolidColorBrush x:Key="ButtonColor5" Color="#eff4fa"></SolidColorBrush>
+    
+</ResourceDictionary>
