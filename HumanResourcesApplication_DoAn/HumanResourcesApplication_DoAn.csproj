@@ -8,8 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Model\Admin\" />
-    <Folder Include="Model\Employee\" />
     <Folder Include="Resources\Fonts\" />
     <Folder Include="Resources\Icons\" />
     <Folder Include="Resources\Images\" />
@@ -17,7 +15,6 @@
     <Folder Include="Resources\ResourceXAML\" />
     <Folder Include="ViewModel\Admin\" />
     <Folder Include="ViewModel\EmployeeVM\" />
-    <Folder Include="ViewModel\Login\" />
     <Folder Include="Utils\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Employee\" />

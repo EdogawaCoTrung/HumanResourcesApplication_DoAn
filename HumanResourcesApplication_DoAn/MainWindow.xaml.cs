@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace HumanResourcesApplication_DoAn
 {
@@ -20,9 +22,29 @@ namespace HumanResourcesApplication_DoAn
     /// </summary>
     public partial class MainWindow : Window
     {
+        const string mySql = "server=sql12.freesqldatabase.com; user=sql12663180; password=HgfskhILms; database=sql12663180";
+        MySqlConnection mySqlCon = new MySqlConnection(mySql);
         public MainWindow()
         {
             InitializeComponent();
+            InitializeDatabase();
+        }
+
+        private void InitializeDatabase()
+        {
+            try
+            {
+                mySqlCon.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void LoginWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

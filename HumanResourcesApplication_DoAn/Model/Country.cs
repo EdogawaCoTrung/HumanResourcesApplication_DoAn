@@ -8,5 +8,7 @@ namespace HumanResourcesApplication_DoAn.Model
 {
     internal class Country
     {
+        public string countryId { get; set; }
+        public string countryName { get; set; }
     }
 }

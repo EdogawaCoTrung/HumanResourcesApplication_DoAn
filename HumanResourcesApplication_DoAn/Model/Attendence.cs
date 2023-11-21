@@ -8,5 +8,11 @@ namespace HumanResourcesApplication_DoAn.Model
 {
     internal class Attendence
     {
+        public string attendenceId { get; set; }
+        public string userId { get; set; }
+        public string date { get; set; }
+        public string inTime { get; set; }
+        public string outTime { get; set; }
+        public bool status { get; set; }
     }
 }
