@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesApplication_DoAn.Model
 {
-    internal class LeaveRequest
+    public class LeaveRequest
     {
         public string leaveId { get; set; }
         public string userId { get; set; }

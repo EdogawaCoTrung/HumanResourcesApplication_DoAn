@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="871" Width="1440">
     <Grid>
-        <admin:Department></admin:Department>
+        <login:LoginWindow></login:LoginWindow>
     </Grid>
 </Window>

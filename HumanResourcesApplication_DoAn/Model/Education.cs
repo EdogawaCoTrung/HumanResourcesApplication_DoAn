@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesApplication_DoAn.Model
 {
-    internal class Education
+    public class Education
     {
         public string educationId { get; set; }
         public string educationName { get; set; }

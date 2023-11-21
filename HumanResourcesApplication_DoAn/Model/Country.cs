@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesApplication_DoAn.Model
 {
-    internal class Country
+    public class Country
     {
         public string countryId { get; set; }
         public string countryName { get; set; }
