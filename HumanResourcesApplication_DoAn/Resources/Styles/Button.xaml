@@ -1,0 +1,196 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:fa="http://schemas.fontawesome.io/icons/">
+    <!--BlueSideBarButton-->
+    <Style x:Key="BlueSideBarButton" TargetType="RadioButton">
+        <Setter Property="Foreground" Value="{StaticResource FontColor7}"></Setter>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="FontWeight" Value="Medium"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="Background" Value="#0095FF"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left"></ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Cursor" Value="Hand"></Setter>
+                <Setter Property="Background" Value="Blue"></Setter>
+                <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="Margin" Value="5,0,0,0"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--BludeSideBarIcon-->
+    <Style x:Key="BlueSideBarIcon" TargetType="fa:FontAwesome">
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="Foreground" Value="{StaticResource FontColor7}"></Setter>
+        <Setter Property="Margin" Value="15,0,0,30"></Setter>
+    </Style>
+
+    <!--SecondSideBarButton-->
+    <Style x:Key="SecondSideBarButton" TargetType="RadioButton">
+        <Setter Property="FontSize" Value="13"></Setter>
+        <Setter Property="Foreground" Value="{StaticResource FontColor2}"></Setter>
+        <Setter Property="BorderThickness" Value="0,0,3,0"></Setter>
+        <Setter Property="BorderBrush" Value="{StaticResource Color2}"></Setter>
+        <Setter Property="Background" Value="{StaticResource Color2}"></Setter>
+        <Setter Property="Margin" Value="13,0,0,15"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left"></ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="#b8e1fc"></Setter>
+                <Setter Property="BorderBrush" Value="#b8e1fc"></Setter>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource ButtonColor3}"></Setter>
+                <Setter Property="BorderBrush" Value="{StaticResource ButtonColor3}"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--GridButton-->
+    <Style x:Key="GridButton" TargetType="RadioButton">
+        <Setter Property="FontSize" Value="14"></Setter>
+        <Setter Property="Background" Value="White"></Setter>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border BorderThickness="0">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                        </ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Cursor" Value="Hand"></Setter>
+                <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="Background" Value="{StaticResource PanelColor2}"></Setter>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="Background" Value="{StaticResource ButtonColor3}"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--SearchFilter-->
+
+    <!--ComboBoxItem1-->
+    <Style TargetType="ComboBoxItem" x:Key="Cbboxitem1">
+        <Setter Property="FontSize" Value="13"></Setter>
+        <Setter Property="Foreground" Value="Black"></Setter>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                    <Border BorderBrush="Transparent" BorderThickness="0.5" CornerRadius="10">
+                        <StackPanel Width="123" Height="109">
+                            <Grid Margin="15,14,15,18">
+                                <TextBlock HorizontalAlignment="Left" Text="Year" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
+                                <RadioButton HorizontalAlignment="Right" Background="#0095ff" Foreground="White"></RadioButton>
+                            </Grid>
+                            <Grid Margin="15,0,15,18">
+                                <TextBlock HorizontalAlignment="Left" Text="Month" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
+                                <RadioButton HorizontalAlignment="Right" Background="#0095ff" Foreground="White"></RadioButton>
+                            </Grid>
+                            <Grid Margin="15,0,15,14">
+                                <TextBlock HorizontalAlignment="Left" Text="Day" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
+                                <RadioButton HorizontalAlignment="Right" Background="#0095ff" Foreground="White"></RadioButton>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--ComboBoxItem2-->
+    <Style TargetType="ComboBoxItem" x:Key="Cbboxitem2">
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="Foreground" Value="Black"></Setter>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                    <StackPanel Width="162" Height="219">
+                        <StackPanel Width="162" Height="142">
+                            <Grid Margin="15,14,15,18">
+                                <TextBlock HorizontalAlignment="Left" Text="Graphics Design" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
+
+                            </Grid>
+                            <Grid Margin="15,0,15,18">
+                                <TextBlock HorizontalAlignment="Left" Text="Angular Admin" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
+
+                            </Grid>
+                            <Grid Margin="15,0,15,14">
+                                <TextBlock HorizontalAlignment="Left" Text="PSD to HTML" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
+
+                            </Grid>
+                            <Grid Margin="15,0,15,14">
+                                <TextBlock HorizontalAlignment="Left" Text="IOS App Development" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
+
+                            </Grid>
+                        </StackPanel>
+                        <StackPanel Height="76" Width="162">
+                            <Grid Margin="15,4,34,18">
+                                <TextBlock HorizontalAlignment="Left" Text="Home Development" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
+
+                            </Grid>
+                            <Grid Margin="15,0,0,14">
+                                <TextBlock HorizontalAlignment="Left" Text="New Blog Post" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
+
+                            </Grid>
+                        </StackPanel>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="MenuEmployee" TargetType="RadioButton">
+        <Setter Property="FontSize" Value="13"></Setter>
+        <Setter Property="Foreground" Value="{StaticResource FontColor2}"></Setter>
+        <Setter Property="BorderThickness" Value="0,0,3,0"></Setter>
+        <Setter Property="BorderBrush" Value="{StaticResource Color2}"></Setter>
+        <Setter Property="Background" Value="{StaticResource Color2}"></Setter>
+        <Setter Property="Margin" Value="13,0,0,15"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left"></ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="#b8e1fc"></Setter>
+                <Setter Property="BorderBrush" Value="#b8e1fc"></Setter>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource ButtonColor3}"></Setter>
+                <Setter Property="BorderBrush" Value="{StaticResource ButtonColor3}"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>
