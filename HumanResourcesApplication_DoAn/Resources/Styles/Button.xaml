@@ -166,10 +166,41 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style TargetType="ComboBoxItem" x:Key="Cbboxitem3">
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="Foreground" Value="Black"></Setter>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                    <StackPanel Width="162" Height="140">
+                        <StackPanel Width="162" Height="142">
+                            <Grid Margin="15,14,15,18">
+                                <TextBlock HorizontalAlignment="Left" Text="Annual leave" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
+
+                            </Grid>
+                            <Grid Margin="15,0,15,18">
+                                <TextBlock HorizontalAlignment="Left" Text="Maternity leave" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
+
+                            </Grid>
+                            <Grid Margin="15,0,15,14">
+                                <TextBlock HorizontalAlignment="Left" Text="Sick leave" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
+
+                            </Grid>
+                            <Grid Margin="15,0,15,14">
+                                <TextBlock HorizontalAlignment="Left" Text="Special leave" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
+
+                            </Grid>
+                        </StackPanel>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <Style x:Key="MenuEmployee" TargetType="RadioButton">
         <Setter Property="FontSize" Value="13"></Setter>
         <Setter Property="Foreground" Value="{StaticResource FontColor2}"></Setter>
-        <Setter Property="BorderThickness" Value="0,0,3,0"></Setter>
+        <Setter Property="BorderThickness" Value="0,3,0,0"></Setter>
         <Setter Property="BorderBrush" Value="{StaticResource Color2}"></Setter>
         <Setter Property="Background" Value="{StaticResource Color2}"></Setter>
         <Setter Property="Margin" Value="13,0,0,15"></Setter>
@@ -188,9 +219,11 @@
                 <Setter Property="BorderBrush" Value="#b8e1fc"></Setter>
             </Trigger>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Foreground" Value="{StaticResource ButtonColor3}"></Setter>
-                <Setter Property="BorderBrush" Value="{StaticResource ButtonColor3}"></Setter>
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="BorderBrush" Value="#0095ff"></Setter>
             </Trigger>
         </Style.Triggers>
+    </Style>
+    <Style  x:Key="CancelButtonAddLeaveReqeust" TargetType="Button">
     </Style>
 </ResourceDictionary>

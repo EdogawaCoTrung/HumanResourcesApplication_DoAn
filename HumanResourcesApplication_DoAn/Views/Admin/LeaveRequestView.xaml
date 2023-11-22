@@ -94,8 +94,8 @@
                 <!--HeaderView-->
                 <Grid>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="30,30,45,0" Text="Departments" FontSize="20"></TextBlock>
-                        <Border Margin="0,25,15,0" Tag="Year" Width="92" Height="34" BorderBrush="Transparent" BorderThickness="0.5" CornerRadius="20">
+                        <TextBlock Margin="30,30,45,0" Text="Employee" FontSize="20"></TextBlock>
+                        <Border Margin="0,25,15,0" Tag="Year" Width="92" Height="34" BorderBrush="{DynamicResource ButtonColor5}" BorderThickness="1.5" CornerRadius="20">
                             <ComboBox Tag="Year" Foreground="Black" Background="White" FontSize="13" Cursor="Hand">
                                 <ComboBox.Items>
                                     <ComboBoxItem Style="{StaticResource Cbboxitem1}">
@@ -178,48 +178,58 @@
                 </Grid>
                 <Grid Height="130" Width="1144">
                     <StackPanel Orientation="Horizontal">
-                        <Border Margin="19.5,0,16,0" BorderThickness="1" BorderBrush="Gray" CornerRadius="10">
-                            <StackPanel Width="250" Orientation="Vertical">
-                                <TextBlock Margin="20,20,90,24" Text="Total Employee" FontSize="20" FontWeight="Light"/>
-                                <TextBlock Margin="20,10,90,10" Height="40" Text="614" FontSize="30" FontWeight="Bold"/>
-                            </StackPanel>
-                        </Border>
-                        <Border Margin="19.5,0,16,0" BorderThickness="1" BorderBrush="Gray" CornerRadius="10">
-                            <StackPanel Width="250" Orientation="Vertical">
-                                <TextBlock Margin="20,20,90,24" Text="New Employee" FontSize="20" FontWeight="Light"/>
-                                <TextBlock Margin="20,10,90,10" Height="40" Text="124" FontSize="30" FontWeight="Bold"/>
-                            </StackPanel>
-                        </Border>
-                        <Border Margin="19.5,0,16,0" BorderThickness="1" BorderBrush="Gray" CornerRadius="10">
-                            <StackPanel Width="250" Orientation="Vertical">
-                                <TextBlock Margin="20,20,90,24" Text="Male" FontSize="20" FontWeight="Light"/>
-                                <TextBlock Margin="20,10,90,10" Height="40" Text="504" FontSize="30" FontWeight="Bold"/>
-                            </StackPanel>
-                        </Border>
-                        <Border Margin="19.5,0,16,0" BorderThickness="1" BorderBrush="Gray" CornerRadius="10">
-                            <StackPanel Width="250" Orientation="Vertical">
-                                <TextBlock Margin="20,20,90,24" Text="Female" FontSize="20" FontWeight="Light"/>
-                                <TextBlock Margin="20,10,90,10" Height="40" Text="100" FontSize="30" FontWeight="Bold"/>
-                            </StackPanel>
-                        </Border>
+                        <Grid Margin="19.5,0,16,0">
+                            <Border Background="White" Width="250"  BorderThickness="1.5" BorderBrush="{StaticResource ButtonColor5}" CornerRadius="10">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Margin="20,20,90,24" Text="Total Employee" FontSize="20" FontWeight="Light"/>
+                                    <TextBlock Margin="20,10,90,10" Height="40" Text="614" FontSize="30" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                        <Grid Margin="19.5,0,16,0">
+                            <Border Background="White" Width="250"  BorderThickness="1.5" BorderBrush="{StaticResource ButtonColor5}" CornerRadius="10">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Margin="20,20,90,24" Text="New Employee" FontSize="20" FontWeight="Light"/>
+                                    <TextBlock Margin="20,10,90,10" Height="40" Text="614" FontSize="30" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                        <Grid Margin="19.5,0,16,0">
+                            <Border Background="White" Width="250"  BorderThickness="1.5" BorderBrush="{StaticResource ButtonColor5}" CornerRadius="10">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Margin="20,20,90,24" Text="Male" FontSize="20" FontWeight="Light"/>
+                                    <TextBlock Margin="20,10,90,10" Height="40" Text="504" FontSize="30" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                        <Grid Margin="19.5,0,16,0">
+                            <Border Background="White" Width="250"  BorderThickness="1.5" BorderBrush="{StaticResource ButtonColor5}" CornerRadius="10">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Margin="20,20,90,24" Text="Female" FontSize="20" FontWeight="Light"/>
+                                    <TextBlock Margin="20,10,90,10" Height="40" Text="114" FontSize="30" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
                     </StackPanel>
                 </Grid>
-                <Grid x:Name="LeaveDatagrid">
-                    <ListView Margin="0,20,10,0" Height="500" Name="LeaveRequest">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Width="50" DisplayMemberBinding="{Binding number}">
+                <Grid x:Name="LeaveListView">
+                    <Border Margin="10,10,10,10" BorderThickness="1"  BorderBrush="{StaticResource ButtonColor5}"  CornerRadius="10">
+                        <ListView Margin="0,20,10,0" Height="500" Name="LeaveRequest">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding number}">
 
-                                </GridViewColumn>
-                                <GridViewColumn Width="200" Header="Name"/>
-                                <GridViewColumn Width="200" Header="Employee ID" />
-                                <GridViewColumn Width="200" Header="Leave Type" />
-                                <GridViewColumn Width="150" Header="Date"/>
-                                <GridViewColumn Width="200" Header="Reason"/>
-                                <GridViewColumn Width="100" Header="Action"/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
+                                    </GridViewColumn>
+                                    <GridViewColumn Width="200" Header="Name"/>
+                                    <GridViewColumn Width="200" Header="Employee ID" />
+                                    <GridViewColumn Width="200" Header="Leave Type" />
+                                    <GridViewColumn Width="150" Header="Date"/>
+                                    <GridViewColumn Width="200" Header="Reason"/>
+                                    <GridViewColumn Width="100" Header="Action"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Border>
                 </Grid>
             </StackPanel>
         </Grid>
