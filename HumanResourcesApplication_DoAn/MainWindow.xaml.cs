@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using System.Data;
+using HumanResourcesApplication_DoAn.ViewModel.Admin;
 
 namespace HumanResourcesApplication_DoAn
 {

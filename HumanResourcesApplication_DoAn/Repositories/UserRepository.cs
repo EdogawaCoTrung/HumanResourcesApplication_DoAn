@@ -12,7 +12,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
 {
     public class UserRepository : RepositoryBase, IUserRepository
     {
-        public void Add(User userModel)
+        public void Add(User user)
         {
             throw new NotImplementedException();
         }
@@ -20,10 +20,8 @@ namespace HumanResourcesApplication_DoAn.Repositories
         public bool AuthenticateUser(NetworkCredential credential)
         {
             bool validUser;
-            using (var connection = GetMySqlConnection())
             using (var command = new MySqlCommand())
             {
-                connection.Open();
                 command.Connection = connection;
                 command.CommandText = "SELECT * FROM USERS WHERE LOGINNAME=@loginName AND PASSWORD=@password";
                 command.Parameters.Add("@loginName", MySqlDbType.VarString).Value = credential.UserName;
@@ -33,7 +31,8 @@ namespace HumanResourcesApplication_DoAn.Repositories
             return validUser;
         }
 
-        public void Edit(User userModel)
+
+        public void Edit(User user)
         {
             throw new NotImplementedException();
         }

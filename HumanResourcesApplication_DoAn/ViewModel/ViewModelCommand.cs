@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace HumanResourcesApplication_DoAn.ViewModel.Login
+namespace HumanResourcesApplication_DoAn.ViewModel
 {
     public class ViewModelCommand : ICommand
     {

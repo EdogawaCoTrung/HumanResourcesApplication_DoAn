@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HumanResourcesApplication_DoAn.ViewModel.Login
+namespace HumanResourcesApplication_DoAn.ViewModel
 {
     public class ViewModelBase : INotifyPropertyChanged
     {
