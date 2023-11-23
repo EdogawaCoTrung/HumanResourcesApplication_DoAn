@@ -166,16 +166,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-<<<<<<< HEAD
-    <Style x:Key="MenuEmployee" TargetType="RadioButton">
-        <Setter Property="FontSize" Value="13"></Setter>
-        <Setter Property="Foreground" Value="{StaticResource FontColor2}"></Setter>
-        <Setter Property="BorderThickness" Value="0,0,3,0"></Setter>
-        <Setter Property="BorderBrush" Value="{StaticResource Color2}"></Setter>
-        <Setter Property="Background" Value="{StaticResource Color2}"></Setter>
-        <Setter Property="Margin" Value="13,0,0,15"></Setter>
-=======
-    
     <!--TriggerButton-->
     <Style x:Key="TopBorderTriggerButton" TargetType="RadioButton">
         <Setter Property="Background" Value="{StaticResource Color3}"></Setter>
@@ -186,41 +176,26 @@
         <Setter Property="Height" Value="35.5"></Setter>
         <Setter Property="FontSize" Value="13"></Setter>
 
->>>>>>> b891cf41a70e5a7cf4273d70917f6972d5e39692
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-<<<<<<< HEAD
-                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left"></ContentPresenter>
-=======
                         <ContentPresenter VerticalAlignment="Bottom" HorizontalAlignment="Left"></ContentPresenter>
->>>>>>> b891cf41a70e5a7cf4273d70917f6972d5e39692
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-<<<<<<< HEAD
-                <Setter Property="Foreground" Value="#b8e1fc"></Setter>
-                <Setter Property="BorderBrush" Value="#b8e1fc"></Setter>
-            </Trigger>
-            <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Foreground" Value="{StaticResource ButtonColor3}"></Setter>
-=======
                 <Setter Property="Foreground" Value="Black"></Setter>
                 <Setter Property="BorderBrush" Value="#b8e1fc"></Setter>
             </Trigger>
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Foreground" Value="Black"></Setter>
->>>>>>> b891cf41a70e5a7cf4273d70917f6972d5e39692
                 <Setter Property="BorderBrush" Value="{StaticResource ButtonColor3}"></Setter>
             </Trigger>
         </Style.Triggers>
     </Style>
-<<<<<<< HEAD
-=======
     <!--CheckBox-->
     <Style x:Key="CheckBoxStyle1" TargetType="{x:Type CheckBox}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
@@ -232,5 +207,4 @@
         <Setter Property="HorizontalAlignment" Value="Center"></Setter>
         <Setter Property="Margin" Value="5,0,5,0"></Setter>
     </Style>
->>>>>>> b891cf41a70e5a7cf4273d70917f6972d5e39692
 </ResourceDictionary>
