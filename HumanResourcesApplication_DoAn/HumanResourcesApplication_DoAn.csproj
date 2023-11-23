@@ -15,7 +15,6 @@
     <Folder Include="ViewModel\Admin\" />
     <Folder Include="ViewModel\EmployeeVM\" />
     <Folder Include="Utils\" />
-    <Folder Include="Views\Admin\" />
     <Folder Include="Views\Employee\" />
     <Folder Include="Views\Login\" />
   </ItemGroup>
