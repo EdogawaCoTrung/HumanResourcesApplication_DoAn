@@ -10,8 +10,8 @@ namespace HumanResourcesApplication_DoAn.Model
     public interface IUserRepository
     {
         bool AuthenticateUser(NetworkCredential credential);
-        void Add(User userModel);
-        void Edit(User userModel);
+        void Add(User user);
+        void Edit(User user);
         void Remove(int id);
         User GetById(int id);
         User GetByLoginName(string loginName);
