@@ -16,6 +16,7 @@
         <SolidColorBrush x:Key="FontColor5" Color="Red"></SolidColorBrush>
         <SolidColorBrush x:Key="FontColor6" Color="#1ee0b4"></SolidColorBrush>
         <SolidColorBrush x:Key="FontColor7" Color="#98d4ff"></SolidColorBrush>
+        <SolidColorBrush x:Key="FontColor8" Color="#222B45"></SolidColorBrush>
 
         <!--PanelColor-->
         <SolidColorBrush x:Key="PanelColor1" Color="White"></SolidColorBrush>

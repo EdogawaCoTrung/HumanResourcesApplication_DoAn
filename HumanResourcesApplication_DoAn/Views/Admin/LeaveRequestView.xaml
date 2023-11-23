@@ -11,6 +11,81 @@
     
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
+        <Style TargetType="DataGrid">
+            <Setter Property="VerticalScrollBarVisibility" Value="Disabled"></Setter>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#222528"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="True"/>
+            <Setter Property="AutoGenerateColumns" Value="False" />
+            <Setter Property="HeadersVisibility" Value="Column" />
+            <Setter Property="Margin" Value="0 10 0 0" />
+            <Setter Property="Grid.Row" Value="5" />
+            <Setter Property="SelectionMode" Value="Single" />
+            <Setter Property="SelectionUnit" Value="FullRow" />
+            <Setter Property="CanUserAddRows" Value="False" />
+            <Setter Property="CanUserDeleteRows" Value="False" />
+            <Setter Property="CanUserReorderColumns" Value="False" />
+            <Setter Property="CanUserResizeRows" Value="False" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="GridLinesVisibility" Value="None" />
+            <Setter Property="Background" Value="White"></Setter>
+            <Setter Property="BorderBrush" Value="White"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="DataGrid">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="10" BorderThickness="{TemplateBinding BorderThickness}"  SnapsToDevicePixels="True">
+
+                            <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
+                                <ScrollViewer.Template>
+                                    <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Button Command="{x:Static DataGrid.SelectAllCommand}" Focusable="false" Style="{DynamicResource {ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}}" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.All}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                            <Border Grid.Column="1" Grid.Row="0" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
+                                                <DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter"/>
+                                            </Border>
+                                            <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" Grid.Column="0" CanContentScroll="{TemplateBinding CanContentScroll}" Grid.ColumnSpan="2" Grid.Row="1"/>
+                                            <ScrollBar x:Name="PART_VerticalScrollBar" Grid.Column="2" Maximum="{TemplateBinding ScrollableHeight}" Orientation="Vertical" Grid.Row="1" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"/>
+                                            <Grid Grid.Column="1" Grid.Row="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="{Binding NonFrozenColumnsViewportHorizontalOffset, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <ScrollBar x:Name="PART_HorizontalScrollBar" Grid.Column="1" Maximum="{TemplateBinding ScrollableWidth}" Orientation="Horizontal" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </ScrollViewer.Template>
+                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsGrouping" Value="true"/>
+                        <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
     </UserControl.Resources>
     <Grid>
         <!--Chia view-->
@@ -153,84 +228,213 @@
                         </Button>
                     </StackPanel>
                 </Grid>
-                <Grid Width="1144" Height="100">
-                    <StackPanel Width="300" Height="60" HorizontalAlignment="Left" Orientation="Horizontal" >
-                        <RadioButton Style="{DynamicResource MenuEmployee}" Margin="10,21.5,35,10">
-                            <TextBlock FontSize="20" Text="All"/>
+                <Grid>
+                    <StackPanel Margin="30,0,0,0" Orientation="Horizontal">
+                        <RadioButton 
+                            Style="{StaticResource TopBorderTriggerButton}">
+                            <TextBlock Text="All" />
                         </RadioButton>
-                        <RadioButton Style="{DynamicResource MenuEmployee}" Margin="0,21.5,35,10" >
-                            <TextBlock FontSize="20" Text="View"/>
+                        <RadioButton Style="{StaticResource TopBorderTriggerButton}">
+                            <TextBlock Text="View"/>
                         </RadioButton>
-                        <RadioButton Style="{DynamicResource MenuEmployee}" Margin="0,21.5,35,10">
-                            <TextBlock FontSize="20" Text="Leave Request"/>
+                        <RadioButton Style="{StaticResource TopBorderTriggerButton}">
+                            <TextBlock Text="Leave Request"/>
                         </RadioButton>
                     </StackPanel>
-                    <Grid HorizontalAlignment="Right" Width="150" Height="60">
-                        <Border CornerRadius="40">
-                            <Button Background="{DynamicResource ButtonColor2}"
-                                    Content="Add new"
-                                    Height="40"
-                                    FontSize="20"
-                                    >
-                            </Button>
+                    <StackPanel HorizontalAlignment="Right" Margin="0,0,45,0">
+                        <Border BorderBrush="{StaticResource ButtonColor2}" 
+                                BorderThickness="0" 
+                                CornerRadius="20">
+                            <Button 
+                                Width="88"
+                                Height="34"
+                                Foreground="White"
+                                FontSize="13"
+                                FontWeight="SemiBold"
+                                Background="{StaticResource ButtonColor2}"
+                                BorderThickness="0"
+                                materialDesign:RippleAssist.Feedback="#DD000000"
+                                Content="Add New"
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
+                                ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
                         </Border>
-                    </Grid>
-                </Grid>
-                <Grid Height="130" Width="1144">
-                    <StackPanel Orientation="Horizontal">
-                        <Grid Margin="19.5,0,16,0">
-                            <Border Background="White" Width="250"  BorderThickness="1.5" BorderBrush="{StaticResource ButtonColor5}" CornerRadius="10">
-                                <StackPanel Orientation="Vertical">
-                                    <TextBlock Margin="20,20,90,24" Text="Total Employee" FontSize="20" FontWeight="Light"/>
-                                    <TextBlock Margin="20,10,90,10" Height="40" Text="614" FontSize="30" FontWeight="Bold"/>
-                                </StackPanel>
-                            </Border>
-                        </Grid>
-                        <Grid Margin="19.5,0,16,0">
-                            <Border Background="White" Width="250"  BorderThickness="1.5" BorderBrush="{StaticResource ButtonColor5}" CornerRadius="10">
-                                <StackPanel Orientation="Vertical">
-                                    <TextBlock Margin="20,20,90,24" Text="New Employee" FontSize="20" FontWeight="Light"/>
-                                    <TextBlock Margin="20,10,90,10" Height="40" Text="614" FontSize="30" FontWeight="Bold"/>
-                                </StackPanel>
-                            </Border>
-                        </Grid>
-                        <Grid Margin="19.5,0,16,0">
-                            <Border Background="White" Width="250"  BorderThickness="1.5" BorderBrush="{StaticResource ButtonColor5}" CornerRadius="10">
-                                <StackPanel Orientation="Vertical">
-                                    <TextBlock Margin="20,20,90,24" Text="Male" FontSize="20" FontWeight="Light"/>
-                                    <TextBlock Margin="20,10,90,10" Height="40" Text="504" FontSize="30" FontWeight="Bold"/>
-                                </StackPanel>
-                            </Border>
-                        </Grid>
-                        <Grid Margin="19.5,0,16,0">
-                            <Border Background="White" Width="250"  BorderThickness="1.5" BorderBrush="{StaticResource ButtonColor5}" CornerRadius="10">
-                                <StackPanel Orientation="Vertical">
-                                    <TextBlock Margin="20,20,90,24" Text="Female" FontSize="20" FontWeight="Light"/>
-                                    <TextBlock Margin="20,10,90,10" Height="40" Text="114" FontSize="30" FontWeight="Bold"/>
-                                </StackPanel>
-                            </Border>
-                        </Grid>
                     </StackPanel>
                 </Grid>
-                <Grid x:Name="LeaveListView">
-                    <Border Margin="10,10,10,10" BorderThickness="1"  BorderBrush="{StaticResource ButtonColor5}"  CornerRadius="10">
-                        <ListView Margin="0,20,10,0" Height="500" Name="LeaveRequest">
-                            <ListView.View>
-                                <GridView>
-                                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding number}">
-
-                                    </GridViewColumn>
-                                    <GridViewColumn Width="200" Header="Name"/>
-                                    <GridViewColumn Width="200" Header="Employee ID" />
-                                    <GridViewColumn Width="200" Header="Leave Type" />
-                                    <GridViewColumn Width="150" Header="Date"/>
-                                    <GridViewColumn Width="200" Header="Reason"/>
-                                    <GridViewColumn Width="100" Header="Action"/>
-                                </GridView>
-                            </ListView.View>
-                        </ListView>
-                    </Border>
+                <Grid Margin="30,37.5,0,30" Background="{StaticResource Color3}">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="0,0,8,0">
+                            <Border Background="White" 
+                                    Width="274" 
+                                    Height="90" 
+                                    BorderBrush="{StaticResource ButtonColor5}" 
+                                    BorderThickness="1.5" CornerRadius="10">
+                                <StackPanel>
+                                    <TextBlock Panel.ZIndex="1" 
+                                               Margin="20,20,0,0" 
+                                               Text="Total Employee" 
+                                               FontSize="13" 
+                                               Foreground="{StaticResource FontColor2}" />
+                                    <TextBlock Panel.ZIndex="1" 
+                                               Margin="20,10,0,0" 
+                                               Text="614" 
+                                               FontSize="20" 
+                                               FontWeight="Bold" 
+                                               Foreground="{StaticResource FontColor8}" />
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,8,0">
+                            <Border Background="White" 
+                                    Width="274" 
+                                    Height="90" 
+                                    BorderBrush="{StaticResource ButtonColor5}" 
+                                    BorderThickness="1.5" 
+                                    CornerRadius="10">
+                                <StackPanel>
+                                    <TextBlock Panel.ZIndex="1" 
+                                               Margin="20,20,0,0" 
+                                               Text="New Employee" 
+                                               FontSize="13" 
+                                               Foreground="{StaticResource FontColor2}" />
+                                    <TextBlock Panel.ZIndex="1" 
+                                               Margin="20,10,0,0" 
+                                               Text="124" 
+                                               FontSize="20" 
+                                               FontWeight="Bold" 
+                                               Foreground="{StaticResource FontColor8}"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,8,0">
+                            <Border Background="White" 
+                                    Width="274" 
+                                    Height="90" 
+                                    BorderBrush="{StaticResource ButtonColor5}" 
+                                    BorderThickness="1.5" 
+                                    CornerRadius="10">
+                                <StackPanel>
+                                    <TextBlock Panel.ZIndex="1" 
+                                               Margin="20,20,0,0" 
+                                               Text="Male" 
+                                               FontSize="13" 
+                                               Foreground="{StaticResource FontColor2}"
+                                               />
+                                    <TextBlock Panel.ZIndex="1" 
+                                               Margin="20,10,0,0" 
+                                               Text="504" 
+                                               FontSize="20" 
+                                               FontWeight="Bold" 
+                                               Foreground="{StaticResource FontColor8}" />
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,8,0">
+                            <Border Background="White" 
+                                    Width="274" Height="90" 
+                                    BorderBrush="{StaticResource ButtonColor5}" 
+                                    BorderThickness="1.5" 
+                                    CornerRadius="10">
+                                <StackPanel>
+                                    <TextBlock Panel.ZIndex="1" 
+                                               Margin="20,20,0,0" 
+                                               Text="Female" FontSize="13" 
+                                               Foreground="{StaticResource FontColor2}" />
+                                    <TextBlock Panel.ZIndex="1" 
+                                               Margin="20,10,0,0" 
+                                               Text="100" FontSize="20" 
+                                               FontWeight="Bold" 
+                                               Foreground="{StaticResource FontColor8}" />
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
                 </Grid>
+                <DataGrid Name ="LeaveRequestDatagrid"
+                          Width="1144"
+                          Height="500"
+                          Margin="35,15,30,0"
+                          RowStyle="{DynamicResource DataGridRowStyle1}" 
+                          CellStyle="{DynamicResource DataGridCellTemplate}" 
+                          ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn />
+                        <DataGridTemplateColumn 
+                                                Header="Name"
+                                                IsReadOnly="True"
+                                                CanUserResize="False"
+                                                Width="200"
+                                                >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Left"
+                                                Orientation="Horizontal"
+                                                >
+                                        <Border Width="30"
+                                                Height="30"
+                                                Background="{Binding BgColor}"
+                                                CornerRadius="50"
+                                                BorderBrush="{StaticResource ButtonColor5}"
+                                                >
+                                            <TextBlock VerticalAlignment="Center" 
+                                                       HorizontalAlignment="Center" 
+                                                       Text="{Binding CharacterPicture}" />
+                                        </Border>
+                                        <TextBlock Name="Name" 
+                                                   Background="Transparent" 
+                                                   Text="{Binding Name}" 
+                                                   Foreground="{StaticResource FontColor8}" 
+                                                   FontSize="15" 
+                                                   FontWeight="SemiBold"
+                                                   TextAlignment="Center">
+                                        </TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Employee ID" 
+                                            Binding="{Binding Employee_ID}"  
+                                            IsReadOnly="True" 
+                                            CanUserResize="False" 
+                                            Width="151" />
+                        <DataGridTextColumn Header="Leave Type" 
+                                            Binding="{Binding Leave_type}" 
+                                            IsReadOnly="True" 
+                                            CanUserResize="False" 
+                                            Width="157" />
+                        <DataGridTextColumn Header="Date" 
+                                            Binding="{Binding Date}" 
+                                            IsReadOnly="True" 
+                                            CanUserResize="False" 
+                                            Width="200" />
+                        <DataGridTextColumn Header="Reason" 
+                                            Binding="{Binding Reason}" 
+                                            IsReadOnly="True" 
+                                            CanUserResize="False" 
+                                            Width="150" />
+                        <DataGridTemplateColumn Header="Action" 
+                                                IsReadOnly="True" 
+                                                CanUserResize="False" 
+                                                Width="Auto">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Name="Button_Wrapper" 
+                                                Orientation="Horizontal">
+                                        <Button Margin="0,0,10,0" 
+                                                Background="White"
+                                                BorderBrush="White"
+                                                Style="{StaticResource MaterialDesignFlatSecondaryDarkButton}">
+                                            <fa:FontAwesome Icon="Check" FontSize="13" Background="LightGray"></fa:FontAwesome>
+                                        </Button>
+                                        <Button Margin="0,0,10,0">
+                                            <fa:FontAwesome Icon="Trash" FontSize="13"></fa:FontAwesome>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
         </Grid>
     </Grid>
