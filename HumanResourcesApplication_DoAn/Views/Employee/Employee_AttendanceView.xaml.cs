@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace HumanResourcesApplication_DoAn.Views.Employee
 {
     /// <summary>
-    /// Interaction logic for account.xaml
+    /// Interaction logic for Employee_AttendanceView.xaml
     /// </summary>
-    public partial class account : UserControl
+    public partial class Employee_AttendanceView : UserControl
     {
-        public account()
+        public Employee_AttendanceView()
         {
             InitializeComponent();
         }
