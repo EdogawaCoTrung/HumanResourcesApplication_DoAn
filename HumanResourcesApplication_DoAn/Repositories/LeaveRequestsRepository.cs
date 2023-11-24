@@ -12,6 +12,8 @@ namespace HumanResourcesApplication_DoAn.Repositories
     {
         public List<LeaveRequest> ListLeaveRequests()
         {
+            if(connection.State.ToString() == "Closed")
+                connection.Open();
             List<LeaveRequest> _leaveRequests = new List<LeaveRequest>();
             MySqlCommand command = new MySqlCommand();
             command.Connection = connection;
@@ -30,6 +32,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 _leaveRequest.User.avatar = reader["AVATAR"].ToString();
                 _leaveRequests.Add(_leaveRequest);
             }
+            connection.Close();
             return _leaveRequests;
         }
     }

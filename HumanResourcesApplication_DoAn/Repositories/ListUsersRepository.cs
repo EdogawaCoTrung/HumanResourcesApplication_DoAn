@@ -13,6 +13,8 @@ namespace HumanResourcesApplication_DoAn.Repositories
     {
         public List<User> ListUsers()
         {
+            if (connection.State.ToString() == "Closed")
+                connection.Open();
             List<User> _users = new List<User>();
             MySqlCommand command = new MySqlCommand();
             command.Connection = connection;
@@ -42,6 +44,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 _user.gender = reader["GENDER"].ToString() == "0" ? false : true;
                 _users.Add(_user);
             }
+            connection.Close();
             return _users;
         }
     }

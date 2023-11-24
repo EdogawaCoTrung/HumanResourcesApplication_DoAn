@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HumanResourcesApplication_DoAn.Views.Employee
+namespace HumanResourcesApplication_DoAn.Views.Admin
 {
     /// <summary>
-    /// Interaction logic for account.xaml
+    /// Interaction logic for Attendance.xaml
     /// </summary>
-    public partial class account : UserControl
+    public partial class Attendance : UserControl
     {
-        public account()
+        public Attendance()
         {
             InitializeComponent();
         }

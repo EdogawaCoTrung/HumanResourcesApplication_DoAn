@@ -12,9 +12,7 @@
     <Folder Include="Resources\Icons\" />
     <Folder Include="Resources\Images\" />
     <Folder Include="Resources\ResourceXAML\" />
-    <Folder Include="ViewModel\EmployeeVM\" />
     <Folder Include="Utils\" />
-    <Folder Include="Views\Employee\" />
     <Folder Include="Views\Login\" />
   </ItemGroup>
 
