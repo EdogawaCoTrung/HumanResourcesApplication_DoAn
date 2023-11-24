@@ -4,10 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
+             xmlns:viewModelAdmin="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              d:DesignHeight="871" d:DesignWidth="1440">
+
+    <UserControl.DataContext>
+        <viewModelAdmin:LeaveRequestsViewModel/>
+    </UserControl.DataContext>
     
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
@@ -356,7 +361,8 @@
                           Margin="35,15,30,0"
                           RowStyle="{DynamicResource DataGridRowStyle1}" 
                           CellStyle="{DynamicResource DataGridCellTemplate}" 
-                          ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
+                          ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+                          ItemsSource="{Binding ListLeaveRequests}">
                     <DataGrid.Columns>
                         <DataGridTextColumn />
                         <DataGridTemplateColumn 
@@ -370,7 +376,7 @@
                                     <StackPanel HorizontalAlignment="Left"
                                                 Orientation="Horizontal"
                                                 >
-                                        <Border Width="30"
+                                        <!--<Border Width="30"
                                                 Height="30"
                                                 Background="{Binding BgColor}"
                                                 CornerRadius="50"
@@ -379,36 +385,37 @@
                                             <TextBlock VerticalAlignment="Center" 
                                                        HorizontalAlignment="Center" 
                                                        Text="{Binding CharacterPicture}" />
-                                        </Border>
+                                        </Border>-->
                                         <TextBlock Name="Name" 
                                                    Background="Transparent" 
-                                                   Text="{Binding Name}" 
+                                                   Text="{Binding User.userName}" 
                                                    Foreground="{StaticResource FontColor8}" 
-                                                   FontSize="15" 
+                                                   FontSize="15"
+                                                   Width="200"
                                                    FontWeight="SemiBold"
-                                                   TextAlignment="Center">
+                                                   TextAlignment="Left">
                                         </TextBlock>
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                         <DataGridTextColumn Header="Employee ID" 
-                                            Binding="{Binding Employee_ID}"  
+                                            Binding="{Binding userId}"  
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
                                             Width="151" />
                         <DataGridTextColumn Header="Leave Type" 
-                                            Binding="{Binding Leave_type}" 
+                                            Binding="{Binding leaveType}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
                                             Width="157" />
                         <DataGridTextColumn Header="Date" 
-                                            Binding="{Binding Date}" 
+                                            Binding="{Binding startDate}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
                                             Width="200" />
                         <DataGridTextColumn Header="Reason" 
-                                            Binding="{Binding Reason}" 
+                                            Binding="{Binding reason}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
                                             Width="150" />

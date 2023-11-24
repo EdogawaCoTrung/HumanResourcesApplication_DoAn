@@ -9,6 +9,6 @@
         xmlns:Login="clr-namespace:HumanResourcesApplication_DoAn.Views.Login"
         Title="MainWindow" Height="871" Width="1440">
     <Grid>
-        <admin:Employee_All/>
+        <admin:LeaveRequestView/>
     </Grid>
 </Window>
