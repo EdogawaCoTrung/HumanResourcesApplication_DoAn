@@ -3,12 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-<<<<<<< Updated upstream
-        xmlns:local="clr-namespace:HumanResourcesApplication_DoAn" xmlns:login="clr-namespace:HumanResourcesApplication_DoAn.Views.Login" xmlns:admin="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
-=======
         xmlns:local="clr-namespace:HumanResourcesApplication_DoAn" 
         xmlns:admin="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
->>>>>>> Stashed changes
         mc:Ignorable="d"
         xmlns:Employee="clr-namespace:HumanResourcesApplication_DoAn.Views.Employee" 
         xmlns:Login="clr-namespace:HumanResourcesApplication_DoAn.Views.Login"
