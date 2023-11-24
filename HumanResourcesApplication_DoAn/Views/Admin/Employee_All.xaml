@@ -333,17 +333,17 @@
                                                         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding CharacterPicture}"></TextBlock>
                                                     </Border>-->
                                                     <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
-                                                        <TextBlock Name="Name" Background="Transparent" Text="{Binding userName}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>
-                                                        <TextBlock Name="Email" Background="Transparent" Text="{Binding email}" Foreground="{StaticResource FontColor2}" FontSize="12"></TextBlock>
+                                                        <TextBlock Name="Name" Background="Transparent" Text="{Binding userName, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>
+                                                        <TextBlock Name="Email" Background="Transparent" Text="{Binding email, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor2}" FontSize="12"></TextBlock>
                                                     </StackPanel>
                                                 </StackPanel>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-                                    <DataGridTextColumn Header="Employee ID" Binding="{Binding userId}"  IsReadOnly="True" CanUserResize="False" Width="151"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="Phone" Binding="{Binding phoneNumber}" IsReadOnly="True" CanUserResize="False" Width="157"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="Join Date" Binding="{Binding joinDate}" IsReadOnly="True" CanUserResize="False" Width="166"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="Role" Binding="{Binding roleId}" IsReadOnly="True" CanUserResize="False" Width="150"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Employee ID" Binding="{Binding userId, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" CanUserResize="False" Width="151"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Phone" Binding="{Binding phoneNumber, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="157"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Join Date" Binding="{Binding joinDate, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="166"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Role" Binding="{Binding roleId, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="150"></DataGridTextColumn>
                                     <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="Auto">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
