@@ -1,6 +1,4 @@
-﻿using HumanResourcesApplication_DoAn.Model;
-using HumanResourcesApplication_DoAn.ViewModel.Admin;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +16,11 @@ using System.Windows.Shapes;
 namespace HumanResourcesApplication_DoAn.Views.Admin
 {
     /// <summary>
-    /// Interaction logic for Employee_All.xaml
+    /// Interaction logic for LeaveRequestView.xaml
     /// </summary>
-    public partial class Employee_All : UserControl
+    public partial class LeaveRequestView : UserControl
     {
-        public Employee_All()
+        public LeaveRequestView()
         {
             InitializeComponent();
         }

@@ -54,7 +54,7 @@
                             <StackPanel Width="460" Height="50" VerticalAlignment="Center" Background="#f2f2f2" Orientation="Horizontal">
                                 <Border BorderBrush="Transparent" BorderThickness="0.6"></Border>
                                 <fa:FontAwesome  Margin="20,0,0,0" Icon="Lock" FontSize="30" VerticalAlignment="Center"></fa:FontAwesome>
-                                <PasswordBox x:Name="Password_box" Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" FontSize="40" Background="#f2f2f2"  Width="420"  Height="50"></PasswordBox>
+                                <TextBox x:Name="Password_box" Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" FontSize="40" Background="#f2f2f2"  Width="420"  Height="50"></TextBox>
                             </StackPanel>
                             <TextBlock Margin="128,0,0,0"  Text="Password" Foreground="#8F9BB3" FontSize="25" FontWeight="Medium"></TextBlock>
                             <TextBlock x:Name="Error" Margin="425,5,0,5" Text="{Binding ErrorMessage}" Foreground="Red" FontSize="20" FontWeight="Bold"></TextBlock>

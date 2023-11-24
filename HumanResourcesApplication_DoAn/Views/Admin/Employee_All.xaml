@@ -4,10 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
+             xmlns:employeeAllViewModel="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              d:DesignHeight="871" d:DesignWidth="1440">
+    <UserControl.DataContext>
+        <employeeAllViewModel:EmployeeAllViewModel/>
+    </UserControl.DataContext>
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
         <Style TargetType="DataGrid">
@@ -267,7 +271,7 @@
                                 <Border Background="White" Width="274" Height="90" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                                     <StackPanel>
                                         <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="Total Employee" FontSize="13" Foreground="{StaticResource FontColor2}"></TextBlock>
-                                        <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="614" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
+                                        <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="{Binding TotalEmployee}" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
                                     </StackPanel>
                                 </Border>
                             </StackPanel>
@@ -275,7 +279,7 @@
                                 <Border Background="White" Width="274" Height="90" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                                     <StackPanel>
                                         <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="New Employee" FontSize="13" Foreground="{StaticResource FontColor2}"></TextBlock>
-                                        <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="124" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
+                                        <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="{Binding NewEmployee}" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
                                     </StackPanel>
                                 </Border>
                             </StackPanel>
@@ -283,7 +287,7 @@
                                 <Border Background="White" Width="274" Height="90" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                                     <StackPanel>
                                         <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="Male" FontSize="13" Foreground="{StaticResource FontColor2}"></TextBlock>
-                                        <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="504" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
+                                        <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="{Binding Male}" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
                                     </StackPanel>
                                 </Border>
                             </StackPanel>
@@ -291,7 +295,7 @@
                                 <Border Background="White" Width="274" Height="90" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                                     <StackPanel>
                                         <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="Female" FontSize="13" Foreground="{StaticResource FontColor2}"></TextBlock>
-                                        <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="100" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
+                                        <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="{Binding Female}" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
                                     </StackPanel>
                                 </Border>
                             </StackPanel>
@@ -317,7 +321,7 @@
 
                                 </Grid>
 
-                            <DataGrid Height="500" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
+                            <DataGrid ItemsSource="{Binding Users}"  Height="500" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
                                 <DataGrid.Columns>
                                     <DataGridCheckBoxColumn Width="35" ElementStyle="{StaticResource CheckBoxStyle1}">
                                     </DataGridCheckBoxColumn>
@@ -325,21 +329,21 @@
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                                                    <Border Width="30"  Background="{Binding BgColor}" Height="30" Margin="0,0,8,0" HorizontalAlignment="Left" CornerRadius="50" BorderBrush="{StaticResource ButtonColor5}">
+                                                    <!--<Border Width="30"  Background="{Binding BgColor}" Height="30" Margin="0,0,8,0" HorizontalAlignment="Left" CornerRadius="50" BorderBrush="{StaticResource ButtonColor5}">
                                                         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding CharacterPicture}"></TextBlock>
-                                                    </Border>
+                                                    </Border>-->
                                                     <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
-                                                        <TextBlock Name="Name" Background="Transparent" Text="{Binding Name}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>
-                                                        <TextBlock Name="Email" Background="Transparent" Text="{Binding Email}" Foreground="{StaticResource FontColor2}" FontSize="12"></TextBlock>
+                                                        <TextBlock Name="Name" Background="Transparent" Text="{Binding userName}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>
+                                                        <TextBlock Name="Email" Background="Transparent" Text="{Binding email}" Foreground="{StaticResource FontColor2}" FontSize="12"></TextBlock>
                                                     </StackPanel>
                                                 </StackPanel>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-                                    <DataGridTextColumn Header="Employee ID" Binding="{Binding Employee_ID}"  IsReadOnly="True" CanUserResize="False" Width="151"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" IsReadOnly="True" CanUserResize="False" Width="157"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="Join Date" Binding="{Binding JoinDate}" IsReadOnly="True" CanUserResize="False" Width="166"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="Role" Binding="{Binding Role}" IsReadOnly="True" CanUserResize="False" Width="150"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Employee ID" Binding="{Binding userId}"  IsReadOnly="True" CanUserResize="False" Width="151"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Phone" Binding="{Binding phoneNumber}" IsReadOnly="True" CanUserResize="False" Width="157"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Join Date" Binding="{Binding joinDate}" IsReadOnly="True" CanUserResize="False" Width="166"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Role" Binding="{Binding roleId}" IsReadOnly="True" CanUserResize="False" Width="150"></DataGridTextColumn>
                                     <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="Auto">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
