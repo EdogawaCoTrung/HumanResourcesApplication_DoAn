@@ -6,9 +6,11 @@
         xmlns:local="clr-namespace:HumanResourcesApplication_DoAn" xmlns:login="clr-namespace:HumanResourcesApplication_DoAn.Views.Login" 
         xmlns:admin="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
         mc:Ignorable="d"
+        xmlns:Employee="clr-namespace:HumanResourcesApplication_DoAn.Views.Employee" 
         xmlns:Login="clr-namespace:HumanResourcesApplication_DoAn.Views.Login"
         Title="MainWindow" Height="871" Width="1440">
     <Grid>
+
         <admin:Employee_All/>
     </Grid>
 </Window>
