@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
-             d:DesignHeight="831" d:DesignWidth="1204">
+             d:DesignHeight="750" d:DesignWidth="1100">
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
         <Style TargetType="DataGrid">
@@ -89,7 +89,7 @@
     <Grid Background="{StaticResource Color3}">
         <StackPanel Orientation="Vertical">
             <Grid>
-                <StackPanel Margin="30,0,0,0" Orientation="Horizontal">
+                <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
                     <RadioButton Style="{StaticResource TopBorderTriggerButton}">
                         <TextBlock Text="All"></TextBlock>
                     </RadioButton>
@@ -102,7 +102,7 @@
                 </StackPanel>
             </Grid>
             <!--PanelMain-->
-            <Grid Margin="30,37.5,0,30" Background="{StaticResource Color3}">
+            <Grid Margin="0,37.5,0,30" Background="{StaticResource Color3}">
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Margin="0,0,16,0">
                         <Border Background="White" Width="274" Height="90" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
@@ -139,7 +139,7 @@
                 </StackPanel>
             </Grid>
             <!--Datagrid-->
-            <Grid Height="auto" Margin="28,0,30,0">
+            <Grid Height="480" Margin="0,0,0,0">
                 <Border BorderBrush="{StaticResource ButtonColor5}" BorderThickness="0,1.5,0,1.5" CornerRadius="10">
                     <StackPanel Orientation="Vertical">
                         <Grid Height="50" Background="White">

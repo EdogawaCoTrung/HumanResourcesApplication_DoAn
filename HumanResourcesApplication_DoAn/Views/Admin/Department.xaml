@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             d:DesignHeight="916" d:DesignWidth="1204">
+             d:DesignHeight="750" d:DesignWidth="1100">
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
         <Style TargetType="DataGrid">
@@ -88,7 +88,7 @@
     </UserControl.Resources>
     <Grid Background="#F9FBFD">
         <StackPanel Orientation="Vertical">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" Height="34" Margin="0,29,30,25">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" Height="34" Margin="0,29,0,25">
                 <Grid Width="100" Height="34"  Margin="0,0,15,0">
                     <StackPanel Width="100" Height="34" Orientation="Horizontal">
                         <RadioButton Width="50" Height="34" Style="{StaticResource GridButtonLeft}">
@@ -115,7 +115,7 @@
                                 ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
                 </Border>
             </StackPanel>
-            <Grid Background="White" Width="1144" Height="auto" Margin="30,0,30,0">
+            <Grid Background="White" Width="1144" Height="auto" Margin="0,0,0,0">
                 <Border Background="White" Width="1144" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="0,1.5,0,1.5" CornerRadius="10">
                     <StackPanel Orientation="Vertical">
                         <Grid Height="50" Background="White">
@@ -144,11 +144,17 @@
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Name="Button_Wrapper" Orientation="Horizontal">
-                                                <Button Margin="0,0,10,0">
-                                                    <fa:FontAwesome Icon="Edit" FontSize="13"></fa:FontAwesome>
+                                                <Button  Width="30" Height="30" Margin="0,0,10,0"
+                                                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                          Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                                          ToolTip="MaterialDesignIconForegroundButton">
+                                                    <materialDesign:PackIcon Kind="PencilOutline" Foreground="{StaticResource FontColor2}"/>
                                                 </Button>
-                                                <Button Margin="0,0,10,0">
-                                                    <fa:FontAwesome Icon="Trash" FontSize="13"></fa:FontAwesome>
+                                                <Button  Width="30" Height="30" Margin="0,0,10,0"
+                                                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                          Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                                          ToolTip="MaterialDesignIconForegroundButton">
+                                                    <materialDesign:PackIcon Kind="TrashCanOutline" Foreground="{StaticResource FontColor2}"/>
                                                 </Button>
                                             </StackPanel>
                                         </DataTemplate>

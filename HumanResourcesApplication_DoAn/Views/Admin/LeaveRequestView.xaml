@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
-             d:DesignHeight="916" d:DesignWidth="1204">
+             d:DesignHeight="750" d:DesignWidth="1100">
 
     <UserControl.DataContext>
         <viewModelAdmin:LeaveRequestsViewModel/>
@@ -99,7 +99,7 @@
                 <!--HeaderView-->
                 
                 <Grid Margin="0 0 0 0">
-                    <StackPanel Margin="30,0,0,0" Orientation="Horizontal">
+                    <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
                         <RadioButton 
                             Style="{StaticResource TopBorderTriggerButton}">
                             <TextBlock Text="All" />
@@ -111,7 +111,7 @@
                             <TextBlock Text="Leave Request"/>
                         </RadioButton>
                     </StackPanel>
-                    <StackPanel HorizontalAlignment="Right" Margin="0,10,45,0">
+                    <StackPanel HorizontalAlignment="Right" Margin="0,10,0,0">
                         <Border BorderBrush="{StaticResource ButtonColor2}" 
                                 BorderThickness="0" 
                                 CornerRadius="20">
@@ -131,7 +131,7 @@
                         </Border>
                     </StackPanel>
                 </Grid>
-                <Grid Margin="30,37.5,0,30" Background="{StaticResource Color3}">
+                <Grid Margin="0,37.5,0,30" Background="{StaticResource Color3}">
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Margin="0,0,59,0">
                             <Border Background="White" 
@@ -201,10 +201,9 @@
                         </StackPanel>
                     </StackPanel>
                 </Grid>
-                <DataGrid Name ="LeaveRequestDatagrid"
-                          Width="1144"
-                          Height="500"
-                          Margin="35,15,30,0"
+                <DataGrid Name ="LeaveRequestDatagrid"      
+                          Height="480"
+                          Margin="0,15,0,0"
                           RowStyle="{DynamicResource DataGridRowStyle1}" 
                           CellStyle="{DynamicResource DataGridCellTemplate}" 
                           ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
@@ -215,7 +214,7 @@
                                                 Header="Name"
                                                 IsReadOnly="True"
                                                 CanUserResize="False"
-                                                Width="200"
+                                                Width="170"
                                                 >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -237,7 +236,7 @@
                                                    Text="{Binding User.userName}" 
                                                    Foreground="{StaticResource FontColor8}" 
                                                    FontSize="15"
-                                                   Width="200"
+                                                   Width="170"
                                                    FontWeight="SemiBold"
                                                    TextAlignment="Left">
                                         </TextBlock>
@@ -249,7 +248,7 @@
                                             Binding="{Binding userId}"  
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="151" />
+                                            Width="100" />
                         <DataGridTextColumn Header="Leave Type" 
                                             Binding="{Binding leaveType}" 
                                             IsReadOnly="True" 
@@ -259,17 +258,17 @@
                                             Binding="{Binding startDate}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="150" />
+                                            Width="180" />
                         <DataGridTextColumn Header="End Date" 
                                             Binding="{Binding endDate}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="150" />
+                                            Width="180" />
                         <DataGridTextColumn Header="Reason" 
                                             Binding="{Binding reason}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="150" />
+                                            Width="180" />
                         <DataGridTemplateColumn Header="Action" 
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 
@@ -278,14 +277,17 @@
                                 <DataTemplate>
                                     <StackPanel Name="Button_Wrapper" 
                                                 Orientation="Horizontal">
-                                        <Button Margin="0,0,10,0" 
-                                                Background="White"
-                                                BorderBrush="White"
-                                                Style="{StaticResource MaterialDesignFlatSecondaryDarkButton}">
-                                            <fa:FontAwesome Icon="Check" FontSize="13" Background="LightGray"></fa:FontAwesome>
+                                        <Button  Width="30" Height="30" Margin="0,0,10,0"
+                                                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                          Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                                          ToolTip="MaterialDesignIconForegroundButton">
+                                            <materialDesign:PackIcon Kind="CheckboxMarkedCircleOutline" Foreground="{StaticResource FontColor2}"/>
                                         </Button>
-                                        <Button Margin="0,0,10,0">
-                                            <fa:FontAwesome Icon="Trash" FontSize="13"></fa:FontAwesome>
+                                        <Button  Width="30" Height="30" Margin="0,0,10,0"
+                                                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                          Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                                          ToolTip="MaterialDesignIconForegroundButton">
+                                            <materialDesign:PackIcon Kind="TrashCanOutline" Foreground="{StaticResource FontColor2}"/>
                                         </Button>
                                     </StackPanel>
                                 </DataTemplate>
