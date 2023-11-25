@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
-             d:DesignHeight="831" d:DesignWidth="1204">
+             d:DesignHeight="750" d:DesignWidth="1100">
     <UserControl.DataContext>
         <employeeAllViewModel:EmployeeAllViewModel/>
     </UserControl.DataContext>
@@ -96,7 +96,7 @@
             <Grid Background="{StaticResource Color3}">
             <StackPanel Orientation="Vertical">
                     <Grid>
-                        <StackPanel Margin="30,0,0,0" Orientation="Horizontal">
+                        <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
                             <RadioButton Style="{StaticResource TopBorderTriggerButton}">
                                 <TextBlock Text="All"></TextBlock>
                             </RadioButton>
@@ -107,7 +107,7 @@
                                 <TextBlock Text="Leave Request"></TextBlock>
                             </RadioButton>
                         </StackPanel>
-                        <StackPanel HorizontalAlignment="Right" Margin="0,10,30,0">
+                        <StackPanel HorizontalAlignment="Right" Margin="0,10,0,0">
                             <Border BorderBrush="{StaticResource ButtonColor2}" BorderThickness="0" CornerRadius="20">
                                 <Button 
                                 Width="88"
@@ -127,7 +127,7 @@
 
                     </Grid>
                     <!--PanelMain-->
-                    <Grid Margin="30,37.5,0,30" Background="{StaticResource Color3}">
+                    <Grid Margin="0,37.5,0,30" Background="{StaticResource Color3}">
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Margin="0,0,16,0">
                                 <Border Background="White" Width="274" Height="90" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
@@ -164,12 +164,12 @@
                         </StackPanel>
                     </Grid>
                     <!--Datagrid-->
-                    <Grid Height="450" Margin="28,0,30,0">
+                    <Grid Height="450" Margin="0,0,0,0">
                         <Border BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                             <StackPanel Orientation="Vertical">
                                 <Grid Height="50" Background="White">
                                     <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Employee List" FontSize="17" Foreground="{StaticResource FontColor8}" FontWeight="SemiBold" Background="White"></TextBlock>
-                                    <Grid HorizontalAlignment="Right" Width="300" Height="34" Margin="0,0,0,0">
+                                    <Grid VerticalAlignment="Center" HorizontalAlignment="Right" Width="300" Height="34" Margin="0,10,0,0">
                                         <TextBlock Margin="15,5,5,5" Text="Search..." FontSize="13"
                                            Visibility="{Binding ElementName=txtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
                                            HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
@@ -202,22 +202,31 @@
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-                                    <DataGridTextColumn Header="Employee ID" Binding="{Binding userId, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" CanUserResize="False" Width="151"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Employee ID" Binding="{Binding userId, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" CanUserResize="False" Width="130"></DataGridTextColumn>
                                     <DataGridTextColumn Header="Phone" Binding="{Binding phoneNumber, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="157"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="Join Date" Binding="{Binding joinDate, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="166"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="Role" Binding="{Binding roleId, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="150"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Join Date" Binding="{Binding joinDate, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="200"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Role" Binding="{Binding roleId, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="180"></DataGridTextColumn>
                                     <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="Auto">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel Name="Button_Wrapper" Orientation="Horizontal">
-                                                    <Button Margin="0,0,10,0">
-                                                        <fa:FontAwesome Icon="Eye" FontSize="13"></fa:FontAwesome>
+                                                    <Button  Width="30" Height="30" Margin="0,0,10,0"
+                                                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                          Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                                          ToolTip="MaterialDesignIconForegroundButton">
+                                                        <materialDesign:PackIcon Foreground="{StaticResource FontColor2}" Kind="EyeOutline" />
                                                     </Button>
-                                                    <Button Margin="0,0,10,0">
-                                                        <fa:FontAwesome Icon="Edit" FontSize="13"></fa:FontAwesome>
+                                                    <Button  Width="30" Height="30" Margin="0,0,10,0"
+                                                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                          Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                                          ToolTip="MaterialDesignIconForegroundButton">
+                                                        <materialDesign:PackIcon Kind="PencilOutline" Foreground="{StaticResource FontColor2}"/>
                                                     </Button>
-                                                    <Button Margin="0,0,10,0">
-                                                        <fa:FontAwesome Icon="Trash" FontSize="13"></fa:FontAwesome>
+                                                    <Button  Width="30" Height="30"
+                                                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                          Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                                          ToolTip="MaterialDesignIconForegroundButton">
+                                                        <materialDesign:PackIcon Foreground="{StaticResource FontColor2}" Kind="TrashCanOutline" />
                                                     </Button>
                                                 </StackPanel>
                                             </DataTemplate>
