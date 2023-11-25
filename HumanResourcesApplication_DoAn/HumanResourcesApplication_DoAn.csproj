@@ -10,7 +10,6 @@
   <ItemGroup>
     <Folder Include="Resources\Fonts\" />
     <Folder Include="Resources\Icons\" />
-    <Folder Include="Resources\Images\" />
     <Folder Include="Resources\ResourceXAML\" />
     <Folder Include="Utils\" />
     <Folder Include="Views\Login\" />
