@@ -156,7 +156,7 @@
                 <StackPanel Grid.Row="1"
                     Orientation="Horizontal">
                     <StackPanel
-                  
+                        
                         Height="480"
                         Orientation="Vertical"
                         VerticalAlignment="Top"

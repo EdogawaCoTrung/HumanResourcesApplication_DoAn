@@ -291,13 +291,77 @@
                        Padding="10"/>
                     
                 </StackPanel>
-            </StackPanel>
-            <StackPanel Grid.Row="1"
-                        Height="400"
-                        Width="100">
-                
-            </StackPanel>
+                <StackPanel Height="480"
+                     Width="320"
+                     Orientation="Vertical">
+                        <TextBlock Margin="10,20,0,0"
+                     Height="50"
+                     Width="150"
+                     VerticalAlignment="Top"
+                     HorizontalAlignment="Left"
+                     Text="Date of birth"
+                     FontSize="25"
+                     TextAlignment="Left"
+                     Foreground="LightGray"
+                     Padding="10"/>
 
+                    <TextBlock Margin="10,0,0,0"
+                         Height="50"
+                         Width="150"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Left"
+                         Text="30/04/1975"
+                         FontSize="20"
+                         TextAlignment="Left"
+                         Foreground="Black"
+                         Padding="10"/>
+                    <TextBlock Margin="20,0,0,0"
+                         Height="50"
+                         Width="200"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Left"
+                         Text="Payroll"
+                         FontSize="25"
+                         TextAlignment="Left"
+                         Foreground="LightGray"
+                         Padding="0,0,10,10"/>
+                    <TextBlock Margin="10,0,0,0"
+                         Height="50"
+                         Width="150"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Left"
+                         Text="VietNam"
+                         FontSize="20"
+                         TextAlignment="Left"
+                         Foreground="Black"
+                         Padding="10"/>
+
+                    <TextBlock Margin="20,0,0,0"
+                         Height="50"
+                         Width="200"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Left"
+                         Text="Joindate"
+                         FontSize="25"
+                         TextAlignment="Left"
+                         Foreground="LightGray"
+                         Padding="0,0,10,0"/>
+
+                    <TextBlock Margin="10,0,0,0"
+                        Height="100"
+                        Width="310"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        Text="25/11/2023"
+                        FontSize="20"
+                        TextWrapping="Wrap"
+                        TextAlignment="Left"
+                        Foreground="Black"
+                        Padding="10"/>
+
+                </StackPanel>
+            </StackPanel>
+            
             <StackPanel Grid.Row="2"
                         FlowDirection="RightToLeft"
                         Orientation="Horizontal">
@@ -313,6 +377,21 @@
                             BorderThickness="0"
                             Background="Transparent"
                             Content="Change"
+                            FontSize="20"
+                            Width="100">
+
+                    </Button>
+                </Border>
+                <Border BorderThickness="1"
+                        Background="Red"
+                        Height="40"
+                        Width="100"
+                        CornerRadius="10"
+                        Margin="100,0,0,0" >
+                    <Button Height="40"
+                            BorderThickness="0"
+                            Background="Transparent"
+                            Content="Leave"
                             FontSize="20"
                             Width="100">
 
