@@ -4,10 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
+             xmlns:viewModelAdmin="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              d:DesignHeight="831" d:DesignWidth="1204">
+    <UserControl.DataContext>
+        <viewModelAdmin:AttendanceViewModel/>
+    </UserControl.DataContext>
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
         <Style TargetType="DataGrid">
@@ -108,7 +112,7 @@
                         <Border Background="White" Width="274" Height="90" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                             <StackPanel>
                                 <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="Total Employee" FontSize="13" Foreground="{StaticResource FontColor2}"></TextBlock>
-                                <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="614" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
+                                <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="{Binding TotalEmployee}" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
                             </StackPanel>
                         </Border>
                     </StackPanel>
@@ -116,7 +120,7 @@
                         <Border Background="White" Width="274" Height="90" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                             <StackPanel>
                                 <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="Attend" FontSize="13" Foreground="{StaticResource FontColor2}"></TextBlock>
-                                <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="124" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
+                                <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="{Binding Attend}" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
                             </StackPanel>
                         </Border>
                     </StackPanel>
@@ -124,7 +128,7 @@
                         <Border Background="White" Width="274" Height="90" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                             <StackPanel>
                                 <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="Late Attend" FontSize="13" Foreground="{StaticResource FontColor2}"></TextBlock>
-                                <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="504" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
+                                <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="{Binding LateAttend}" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
                             </StackPanel>
                         </Border>
                     </StackPanel>
@@ -132,7 +136,7 @@
                         <Border Background="White" Width="274" Height="90" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                             <StackPanel>
                                 <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="Absence" FontSize="13" Foreground="{StaticResource FontColor2}"></TextBlock>
-                                <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="100" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
+                                <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="{Binding Absence}" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
                             </StackPanel>
                         </Border>
                     </StackPanel>
@@ -158,15 +162,15 @@
 
                         </Grid>
 
-                        <DataGrid Height="500" Name="Attendance_Users" RowStyle="{DynamicResource DataGridRowStyle2}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}">
+                        <DataGrid ItemsSource="{Binding ListAttendance}" Height="500" Name="Attendance_Users" RowStyle="{DynamicResource DataGridRowStyle2}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}">
                             <DataGrid.Columns>
-                                <DataGridTextColumn CellStyle="{DynamicResource DataGridCellTemplate2}" Binding="{Binding USERID}" IsReadOnly="True" CanUserResize="False" Width="150"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Date" Binding="{Binding DATE}" IsReadOnly="True" CanUserResize="False" Width="220">
+                                <DataGridTextColumn CellStyle="{DynamicResource DataGridCellTemplate2}" Binding="{Binding userId}" IsReadOnly="True" CanUserResize="False" Width="150"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Date" Binding="{Binding date}" IsReadOnly="True" CanUserResize="False" Width="220">
                                 </DataGridTextColumn>
-                                <DataGridTextColumn Header="In time" Binding="{Binding INTIME}"  IsReadOnly="True" CanUserResize="False" Width="180"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Out time" Binding="{Binding OUTTIME}" IsReadOnly="True" CanUserResize="False" Width="180"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Hours" Binding="{Binding HOURS}" IsReadOnly="True" CanUserResize="False" Width="166"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Status" Binding="{Binding STATUS}" IsReadOnly="True" CanUserResize="False" Width="150"></DataGridTextColumn>
+                                <DataGridTextColumn Header="In time" Binding="{Binding inTime}"  IsReadOnly="True" CanUserResize="False" Width="180"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Out time" Binding="{Binding outTime}" IsReadOnly="True" CanUserResize="False" Width="180"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Hours" Binding="{Binding hours}" IsReadOnly="True" CanUserResize="False" Width="166"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Status" Binding="{Binding status}" IsReadOnly="True" CanUserResize="False" Width="150"></DataGridTextColumn>
                             </DataGrid.Columns>
                         </DataGrid>
                     </StackPanel>

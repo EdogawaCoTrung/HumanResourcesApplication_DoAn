@@ -42,6 +42,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 _user.payrollId = reader["PAYROLL_ID"].ToString();
                 _user.avatar = reader["AVATAR"].ToString();
                 _user.gender = reader["GENDER"].ToString() == "0" ? false : true;
+                _user.insuranceId = reader["INSURANCE_ID"].ToString();
                 _users.Add(_user);
             }
             connection.Close();
