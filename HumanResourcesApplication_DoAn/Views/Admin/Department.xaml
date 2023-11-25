@@ -6,290 +6,159 @@
              xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
              mc:Ignorable="d" 
              xmlns:fa="http://schemas.fontawesome.io/icons/"
-             d:DesignHeight="871" d:DesignWidth="1440">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50"></ColumnDefinition>
-            <ColumnDefinition Width="196"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="916" d:DesignWidth="1204">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
+        <Style TargetType="DataGrid">
+            <Setter Property="VerticalScrollBarVisibility" Value="Disabled"></Setter>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#222528"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="True"/>
+            <Setter Property="AutoGenerateColumns" Value="False" />
+            <Setter Property="HeadersVisibility" Value="Column" />
+            <Setter Property="Margin" Value="0 10 0 0" />
+            <Setter Property="Grid.Row" Value="5" />
+            <Setter Property="SelectionMode" Value="Single" />
+            <Setter Property="SelectionUnit" Value="FullRow" />
+            <Setter Property="CanUserAddRows" Value="False" />
+            <Setter Property="CanUserDeleteRows" Value="False" />
+            <Setter Property="CanUserReorderColumns" Value="False" />
+            <Setter Property="CanUserResizeRows" Value="False" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="GridLinesVisibility" Value="None" />
+            <Setter Property="Background" Value="White"></Setter>
+            <Setter Property="BorderBrush" Value="White"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="DataGrid">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="10" BorderThickness="{TemplateBinding BorderThickness}"  SnapsToDevicePixels="True">
 
-        <Grid Grid.Column="0">
-            <Canvas Height="850" Background="#0095FF" >
-                <StackPanel Canvas.Top="24.35">
-                    <TextBlock Width="50" TextAlignment="Center" Margin="0,0,0,36.35">
-                        <fa:FontAwesome Icon="CcStripe" FontSize="34" Foreground="White" TextAlignment="Center"></fa:FontAwesome>
-                    </TextBlock>
-                    <fa:FontAwesome Icon="Search" FontSize="20"  Foreground="White"></fa:FontAwesome>
-                </StackPanel>
-                <StackPanel Canvas.Top="700">
-                    <TextBlock Width="50" TextAlignment="Center" Margin="0,0,0,30">
-                        <fa:FontAwesome Icon="Bars" FontSize="20"  Foreground="White"></fa:FontAwesome>
-                    </TextBlock>
-                    <TextBlock Width="50" TextAlignment="Center" Margin="0,0,0,30">
-                        <Ellipse Width="20" Margin="0,0,0,0" Height="20" Fill="White"></Ellipse>
-                    </TextBlock>
-                    <TextBlock Width="50" TextAlignment="Center"  Margin="0,0,0,30">
-                        <fa:FontAwesome Icon="gear" FontSize="20"  Foreground="White"></fa:FontAwesome>
-                    </TextBlock>
-                </StackPanel>
-            </Canvas>
-        </Grid>
-        <Grid Grid.Column="1">
-            <StackPanel Margin="13,87,0,0">
-                <StackPanel.Resources>
-                    <Style TargetType="TextBlock" x:Key="txtbstyle">
-                        <Setter Property="FontSize" Value="13"></Setter>
-                        <Setter Property="Foreground" Value="LightGray"></Setter>
-                    </Style>
-                </StackPanel.Resources>
-                <TextBlock Margin="0,0,0,15" Style="{StaticResource txtbstyle}">
-                    <fa:FontAwesome Icon="Dashboard" Margin="0,0,10,0"></fa:FontAwesome>
-                    Dashboard
-                </TextBlock>
-                <TextBlock Margin="0,0,0,15" Style="{StaticResource txtbstyle}">
-                    <fa:FontAwesome Icon="Users" Margin="0,0,10,0"></fa:FontAwesome>
-                    Users
-                </TextBlock>
-                <TextBlock Margin="0,0,0,15" Style="{StaticResource txtbstyle}">
-                    <fa:FontAwesome Icon="BuildingOutline" Margin="0,0,10,0"></fa:FontAwesome>
-                    Department
-                </TextBlock>
-                <TextBlock Margin="0,0,0,15" Style="{StaticResource txtbstyle}">
-                    <fa:FontAwesome Icon="UserOutline" Margin="0,0,10,0"></fa:FontAwesome>
-                    Employee
-                </TextBlock>
-                <TextBlock Margin="0,0,0,15" Style="{StaticResource txtbstyle}">
-                    <fa:FontAwesome Icon="CreditCard" Margin="0,0,10,0"></fa:FontAwesome>
-                    Payroll
-                </TextBlock>
+                            <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
+                                <ScrollViewer.Template>
+                                    <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Button Command="{x:Static DataGrid.SelectAllCommand}" Focusable="false" Style="{DynamicResource {ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}}" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.All}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                            <Border Grid.Column="1" Grid.Row="0" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
+                                                <DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter"/>
+                                            </Border>
+                                            <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" Grid.Column="0" CanContentScroll="{TemplateBinding CanContentScroll}" Grid.ColumnSpan="2" Grid.Row="1"/>
+                                            <ScrollBar x:Name="PART_VerticalScrollBar" Grid.Column="2" Maximum="{TemplateBinding ScrollableHeight}" Orientation="Vertical" Grid.Row="1" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"/>
+                                            <Grid Grid.Column="1" Grid.Row="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="{Binding NonFrozenColumnsViewportHorizontalOffset, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <ScrollBar x:Name="PART_HorizontalScrollBar" Grid.Column="1" Maximum="{TemplateBinding ScrollableWidth}" Orientation="Horizontal" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </ScrollViewer.Template>
+                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsGrouping" Value="true"/>
+                        <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="#F9FBFD">
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" Height="34" Margin="0,29,30,25">
+                <Grid Width="100" Height="34"  Margin="0,0,15,0">
+                    <StackPanel Width="100" Height="34" Orientation="Horizontal">
+                        <RadioButton Width="50" Height="34" Style="{StaticResource GridButtonLeft}">
+                            <fa:FontAwesome Icon="Bars"></fa:FontAwesome>
+                        </RadioButton>
+                        <RadioButton Width="50" Height="34" Style="{StaticResource GridButtonRight}">
+                            <fa:FontAwesome Icon="Table"></fa:FontAwesome>
+                        </RadioButton>
+                    </StackPanel>
+                </Grid>
+                <Border BorderBrush="{StaticResource ButtonColor2}" BorderThickness="0" CornerRadius="20">
+                    <Button 
+                                Width="88"
+                                Height="34"
+                                Foreground="White"
+                                FontSize="13"
+                                FontWeight="SemiBold"
+                                Background="{StaticResource ButtonColor2}"
+                                BorderThickness="0"
+                                materialDesign:RippleAssist.Feedback="#DD000000"
+                                Content="Add New"
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
+                                ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
+                </Border>
             </StackPanel>
-        </Grid>
-        <Grid Grid.Column="2">
-            <Grid.Resources>
-                <Style TargetType="ComboBoxItem" x:Key="Cbboxitem1">
-                    <Setter Property="FontSize" Value="13"></Setter>
-                    <Setter Property="Foreground" Value="Black"></Setter>
-
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type ComboBoxItem}">
-                                <Border BorderBrush="Transparent" BorderThickness="0.5" CornerRadius="10">
-                                    <StackPanel Width="123" Height="109">
-                                        <Grid Margin="15,14,15,18">
-                                            <TextBlock HorizontalAlignment="Left" Text="Year" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
-                                            <RadioButton HorizontalAlignment="Right" Background="#0095ff" Foreground="White"></RadioButton>
-                                        </Grid>
-                                        <Grid Margin="15,0,15,18">
-                                            <TextBlock HorizontalAlignment="Left" Text="Month" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
-                                            <RadioButton HorizontalAlignment="Right" Background="#0095ff" Foreground="White"></RadioButton>
-                                        </Grid>
-                                        <Grid Margin="15,0,15,14">
-                                            <TextBlock HorizontalAlignment="Left" Text="Day" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
-                                            <RadioButton HorizontalAlignment="Right" Background="#0095ff" Foreground="White"></RadioButton>
-                                        </Grid>
-                                    </StackPanel>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-                <Style TargetType="ComboBoxItem" x:Key="Cbboxitem2">
-                    <Setter Property="FontSize" Value="12"></Setter>
-                    <Setter Property="Foreground" Value="Black"></Setter>
-
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type ComboBoxItem}">
-                                <StackPanel Width="162" Height="219">
-                                    <StackPanel Width="162" Height="142">
-                                        <Grid Margin="15,14,15,18">
-                                            <TextBlock HorizontalAlignment="Left" Text="Graphics Design" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
-
-                                        </Grid>
-                                        <Grid Margin="15,0,15,18">
-                                            <TextBlock HorizontalAlignment="Left" Text="Angular Admin" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
-
-                                        </Grid>
-                                        <Grid Margin="15,0,15,14">
-                                            <TextBlock HorizontalAlignment="Left" Text="PSD to HTML" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
-
-                                        </Grid>
-                                        <Grid Margin="15,0,15,14">
-                                            <TextBlock HorizontalAlignment="Left" Text="IOS App Development" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
-
-                                        </Grid>
-                                    </StackPanel>
-                                    <StackPanel Height="76" Width="162">
-                                        <Grid Margin="15,4,34,18">
-                                            <TextBlock HorizontalAlignment="Left" Text="Home Development" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
-
-                                        </Grid>
-                                        <Grid Margin="15,0,0,14">
-                                            <TextBlock HorizontalAlignment="Left" Text="New Blog Post" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"></TextBlock>
-
-                                        </Grid>
-                                    </StackPanel>
-                                </StackPanel>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-                <Style TargetType="Button" x:Key="buttontop">
-                    <Setter Property="FontSize" Value="24"></Setter>
-                    <Setter Property="Background" Value="White"></Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="Transparent"></Setter>
-                            <Setter Property="Foreground" Value="White"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsFocused" Value="true">
-                            <Setter Property="Foreground" Value="White"></Setter>
-                            <Setter Property="Background" Value="black"></Setter>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-                <Style TargetType="Button" x:Key="ButtonNew">
-                    <Setter Property="FontSize" Value="13"></Setter>
-                    <Setter Property="Foreground" Value="White"></Setter>
-                    <Setter Property="Background" Value="#00E096"></Setter>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border Background="{TemplateBinding Background}" BorderBrush="#00E096" BorderThickness="0" CornerRadius="10">
-                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-                <Style TargetType="Button" x:Key="buttongrid">
-                    <Setter Property="FontSize" Value="14"></Setter>
-                    <Setter Property="Background" Value="White"></Setter>
-
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="Button">
-                                <Border BorderThickness="0.6" BorderBrush="LightGray" Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click">
-                            <BeginStoryboard>
-                                <Storyboard>
-
-                                    <ColorAnimation Duration="0:0:0.500" Storyboard.TargetProperty="Background.Color" To="#0095ff"></ColorAnimation>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                        <EventTrigger RoutedEvent="Button.MouseLeave">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation  Duration="0:0:0.500" Storyboard.TargetProperty="Background.Color" To="White"></ColorAnimation>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Style.Triggers>
-
-                </Style>
-            </Grid.Resources>
-            <Border BorderBrush="LightGray" BorderThickness="0.6">
-                <StackPanel Background="#F9FBFD">
-                    <!--Headergrid2-->
-                    <Grid>
-                        <StackPanel Orientation="Horizontal">
-
-                            <TextBlock Margin="30,30,45,0" Text="Departments" FontSize="20"></TextBlock>
-                            <Border Margin="0,25,15,0" Tag="Year" Width="92" Height="34" BorderBrush="Transparent" BorderThickness="0.5" CornerRadius="20">
-                                <ComboBox Tag="Year" Foreground="Black" Background="White" FontSize="13" Cursor="Hand">
-                                    <ComboBox.Items>
-                                        <ComboBoxItem Style="{StaticResource Cbboxitem1}">
-                                        </ComboBoxItem>
-                                    </ComboBox.Items>
-                                </ComboBox>
-                            </Border>
-                            <Grid Width="274" Height="34" Margin="0,25,0,0">
-                                <TextBlock x:Name="txtsearch" Margin="5,5,5,5" Text="Search..." FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+            <Grid Background="White" Width="1144" Height="auto" Margin="30,0,30,0">
+                <Border Background="White" Width="1144" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="0,1.5,0,1.5" CornerRadius="10">
+                    <StackPanel Orientation="Vertical">
+                        <Grid Height="50" Background="White">
+                            <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Departments" FontSize="17" Foreground="{StaticResource FontColor8}" FontWeight="SemiBold" Background="White"></TextBlock>
+                            <Grid HorizontalAlignment="Right" Width="300" Height="34" Margin="0,0,20,0">
+                                <TextBlock Margin="15,5,5,5" Text="Search..." FontSize="13"
+                                           Visibility="{Binding ElementName=txtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                                           HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                                 </TextBlock>
                                 <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="7">
-                                    <TextBox BorderThickness="0" Width="274" Height="34" Padding="4.5,6,0,0" VerticalAlignment="Center" FontSize="13"
-                                             Visibility="{Binding ElementName=txtsearch, Path=IsEnabled}"></TextBox>
+                                    <TextBox x:Name="txtfilter" BorderThickness="0" Width="274" Height="34" Padding="0,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                            ></TextBox>
                                 </Border>
                                 <fa:FontAwesome Margin="0,0,5,0" VerticalAlignment="Center" HorizontalAlignment="Right" Icon="Search" Foreground="black" FontSize="13"></fa:FontAwesome>
                             </Grid>
-                        </StackPanel>
-                        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                            <ComboBox Width="75" Height="16" Background="White" BorderThickness="0" Margin="35,34,0,0" Text="Project" FontSize="17">
-                                <ComboBox.Items>
-                                    <ComboBoxItem Style="{StaticResource Cbboxitem2}">
 
-                                    </ComboBoxItem>
-                                </ComboBox.Items>
-                            </ComboBox>
-                            <ComboBox Width="75" Height="16" Background="White" BorderThickness="0" Margin="35,34,0,0" Text="Project" FontSize="17">
-                                <ComboBox.Items>
-                                    <ComboBoxItem Style="{StaticResource Cbboxitem2}">
-
-                                    </ComboBoxItem>
-                                </ComboBox.Items>
-                            </ComboBox>
-                            <Button Margin="40,30,30,0" Style="{StaticResource buttontop}" BorderThickness="0">
-                                <fa:FontAwesome Icon="UserCircle"></fa:FontAwesome>
-                            </Button>
-                            <Button Margin="35,30,30,0" Style="{StaticResource buttontop}" BorderThickness="0">
-                                <fa:FontAwesome Icon="Bell"></fa:FontAwesome>
-                            </Button>
-                            <Button Margin="35,30,30,0" Style="{StaticResource buttontop}" BorderThickness="0">
-                                <fa:FontAwesome Icon="Envelope"></fa:FontAwesome>
-                            </Button>
-                        </StackPanel>
-                    </Grid>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Width="300" Height="34" Margin="0,29,30,25">
-                        <Border Margin="107,0,0,0" Width="88" BorderBrush="LightGray" BorderThickness="0.6" CornerRadius="12">
-                            <Grid Width="88" Height="34">
-                                <Button Width="44" HorizontalAlignment="Left" Style="{StaticResource buttongrid}">
-                                    <fa:FontAwesome Icon="Bars"></fa:FontAwesome>
-                                </Button>
-                                <Button Width="44" HorizontalAlignment="Right" Style="{StaticResource buttongrid}">
-                                    <fa:FontAwesome Icon="Table"></fa:FontAwesome>
-                                </Button>
-                            </Grid>
-                        </Border>
-                        <Button Margin="18,0,0,0" Style="{StaticResource ButtonNew}" Content="Add New" FontWeight="Medium" Width="88" Height="34">
-                        </Button>
-                    </StackPanel>
-                    <StackPanel Width="1144" Height="544" Margin="30,0,30,0">
-                        <Grid Background="White"  Margin="0,0,20,0" Width="1144" Height="56">
-                            <Border Width="1144" Background="White" BorderBrush="LightGray" BorderThickness="0.6">
-                            </Border>
-                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Text="Departments" FontSize="17" Foreground="Black"></TextBlock>
-                            <Grid Panel.ZIndex="0" HorizontalAlignment="Right" Width="274" Height="34">
-                                <Border Width="274" Background="White" BorderBrush="LightGray" BorderThickness="0.6" CornerRadius="20">
-                                    <TextBox x:Name="ListViewSearch" BorderThickness="0" Width="274" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right">
-                                    </TextBox>
-                                </Border>
-                                <fa:FontAwesome Panel.ZIndex="1" Margin="0,0,20,0" Icon="Search" Foreground="LightGray" FontSize="13" FontWeight="Light" VerticalAlignment="Center" HorizontalAlignment="Right"></fa:FontAwesome>
-                            </Grid>
                         </Grid>
-                        <ListView Height="480" Name="Users">
-                            <ListView.View>
-                                <GridView>
-                                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding number}">
 
-                                    </GridViewColumn>
-                                    <GridViewColumn Width="270" Header="Departments Name" DisplayMemberBinding="{Binding Departments_Name}"></GridViewColumn>
-                                    <GridViewColumn Width="270" Header="Departments Head" DisplayMemberBinding="{Binding Departments_Head}"></GridViewColumn>
-                                    <GridViewColumn Width="270" Header="Total Employee" DisplayMemberBinding="{Binding Employee_Number}"></GridViewColumn>
-                                    <GridViewColumn Width="264" Header="Action"></GridViewColumn>
-                                </GridView>
-                            </ListView.View>
-                        </ListView>
+                        <DataGrid Height="480" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate3}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="#" Binding="{Binding Number}"  IsReadOnly="True" CanUserResize="False" Width="139"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Departments Name" Binding="{Binding Departments_Name}" IsReadOnly="True" CanUserResize="False" Width="250"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Departments Head" Binding="{Binding Departments_Head}" IsReadOnly="True" CanUserResize="False" Width="250"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Total Employee" Binding="{Binding Total}" IsReadOnly="True" CanUserResize="False" Width="300"></DataGridTextColumn>
+                                <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="Auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Name="Button_Wrapper" Orientation="Horizontal">
+                                                <Button Margin="0,0,10,0">
+                                                    <fa:FontAwesome Icon="Edit" FontSize="13"></fa:FontAwesome>
+                                                </Button>
+                                                <Button Margin="0,0,10,0">
+                                                    <fa:FontAwesome Icon="Trash" FontSize="13"></fa:FontAwesome>
+                                                </Button>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </StackPanel>
-                </StackPanel>
-            </Border>
-        </Grid>
+                </Border>
+            </Grid>
+        </StackPanel>
     </Grid>
 </UserControl>
