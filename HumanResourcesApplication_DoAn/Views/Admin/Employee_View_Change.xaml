@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="HumanResourcesApplication_DoAn.Views.Admin.Employee_View_Change"
+﻿<Window x:Class="HumanResourcesApplication_DoAn.Views.Admin.Employee_View_Change"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -483,4 +483,4 @@
 
         </Grid>
     </Grid>
-</UserControl>
+</Window>
