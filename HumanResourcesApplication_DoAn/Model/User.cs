@@ -27,5 +27,6 @@ namespace HumanResourcesApplication_DoAn.Model
         public string? payrollId { get; set; }
         public string? avatar { get; set;}
         public bool gender { get; set;}
+        public string? insuranceId { get; set;}
     }
 }

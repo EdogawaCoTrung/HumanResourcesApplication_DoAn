@@ -23,7 +23,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         public LeaveRequestsViewModel()
         {
-            leaveRequestsRepository = new LeaveRequestsRepository();
+            leaveRequestsRepository = new ListLeaveRequestsRepository();
             ListLeaveRequests = new List<LeaveRequest>();
             listUsers = new ListUsersRepository();
             ListLeaveRequests = leaveRequestsRepository.ListLeaveRequests();
@@ -32,7 +32,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             Present = 0;
             for(int i = 0; i < ListLeaveRequests.Count; i++)
             {
-                if (ListLeaveRequests[i].startDate<=DateTime.Now && ListLeaveRequests[i].endDate >= DateTime.Now)
+                if (ListLeaveRequests[i].startDate <= DateOnly.FromDateTime(DateTime.Now) && ListLeaveRequests[i].endDate >= DateOnly.FromDateTime(DateTime.Now))
                 {
                     Absence++;
                 }

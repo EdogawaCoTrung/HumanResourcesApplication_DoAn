@@ -10,8 +10,8 @@ namespace HumanResourcesApplication_DoAn.Model
     {
         public string? leaveId { get; set; }
         public string? userId { get; set; }
-        public DateTime startDate { get; set; }
-        public DateTime endDate { get; set; }
+        public DateOnly startDate { get; set; }
+        public DateOnly endDate { get; set; }
         public string? reason { get; set; }
         public string? leaveType { get; set; }
         public virtual User? User { get; set; }

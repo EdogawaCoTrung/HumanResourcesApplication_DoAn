@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesApplication_DoAn.Repositories
 {
-    public class LeaveRequestsRepository : RepositoryBase, IListLeaveRequestsRepository
+    public class ListLeaveRequestsRepository : RepositoryBase, IListLeaveRequestsRepository
     {
         public List<LeaveRequest> ListLeaveRequests()
         {
@@ -24,8 +24,8 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 LeaveRequest _leaveRequest = new LeaveRequest();
                 _leaveRequest.leaveId = reader["LEAVE_ID"].ToString();
                 _leaveRequest.userId = reader["USERID"].ToString();
-                _leaveRequest.startDate = DateTime.Parse(reader["STARTDATE"].ToString());
-                _leaveRequest.endDate = DateTime.Parse(reader["ENDDATE"].ToString());
+                _leaveRequest.startDate = DateOnly.FromDateTime(DateTime.Parse(reader["STARTDATE"].ToString()));
+                _leaveRequest.endDate = DateOnly.FromDateTime(DateTime.Parse(reader["ENDDATE"].ToString()));
                 _leaveRequest.reason = reader["REASON"].ToString();
                 _leaveRequest.leaveType = reader["LEAVE_TYPE"].ToString();
                 _leaveRequest.User.userName = reader["USERNAME"].ToString();
