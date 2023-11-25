@@ -24,5 +24,10 @@ namespace HumanResourcesApplication_DoAn.Views.Employee
         {
             InitializeComponent();
         }
+
+        private void Border_ImageFailed(object sender, ExceptionRoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
