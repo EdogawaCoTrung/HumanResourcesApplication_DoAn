@@ -127,22 +127,20 @@
                                     Width="80"
                                     CornerRadius="50"
                                     BorderBrush="Transparent"
-                              
+                                    Background="#00E096"
                                     >
+                                
+                                
 
-                                <Border.Background>
-                                    
-                                        <ImageBrush ImageSource="/Resources/Images/gmail.png" ></ImageBrush>
-                                    
-                                </Border.Background>
-                                    
                                 <Button Width="80"
                                         Height="80"
                                         Background="Transparent"
                                         BorderBrush="{StaticResource Color2}"
                                         BorderThickness="0"
-                                        FontSize="50" >
-                                    
+                                        FontSize="50"
+                                        
+                                        >
+                                    <fa:ImageAwesome Foreground="White" Icon="Phone"></fa:ImageAwesome>
                                 </Button>
                             </Border>
 
@@ -186,17 +184,17 @@
                        Width="200"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
-                       Text="Phone Number"
+                       Text="Email"
                        FontSize="25"
                        TextAlignment="Left"
                        Foreground="LightGray"
                        Padding="0,0,10,10"/>
                     <TextBlock Margin="10,0,0,0"
                        Height="50"
-                       Width="150"
+                       Width="200"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
-                       Text="0123456"
+                       Text="user01@gmail.com"
                        FontSize="20"
                        TextAlignment="Left"
                        Foreground="Black"
@@ -275,7 +273,7 @@
                         Width="200"
                         VerticalAlignment="Top"
                         HorizontalAlignment="Left"
-                        Text="Education"
+                        Text="Role"
                         FontSize="25"
                         TextAlignment="Left"
                         Foreground="LightGray"
@@ -285,7 +283,7 @@
                        Width="310"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
-                       Text="Bachelor of Software Engineering Univeersity of Information and Technology"
+                       Text=""
                        FontSize="20"
                        TextWrapping="Wrap"
                        TextAlignment="Left"
