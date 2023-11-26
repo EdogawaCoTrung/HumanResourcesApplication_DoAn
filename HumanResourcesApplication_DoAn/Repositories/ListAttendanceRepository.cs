@@ -32,6 +32,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 _attendance.status = reader["STATUS_ATTENDANCE"].ToString() == "0" ? "Absent" : "Present";
                 _listAttendance.Add(_attendance);
             }
+            connection.Close();
             return (_listAttendance);
         }
     }

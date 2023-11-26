@@ -1,13 +1,27 @@
-﻿using System;
+﻿using HumanResourcesApplication_DoAn.Model;
+using HumanResourcesApplication_DoAn.Repositories;
+using HumanResourcesApplication_DoAn.Utils;
+using HumanResourcesApplication_DoAn.ViewModel.Login;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
 {
     public class AccountViewModel : ViewModelBase
     {
+        IUserRepository userRepository;
+        User _user;
+        public User user { get => _user; set { _user = value; OnPropertyChanged(nameof(user)); } }
+        public AccountViewModel()
+        {
+            userRepository = new UserRepository();
+            user = new User();
+            user = MyApp.currentUser;
+        }
     }
 }
