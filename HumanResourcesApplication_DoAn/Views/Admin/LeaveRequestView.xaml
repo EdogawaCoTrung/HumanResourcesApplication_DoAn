@@ -99,18 +99,7 @@
                 <!--HeaderView-->
                 
                 <Grid Margin="0 0 0 0">
-                    <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
-                        <RadioButton 
-                            Style="{StaticResource TopBorderTriggerButton}">
-                            <TextBlock Text="All" />
-                        </RadioButton>
-                        <RadioButton Style="{StaticResource TopBorderTriggerButton}">
-                            <TextBlock Text="View"/>
-                        </RadioButton>
-                        <RadioButton Style="{StaticResource TopBorderTriggerButton}">
-                            <TextBlock Text="Leave Request"/>
-                        </RadioButton>
-                    </StackPanel>
+              
                     <StackPanel HorizontalAlignment="Right" Margin="0,10,0,0">
                         <Border BorderBrush="{StaticResource ButtonColor2}" 
                                 BorderThickness="0" 

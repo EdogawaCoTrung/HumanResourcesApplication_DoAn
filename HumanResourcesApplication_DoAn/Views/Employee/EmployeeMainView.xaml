@@ -80,7 +80,8 @@
                     </RadioButton>
                     <RadioButton Style="{StaticResource SecondSideBarButton}"
                                  Command="{Binding ShowAccountViewCommand}">
-                        <TextBlock Margin="13.5,0,0,0">
+                        <TextBlock 
+                            Margin="17,0,0,0">
                         <fa:FontAwesome Icon="User" Margin="0,0,10,0"></fa:FontAwesome>
                     Account
                         </TextBlock>

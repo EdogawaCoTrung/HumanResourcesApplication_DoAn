@@ -8,7 +8,7 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="AddLeaveRequest" Height="599" Width="680">
+        Title="AddLeaveRequest" Height="650" Width="680">
     <Window.DataContext>
         <evm:AddLeaveRequestVM/>
     </Window.DataContext>

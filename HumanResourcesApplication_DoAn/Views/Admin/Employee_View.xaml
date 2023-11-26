@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              Background="{StaticResource Color2}"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
-             d:DesignHeight="831" d:DesignWidth="1204">
+             d:DesignHeight="750" d:DesignWidth="1100">
     <Grid>
         <Border CornerRadius="20" 
         BorderThickness="1" 
