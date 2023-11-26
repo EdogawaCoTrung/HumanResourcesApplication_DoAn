@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         xmlns:Employee="clr-namespace:HumanResourcesApplication_DoAn.Views.Employee" 
         xmlns:Login="clr-namespace:HumanResourcesApplication_DoAn.Views.Login"
-        Title="MainWindow" Height="871" Width="1440">
+        Title="MainWindow" Height="500" Width="800">
     <Grid>
         <login:LoginWindow/>
     </Grid>

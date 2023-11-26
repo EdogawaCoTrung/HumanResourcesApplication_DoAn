@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HumanResourcesApplication_DoAn.Model;
+using HumanResourcesApplication_DoAn.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,14 +18,9 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         private string? _startDate;
         private string? _endDate;
         private string? _note;
-        private List<String> _listLeaveReason;
-
-        public AddLeaveRequestVM(List<string> listLeaveReason)
-        {
-            ListLeaveReason = listLeaveReason;
-        }
-
+        private List<string?> listLeaveRequest;
         public ICommand SendCommand { get; }
+        public ISendLeaveRequestRepository sendLeaveRequestRepository;
         public string? UserId { get => _userId; set { _userId = value; OnPropertyChanged(nameof(UserId)); } }
         public string? UserName { get => _userName; set { _userName = value; OnPropertyChanged(nameof(UserName)); } }
         public string? LeaveType { get => _leaveType; set { _leaveType = value; OnPropertyChanged(nameof(LeaveType)); } }
@@ -31,25 +28,22 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         public string? EndDate { get => _endDate; set { _endDate = value; OnPropertyChanged(nameof(EndDate)); } }
         public string? Note { get => _note; set { _note = value; OnPropertyChanged(nameof(Note)); } }
 
-        public List<string> ListLeaveReason { 
-            get => _listLeaveReason; 
-            set
-            {
-                _listLeaveReason = value;
-                OnPropertyChanged(nameof(ListLeaveReason));
-            }
-        }
+        public List<string?> ListLeaveRequest { get => listLeaveRequest; set { listLeaveRequest = value; OnPropertyChanged(nameof(ListLeaveRequest)); } }
 
         public AddLeaveRequestVM()
         {
             SendCommand = new ViewModelCommand(ExecuteLeaveCommand, CanExecuteLeaveCommand);
-            ListLeaveReason = new List<string>() {"abc","def","ghj","klm"};
-
+            sendLeaveRequestRepository = new SendLeaveRequestRepository();
+            ListLeaveRequest = new List<string?>();
+            ListLeaveRequest.Add("Annual Leave");
+            ListLeaveRequest.Add("Sick Leave");
+            ListLeaveRequest.Add("Maternity Leave");
+            ListLeaveRequest.Add("Special Leave");
         }
 
         private void ExecuteLeaveCommand(object? obj)
         {
-            MessageBox.Show(Note);
+            sendLeaveRequestRepository.SendLeaveRequest(UserId, StartDate, EndDate, Note, LeaveType);
         }
         private bool CanExecuteLeaveCommand(object? obj)
         {
@@ -58,9 +52,9 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
                 validData = false;
             if(UserName == null || UserName=="")
                 validData = false;
-            //if (LeaveType == null)
-            //    validData = false;
-            if(StartDate == null || StartDate == "" )
+            if (LeaveType == null)
+                validData = false;
+            if (StartDate == null || StartDate == "" )
                 validData = false;
             if(EndDate == null || EndDate == "")
                 validData = false;
