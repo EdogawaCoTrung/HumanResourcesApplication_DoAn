@@ -10,11 +10,7 @@
              Background="{StaticResource Color2}"
              xmlns:vm="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.EmployeeVM"
              >
-    <UserControl.DataContext>
-        <vm:AccountViewModel/>
-    </UserControl.DataContext>
     <UserControl.Resources>
-        
     </UserControl.Resources>
     <Border CornerRadius="20" 
             BorderThickness="1" 

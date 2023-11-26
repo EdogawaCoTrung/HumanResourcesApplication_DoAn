@@ -17,11 +17,14 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
 {
     public class AccountViewModel : ViewModelBase
     {
+
         IUserRepository userRepository;
         User _user;
         public User user { get => _user; set { _user = value; OnPropertyChanged(nameof(user)); } }
 
         public ICommand LeaveCommand { get; }
+
+
         public AccountViewModel()
         {
             userRepository = new UserRepository();
@@ -30,10 +33,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
             LeaveCommand = new ViewModelCommand(ExecuteLeaveCommand, CanExecuteLeaveCommand);
         }
 
-        private void ExecuteLeaveCommand(object obj)
+        private void ExecuteLeaveCommand(object? obj)
         {
             AddLeaveRequest addLeaveRequest = new AddLeaveRequest();
-            addLeaveRequest.ShowDialog(obj);
+            addLeaveRequest.ShowDialog();
         }
         private bool CanExecuteLeaveCommand(object? obj)
         {
