@@ -373,6 +373,7 @@
                         
                         Margin="100,0,0,0" >
                     <Button Height="40"
+                            Command="{Binding ChangeCommand}"
                             BorderThickness="0"
                             Background="Transparent"
                             Content="Change"

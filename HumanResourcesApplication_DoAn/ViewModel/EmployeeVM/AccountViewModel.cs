@@ -23,6 +23,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         public User user { get => _user; set { _user = value; OnPropertyChanged(nameof(user)); } }
 
         public ICommand LeaveCommand { get; }
+        public ICommand ChangeCommand { get; }
 
 
         public AccountViewModel()
@@ -31,6 +32,18 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
             user = new User();
             user = MyApp.currentUser;
             LeaveCommand = new ViewModelCommand(ExecuteLeaveCommand, CanExecuteLeaveCommand);
+            ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
+        }
+
+        private bool CanExecuteChangeCommand(object? obj)
+        {
+            return true;
+        }
+
+        private void ExecuteChangeCommand(object? obj)
+        {
+            Employee_Account_ChangeView changeView = new Employee_Account_ChangeView();
+            changeView.ShowDialog();
         }
 
         private void ExecuteLeaveCommand(object? obj)

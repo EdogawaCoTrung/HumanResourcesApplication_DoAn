@@ -44,6 +44,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         private void ExecuteLeaveCommand(object? obj)
         {
             sendLeaveRequestRepository.SendLeaveRequest(UserId, StartDate, EndDate, Note, LeaveType);
+            Application.Current.MainWindow.Close();
         }
         private bool CanExecuteLeaveCommand(object? obj)
         {
