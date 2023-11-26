@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace HumanResourcesApplication_DoAn.Views.Employee
@@ -18,12 +17,11 @@ namespace HumanResourcesApplication_DoAn.Views.Employee
     /// <summary>
     /// Interaction logic for AddLeaveRequest.xaml
     /// </summary>
-    public partial class AddLeaveRequest : UserControl
+    public partial class AddLeaveRequest : Window
     {
         public AddLeaveRequest()
         {
             InitializeComponent();
         }
-
     }
 }

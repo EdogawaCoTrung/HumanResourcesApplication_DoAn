@@ -1,17 +1,16 @@
-﻿<UserControl x:Class="HumanResourcesApplication_DoAn.Views.Employee.AddLeaveRequest"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Employee" 
-             xmlns:fa="http://schemas.fontawesome.io/icons/"
-             mc:Ignorable="d" 
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             d:DesignHeight="599" d:DesignWidth="670"
-             >
-    <UserControl.Resources>
-        <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
-    </UserControl.Resources>
+﻿<Window x:Class="HumanResourcesApplication_DoAn.Views.Employee.AddLeaveRequest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Employee"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="AddLeaveRequest" Height="599" Width="680">
+    <Window.Resources>
+            <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
+        </Window.Resources>
     <Grid Background="{StaticResource Color2}">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -27,16 +26,6 @@
                                Text="Leave Reason"
                                FontWeight="Bold"
                                FontSize="20" />
-                    <Button BorderThickness="0" 
-                            Width="50" Margin="0,0,10,0"  
-                            HorizontalAlignment="Right" 
-                            Style="{StaticResource MaterialDesignFlatSecondaryButton}"
-                            Background="{StaticResource Color2}">
-                        <TextBlock Margin="1,1,1,1" 
-                                   Text="X" 
-                                   FontSize="20" 
-                                   Foreground="Black"/>
-                    </Button>
                 </Grid>
             </Border>
         </Grid>
@@ -51,14 +40,14 @@
 
             </Grid>
             <Grid Width="630">
-                
-                    <StackPanel VerticalAlignment="Center"
+
+                <StackPanel VerticalAlignment="Center"
                         Height="60"
                         Width="630"
                         Orientation="Horizontal"
                         >
-                        <Grid Width="200" Height="34" Margin="0,0,15,0">
-                            <TextBlock Margin="10,5,5,5" 
+                    <Grid Width="200" Height="34" Margin="0,0,15,0">
+                        <TextBlock Margin="10,5,5,5" 
                                        Text="Employee ID *" 
                                        FontSize="13"
                                Visibility="{Binding ElementName=EmployeeID, 
@@ -68,11 +57,11 @@
                                        VerticalAlignment="Center" 
                                        Panel.ZIndex="1" 
                                        IsHitTestVisible="False">
-                            </TextBlock>
-                            <Border BorderBrush="LightGray" 
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" 
                                     BorderThickness="1" 
                                     CornerRadius="7">
-                                <TextBox x:Name="EmployeeID" 
+                            <TextBox x:Name="EmployeeID" 
                                          BorderThickness="0" 
                                          Width="200" 
                                          Height="34" 
@@ -80,10 +69,10 @@
                                          VerticalAlignment="Center" 
                                          FontSize="13"
                                 ></TextBox>
-                            </Border>
-                        </Grid>
-                        <Grid Width="200" Height="34" Margin="0,0,15,0">
-                            <TextBlock Margin="10,5,5,5" 
+                        </Border>
+                    </Grid>
+                    <Grid Width="200" Height="34" Margin="0,0,15,0">
+                        <TextBlock Margin="10,5,5,5" 
                                Text="Name *" 
                                FontSize="13"
                                Visibility="{Binding ElementName=Name, 
@@ -93,11 +82,11 @@
                                            VerticalAlignment="Center" 
                                            Panel.ZIndex="1" 
                                            IsHitTestVisible="False">
-                            </TextBlock>
-                            <Border BorderBrush="LightGray" 
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" 
                                     BorderThickness="1" 
                                     CornerRadius="7">
-                                <TextBox x:Name="Name" 
+                            <TextBox x:Name="Name" 
                                  BorderThickness="0" 
                                  Width="200" 
                                  Height="34" 
@@ -105,24 +94,24 @@
                                  VerticalAlignment="Center" 
                                  FontSize="13"
                                 >
-                                </TextBox>
-                            </Border>
-                        </Grid>
-                        <Grid Height="34" Width="200">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="3*"/>
-                                <RowDefinition Height="4*"/>
-                            </Grid.RowDefinitions>
+                            </TextBox>
+                        </Border>
+                    </Grid>
+                    <Grid Height="34" Width="200">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="4*"/>
+                        </Grid.RowDefinitions>
 
-                            <ComboBox BorderBrush="LightGray"
+                        <ComboBox BorderBrush="LightGray"
                                           BorderThickness="1"
                                           Width="200"
                                           Height="30" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top">
-                                <ComboBoxItem Style="{StaticResource Cbboxitem3}" />
-                            </ComboBox>
+                            <ComboBoxItem Style="{StaticResource Cbboxitem3}" />
+                        </ComboBox>
 
-                        </Grid>
-                    </StackPanel>
+                    </Grid>
+                </StackPanel>
                 <Border BorderBrush="#979797"
                         BorderThickness="0,0,0,1"
                         Width="650">
@@ -141,11 +130,11 @@
                                            HorizontalAlignment="Left" 
                                            VerticalAlignment="Center" 
                                            Panel.ZIndex="1" 
-                                           IsHitTestVisible="False">    
+                                           IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" 
                                     BorderThickness="1" 
-                                    CornerRadius="7">   
+                                    CornerRadius="7">
                                 <TextBox x:Name="StartDay" 
                                      BorderThickness="0" 
                                      Width="200" 
@@ -171,7 +160,7 @@
                             </TextBlock>
                             <Border BorderBrush="LightGray" 
                                     BorderThickness="1" 
-                                    CornerRadius="7">   
+                                    CornerRadius="7">
                                 <TextBox x:Name="EndDate" 
                                          BorderThickness="0" 
                                          Width="200" 
@@ -252,4 +241,4 @@
 
         </Grid>
     </Grid>
-</UserControl>
+</Window>
