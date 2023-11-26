@@ -115,8 +115,8 @@
                                 ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
                 </Border>
             </StackPanel>
-            <Grid Background="White" Width="1144" Height="auto" Margin="0,0,0,0">
-                <Border Background="White" Width="1144" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="0,1.5,0,1.5" CornerRadius="10">
+            <Grid Background="White" Height="auto" Margin="0,0,0,0">
+                <Border Background="White" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="0,1.5,0,1.5" CornerRadius="10">
                     <StackPanel Orientation="Vertical">
                         <Grid Height="50" Background="White">
                             <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Departments" FontSize="17" Foreground="{StaticResource FontColor8}" FontWeight="SemiBold" Background="White"></TextBlock>
