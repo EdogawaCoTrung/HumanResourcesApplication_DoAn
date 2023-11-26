@@ -115,9 +115,12 @@
                             </Grid.RowDefinitions>
 
                             <ComboBox BorderBrush="LightGray"
-                                          BorderThickness="1"
-                                          Width="200"
-                                          Height="30" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top">
+                                      BorderThickness="1"
+                                      Width="200"
+                                      Height="30" 
+                                      Margin="0,0,0,0" 
+                                      Grid.RowSpan="2" 
+                                      VerticalAlignment="Top">
                                 <ComboBoxItem Style="{StaticResource Cbboxitem3}" />
                             </ComboBox>
 
@@ -153,7 +156,8 @@
                                      Padding="10,8,10,0"  
                                      VerticalAlignment="Center" 
                                      FontSize="13"
-        >
+                                     
+                                >           
                                 </TextBox>
                             </Border>
                         </Grid>
