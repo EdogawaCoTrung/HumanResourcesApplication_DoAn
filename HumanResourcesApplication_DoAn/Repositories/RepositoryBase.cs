@@ -26,6 +26,6 @@ namespace HumanResourcesApplication_DoAn.Repositories
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+        } 
     }
 }

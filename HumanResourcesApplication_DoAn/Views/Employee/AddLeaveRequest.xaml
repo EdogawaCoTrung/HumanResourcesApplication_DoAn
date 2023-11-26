@@ -116,7 +116,6 @@
                                           SelectedItem="{Binding LeaveType}"
                                           Height="30" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top">
                         </ComboBox>
-
                     </Grid>
                 </StackPanel>
                 <Border BorderBrush="#979797"
@@ -150,7 +149,8 @@
                                      Padding="10,8,10,0"  
                                      VerticalAlignment="Center" 
                                      FontSize="13"
-        >
+                                     
+                                >           
                                 </TextBox>
                             </Border>
                         </Grid>

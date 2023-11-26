@@ -74,12 +74,13 @@
                         <Border BorderBrush="LightGray" 
                              BorderThickness="1" 
                              CornerRadius="5">
-                            <TextBox x:Name="LOGINNAME" 
-                                  BorderThickness="0"  
+                            <TextBlock x:Name="LOGINNAME"
+                                   IsEnabled="False"
+                                   Background="LightGray"
                                   Height="34" 
                                   Padding="10,8,10,0"  
                                   VerticalAlignment="Center" FontSize="13"
-                                      ></TextBox>
+                                      ></TextBlock>
                         </Border>
                     </Grid>
                     <Grid Width="200" 
@@ -240,13 +241,13 @@
                         <Border BorderBrush="LightGray" 
                                  BorderThickness="1" 
                                  CornerRadius="5"> 
-                            <TextBox x:Name="ROLE_ID" 
-                                      BorderThickness="0"  
+                            <TextBlock x:Name="ROLE_ID" 
+                                      Background="LightGray" 
                                       Height="34" 
                                       Padding="10,8,10,0" 
                                       VerticalAlignment="Center" 
                                       FontSize="13" 
-                             ></TextBox>
+                             ></TextBlock>
                         </Border>
                     </Grid>
                 </StackPanel>
