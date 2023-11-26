@@ -10,7 +10,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
     class MainViewViewModel:ViewModelBase
     {
         private UserViewModel _userViewModel;
-        private EmployeeAllViewModel _employeeAllViewModel;
+        private EmployeeMainViewViewModel _employeeMainViewViewModel;
         private DashBoardViewModel _dashboardViewModel;
         private PayrollViewModel _payrollViewModel;
         private DepartmentViewModel _departmentViewModel;
@@ -29,13 +29,13 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 OnPropertyChanged(nameof(UserViewModel));
             } 
         }
-        public EmployeeAllViewModel EmployeeAllViewModel 
+        public EmployeeMainViewViewModel EmployeeAllViewViewModel 
         { 
-            get => _employeeAllViewModel;
+            get => _employeeMainViewViewModel;
             set
             {
-                _employeeAllViewModel = value;
-                OnPropertyChanged(nameof(EmployeeAllViewModel));   
+                _employeeMainViewViewModel = value;
+                OnPropertyChanged(nameof(EmployeeMainViewViewModel));   
             }
         }
         public DashBoardViewModel DashboardViewModel 
@@ -97,10 +97,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public ViewModelCommand ShowDashBoardViewCommand { get; }
         public ViewModelCommand ShowDepartmentViewCommand {  get; }
         public ViewModelCommand ShowAccountViewCommand { get; }
-        public ViewModelCommand ShowEmployeeViewCommand { get; }
+        public ViewModelCommand ShowEmployeeMainViewCommand { get; }
         public ViewModelCommand ShowAttendanceViewCommand {  get; }
         public ViewModelCommand ShowPayrollViewCommand { get; }
-       
+        
 
         //Constructor
         public MainViewViewModel()
@@ -110,20 +110,20 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             ShowAttendanceViewCommand = new ViewModelCommand(ExcuteShowAttendanceViewCommand);
             ShowDashBoardViewCommand = new ViewModelCommand(ExcuteShowDashBoardViewCommand);
             ShowDepartmentViewCommand = new ViewModelCommand(ExcuteShowDepartmentViewCommand);
-            ShowEmployeeViewCommand = new ViewModelCommand(ExcuteShowEmployeeViewCommand);
+            ShowEmployeeMainViewCommand = new ViewModelCommand(ExcuteShowEmployeeMainViewCommand);
             ShowPayrollViewCommand = new ViewModelCommand(ExcuteShowPayrollViewCommand);
             //default view
             ExcuteShowDashBoardViewCommand(null);
             
         }
 
-        private void ExcuteShowEmployeeViewCommand(object? obj)
+        private void ExcuteShowEmployeeMainViewCommand(object? obj)
         {
-            if (_employeeAllViewModel == null) 
+            if (_employeeMainViewViewModel == null) 
             {
-                _employeeAllViewModel = new EmployeeAllViewModel();
+                _employeeMainViewViewModel = new ();
             }
-            CurrentChildView = _dashboardViewModel;
+            CurrentChildView = _employeeMainViewViewModel;
             Caption = "Employee";
         }
 
