@@ -29,7 +29,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 _user.password = reader["PASSWORD"].ToString();
                 _user.isAdmin = reader["ISADMIN"].ToString() == "0" ? false : true;
                 _user.phoneNumber = reader["PHONENUMBER"].ToString();
-                _user.dateOfBirth = DateTime.Parse(reader["DATEOFBIRTH"].ToString());
+                _user.dateOfBirth = DateOnly.FromDateTime(DateTime.Parse(reader["DATEOFBIRTH"].ToString()));
                 _user.countryId = reader["COUNTRY_ID"].ToString();
                 _user.educationId = reader["EDUCATION_ID"].ToString();
                 _user.email = reader["EMAIL"].ToString();
@@ -37,12 +37,11 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 _user.twitter = reader["TWITTER"].ToString();
                 _user.linkedIn = reader["LINKEDIN"].ToString();
                 _user.departmentId = reader["DEPARTMENT_ID"].ToString();
-                _user.joinDate = DateTime.Parse(reader["JOIN_DATE"].ToString());
+                _user.joinDate = DateOnly.FromDateTime(DateTime.Parse(reader["JOIN_DATE"].ToString()));
                 _user.roleId = reader["ROLE_NAME"].ToString();
                 _user.payrollId = reader["PAYROLL_ID"].ToString();
                 _user.avatar = reader["AVATAR"].ToString();
                 _user.gender = reader["GENDER"].ToString() == "0" ? false : true;
-                _user.insuranceId = reader["INSURANCE_ID"].ToString();
                 _users.Add(_user);
             }
             connection.Close();

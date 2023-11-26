@@ -11,7 +11,6 @@
              xmlns:vm="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.EmployeeVM"
              >
     <UserControl.Resources>
-
     </UserControl.Resources>
     <Border CornerRadius="20" 
             BorderThickness="1" 
@@ -41,7 +40,7 @@
                             BorderThickness="1"
                             Background="{StaticResource ButtonColor5}"
                             CornerRadius="200">
-                        <Image Source="{Binding Avatar}" />
+                        <Image Source="{Binding user.avatar}" />
                     </Border>
                     <StackPanel Height="300"
                                 VerticalAlignment="Center"
@@ -50,11 +49,11 @@
                         <TextBlock Margin="60,30,20,0"
                                    Height="50"
                                    FontSize="40"
-                                   Text="Hattie Watkins"
+                                   Text="{Binding user.userName}"
                                    TextAlignment="Center">
 
                         </TextBlock>
-                        <TextBlock Text="Web developer"
+                        <TextBlock Text="{Binding user.roleId}"
                                    TextAlignment="Center"
                                    Width="400"
                                    FontSize="20"
@@ -174,7 +173,7 @@
                        Width="150"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
-                       Text="Development"
+                       Text="{Binding user.departmentId}"
                        FontSize="20"
                        TextAlignment="Left"
                        Foreground="Black"
@@ -194,7 +193,7 @@
                        Width="200"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
-                       Text="user01@gmail.com"
+                       Text="{Binding user.email}"
                        FontSize="20"
                        TextAlignment="Left"
                        Foreground="Black"
@@ -214,7 +213,7 @@
                        Width="310"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
-                       Text="Bachelor of Software Engineering Univeersity of Information and Technology"
+                       Text="{Binding user.educationId}"
                        FontSize="20"
                        TextWrapping="Wrap"
                        TextAlignment="Left"
@@ -243,7 +242,7 @@
                         Width="150"
                         VerticalAlignment="Top"
                         HorizontalAlignment="Left"
-                        Text="Male"
+                        Text="{Binding user.gender}"
                         FontSize="20"
                         TextAlignment="Left"
                         Foreground="Black"
@@ -263,7 +262,7 @@
                         Width="150"
                         VerticalAlignment="Top"
                         HorizontalAlignment="Left"
-                        Text="VietNam"
+                        Text="{Binding user.countryId}"
                         FontSize="20"
                         TextAlignment="Left"
                         Foreground="Black"
@@ -283,7 +282,7 @@
                        Width="310"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
-                       Text=""
+                       Text="{Binding user.roleId}"
                        FontSize="20"
                        TextWrapping="Wrap"
                        TextAlignment="Left"
@@ -310,7 +309,7 @@
                          Width="150"
                          VerticalAlignment="Top"
                          HorizontalAlignment="Left"
-                         Text="30/04/1975"
+                         Text="{Binding user.dateOfBirth}"
                          FontSize="20"
                          TextAlignment="Left"
                          Foreground="Black"
@@ -330,7 +329,7 @@
                          Width="150"
                          VerticalAlignment="Top"
                          HorizontalAlignment="Left"
-                         Text="VietNam"
+                         Text="{Binding user.payrollId}"
                          FontSize="20"
                          TextAlignment="Left"
                          Foreground="Black"
@@ -352,7 +351,7 @@
                         Width="310"
                         VerticalAlignment="Top"
                         HorizontalAlignment="Left"
-                        Text="25/11/2023"
+                        Text="{Binding user.joinDate}"
                         FontSize="20"
                         TextWrapping="Wrap"
                         TextAlignment="Left"
@@ -389,6 +388,7 @@
                         CornerRadius="10"
                         Margin="100,0,0,0" >
                     <Button Height="40"
+                            Command="{Binding LeaveCommand}"
                             BorderThickness="0"
                             Background="Transparent"
                             Content="Leave"

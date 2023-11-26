@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
+namespace HumanResourcesApplication_DoAn.Model
 {
-    class AddLeaveRequestViewModel
+    public class InsuranceDetail
     {
+        string? userId;
+        string? insuranceId;
     }
 }
