@@ -4,10 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Employee"
+        xmlns:vme="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.EmployeeVM"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Employee_Account_ChangeView" Height="670" Width="670">
+    <Window.DataContext>
+        <vme:ChangeProfileVM/>
+    </Window.DataContext>
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
     </Window.Resources>
@@ -58,7 +62,8 @@
                         <Border BorderBrush="LightGray" 
                              BorderThickness="1" 
                              CornerRadius="5">
-                            <TextBox x:Name="USERNAME" 
+                            <TextBox x:Name="USERNAME"
+                                  Text="{Binding UserName}"
                                   BorderThickness="0"  
                                   Height="34" 
                                   Padding="10,8,10,0"  
@@ -103,6 +108,7 @@
                              BorderThickness="1" 
                              CornerRadius="5">
                             <TextBox x:Name="PASSWORD" 
+                                  Text="{Binding Password}"
                                   BorderThickness="0"  
                                   Height="34" 
                                   Padding="10,8,10,0"  
@@ -130,7 +136,8 @@
                         <Border BorderBrush="LightGray" 
                              BorderThickness="1" 
                              CornerRadius="5">
-                            <TextBox x:Name="PHONENUMBER" 
+                            <TextBox x:Name="PHONENUMBER"
+                                  Text="{Binding PhoneNumber}"
                                   BorderThickness="0"  
                                   Height="34" 
                                   Padding="10,8,10,0"  
@@ -153,7 +160,8 @@
                         <Border BorderBrush="LightGray" 
                              BorderThickness="1" 
                              CornerRadius="5">
-                            <TextBox x:Name="DATEOFBIRTH" 
+                            <TextBox x:Name="DATEOFBIRTH"
+                                  Text="{Binding DateOfBirth}"
                                   BorderThickness="0"  
                                   Height="34" 
                                   Padding="10,8,10,0"  
@@ -174,7 +182,8 @@
                         <Border BorderBrush="LightGray" 
                                  BorderThickness="1" 
                                  CornerRadius="5">
-                            <TextBox x:Name="GENDER" 
+                            <TextBox x:Name="GENDER"
+                                     Text="{Binding Gender}"
                                       BorderThickness="0"  
                                       Height="34" 
                                       Padding="10,8,10,0"  
@@ -200,6 +209,7 @@
                              BorderThickness="1" 
                              CornerRadius="5">
                             <TextBox x:Name="COUNTRY_ID" 
+                                  Text="{Binding Country}"
                                   BorderThickness="0"  
                                   Height="34" 
                                   Padding="10,8,10,0"  
@@ -222,7 +232,8 @@
                         <Border BorderBrush="LightGray" 
                              BorderThickness="1" 
                              CornerRadius="5">
-                            <TextBox x:Name="EDUCATION_ID" 
+                            <TextBox x:Name="EDUCATION_ID"
+                                  Text="{Binding Education}"
                                   BorderThickness="0"  
                                   Height="34" 
                                   Padding="10,8,10,0" 
@@ -309,7 +320,8 @@
                         <Border BorderBrush="LightGray" 
                              BorderThickness="1" 
                              CornerRadius="5">
-                            <TextBox x:Name="FACEBOOK" 
+                            <TextBox x:Name="FACEBOOK"
+                                  Text="{Binding Facebook}"
                                   BorderThickness="0"  
                                   Height="34" 
                                   Padding="10,8,10,0"  
@@ -333,6 +345,7 @@
                              BorderThickness="1" 
                              CornerRadius="5">
                             <TextBox x:Name="TWITTER" 
+                                  Text="{Binding Twitter}"
                                   BorderThickness="0"  
                                   Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                       ></TextBox>
@@ -355,7 +368,8 @@
                         <Border BorderBrush="LightGray" 
                              BorderThickness="1" 
                              CornerRadius="5">
-                            <TextBox x:Name="LINKEDIN" 
+                            <TextBox x:Name="LINKEDIN"
+                                  Text="{Binding LinkedIn}"
                                   BorderThickness="0"  
                                   Height="34" 
                                   Padding="10,8,10,0"  
@@ -383,7 +397,7 @@
                              CornerRadius="5">
 
                             <TextBox x:Name="EMAIL" 
-                                  
+                          Text="{Binding Email}"
                           BorderThickness="0"  
                           Height="34" Padding="10,8,10,0"  
                           VerticalAlignment="Center" 
@@ -407,6 +421,7 @@
                   
                   Foreground="#8F9BB3"/>
                 <Button Width="90"
+                  Command="{Binding ChangeCommand}"
                   Height="30"
                   Margin="0,10,0,10"
                  
