@@ -392,6 +392,7 @@
                         CornerRadius="10"
                         Margin="100,0,0,0" >
                     <Button Height="40"
+                            Command="{Binding LeaveCommand}"
                             BorderThickness="0"
                             Background="Transparent"
                             Content="Leave"
