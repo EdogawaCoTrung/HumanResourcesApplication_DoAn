@@ -13,6 +13,10 @@ using HumanResourcesApplication_DoAn.Repositories;
 using System.Net;
 using System.Threading;
 using System.Security.Principal;
+using HumanResourcesApplication_DoAn.Views.Employee;
+using HumanResourcesApplication_DoAn.Views.Admin;
+using MaterialDesignThemes.Wpf;
+using HumanResourcesApplication_DoAn.Utils;
 
 namespace HumanResourcesApplication_DoAn.ViewModel.Login
 {
@@ -48,7 +52,6 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Login
             userRepository = new UserRepository();
             LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
             RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPasswordCommand("", ""));
-            
         }
 
         private bool CanExecuteLoginCommand(object? obj)
@@ -68,6 +71,18 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Login
             {
                 Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(LoginName), null);
                 IsViewVisible = false;
+                if (userRepository.GetByLoginName(LoginName).isAdmin == false)
+                {
+                    EmployeeMainView employeeMainView = new EmployeeMainView();
+                    MyApp.currentUser = userRepository.GetByLoginName(LoginName);
+                    employeeMainView.Show();
+                }
+                else
+                {
+                    AdminMainView adminMainView = new AdminMainView();
+                    adminMainView.Show();
+                }
+                Application.Current.MainWindow.Close();
             }
             else
             {
