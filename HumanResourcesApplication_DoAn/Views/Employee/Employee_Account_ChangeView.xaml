@@ -1,0 +1,418 @@
+﻿<Window x:Class="HumanResourcesApplication_DoAn.Views.Employee.Employee_Account_ChangeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Employee"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Employee_Account_ChangeView" Height="670" Width="670">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
+    </Window.Resources>
+    <Grid Background="{StaticResource Color2}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="56"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Border BorderThickness="0,0,0,1" 
+              BorderBrush="{StaticResource FontColor2}">
+                <Grid>
+                    <TextBlock Margin="16,16,0,0" 
+                         Text="Change Information"
+                         FontWeight="SemiBold"
+                         FontSize="20" />
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid Margin="20,0,0,0" 
+           Grid.Row="1">
+            <StackPanel Margin="0,0,0,0" 
+                     Orientation="Vertical">
+                <TextBlock Margin="0,20,0,15" 
+                        Text="Informations" 
+                        FontWeight="SemiBold" 
+                        Foreground="Black" 
+                        FontSize="15"></TextBlock>
+                <StackPanel VerticalAlignment="Top" 
+                         Orientation="Horizontal">
+                    <Grid Width="200" 
+                       Margin="0,0,15,15"  
+                       Height="34">
+                        <TextBlock Margin="10,5,5,5" 
+                                Text="User Name" 
+                                FontSize="13"
+                                Visibility="{Binding ElementName=USERNAME, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Center" 
+                                Panel.ZIndex="1" 
+                                IsHitTestVisible="False">
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" 
+                             BorderThickness="1" 
+                             CornerRadius="5">
+                            <TextBox x:Name="USERNAME" 
+                                  BorderThickness="0"  
+                                  Height="34" 
+                                  Padding="10,8,10,0"  
+                                  VerticalAlignment="Center" FontSize="13"
+                                  ></TextBox>
+                        </Border>
+                    </Grid>
+                    <Grid Width="200" 
+                       Margin="0,0,15,15"  
+                       Height="34">
+                        <TextBlock Margin="10,5,5,5" 
+                                Text="Login Name" 
+                                FontSize="13"
+                                Visibility="{Binding ElementName=LOGINNAME, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                                HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" 
+                             BorderThickness="1" 
+                             CornerRadius="5">
+                            <TextBox x:Name="LOGINNAME" 
+                                  BorderThickness="0"  
+                                  Height="34" 
+                                  Padding="10,8,10,0"  
+                                  VerticalAlignment="Center" FontSize="13"
+                                      ></TextBox>
+                        </Border>
+                    </Grid>
+                    <Grid Width="200" 
+                       Margin="0,0,15,15"  
+                       Height="34">
+                        <TextBlock Margin="10,5,5,5" 
+                                Text="Password" 
+                                FontSize="13"
+                                Visibility="{Binding ElementName=PASSWORD, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Center" 
+                                Panel.ZIndex="1" 
+                                IsHitTestVisible="False">
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" 
+                             BorderThickness="1" 
+                             CornerRadius="5">
+                            <TextBox x:Name="PASSWORD" 
+                                  BorderThickness="0"  
+                                  Height="34" 
+                                  Padding="10,8,10,0"  
+                                  VerticalAlignment="Center" 
+                                  FontSize="13"
+                                      ></TextBox>
+                        </Border>
+                    </Grid>
+                    
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    
+                    <Grid Width="200" 
+                       Margin="0,0,15,15"  
+                       Height="34">
+                        <TextBlock Margin="10,5,5,5" 
+                                Text="Phone No" 
+                                FontSize="13"
+                                Visibility="{Binding ElementName=PHONENUMBER, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Center" 
+                                Panel.ZIndex="1" 
+                                IsHitTestVisible="False">
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" 
+                             BorderThickness="1" 
+                             CornerRadius="5">
+                            <TextBox x:Name="PHONENUMBER" 
+                                  BorderThickness="0"  
+                                  Height="34" 
+                                  Padding="10,8,10,0"  
+                                  VerticalAlignment="Center" FontSize="13"
+                                  ></TextBox>
+                        </Border>
+                    </Grid>
+                    <Grid Width="200" 
+                       Margin="0,0,15,15"  
+                       Height="34">
+                        <TextBlock Margin="10,5,5,5" 
+                                Text="Date of birth" 
+                                FontSize="13"
+                                Visibility="{Binding ElementName=DATEOFBIRTH, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Center" 
+                                Panel.ZIndex="1" 
+                                IsHitTestVisible="False">
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" 
+                             BorderThickness="1" 
+                             CornerRadius="5">
+                            <TextBox x:Name="DATEOFBIRTH" 
+                                  BorderThickness="0"  
+                                  Height="34" 
+                                  Padding="10,8,10,0"  
+                                  VerticalAlignment="Center" FontSize="13"
+                                      ></TextBox>
+                        </Border>
+                    </Grid>
+                        <Grid Width="200" 
+                               Margin="0,0,15,15"  
+                               Height="34"> 
+                        <TextBlock Margin="10,5,5,5" 
+                                    Text="Gender" 
+                                    FontSize="13"
+                                    Visibility="{Binding ElementName=GENDER, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                 
+                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" 
+                                 BorderThickness="1" 
+                                 CornerRadius="5">
+                            <TextBox x:Name="GENDER" 
+                                      BorderThickness="0"  
+                                      Height="34" 
+                                      Padding="10,8,10,0"  
+                                      VerticalAlignment="Center" FontSize="13" 
+                            ></TextBox>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Grid Width="200" 
+                       Margin="0,0,15,15"  
+                       Height="34">
+                        <TextBlock Margin="10,5,5,5" 
+                                Text="Country" 
+                                FontSize="13"
+                                Visibility="{Binding ElementName=COUNTRY_ID, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Center" 
+                                Panel.ZIndex="1" 
+                                IsHitTestVisible="False">
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" 
+                             BorderThickness="1" 
+                             CornerRadius="5">
+                            <TextBox x:Name="COUNTRY_ID" 
+                                  BorderThickness="0"  
+                                  Height="34" 
+                                  Padding="10,8,10,0"  
+                                  VerticalAlignment="Center" FontSize="13"
+                                      ></TextBox>
+                        </Border>
+                    </Grid>
+                    <Grid Width="200" 
+                       Margin="0,0,15,15"  
+                       Height="34">
+                        <TextBlock Margin="10,5,5,5" 
+                                Text="Education" 
+                                FontSize="13"
+                                Visibility="{Binding ElementName=EDUCATION_ID, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Center" 
+                                Panel.ZIndex="1" 
+                                IsHitTestVisible="False">
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" 
+                             BorderThickness="1" 
+                             CornerRadius="5">
+                            <TextBox x:Name="EDUCATION_ID" 
+                                  BorderThickness="0"  
+                                  Height="34" 
+                                  Padding="10,8,10,0" 
+                                  VerticalAlignment="Center" FontSize="13"
+                                      ></TextBox>
+                        </Border>
+                    </Grid>
+                    <Grid Width="200" 
+                           Margin="0,0,15,15"  
+                           Height="34"> 
+                        <TextBlock Margin="10,5,5,5" 
+                                    Text="Role" 
+                                    FontSize="13"
+                                    Visibility="{Binding ElementName=ROLE_ID, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                                    HorizontalAlignment="Left" 
+                                    VerticalAlignment="Center" 
+                                    Panel.ZIndex="1" 
+                                    IsHitTestVisible="False"> 
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" 
+                                 BorderThickness="1" 
+                                 CornerRadius="5"> 
+                            <TextBox x:Name="ROLE_ID" 
+                                      BorderThickness="0"  
+                                      Height="34" 
+                                      Padding="10,8,10,0" 
+                                      VerticalAlignment="Center" 
+                                      FontSize="13" 
+                             ></TextBox>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+
+                </StackPanel>
+                <StackPanel Width="645">
+                    <Border BorderBrush="{StaticResource FontColor2}" 
+                         BorderThickness="0,1,0,1">
+                        <Grid Margin="0,10,0,10">
+                            <StackPanel Orientation="Vertical">
+                                <Border Width="102" Height="102"  
+                                     Background="{StaticResource ButtonColor5}"  
+                                     Margin="0,10,8,0" 
+                                     HorizontalAlignment="Left" 
+                                     CornerRadius="50" 
+                                     BorderBrush="{StaticResource ButtonColor5}">
+                                    <TextBlock VerticalAlignment="Center" 
+                                            HorizontalAlignment="Center" 
+                                            FontWeight="SemiBold" 
+                                            Foreground="{StaticResource FontColor2}" 
+                                            FontSize="13" 
+                                            Text="Choose File"></TextBlock>
+                                </Border>
+                                <TextBlock Margin="5,15,0,10" 
+                                        Text="No file selected." 
+                                        Foreground="{StaticResource FontColor2}" 
+                                        FontSize="13"></TextBlock>
+                            </StackPanel>
+                            <TextBlock HorizontalAlignment="Right" 
+                                    TextWrapping="Wrap" 
+                                    VerticalAlignment="Center" 
+                                    Width="484" Height="33" FontSize="13" 
+                                    Foreground="{StaticResource FontColor2}"
+                                 Text="This is some placeholder block-level help text for the above input. It's a bit lightter and easily wraps to a new line."></TextBlock>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+                <TextBlock Margin="0,20,0,15" 
+                        Text="Social Connect"
+                        FontWeight="SemiBold" 
+                        Foreground="Black" 
+                        FontSize="15"></TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <Grid Width="307" 
+                       Margin="0,0,15,15"  
+                       Height="34">
+                        <TextBlock Margin="10,5,5,5" 
+                                Text="Facebook*" 
+                                FontSize="13"
+                                Visibility="{Binding ElementName=FACEBOOK, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                                     
+                                HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" 
+                             BorderThickness="1" 
+                             CornerRadius="5">
+                            <TextBox x:Name="FACEBOOK" 
+                                  BorderThickness="0"  
+                                  Height="34" 
+                                  Padding="10,8,10,0"  
+                                  VerticalAlignment="Center" 
+                                  FontSize="13"
+                                      ></TextBox>
+                        </Border>
+                    </Grid>
+                    <Grid Width="307" 
+                       Margin="0,0,15,15"  
+                       Height="34">
+                        <TextBlock Margin="10,5,5,5" 
+                                Text="Twitter*" FontSize="13"
+                                Visibility="{Binding ElementName=TWITTER, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                               HorizontalAlignment="Left" 
+                                VerticalAlignment="Center" 
+                                Panel.ZIndex="1" 
+                                IsHitTestVisible="False">
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" 
+                             BorderThickness="1" 
+                             CornerRadius="5">
+                            <TextBox x:Name="TWITTER" 
+                                  BorderThickness="0"  
+                                  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                      ></TextBox>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Grid Width="307" 
+                       Margin="0,0,15,15"  
+                       Height="34">
+                        <TextBlock Margin="10,5,5,5" 
+                                Text="Linkedin*" 
+                                FontSize="13"
+                                Visibility="{Binding ElementName=LINKEDIN, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Center" 
+                                Panel.ZIndex="1" 
+                                IsHitTestVisible="False">
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" 
+                             BorderThickness="1" 
+                             CornerRadius="5">
+                            <TextBox x:Name="LINKEDIN" 
+                                  BorderThickness="0"  
+                                  Height="34" 
+                                  Padding="10,8,10,0"  
+                                  VerticalAlignment="Center" 
+                                  FontSize="13"
+                                      ></TextBox>
+                        </Border>
+
+                    </Grid>
+                    <Grid Width="307" 
+                   Margin="0,0,15,15"
+                   HorizontalAlignment="Right"
+                   Height="34">
+                        <TextBlock Margin="10,5,5,5" 
+                        Text="Email*" FontSize="13"
+                        Visibility="{Binding ElementName=TWITTER, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                       HorizontalAlignment="Left" 
+                        VerticalAlignment="Center" 
+                        Panel.ZIndex="1" 
+                        IsHitTestVisible="False">
+
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" 
+                             BorderThickness="1" 
+                             CornerRadius="5">
+
+                            <TextBox x:Name="EMAIL" 
+                                  
+                          BorderThickness="0"  
+                          Height="34" Padding="10,8,10,0"  
+                          VerticalAlignment="Center" 
+                          FontSize="13"
+                         ></TextBox>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <StackPanel Orientation="Horizontal" 
+                     FlowDirection="RightToLeft">
+                <Button Width="90" Height="30" 
+                  Margin="28,10,30,10" 
+                  Content="Cancel" 
+                  Style="{StaticResource MaterialDesignFlatSecondaryButton}"
+                  Background="{StaticResource Color2}" 
+                  BorderBrush="{StaticResource Color2}"
+                  
+                  Foreground="#8F9BB3"/>
+                <Button Width="90"
+                  Height="30"
+                  Margin="0,10,0,10"
+                 
+                  materialDesign:ButtonAssist.CornerRadius="10"
+                  BorderBrush="#00E096"
+                  Foreground="White"
+                  Background="#00E096"
+                  Content="Change">
+                </Button>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</Window>
