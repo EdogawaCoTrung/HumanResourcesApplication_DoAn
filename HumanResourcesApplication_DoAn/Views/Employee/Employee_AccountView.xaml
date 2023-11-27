@@ -70,6 +70,7 @@
                                     Background="#006FD6" 
                                     >
                                 <Button Width="80"
+                                        Command="{Binding FacebookCommand}"
                                         Height="80"
                                         Background="Transparent"
                                         BorderBrush="{StaticResource Color2}"
@@ -89,6 +90,7 @@
                                     Background="#0095FF" 
                                     >
                                 <Button Width="80"
+                                        Command="{Binding TwitterCommand}"
                                         Height="80"
                                         Background="Transparent"
                                         BorderBrush="{StaticResource Color2}"
@@ -109,6 +111,7 @@
                                     Background="#0a66c2" 
                                     >
                                 <Button Width="80"
+                                        Command="{Binding LinkedInCommand}"
                                         Height="80"
                                         Background="Transparent"
                                         BorderBrush="{StaticResource Color2}"
@@ -132,6 +135,7 @@
                                 
 
                                 <Button Width="80"
+                                        Command="{Binding PhoneNumberCommand}"
                                         Height="80"
                                         Background="Transparent"
                                         BorderBrush="{StaticResource Color2}"
