@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         xmlns:Employee="clr-namespace:HumanResourcesApplication_DoAn.Views.Employee" 
         xmlns:Login="clr-namespace:HumanResourcesApplication_DoAn.Views.Login"
+        WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="500" Width="800">
     <Grid>
         <login:LoginWindow></login:LoginWindow>

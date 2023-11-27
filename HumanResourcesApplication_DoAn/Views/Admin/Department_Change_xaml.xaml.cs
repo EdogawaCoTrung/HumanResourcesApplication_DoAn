@@ -10,20 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HumanResourcesApplication_DoAn.Views
+namespace HumanResourcesApplication_DoAn.Views.Admin
 {
     /// <summary>
-    /// Interaction logic for TemplateHRM.xaml
+    /// Interaction logic for Department_Change_xaml.xaml
     /// </summary>
-    public partial class TemplateHRM : UserControl
+    public partial class Department_Change_xaml : Window
     {
-        public TemplateHRM()
+        public Department_Change_xaml()
         {
             InitializeComponent();
         }
-
     }
 }
