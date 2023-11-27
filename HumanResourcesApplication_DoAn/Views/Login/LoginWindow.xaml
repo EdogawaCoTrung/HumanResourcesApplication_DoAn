@@ -4,53 +4,99 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Login"
+             xmlns:viewModel="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Login"
              mc:Ignorable="d" 
              xmlns:fa="http://schemas.fontawesome.io/icons/"
-             d:DesignHeight="916" d:DesignWidth="1440">
-    <Grid>
-        <Grid Background="White">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid Background="#2494ea" Grid.Column="1">
-                <Border BorderBrush="#1a8eeb" BorderThickness="1"></Border>
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="500" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <viewModel:LoginViewModel/>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
+    </UserControl.Resources>
+    
+    <UserControl.Visibility>
+        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
+    </UserControl.Visibility>
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="17*"></ColumnDefinition>
+            <ColumnDefinition Width="383*"/>
+            <ColumnDefinition Width="400*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Background="#1a8eeb" Grid.Column="2">
+            <Border BorderBrush="#1a8eeb" BorderThickness="1">
+                <Image Source="/Resources/Images/LoginImage.png" Stretch="UniformToFill"/>
+            </Border>
+        </Grid>
+        <Grid Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="85" ></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <!--Background="#2494ea"-->
+            <Grid Background="Transparent" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="24*"/>
+                </Grid.ColumnDefinitions>
+                <Border Margin="-79,0,0,0" BorderThickness="0" Background="#2494ea" Width="200" Height="85" VerticalAlignment="Center" CornerRadius="0 0 70 70" Grid.ColumnSpan="2" HorizontalAlignment="Left">
+                    <TextBlock TextAlignment="Center" Width="200" Height="100" FontSize="30" Text="LOGO" Foreground="White" FontWeight="Medium" Margin="28,10,-28,-25"></TextBlock>
+                </Border>
             </Grid>
-            <Grid Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="200" ></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid Background="#2494ea" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="200" Grid.Row="0">
-                    <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Width="200" Height="100" FontSize="50" Text="LOGO" Foreground="White" FontWeight="Medium"></TextBlock>
-                </Grid>
-                <Grid Grid.Row="1">
-                    <StackPanel Margin="0,100,0,0">
-                        <StackPanel Orientation="Horizontal" Margin="128,0,0,47" VerticalAlignment="Center">
-                            <fa:FontAwesome Margin="0,0,10,0" VerticalAlignment="Center" Icon="ArrowRight" FontSize="30" FontWeight="Light"></fa:FontAwesome>
-                            <TextBlock Text="Welcome" VerticalAlignment="Center" FontSize="40" Foreground="black" FontWeight="Medium"></TextBlock>
-                        </StackPanel>
-                        <StackPanel Margin="0,0,0,47" Orientation="Vertical">
-                            <StackPanel Width="460" Height="50" VerticalAlignment="Center" Background="#f2f2f2" Orientation="Horizontal">
-                                <Border BorderBrush="Transparent" BorderThickness="0.6"></Border>
-                                <fa:FontAwesome Margin="20,0,0,0" Icon="User" FontSize="30" VerticalAlignment="Center"></fa:FontAwesome>
-                                <TextBox x:Name="UserName_box"  Width="420" BorderThickness="0" FontSize="40" Background="#f2f2f2"   Height="50"></TextBox>
-                            </StackPanel>
-                            <TextBlock Margin="128,0,0,0" Text="UserName" Foreground="#8F9BB3" FontSize="25" FontWeight="Medium"></TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Vertical">
-                            <StackPanel Width="460" Height="50" VerticalAlignment="Center" Background="#f2f2f2" Orientation="Horizontal">
-                                <Border BorderBrush="Transparent" BorderThickness="0.6"></Border>
-                                <fa:FontAwesome  Margin="20,0,0,0" Icon="Lock" FontSize="30" VerticalAlignment="Center"></fa:FontAwesome>
-                                <TextBox x:Name="Password_box" BorderThickness="0" FontSize="40" Background="#f2f2f2"  Width="420"  Height="50"></TextBox>
-                            </StackPanel>
-                            <TextBlock Margin="128,0,0,0"  Text="Password" Foreground="#8F9BB3" FontSize="25" FontWeight="Medium"></TextBlock>
-                            <TextBlock x:Name="ForgotLink" Margin="425,20,0,47" Text="Forgot Password?" Foreground="#6bb5e8" FontSize="20" FontWeight="Bold"></TextBlock>
-                        </StackPanel>
-                        <Button x:Name="SignIn_button" Content="Sign in" Width="460" Height="70" Foreground="White" Background="#339ae5" FontSize="40"></Button>
+            <Grid Grid.Row="1">
+                <StackPanel Margin="0,0,0,0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="45,50,0,0" VerticalAlignment="Center">
+                        <fa:FontAwesome Margin="0,0,10,0" VerticalAlignment="Center" Icon="ArrowRight" FontSize="25" FontWeight="Light"></fa:FontAwesome>
+                        <TextBlock Text="Welcome" VerticalAlignment="Center" FontSize="25" Foreground="black" FontWeight="Medium"></TextBlock>
                     </StackPanel>
-                </Grid>
+                    <StackPanel Margin="0,30,0,0" Orientation="Vertical">
+                        <Grid HorizontalAlignment="Left" Width="300" Background="{StaticResource PanelColor2}" Height="40" Margin="45,0,0,0">
+                            <fa:FontAwesome Margin="10,0,5,0" Foreground="{StaticResource FontColor2}" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="User" FontSize="20"></fa:FontAwesome>
+                            <TextBlock Margin="30,5,5,5" Text="LoginName" FontWeight="SemiBold" Foreground="{StaticResource FontColor2}" FontSize="15"
+                                           Visibility="{Binding ElementName=LoginName_Box, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                                           HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                            </TextBlock>
+                            <Border BorderBrush="LightGray" BorderThickness="1">
+                                <TextBox x:Name="LoginName_Box" Text="{Binding LoginName, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" Height="34" Padding="0,8,10,0"  VerticalAlignment="Center" FontSize="13" Margin="30,0,12,0"
+                                            />
+                            </Border>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Margin="0,30,0,0" Orientation="Vertical">
+                        <Grid HorizontalAlignment="Left" Width="300" Background="{StaticResource PanelColor2}" Height="40" Margin="45,0,0,0">
+                            <fa:FontAwesome Margin="10,0,5,0" Foreground="{StaticResource FontColor2}" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="Lock" FontSize="20"></fa:FontAwesome>
+                            <TextBlock Margin="30,5,5,5" Text="Password" FontWeight="SemiBold" Foreground="{StaticResource FontColor2}" FontSize="15"
+                                           Visibility="{Binding ElementName=Password_box, Path=Password.IsEmpty,Converter={StaticResource BoolToVis}}"
+                                           HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                            </TextBlock>
+                            <Border BorderBrush="LightGray" BorderThickness="1">
+                                <local:BindablePasswordBox 
+                                    x:Name="Password_box"
+                                    Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,-1,0"/>
+                            </Border>
+                        </Grid>
+                        <TextBlock x:Name="Error" Margin="0,5,0,5" Text="{Binding ErrorMessage}" Foreground="Red" FontSize="20" FontWeight="Bold"></TextBlock>
+                    </StackPanel>
+                    <Button
+                          Foreground="White" 
+                          Background="#339ae5"
+                          x:Name="SignIn_button" 
+                          Command="{Binding LoginCommand}"
+                          Width="300"
+                          Height="40"
+                          materialDesign:RippleAssist.Feedback="#DD000000"
+                          Content="SIGN IN"
+                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                          Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
+                          ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
+                    <TextBlock x:Name="ForgotLink" HorizontalAlignment="Right" Margin="0,10,50,0" Text="Forgot Password?" Foreground="#6bb5e8" FontSize="15" FontWeight="Bold"></TextBlock>
+                </StackPanel>
             </Grid>
         </Grid>
     </Grid>
+    
 </UserControl>

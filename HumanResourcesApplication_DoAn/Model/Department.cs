@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesApplication_DoAn.Model
 {
-    internal class Department
+    public class Department
     {
+        public string departmentId { get; set; }
+        public string departmentName { get; set; }
+        public string head { get; set; }
+        public int totalEmployees { get; set; }
     }
 }

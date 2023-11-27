@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="HumanResourcesApplication_DoAn.Views.Employee.Employee_AttendanceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Employee"
+             mc:Ignorable="d" 
+             Background="{StaticResource Color3}"
+             d:DesignHeight="750" d:DesignWidth="1100">
+    <Grid>
+        <DataGrid Margin="25,10,10,10"
+                  ItemsSource="{Binding attendances}" 
+                  Name="Attendance_Users" 
+                  CanUserResizeColumns="False"
+                  RowStyle="{DynamicResource DataGridRowStyle2}" 
+                  CellStyle="{DynamicResource DataGridCellTemplate}"
+                  
+                  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}" AutoGenerateColumns="False" SelectionMode="Single">
+            <DataGrid.Columns >
+                    <DataGridTextColumn Header="Date" 
+                                        
+                                        Binding="{Binding date}" 
+                                        IsReadOnly="True" 
+                                        CanUserResize="False" 
+                                        Width="220" CanUserReorder="False"
+                                        />
+                    <DataGridTextColumn Header="In time" 
+                                        Binding="{Binding inTime}"  
+                                        IsReadOnly="True" 
+                                        CanUserResize="False" 
+                                        Width="250"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Out time" 
+                                        Binding="{Binding outTime}" 
+                                        IsReadOnly="True" 
+                                        CanUserResize="False" 
+                                        Width="250"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Hours" 
+                                        Binding="{Binding hours}" 
+                                        IsReadOnly="True" 
+                                        CanUserResize="False" 
+                                        Width="200"></DataGridTextColumn>
+                <DataGridTextColumn Header="Status" 
+                                        Binding="{Binding status}" 
+                                        IsReadOnly="True" 
+                                        CanUserResize="False" 
+                                        Width="Auto"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

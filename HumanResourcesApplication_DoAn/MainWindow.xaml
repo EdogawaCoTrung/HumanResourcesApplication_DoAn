@@ -3,10 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:HumanResourcesApplication_DoAn" xmlns:login="clr-namespace:HumanResourcesApplication_DoAn.Views.Login" xmlns:admin="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
+        xmlns:local="clr-namespace:HumanResourcesApplication_DoAn" xmlns:login="clr-namespace:HumanResourcesApplication_DoAn.Views.Login" 
+        xmlns:admin="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
         mc:Ignorable="d"
-        Title="MainWindow" Height="871" Width="1440">
+        xmlns:Employee="clr-namespace:HumanResourcesApplication_DoAn.Views.Employee" 
+        xmlns:Login="clr-namespace:HumanResourcesApplication_DoAn.Views.Login"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="500" Width="800">
     <Grid>
-        <admin:Department></admin:Department>
+        <login:LoginWindow></login:LoginWindow>
     </Grid>
 </Window>

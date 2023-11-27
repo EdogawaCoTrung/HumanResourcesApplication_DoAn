@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesApplication_DoAn.Model
 {
-    internal class Attendence
+    public class InsuranceDetail
     {
+        string? userId;
+        string? insuranceId;
     }
 }
