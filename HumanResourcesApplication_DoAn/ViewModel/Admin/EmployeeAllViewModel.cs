@@ -22,7 +22,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private int _male;
         private int _female;
         private IListUsersRepository? listUsers;
-        private ICommand AddUserCommand;
+        public ICommand AddUserCommand { get; }
         private List<User>? users;
 
         public List<User>? Users { get => users;
@@ -40,7 +40,6 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public EmployeeAllViewModel()
         {
             AddUserCommand = new ViewModelCommand(ExecuteLeaveCommand, CanExecuteLeaveCommand);
-
             listUsers = new ListUsersRepository();
             Users = new List<User>();
             Users = listUsers.ListUsers();
@@ -67,8 +66,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         private void ExecuteLeaveCommand(object? obj)
         {
-            Employee_Add employee_Add = new Employee_Add();
-            //employee_Add.ShowDialog();
+            Employee_AddUser employee_Add = new Employee_AddUser();
+            employee_Add.ShowDialog();
         }
     }
 }
