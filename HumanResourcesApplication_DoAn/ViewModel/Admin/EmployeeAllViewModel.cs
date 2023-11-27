@@ -1,5 +1,7 @@
 ﻿using HumanResourcesApplication_DoAn.Model;
 using HumanResourcesApplication_DoAn.Repositories;
+using HumanResourcesApplication_DoAn.Views.Admin;
+using MaterialDesignThemes.Wpf;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 {
@@ -19,6 +22,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private int _male;
         private int _female;
         private IListUsersRepository? listUsers;
+        private ICommand AddUserCommand;
         private List<User>? users;
 
         public List<User>? Users { get => users;
@@ -35,6 +39,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         public EmployeeAllViewModel()
         {
+            AddUserCommand = new ViewModelCommand(ExecuteLeaveCommand, CanExecuteLeaveCommand);
+
             listUsers = new ListUsersRepository();
             Users = new List<User>();
             Users = listUsers.ListUsers();
@@ -52,6 +58,17 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                     else
                         Male++;
                 }
+        }
+
+        private bool CanExecuteLeaveCommand(object? obj)
+        {
+            return true;
+        }
+
+        private void ExecuteLeaveCommand(object? obj)
+        {
+            Employee_Add employee_Add = new Employee_Add();
+            //employee_Add.ShowDialog();
         }
     }
 }
