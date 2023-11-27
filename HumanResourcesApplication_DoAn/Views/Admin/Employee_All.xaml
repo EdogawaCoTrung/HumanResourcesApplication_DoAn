@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
-             d:DesignHeight="750" d:DesignWidth="1100">
+             d:DesignHeight="730" d:DesignWidth="1100">
     <UserControl.DataContext>
         <employeeAllViewModel:EmployeeAllViewModel/>
     </UserControl.DataContext>
@@ -182,7 +182,8 @@
                                                     <Button  Width="30" Height="30" Margin="0,0,10,0"
                                                           IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                                           Style="{StaticResource MaterialDesignIconForegroundButton}"
-                                                          ToolTip="MaterialDesignIconForegroundButton">
+                                                          ToolTip="MaterialDesignIconForegroundButton"
+                                                             Command="{Binding }">
                                                         <materialDesign:PackIcon Foreground="{StaticResource FontColor2}" Kind="EyeOutline" />
                                                     </Button>
                                                     <Button  Width="30" Height="30" Margin="0,0,10,0"

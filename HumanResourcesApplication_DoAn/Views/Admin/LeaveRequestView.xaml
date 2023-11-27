@@ -169,7 +169,7 @@
                 </Grid>
                 <DataGrid Name ="LeaveRequestDatagrid"      
                           Height="480"
-                          Margin="0,15,0,0"
+                          Margin="10"
                           RowStyle="{DynamicResource DataGridRowStyle1}" 
                           CellStyle="{DynamicResource DataGridCellTemplate}" 
                           ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
@@ -180,7 +180,7 @@
                                                 Header="Name"
                                                 IsReadOnly="True"
                                                 CanUserResize="False"
-                                                Width="170"
+                                                Width="200"
                                                 >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -224,12 +224,12 @@
                                             Binding="{Binding startDate}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="180" />
+                                            Width="100" />
                         <DataGridTextColumn Header="End Date" 
                                             Binding="{Binding endDate}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="180" />
+                                            Width="100" />
                         <DataGridTextColumn Header="Reason" 
                                             Binding="{Binding reason}" 
                                             IsReadOnly="True" 
@@ -248,7 +248,8 @@
                                                  Margin="0,0,10,0"
                                                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                                  Style="{StaticResource MaterialDesignIconForegroundButton}"
-                                                 ToolTip="MaterialDesignIconForegroundButton">
+                                                 ToolTip="MaterialDesignIconForegroundButton"
+                                                 Command="{Binding }">
                                                  
                                             <materialDesign:PackIcon Kind="CheckboxMarkedCircleOutline" Foreground="{StaticResource FontColor2}"/>
                                         </Button>

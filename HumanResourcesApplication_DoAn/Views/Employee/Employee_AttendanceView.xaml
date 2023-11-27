@@ -8,7 +8,7 @@
              Background="{StaticResource Color3}"
              d:DesignHeight="750" d:DesignWidth="1100">
     <Grid>
-        <DataGrid Margin="25,10,10,0"
+        <DataGrid Margin="10,10,10,0"
                   ItemsSource="{Binding}" 
                   Name="Attendance_Users" 
                   RowStyle="{DynamicResource DataGridRowStyle2}" 
@@ -17,6 +17,7 @@
             <DataGrid.Columns >
                 
                     <DataGridTextColumn Header="Date" 
+                                        
                                         Binding="{Binding date}" 
                                         IsReadOnly="True" 
                                         CanUserResize="False" 
@@ -41,7 +42,7 @@
                                         Binding="{Binding status}" 
                                         IsReadOnly="True" 
                                         CanUserResize="False" 
-                                        Width="150"></DataGridTextColumn>
+                                        Width="Auto"></DataGridTextColumn>
                 
             </DataGrid.Columns>
         </DataGrid>
