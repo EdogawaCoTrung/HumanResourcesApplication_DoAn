@@ -116,7 +116,14 @@
                 Payroll
                         </TextBlock>
                     </RadioButton>
-                    
+                    <RadioButton Style="{StaticResource SecondSideBarButton}"
+                 Command="{Binding ShowAttendanceViewCommand}">
+                        <TextBlock Margin="13.5,0,0,0">
+                        <fa:FontAwesome Icon="ClockOutline" Margin="0,0,10,0"></fa:FontAwesome>
+                 Attendance
+                        </TextBlock>
+                    </RadioButton>
+
                 </StackPanel>
             </Grid>
             <!--MainView-->

@@ -52,9 +52,11 @@
                 </RadioButton>
 
             </StackPanel>
+            
             <ContentControl Grid.Row="1"
                     Content="{Binding CurrentEmployeeChildView}"
-                    Margin="25,25,25,25"/>
+                    Margin="25,25,25,10"/>
+            
         </Grid>
     </Grid>
 </UserControl>

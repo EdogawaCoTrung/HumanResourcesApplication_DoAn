@@ -95,27 +95,7 @@
         <!--MainView-->
             <Grid Background="{StaticResource Color3}">
             <StackPanel Orientation="Vertical">
-                <Grid>
-                    <StackPanel HorizontalAlignment="Right" Margin="0,10,0,0">
-                            <Border BorderBrush="{StaticResource ButtonColor2}" BorderThickness="0" CornerRadius="20">
-                                <Button 
-                                Width="88"
-                                Height="34"
-                                Foreground="White"
-                                FontSize="13"
-                                FontWeight="SemiBold"
-                                Background="{StaticResource ButtonColor2}"
-                                BorderThickness="0"
-                                materialDesign:RippleAssist.Feedback="#DD000000"
-                                Content="Add New"
-                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                                Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
-                                ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
-                            </Border>
-                        </StackPanel>
-
-                    </Grid>
-                    <!--PanelMain-->
+                <!--PanelMain-->
                     <Grid Margin="0,37.5,0,30" Background="{StaticResource Color3}">
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Margin="0,0,16,0">
@@ -172,7 +152,7 @@
 
                                 </Grid>
 
-                            <DataGrid ItemsSource="{Binding Users}"  Height="500" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
+                            <DataGrid ItemsSource="{Binding Users}"  Height="450" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
                                 <DataGrid.Columns>
                                     <DataGridCheckBoxColumn Width="35" ElementStyle="{StaticResource CheckBoxStyle1}">
                                     </DataGridCheckBoxColumn>
@@ -223,11 +203,36 @@
                                     </DataGridTemplateColumn>
                                 </DataGrid.Columns>
                             </DataGrid>
+                            
                         </StackPanel>
                         </Border>
                     </Grid>
                 </StackPanel>
             </Grid>
-        </Grid>
+        <StackPanel VerticalAlignment="Bottom" 
+                    Margin="0,0,0,25">
+            <Border
+                BorderBrush="{StaticResource ButtonColor2}" 
+                BorderThickness="0" 
+                CornerRadius="20"> 
+                <Button 
+                     Command="{Binding }"
+                     Margin="0,0,25,0"
+                     HorizontalAlignment="Right"
+                     Width="88"
+                     Height="34"
+                     Foreground="White"
+                     FontSize="13"
+                     FontWeight="SemiBold"
+                     Background="{StaticResource ButtonColor2}"
+                     BorderThickness="0"
+                     materialDesign:RippleAssist.Feedback="#DD000000"
+                     Content="Add New"
+                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                     Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
+                     ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" /> 
+             </Border>
+        </StackPanel>
+    </Grid>
     
 </UserControl>
