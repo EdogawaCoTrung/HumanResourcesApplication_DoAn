@@ -86,7 +86,6 @@
     </UserControl.Resources>
     <Grid>
         <DataGrid Margin="25,10,10,10"
-                  
                   ItemsSource="{Binding attendances}" 
                   Name="Attendance_Users" 
                   CanUserResizeColumns="False"
