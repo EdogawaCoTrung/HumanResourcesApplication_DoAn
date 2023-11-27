@@ -8,7 +8,7 @@
         xmlns:eAddUser="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Employee_AddUser" Height="750" Width="670">
+        Title="Employee_AddUser" Height="800" Width="670">
     <Window.DataContext>
         <eAddUser:EmployeeAddUserVM/>
     </Window.DataContext>
