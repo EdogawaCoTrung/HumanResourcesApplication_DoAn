@@ -8,7 +8,7 @@
              xmlns:VM="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="871" d:DesignWidth="1440"
+             d:DesignHeight="871" d:DesignWidth="1400"
              >
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
@@ -55,7 +55,7 @@
             
             <ContentControl Grid.Row="1"
                     Content="{Binding CurrentEmployeeChildView}"
-                    Margin="25,25,25,10"/>
+                    Margin="0,25,0,10"/>
             
         </Grid>
     </Grid>
