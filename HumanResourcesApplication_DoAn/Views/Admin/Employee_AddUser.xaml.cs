@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace HumanResourcesApplication_DoAn.Views.Admin
 {
     /// <summary>
-    /// Interaction logic for Employee_Add.xaml
+    /// Interaction logic for Employee_AddUser.xaml
     /// </summary>
-    public partial class Employee_Add : UserControl
+    public partial class Employee_AddUser : Window
     {
-        public Employee_Add()
+        public Employee_AddUser()
         {
             InitializeComponent();
         }

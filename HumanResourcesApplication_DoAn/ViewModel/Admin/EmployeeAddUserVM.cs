@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
+namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 {
-    public class ChangeProfileVM : ViewModelBase
+    public class EmployeeAddUserVM : ViewModelBase
     {
         private string? _userName;
         private string? _loginName;
@@ -27,10 +27,12 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         private string? _linkedIn;
         private string? _email;
         private string? _avatar;
-        public ICommand ChangeCommand { get; }
+        private string? _isAdmin;
+        private string? _joinDate;
+        private string? _payroll;
+        public ICommand AddCommand { get; }
         public ICommand CancelCommand { get; }
-
-        private IChangeProfileRepository changeProfileRepository;
+        public IAddUserRepository addUserRepository { get; }
 
         public string? UserName { get => _userName; set { _userName = value; OnPropertyChanged(nameof(UserName)); } }
         public string? LoginName { get => _loginName; set { _loginName = value; OnPropertyChanged(nameof(LoginName)); } }
@@ -47,47 +49,60 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         public string? Email { get => _email; set { _email = value; OnPropertyChanged(nameof(Email)); } }
         public string? Avatar { get => _avatar; set { _avatar = value; OnPropertyChanged(nameof(Avatar)); } }
 
+        public string? IsAdmin { get => _isAdmin; set { _isAdmin = value; OnPropertyChanged(nameof(IsAdmin)); } }
+        public string? JoinDate { get => _joinDate; set { _joinDate = value; OnPropertyChanged(nameof(JoinDate)); } }
+        public string? Payroll { get => _payroll; set { _payroll = value; OnPropertyChanged(nameof(Payroll)); } }
 
-        public ChangeProfileVM()
+        public EmployeeAddUserVM()
         {
-            ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
+            AddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
-            changeProfileRepository = new ChangeProfileRepository();
+            addUserRepository = new AddUserRepository();
         }
 
-        private bool CanExecuteChangeCommand(object? obj)
+        private bool CanExecuteAddCommand(object? obj)
         {
-            bool canExecute = false;
-            if (UserName != null && UserName != "")
-                canExecute = true;
-            if (Password != null && Password != "")
-                canExecute = true;
-            if (PhoneNumber != null && PhoneNumber != "")
-                canExecute = true;
-            if(DateOfBirth != null && DateOfBirth != "")
-                canExecute = true;
-            if (Gender != null && Gender != "")
-                canExecute = true;
-            if (Country != null && Country != "")
-                canExecute = true;
-            if (Education != null && Education != "")
-                canExecute = true;
-            if (Facebook != null && Facebook != "")
-                canExecute = true;
-            if (Twitter != null && Twitter != "")
-                canExecute = true;
-            if (LinkedIn != null && LinkedIn != "")
-                canExecute = true;
-            if (Email != null && Email != "")
-                canExecute = true;
-            if (Avatar != null & Avatar != "")
-                canExecute = true;
+            bool canExecute = true;
+            if (UserName == null || UserName == "")
+                canExecute = false;
+            if (LoginName == null || LoginName == "")
+                canExecute = false;
+            if (Password == null || Password == "")
+                canExecute = false;
+            if (IsAdmin == null || IsAdmin == "")
+                canExecute = false;
+            if (PhoneNumber == null || PhoneNumber == "")
+                canExecute = false;
+            if (DateOfBirth == null || DateOfBirth == "")
+                canExecute = false;
+            if (Country == null || Country == "")
+                canExecute = false;
+            if (Education == null || Education == "")
+                canExecute = false;
+            if (Gender == null || Gender == "")
+                canExecute = false;
+            if (JoinDate == null || JoinDate == "")
+                canExecute = false;
+            if (Role == null || Role == "")
+                canExecute = false;
+            if (Payroll == null || Payroll == "")
+                canExecute = false;
+            if (Facebook == null || Facebook == "")
+                canExecute = false;
+            if (Twitter == null || Twitter == "")
+                canExecute = false;
+            if (LinkedIn == null || LinkedIn == "")
+                canExecute = false;
+            if (Email == null || Email == "")
+                canExecute = false;
+            //if (Avatar == null & Avatar == "")
+            //    canExecute = false;
             return canExecute;
         }
 
-        private void ExecuteChangeCommand(object? obj)
+        private void ExecuteAddCommand(object? obj)
         {
-            changeProfileRepository.ChangeProfile(MyApp.currentUser.loginName, UserName, Password, PhoneNumber, DateOfBirth, Gender, Country, Education, Facebook, Twitter, LinkedIn, Email, Avatar);
+            addUserRepository.AddUser(UserName, LoginName, Password, IsAdmin, PhoneNumber, DateOfBirth, Country, Education, Gender, JoinDate, Role, Payroll, Facebook, Twitter, LinkedIn, Email, Avatar);
             Application.Current.MainWindow.Close();
         }
 
