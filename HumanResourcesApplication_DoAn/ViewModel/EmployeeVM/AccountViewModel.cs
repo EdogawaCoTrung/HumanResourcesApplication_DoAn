@@ -18,19 +18,40 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
     public class AccountViewModel : ViewModelBase
     {
 
-        IUserRepository userRepository;
         User _user;
         public User user { get => _user; set { _user = value; OnPropertyChanged(nameof(user)); } }
 
         public ICommand LeaveCommand { get; }
+        public ICommand ChangeCommand { get; }
+        public ICommand FacebookCommand { get; }
+        public ICommand TwitterCommand { get; }
+        public ICommand LinkedInCommand {get; }
+        public ICommand PhoneNumberCommand { get; }
 
 
         public AccountViewModel()
         {
-            userRepository = new UserRepository();
             user = new User();
             user = MyApp.currentUser;
+            MessageBox.Show(user.avatar);
             LeaveCommand = new ViewModelCommand(ExecuteLeaveCommand, CanExecuteLeaveCommand);
+            ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
+            FacebookCommand = new ViewModelCommand(ExecuteFacebookCommand, CanExecuteFacebookCommand);
+            TwitterCommand = new ViewModelCommand(ExecuteTwitterCommand, CanExecuteTwitterCommand);
+            LinkedInCommand = new ViewModelCommand(ExecuteLinkedInCommand, CanExecuteLinkedInCommand);
+            PhoneNumberCommand = new ViewModelCommand(ExecutePhoneNumberCommand, CanExecutePhoneNumberCommand);
+        }
+
+
+        private bool CanExecuteChangeCommand(object? obj)
+        {
+            return true;
+        }
+
+        private void ExecuteChangeCommand(object? obj)
+        {
+            Employee_Account_ChangeView changeView = new Employee_Account_ChangeView();
+            changeView.ShowDialog();
         }
 
         private void ExecuteLeaveCommand(object? obj)
@@ -43,5 +64,44 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
             return true;
         }
 
+        private bool CanExecutePhoneNumberCommand(object? obj)
+        {
+            return true;
+        }
+
+        private void ExecutePhoneNumberCommand(object? obj)
+        {
+            MessageBox.Show(user.phoneNumber);
+        }
+
+        private bool CanExecuteLinkedInCommand(object? obj)
+        {
+            return true;
+        }
+
+        private void ExecuteLinkedInCommand(object? obj)
+        {
+            MessageBox.Show(user.linkedIn);
+        }
+
+        private bool CanExecuteTwitterCommand(object? obj)
+        {
+            return true;
+        }
+
+        private void ExecuteTwitterCommand(object? obj)
+        {
+            MessageBox.Show(user.twitter);
+        }
+
+        private bool CanExecuteFacebookCommand(object? obj)
+        {
+            return true;
+        }
+
+        private void ExecuteFacebookCommand(object? obj)
+        {
+            MessageBox.Show(user.facebook);
+        }
     }
 }

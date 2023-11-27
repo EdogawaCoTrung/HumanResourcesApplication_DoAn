@@ -20,6 +20,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         private string? _note;
         private List<string?> listLeaveRequest;
         public ICommand SendCommand { get; }
+        public ICommand CancelCommand { get; }
         public ISendLeaveRequestRepository sendLeaveRequestRepository;
         public string? UserId { get => _userId; set { _userId = value; OnPropertyChanged(nameof(UserId)); } }
         public string? UserName { get => _userName; set { _userName = value; OnPropertyChanged(nameof(UserName)); } }
@@ -33,6 +34,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         public AddLeaveRequestVM()
         {
             SendCommand = new ViewModelCommand(ExecuteLeaveCommand, CanExecuteLeaveCommand);
+            CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             sendLeaveRequestRepository = new SendLeaveRequestRepository();
             ListLeaveRequest = new List<string?>();
             ListLeaveRequest.Add("Annual Leave");
@@ -41,9 +43,11 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
             ListLeaveRequest.Add("Special Leave");
         }
 
+
         private void ExecuteLeaveCommand(object? obj)
         {
             sendLeaveRequestRepository.SendLeaveRequest(UserId, StartDate, EndDate, Note, LeaveType);
+            Application.Current.MainWindow.Close();
         }
         private bool CanExecuteLeaveCommand(object? obj)
         {
@@ -59,6 +63,15 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
             if(EndDate == null || EndDate == "")
                 validData = false;
             return validData;
+        }
+        private void ExecuteCancelCommand(object? obj)
+        {
+            Application.Current.MainWindow.Close();
+        }
+
+        private bool CanExecuteCancelCommand(object? obj)
+        {
+            return true;
         }
 
     }

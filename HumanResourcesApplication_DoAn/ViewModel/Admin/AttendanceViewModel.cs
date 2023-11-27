@@ -3,6 +3,7 @@ using HumanResourcesApplication_DoAn.Repositories;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -21,6 +22,15 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private int _absence;
         public List<Attendance>? ListAttendance { get => listAttendance; set { listAttendance = value; OnPropertyChanged(nameof(ListAttendance)); } }
 
+        private ObservableCollection<Attendance> _lstAttendance = new ObservableCollection<Attendance>();
+        public ObservableCollection<Attendance> LstAttendance
+        {
+            get { return _lstAttendance; }
+            
+            
+        }
+
+        
         public int TotalEmployee { get => _totalEmployee; set { _totalEmployee = value; OnPropertyChanged(nameof(TotalEmployee)); } }
         public int Attend { get => _attend; set { _attend = value; OnPropertyChanged(nameof(Attend)); } }
         public int LateAttend { get => _lateAttend; set { _lateAttend = value; OnPropertyChanged(nameof(LateAttend)); } }

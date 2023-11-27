@@ -8,8 +8,8 @@
              Background="{StaticResource Color3}"
              d:DesignHeight="750" d:DesignWidth="1100">
     <Grid>
-        <DataGrid Margin="10,10,10,0"
-                  ItemsSource="{Binding}" 
+        <DataGrid Margin="25,10,10,0"
+                  ItemsSource="{Binding attendances}" 
                   Name="Attendance_Users" 
                   RowStyle="{DynamicResource DataGridRowStyle2}" 
                   CellStyle="{DynamicResource DataGridCellTemplate}" 
