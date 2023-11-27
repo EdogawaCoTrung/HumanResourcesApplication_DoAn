@@ -218,7 +218,7 @@
                 BorderThickness="0" 
                 CornerRadius="20"> 
                 <Button 
-                     Command="{Binding }"
+                     Command="{Binding AddUserCommand}"
                      Margin="0,0,25,0"
                      HorizontalAlignment="Right"
                      Width="88"

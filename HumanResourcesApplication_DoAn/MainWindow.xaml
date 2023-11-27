@@ -11,6 +11,6 @@
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="500" Width="800">
     <Grid>
-        <login:LoginWindow/>
+        <login:LoginWindow></login:LoginWindow>
     </Grid>
 </Window>
