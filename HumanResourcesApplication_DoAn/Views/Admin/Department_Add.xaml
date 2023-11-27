@@ -138,7 +138,7 @@
                     </Grid>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Grid Width="200" Margin="0,0,15,15"  Height="34">
+                    <Grid Width="630" Margin="0,0,15,15"  Height="34">
                         <TextBlock Margin="10,5,5,5" Text="Join Date*" FontSize="13"
                                            Visibility="{Binding ElementName=JOIN_DATE, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
                                            HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
