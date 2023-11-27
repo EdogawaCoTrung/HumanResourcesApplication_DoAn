@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
-             d:DesignHeight="750" d:DesignWidth="1100">
+             d:DesignHeight="700" d:DesignWidth="1000">
     <UserControl.DataContext>
         <employeeAllViewModel:EmployeeAllViewModel/>
     </UserControl.DataContext>
@@ -152,11 +152,13 @@
 
                                 </Grid>
 
-                            <DataGrid ItemsSource="{Binding Users}"  Height="450" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
+                            <DataGrid ItemsSource="{Binding Users}" 
+                                      Margin="0,0,0,10"
+                                      Height="420" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
                                 <DataGrid.Columns>
                                     <DataGridCheckBoxColumn Width="35" ElementStyle="{StaticResource CheckBoxStyle1}">
                                     </DataGridCheckBoxColumn>
-                                    <DataGridTemplateColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="200">
+                                    <DataGridTemplateColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="150">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
@@ -210,7 +212,7 @@
                 </StackPanel>
             </Grid>
         <StackPanel VerticalAlignment="Bottom" 
-                    Margin="0,0,0,25">
+                    Margin="0,10,0,25">
             <Border
                 BorderBrush="{StaticResource ButtonColor2}" 
                 BorderThickness="0" 

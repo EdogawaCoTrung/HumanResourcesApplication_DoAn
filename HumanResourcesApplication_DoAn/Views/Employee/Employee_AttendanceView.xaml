@@ -8,19 +8,20 @@
              Background="{StaticResource Color3}"
              d:DesignHeight="750" d:DesignWidth="1100">
     <Grid>
-        <DataGrid Margin="25,10,10,0"
+        <DataGrid Margin="25,10,10,10"
                   ItemsSource="{Binding attendances}" 
                   Name="Attendance_Users" 
+                  CanUserResizeColumns="False"
                   RowStyle="{DynamicResource DataGridRowStyle2}" 
-                  CellStyle="{DynamicResource DataGridCellTemplate}" 
-                  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}">
+                  CellStyle="{DynamicResource DataGridCellTemplate}"
+                  
+                  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}" AutoGenerateColumns="False" SelectionMode="Single">
             <DataGrid.Columns >
-                
                     <DataGridTextColumn Header="Date" 
                                         Binding="{Binding date}" 
                                         IsReadOnly="True" 
                                         CanUserResize="False" 
-                                        Width="220"
+                                        Width="220" CanUserReorder="False"
                                         />
                     <DataGridTextColumn Header="In time" 
                                         Binding="{Binding inTime}"  
@@ -37,12 +38,11 @@
                                         IsReadOnly="True" 
                                         CanUserResize="False" 
                                         Width="200"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Status" 
+                <DataGridTextColumn Header="Status" 
                                         Binding="{Binding status}" 
                                         IsReadOnly="True" 
                                         CanUserResize="False" 
-                                        Width="150"></DataGridTextColumn>
-                
+                                        Width="Auto"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

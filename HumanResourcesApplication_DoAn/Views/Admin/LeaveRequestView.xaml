@@ -64,7 +64,10 @@
                                             <Border Grid.Column="1" Grid.Row="0" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
                                                 <DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter"/>
                                             </Border>
-                                            <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" Grid.Column="0" CanContentScroll="{TemplateBinding CanContentScroll}" Grid.ColumnSpan="2" Grid.Row="1"/>
+                                            <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" 
+                                                                    Grid.Column="0" 
+                                                                    CanContentScroll="{TemplateBinding CanContentScroll}" 
+                                                                    Grid.ColumnSpan="2" Grid.Row="1"/>
                                             <ScrollBar x:Name="PART_VerticalScrollBar" Grid.Column="2" Maximum="{TemplateBinding ScrollableHeight}" Orientation="Vertical" Grid.Row="1" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"/>
                                             <Grid Grid.Column="1" Grid.Row="2">
                                                 <Grid.ColumnDefinitions>
@@ -180,7 +183,7 @@
                                                 Header="Name"
                                                 IsReadOnly="True"
                                                 CanUserResize="False"
-                                                Width="170"
+                                                Width="200"
                                                 >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -224,12 +227,12 @@
                                             Binding="{Binding startDate}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="180" />
+                                            Width="100" />
                         <DataGridTextColumn Header="End Date" 
                                             Binding="{Binding endDate}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="180" />
+                                            Width="100" />
                         <DataGridTextColumn Header="Reason" 
                                             Binding="{Binding reason}" 
                                             IsReadOnly="True" 

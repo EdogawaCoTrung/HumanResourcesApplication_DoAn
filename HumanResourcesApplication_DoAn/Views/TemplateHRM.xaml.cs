@@ -24,5 +24,6 @@ namespace HumanResourcesApplication_DoAn.Views
         {
             InitializeComponent();
         }
+
     }
 }
