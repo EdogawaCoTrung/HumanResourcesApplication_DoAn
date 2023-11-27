@@ -58,7 +58,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 Attendances[i].inTime = listAttendance[i].inTime.ToString();
                 Attendances[i].outTime = listAttendance[i].outTime.ToString();
                 Attendances[i].hours = listAttendance[i].hours.ToString();
-                Attendances[i].hours = listAttendance[i].status;
+                Attendances[i].status = listAttendance[i].status;
                 if (listAttendance[i].inTime.ToString() == "00:00:00")
                     Attendances[i].inTime = "--:--:--";
                 if (listAttendance[i].outTime.ToString() == "00:00:00")
