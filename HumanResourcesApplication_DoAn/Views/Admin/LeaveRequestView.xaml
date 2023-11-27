@@ -180,7 +180,7 @@
                                                 Header="Name"
                                                 IsReadOnly="True"
                                                 CanUserResize="False"
-                                                Width="170"
+                                                Width="180"
                                                 >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
