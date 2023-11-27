@@ -229,7 +229,8 @@
         </Grid>
         <Grid Grid.Row="3">
             <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
-                <Button Width="90" Height="30" 
+                <Button Width="90" Height="30"
+                        Command="{Binding CancelCommand}"
                         Margin="28,10,30,10" 
                         Content="Cancel" 
                         Style="{StaticResource MaterialDesignFlatSecondaryButton}"

@@ -28,6 +28,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         private string? _email;
         private string? _avatar;
         public ICommand ChangeCommand { get; }
+        public ICommand CancelCommand { get; }
+
         private IChangeProfileRepository changeProfileRepository;
 
         public string? UserName { get => _userName; set { _userName = value; OnPropertyChanged(nameof(UserName)); } }
@@ -49,6 +51,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         public ChangeProfileVM()
         {
             ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
+            CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             changeProfileRepository = new ChangeProfileRepository();
         }
 
@@ -86,6 +89,16 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         {
             changeProfileRepository.ChangeProfile(MyApp.currentUser.loginName, UserName, Password, PhoneNumber, DateOfBirth, Gender, Country, Education, Facebook, Twitter, LinkedIn, Email, Avatar);
             Application.Current.MainWindow.Close();
+        }
+
+        private void ExecuteCancelCommand(object? obj)
+        {
+            Application.Current.MainWindow.Close();
+        }
+
+        private bool CanExecuteCancelCommand(object? obj)
+        {
+            return true;
         }
     }
 }
