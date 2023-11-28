@@ -91,12 +91,6 @@
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
-        <DataTemplate DataType="{x:Type VM:AddDepartmentViewModel}">
-            <local:Department_Add/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type VM:ChangeDepartmentViewModel}">
-            <local:Department_Change_xaml/>
-        </DataTemplate>
     </UserControl.Resources>
     <Grid Background="#F9FBFD">
         <StackPanel Orientation="Vertical">
@@ -215,11 +209,11 @@
                                             <StackPanel Name="Button_Wrapper" 
                                                         Orientation="Horizontal">
                                                 <Button  Width="30" 
-                                                         Command="{Binding Datacontext.ChangeDepartmentCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                         Command="{Binding DataContext.ChangeDepartmentCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
                                                          CommandParameter="{Binding}"
                                                          Height="30" 
                                                          Margin="0,0,10,0"
-                                                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                         
                                                          Style="{StaticResource MaterialDesignIconForegroundButton}"
                                                          ToolTip="MaterialDesignIconForegroundButton">
                                                     <materialDesign:PackIcon Kind="PencilOutline" 

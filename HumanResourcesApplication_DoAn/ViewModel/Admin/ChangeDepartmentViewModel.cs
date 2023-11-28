@@ -15,7 +15,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private string? _departmentName;
         private string? _head;
         private string? _totalEmployees;
-        private 
+        private Department _selectedItem;
 
         //command
         public ViewModelCommand ChangeCommand { get; }
@@ -27,12 +27,18 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         public string DepartmentId { get => _departmentID; set { _departmentID = value; OnPropertyChanged(nameof(DepartmentId)); } }
 
-        public ChangeDepartmentViewModel()
-        {
+        public Department SelectedItem { get => _selectedItem; set { _selectedItem = value; OnPropertyChanged(nameof(SelectedItem)); } }
 
+        public ChangeDepartmentViewModel(Department SelectedItem)
+        {
             changeDepertmentRepository = new ChangeRepository();
             ChangeCommand = new ViewModelCommand(ExcuteChangeCommand, CanExcuteAddCommand);
             CancelCommand = new ViewModelCommand(ExcuteCancelCommand, CanExcuteCancelCommand);
+            _departmentID = SelectedItem.departmentId;
+            _departmentName = SelectedItem.departmentName;
+            _head = SelectedItem.head;
+            _totalEmployees = SelectedItem.totalEmployees.ToString();
+
 
         }
         private void ExcuteChangeCommand(object? obj)

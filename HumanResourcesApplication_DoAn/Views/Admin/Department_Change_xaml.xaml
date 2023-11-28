@@ -4,13 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
-        xmlns:VM="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
+
         xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.ViewModel"
+        xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
         mc:Ignorable="d"
         Title="Department_Change_xaml" Height="450" Width="500">
     <Window.DataContext>
-        <VM:ChangeDepartmentViewModel />
+        <local:ChangeDepartmentViewModel />
     </Window.DataContext>
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>

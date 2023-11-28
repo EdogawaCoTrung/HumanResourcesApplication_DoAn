@@ -8,6 +8,7 @@ using HumanResourcesApplication_DoAn.Views.Admin;
 using HumanResourcesApplication_DoAn.Repositories;
 using HumanResourcesApplication_DoAn.Repositories.DepartmentRepo;
 using HumanResourcesApplication_DoAn.Model;
+using System.CodeDom;
 
 namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 {
@@ -48,8 +49,19 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         private void ExcuteChangDepartmentCommand(object? obj)
         {
-            Department_Change_xaml changeDepartment = new Department_Change_xaml();
-            changeDepartment.ShowDialog();
+            try
+            {
+                Department_Change_xaml changeDepartment = new Department_Change_xaml();
+                if (Selectedtem != null)
+                {
+                    changeDepartment.DataContext = new ChangeDepartmentViewModel(Selectedtem);
+                    changeDepartment.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
 
         }
 
