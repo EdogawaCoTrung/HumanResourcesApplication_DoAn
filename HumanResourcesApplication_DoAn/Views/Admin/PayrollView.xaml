@@ -110,14 +110,14 @@
                                     <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding TOTALWEBDEVELOPER}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
                                     </TextBlock>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal">
+                                <!--<StackPanel Orientation="Horizontal">
                                     <fa:FontAwesome Icon="ArrowDown" VerticalAlignment="Center" Margin="20,12,0,0" FontWeight="Regular" FontSize="10"></fa:FontAwesome>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="{Binding PERCENTWEBNUMBER}" FontSize="12" Foreground="{StaticResource FontColor4}" Margin="5,10,0,0" VerticalAlignment="Center" FontWeight="Regular"></TextBlock>
                                         <TextBlock Text="%" FontSize="12" Foreground="{StaticResource FontColor4}" Margin="0,10,0,0" VerticalAlignment="Center" FontWeight="Regular"></TextBlock>
                                     </StackPanel>
                                     <TextBlock Text="Since last month" FontSize="12" Foreground="{StaticResource FontColor2}" Margin="15,10,0,0" VerticalAlignment="Center" FontWeight="Regular"></TextBlock>
-                                </StackPanel>
+                                </StackPanel>-->
                             </StackPanel>
                         </Border>
                     </StackPanel>
@@ -130,14 +130,14 @@
                                     <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding TOTALAPPDEVELOPER}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
                                     </TextBlock>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal">
+                                <!--<StackPanel Orientation="Horizontal">
                                     <fa:FontAwesome Icon="ArrowDown" VerticalAlignment="Center" Margin="20,12,0,0" FontWeight="Regular" FontSize="10"></fa:FontAwesome>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="{Binding PERCENTAPPNUMBER}" FontSize="12" Foreground="{StaticResource FontColor4}" Margin="5,10,0,0" VerticalAlignment="Center" FontWeight="Regular"></TextBlock>
                                         <TextBlock Text="%" FontSize="12" Foreground="{StaticResource FontColor4}" Margin="0,10,0,0" VerticalAlignment="Center" FontWeight="Regular"></TextBlock>
                                     </StackPanel>
                                     <TextBlock Text="Since last month" FontSize="12" Foreground="{StaticResource FontColor2}" Margin="15,10,0,0" VerticalAlignment="Center" FontWeight="Regular"></TextBlock>
-                                </StackPanel>
+                                </StackPanel>-->
                             </StackPanel>
                         </Border>
                     </StackPanel>
@@ -150,14 +150,14 @@
                                     <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding TOTALDESIGNERDEVELOPER}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
                                     </TextBlock>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal">
+                                <!--<StackPanel Orientation="Horizontal">
                                     <fa:FontAwesome Icon="ArrowDown" VerticalAlignment="Center" Margin="20,12,0,0" FontWeight="Regular" FontSize="10"></fa:FontAwesome>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="{Binding PERCENTDESIGNERNUMBER}" FontSize="12" Foreground="{StaticResource FontColor4}" Margin="5,10,0,0" VerticalAlignment="Center" FontWeight="Regular"></TextBlock>
                                         <TextBlock Text="%" FontSize="12" Foreground="{StaticResource FontColor4}" Margin="0,10,0,0" VerticalAlignment="Center" FontWeight="Regular"></TextBlock>
                                     </StackPanel>
                                     <TextBlock Text="Since last month" FontSize="12" Foreground="{StaticResource FontColor2}" Margin="15,10,0,0" VerticalAlignment="Center" FontWeight="Regular"></TextBlock>
-                                </StackPanel>
+                                </StackPanel>-->
                             </StackPanel>
                         </Border>
                     </StackPanel>
@@ -170,14 +170,14 @@
                                     <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding TOTALMARKETINGDEVELOPER}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
                                     </TextBlock>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal">
+                                <!--<StackPanel Orientation="Horizontal">
                                     <fa:FontAwesome Icon="ArrowDown" VerticalAlignment="Center" Margin="20,12,0,0" FontWeight="Regular" FontSize="10"></fa:FontAwesome>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="{Binding PERCENTMARKETINGNUMBER}" FontSize="12" Foreground="{StaticResource FontColor4}" Margin="5,10,0,0" VerticalAlignment="Center" FontWeight="Regular"></TextBlock>
                                         <TextBlock Text="%" FontSize="12" Foreground="{StaticResource FontColor4}" Margin="0,10,0,0" VerticalAlignment="Center" FontWeight="Regular"></TextBlock>
                                     </StackPanel>
                                     <TextBlock Text="Since last month" FontSize="12" Foreground="{StaticResource FontColor2}" Margin="15,10,0,0" VerticalAlignment="Center" FontWeight="Regular"></TextBlock>
-                                </StackPanel>
+                                </StackPanel>-->
                             </StackPanel>
                         </Border>
                     </StackPanel>

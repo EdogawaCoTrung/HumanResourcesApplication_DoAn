@@ -15,12 +15,12 @@ using System.Windows.Shapes;
 namespace HumanResourcesApplication_DoAn.Views.Admin
 {
     /// <summary>
-    /// Interaction logic for Department_Change_xaml.xaml
+    /// Interaction logic for ProjectMainView.xaml
     /// </summary>
-    public partial class Department_Change_xaml : Window
+    public partial class ProjectMainView : Window
     {
-        public Department_Change_xaml()
-        { 
+        public ProjectMainView()
+        {
             InitializeComponent();
         }
     }

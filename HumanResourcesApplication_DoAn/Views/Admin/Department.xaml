@@ -4,11 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
+             xmlns:VM="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
              mc:Ignorable="d" 
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              d:DesignHeight="750" d:DesignWidth="1100">
+    <UserControl.DataContext>
+        <VM:DepartmentViewModel />
+    </UserControl.DataContext>
     <UserControl.Resources>
+      
+        
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
         <Style TargetType="DataGrid">
             <Setter Property="VerticalScrollBarVisibility" Value="Disabled"></Setter>
@@ -102,6 +108,7 @@
                 <Border BorderBrush="{StaticResource ButtonColor2}" BorderThickness="0" CornerRadius="20">
                     <Button 
                                 Width="88"
+                                Command="{Binding AddDepartmentCommand}"
                                 Height="34"
                                 Foreground="White"
                                 FontSize="13"
@@ -112,48 +119,114 @@
                                 Content="Add New"
                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                 Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
+                                
                                 ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
                 </Border>
             </StackPanel>
-            <Grid Background="White" Height="auto" Margin="0,0,0,0">
-                <Border Background="White" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="0,1.5,0,1.5" CornerRadius="10">
+            <Grid Background="White" 
+                  Height="auto" 
+                  Margin="0,0,0,0">
+                <Border Background="White" 
+                        BorderBrush="{StaticResource ButtonColor5}" 
+                        BorderThickness="0,1.5,0,1.5" 
+                        CornerRadius="10">
                     <StackPanel Orientation="Vertical">
-                        <Grid Height="50" Background="White">
-                            <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Departments" FontSize="17" Foreground="{StaticResource FontColor8}" FontWeight="SemiBold" Background="White"></TextBlock>
-                            <Grid HorizontalAlignment="Right" Width="300" Height="34" Margin="0,0,20,0">
-                                <TextBlock Margin="15,5,5,5" Text="Search..." FontSize="13"
+                        <Grid Height="50" 
+                              Background="White">
+                            <TextBlock Margin="15,0,0,0" 
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Left" 
+                                       Text="Departments" 
+                                       FontSize="17" 
+                                       Foreground="{StaticResource FontColor8}" 
+                                       FontWeight="SemiBold" 
+                                       Background="White"></TextBlock>
+                            <Grid HorizontalAlignment="Right" 
+                                  Width="300" 
+                                  Height="34" 
+                                  Margin="0,0,20,0">
+                                <TextBlock Margin="15,5,5,5" 
+                                           Text="Search..." 
+                                           FontSize="13"
                                            Visibility="{Binding ElementName=txtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
-                                           HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                                           HorizontalAlignment="Left" 
+                                           VerticalAlignment="Center" 
+                                           Panel.ZIndex="1" 
+                                           IsHitTestVisible="False">
                                 </TextBlock>
-                                <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="7">
-                                    <TextBox x:Name="txtfilter" BorderThickness="0" Width="274" Height="34" Padding="0,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <Border BorderBrush="LightGray" 
+                                        BorderThickness="1" 
+                                        CornerRadius="7">
+                                    <TextBox x:Name="txtfilter" 
+                                             BorderThickness="0" 
+                                             Width="274" 
+                                             Height="34" 
+                                             Padding="0,8,10,0"  
+                                             VerticalAlignment="Center" 
+                                             FontSize="13"
                                             ></TextBox>
                                 </Border>
-                                <fa:FontAwesome Margin="0,0,5,0" VerticalAlignment="Center" HorizontalAlignment="Right" Icon="Search" Foreground="black" FontSize="13"></fa:FontAwesome>
+                                <fa:FontAwesome Margin="0,0,5,0" 
+                                                VerticalAlignment="Center" 
+                                                HorizontalAlignment="Right" 
+                                                Icon="Search" 
+                                                Foreground="black" 
+                                                FontSize="13"></fa:FontAwesome>
                             </Grid>
 
                         </Grid>
 
-                        <DataGrid Height="480" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate3}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
+                        <DataGrid Height="480" 
+                                  ItemsSource="{Binding ListDepartments}"
+                                  SelectedItem="{Binding Selectedtem}"
+                                  Name="Users" 
+                                  RowStyle="{DynamicResource DataGridRowStyle1}" 
+                                  CellStyle="{DynamicResource DataGridCellTemplate3}" 
+                                  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="#" Binding="{Binding Number}"  IsReadOnly="True" CanUserResize="False" Width="139"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Departments Name" Binding="{Binding Departments_Name}" IsReadOnly="True" CanUserResize="False" Width="250"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Departments Head" Binding="{Binding Departments_Head}" IsReadOnly="True" CanUserResize="False" Width="250"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Total Employee" Binding="{Binding Total}" IsReadOnly="True" CanUserResize="False" Width="300"></DataGridTextColumn>
+                                <DataGridTextColumn Header="#" 
+                                                    Binding="{Binding departmentId}"  
+                                                    IsReadOnly="True" 
+                                                    CanUserResize="False" 
+                                                    Width="139"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Departments Name" 
+                                                    Binding="{Binding departmentName}" 
+                                                    IsReadOnly="True" 
+                                                    CanUserResize="False" 
+                                                    Width="250"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Departments Head"
+                                                    Binding="{Binding head}" 
+                                                    IsReadOnly="True" 
+                                                    CanUserResize="False" 
+                                                    Width="250"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Total Employee" 
+                                                    Binding="{Binding totalEmployees}" 
+                                                    IsReadOnly="True" 
+                                                    CanUserResize="False" Width="300"></DataGridTextColumn>
                                 <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="Auto">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <StackPanel Name="Button_Wrapper" Orientation="Horizontal">
-                                                <Button  Width="30" Height="30" Margin="0,0,10,0"
-                                                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                                                          Style="{StaticResource MaterialDesignIconForegroundButton}"
-                                                          ToolTip="MaterialDesignIconForegroundButton">
-                                                    <materialDesign:PackIcon Kind="PencilOutline" Foreground="{StaticResource FontColor2}"/>
+                                            <StackPanel Name="Button_Wrapper" 
+                                                        Orientation="Horizontal">
+                                                <Button  Width="30" 
+                                                         Command="{Binding DataContext.ChangeDepartmentCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                         CommandParameter="{Binding}"
+                                                         Height="30" 
+                                                         Margin="0,0,10,0"
+                                                         
+                                                         Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                                         ToolTip="MaterialDesignIconForegroundButton">
+                                                    <materialDesign:PackIcon Kind="PencilOutline" 
+                                                                             Foreground="{StaticResource FontColor2}"/>
                                                 </Button>
-                                                <Button  Width="30" Height="30" Margin="0,0,10,0"
-                                                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                                                          Style="{StaticResource MaterialDesignIconForegroundButton}"
-                                                          ToolTip="MaterialDesignIconForegroundButton">
+                                                <Button  Width="30" 
+                                                         Command="{Binding DataContext.DeleteDepartmentCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                         CommandParameter="{Binding}"
+                                                         Height="30" 
+                                                         Margin="0,0,10,0"
+                                                        
+                                                         Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                                         ToolTip="MaterialDesignIconForegroundButton">
                                                     <materialDesign:PackIcon Kind="TrashCanOutline" Foreground="{StaticResource FontColor2}"/>
                                                 </Button>
                                             </StackPanel>
