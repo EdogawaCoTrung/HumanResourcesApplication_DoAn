@@ -33,23 +33,11 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             Absence = 0;
             Present = 0;
             List<string?> check = new List<string?>();
-            for(int i = 0; i < ListLeaveRequests.Count; i++)
+            for (int i = 0; i < ListLeaveRequests.Count; i++)
             {
                 if (ListLeaveRequests[i].startDate <= DateOnly.FromDateTime(DateTime.Now) && ListLeaveRequests[i].endDate >= DateOnly.FromDateTime(DateTime.Now))
                 {
-                    bool check2 = false;
-                    for (int j = 0; j < check.Count(); j++)
-                    {
-                        if(ListLeaveRequests[i].userId == check[j])
-                        {
-                            check2 = true;
-                        }
-                    }
-                    if (!check2)
-                    {
-                        Absence++;
-                        check.Add(ListLeaveRequests[i].userId);
-                    }
+                    Absence++;
                 }
             }
             check.Clear();
