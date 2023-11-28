@@ -205,9 +205,9 @@
 
                         <DataGrid ItemsSource="{Binding Users}"  Height="500" Name="Users" RowStyle="{DynamicResource DataGridRowStyle2}" CellStyle="{DynamicResource DataGridCellTemplate3}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Width="45" Header="#" Binding="{Binding number, UpdateSourceTrigger=PropertyChanged}" >
+                                <DataGridTextColumn Width="50" Header="#" Binding="{Binding number, UpdateSourceTrigger=PropertyChanged}" >
                                 </DataGridTextColumn>
-                                <DataGridTemplateColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="220">
+                                <DataGridTemplateColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="280">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
@@ -219,8 +219,8 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <DataGridTextColumn Header="Role" Binding="{Binding role, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" CanUserResize="False" Width="200"></DataGridTextColumn>
-                                <DataGridTemplateColumn Header="Salary"  IsReadOnly="True" CanUserResize="False" Width="200">
+                                <DataGridTextColumn Header="Role" Binding="{Binding role, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" CanUserResize="False" Width="250"></DataGridTextColumn>
+                                <DataGridTemplateColumn Header="Salary"  IsReadOnly="True" CanUserResize="False" Width="250">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
@@ -230,7 +230,7 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <DataGridTemplateColumn Header="Status" IsReadOnly="True" CanUserResize="False" Width="200">
+                                <!--<DataGridTemplateColumn Header="Status" IsReadOnly="True" CanUserResize="False" Width="200">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
@@ -242,7 +242,7 @@
                                             </StackPanel>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
+                                </DataGridTemplateColumn>-->
                                 <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="Auto">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
