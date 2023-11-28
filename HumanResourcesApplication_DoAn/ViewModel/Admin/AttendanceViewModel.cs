@@ -13,8 +13,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 {
     public class AttendanceViewModel : ViewModelBase
     {
-        private IListAttendanceRepository? attendanceRepository;
-        private IListUsersRepository? listUsers;
+        private IListAttendanceRepository? attendanceRepository;// lấy data từ Model 
+        private IListUsersRepository? listUsers; // lấy user từ Model
         private List<Attendance>? listAttendance;
         private List<AttendanceForView>? _attendances;
         private int _totalEmployee;
