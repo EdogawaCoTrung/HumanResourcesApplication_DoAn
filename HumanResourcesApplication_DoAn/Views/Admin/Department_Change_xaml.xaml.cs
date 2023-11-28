@@ -20,7 +20,7 @@ namespace HumanResourcesApplication_DoAn.Views.Admin
     public partial class Department_Change_xaml : Window
     {
         public Department_Change_xaml()
-        {
+        { 
             InitializeComponent();
         }
     }

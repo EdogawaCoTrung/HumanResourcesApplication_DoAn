@@ -8,7 +8,7 @@
         xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.ViewModel"
         mc:Ignorable="d"
-        Title="Department_Change_xaml" Height="400" Width="500">
+        Title="Department_Change_xaml" Height="450" Width="500">
     <Window.DataContext>
         <VM:ChangeDepartmentViewModel />
     </Window.DataContext>
@@ -18,8 +18,8 @@
     <Grid Background="{StaticResource Color2}">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="56"/>
+            <RowDefinition Height="270"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Border BorderThickness="0,0,0,1" 

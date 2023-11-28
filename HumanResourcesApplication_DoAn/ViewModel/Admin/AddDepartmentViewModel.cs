@@ -30,9 +30,6 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             CancelCommand = new ViewModelCommand(ExcuteCancelCommand, CanExcuteCancelCommand);
 
         }
-
-       
-
         private void ExcuteAddCommand(object? obj)
         {
             addDepertmentRepository.AddDepartment(DepartmentName, Head, int.Parse(TotalEmployees));

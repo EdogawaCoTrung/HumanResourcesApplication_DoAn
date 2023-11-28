@@ -18,12 +18,19 @@ namespace HumanResourcesApplication_DoAn.Repositories.DepartmentRepo
             {
                 connection.Open();
             }
-            MySqlCommand Command = new MySqlCommand();
-            Command.Connection = connection;
-            Command.CommandText = "DELETE FROM DEPARTMENT WHERE @_departmentID=DEPARTMENT_ID";
-            Command.Parameters.Add("@_departmentID", MySqlDbType.VarString).Value = _departmentID;
-            MySqlDataReader reader = Command.ExecuteReader();
-            connection.Close();
+            try
+            {
+                MySqlCommand Command = new MySqlCommand();
+                Command.Connection = connection;
+                Command.CommandText = "DELETE FROM DEPARTMENT WHERE @_departmentID=DEPARTMENT_ID";
+                Command.Parameters.Add("@_departmentID", MySqlDbType.VarString).Value = _departmentID;
+                MySqlDataReader reader = Command.ExecuteReader();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
         }
     }
 }
