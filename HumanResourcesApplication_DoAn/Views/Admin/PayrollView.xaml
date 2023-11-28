@@ -4,10 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
+             xmlns:vm="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              d:DesignHeight="750" d:DesignWidth="1100">
+    <UserControl.DataContext>
+        <vm:PayrollViewModel/>
+    </UserControl.DataContext>
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
         <Style TargetType="DataGrid">
@@ -104,10 +108,10 @@
                     <StackPanel Margin="0,0,16,0">
                         <Border Background="White" Width="274" Height="116" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                             <StackPanel>
-                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="Web Developer" FontSize="13" Foreground="Black"></TextBlock>
+                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding salSta[0].departmentName}" FontSize="13" Foreground="Black"></TextBlock>
                                 <StackPanel Orientation="Horizontal">
                                     <fa:FontAwesome Icon="Dollar" VerticalAlignment="Center" Margin="20,12,0,0" FontWeight="Bold" FontSize="18"></fa:FontAwesome>
-                                    <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding TOTALWEBDEVELOPER}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
+                                    <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding salSta[0].salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
                                     </TextBlock>
                                 </StackPanel>
                                 <!--<StackPanel Orientation="Horizontal">
@@ -124,10 +128,10 @@
                     <StackPanel Margin="0,0,16,0">
                         <Border Background="White" Width="274" Height="116" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                             <StackPanel>
-                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="App Developer" FontSize="13" Foreground="Black"></TextBlock>
+                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding salSta[1].departmentName}" FontSize="13" Foreground="Black"></TextBlock>
                                 <StackPanel Orientation="Horizontal">
                                     <fa:FontAwesome Icon="Dollar" VerticalAlignment="Center" Margin="20,12,0,0" FontWeight="Bold" FontSize="18"></fa:FontAwesome>
-                                    <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding TOTALAPPDEVELOPER}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
+                                    <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding salSta[1].salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
                                     </TextBlock>
                                 </StackPanel>
                                 <!--<StackPanel Orientation="Horizontal">
@@ -144,10 +148,10 @@
                     <StackPanel Margin="0,0,16,0">
                         <Border Background="White" Width="274" Height="116" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                             <StackPanel>
-                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="Designer" FontSize="13" Foreground="Black"></TextBlock>
+                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding salSta[2].departmentName}" FontSize="13" Foreground="Black"></TextBlock>
                                 <StackPanel Orientation="Horizontal">
                                     <fa:FontAwesome Icon="Dollar" VerticalAlignment="Center" Margin="20,12,0,0" FontWeight="Bold" FontSize="18"></fa:FontAwesome>
-                                    <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding TOTALDESIGNERDEVELOPER}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
+                                    <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding salSta[2].salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
                                     </TextBlock>
                                 </StackPanel>
                                 <!--<StackPanel Orientation="Horizontal">
@@ -164,10 +168,10 @@
                     <StackPanel Margin="0,0,0,0">
                         <Border Background="White" Width="274" Height="116" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                             <StackPanel>
-                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="Marketing" FontSize="13" Foreground="Black"></TextBlock>
+                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding salSta[3].departmentName}" FontSize="13" Foreground="Black"></TextBlock>
                                 <StackPanel Orientation="Horizontal">
                                     <fa:FontAwesome Icon="Dollar" VerticalAlignment="Center" Margin="20,12,0,0" FontWeight="Bold" FontSize="18"></fa:FontAwesome>
-                                    <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding TOTALMARKETINGDEVELOPER}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
+                                    <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding salSta[3].salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
                                     </TextBlock>
                                 </StackPanel>
                                 <!--<StackPanel Orientation="Horizontal">
@@ -203,29 +207,27 @@
 
                         </Grid>
 
-                        <DataGrid ItemsSource="{Binding Users}"  Height="500" Name="Users" RowStyle="{DynamicResource DataGridRowStyle2}" CellStyle="{DynamicResource DataGridCellTemplate3}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
+                        <DataGrid ItemsSource="{Binding payrolls}"  Height="500" Name="Users" RowStyle="{DynamicResource DataGridRowStyle2}" CellStyle="{DynamicResource DataGridCellTemplate3}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Width="50" Header="#" Binding="{Binding number, UpdateSourceTrigger=PropertyChanged}" >
-                                </DataGridTextColumn>
                                 <DataGridTemplateColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="280">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                                                 <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
-                                                    <TextBlock Name="Name" Background="Transparent" Text="{Binding userName, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>
-                                                    <TextBlock Name="Email" Background="Transparent" Text="{Binding email, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor2}" FontSize="12"></TextBlock>
+                                                    <TextBlock Name="Name" Background="Transparent" Text="{Binding user.userName, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>
+                                                    <TextBlock Name="Email" Background="Transparent" Text="{Binding user.email, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor2}" FontSize="12"></TextBlock>
                                                 </StackPanel>
                                             </StackPanel>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <DataGridTextColumn Header="Role" Binding="{Binding role, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" CanUserResize="False" Width="250"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Role" Binding="{Binding role.roleName, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" CanUserResize="False" Width="250"></DataGridTextColumn>
                                 <DataGridTemplateColumn Header="Salary"  IsReadOnly="True" CanUserResize="False" Width="250">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
                                                 <fa:FontAwesome Icon="Dollar"  VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontSize="12"></fa:FontAwesome>
-                                                <TextBlock  VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Salary, UpdateSourceTrigger=PropertyChanged}" x:Name="SALARYTEXTBLOCK" Foreground="Black" FontSize="12" ></TextBlock>
+                                                <TextBlock  VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding salary, UpdateSourceTrigger=PropertyChanged}" x:Name="SALARYTEXTBLOCK" Foreground="Black" FontSize="12" ></TextBlock>
                                             </StackPanel>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
