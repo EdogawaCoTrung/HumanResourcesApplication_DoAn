@@ -27,9 +27,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private ObservableCollection<Attendance> _lstAttendance = new ObservableCollection<Attendance>();
         public ObservableCollection<Attendance> LstAttendance
         {
-            get { return _lstAttendance; }
-            
-            
+            get { return _lstAttendance; }       
         }
 
         
