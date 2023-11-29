@@ -75,7 +75,6 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         {
 
             ShowEmployeeAllViewCommand = new ViewModelCommand(ExcuteShowEmployeeAllViewCommand);
-           
             ShowLeaveRequestViewCommand = new ViewModelCommand(ExcuteShowEmployeeLeaveRequestViewCommand);
             //default view 
             _employeeAllViewModel = new EmployeeAllViewModel(this);

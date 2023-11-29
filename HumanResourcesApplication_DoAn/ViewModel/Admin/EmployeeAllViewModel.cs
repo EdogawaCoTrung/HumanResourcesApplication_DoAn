@@ -62,7 +62,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 {
                     if (Users[i].joinDate.Value.Year == DateTime.Now.Year)
                         NewEmployee++;
-                    if (Users[i].gender == false)
+                    if (Users[i].gender == "Female")
                         Female++;
                     else
                         Male++;
