@@ -8,7 +8,7 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Employee_Account_ChangeView" Height="670" Width="670">
+        Title="Employee_Account_ChangeView" Height="750" Width="670">
     <Window.DataContext>
         <vme:ChangeProfileVM/>
     </Window.DataContext>

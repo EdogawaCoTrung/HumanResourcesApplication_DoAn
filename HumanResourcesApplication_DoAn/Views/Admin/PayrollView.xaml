@@ -214,7 +214,7 @@
                                         <DataTemplate>
                                             <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                                                 <Border Width="30" Height="30" Margin="0,0,8,0" HorizontalAlignment="Left" CornerRadius="50" BorderBrush="{StaticResource ButtonColor5}">
-                                                    <Image VerticalAlignment="Center" HorizontalAlignment="Center" Source="{Binding user.avatar}"></Image>
+                                                    <Image  VerticalAlignment="Center" HorizontalAlignment="Center" Source="{Binding user.avatar}" Stretch="UniformToFill"/>
                                                 </Border>
                                                 <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
                                                     <TextBlock Name="Name" Background="Transparent" Text="{Binding user.userName, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>

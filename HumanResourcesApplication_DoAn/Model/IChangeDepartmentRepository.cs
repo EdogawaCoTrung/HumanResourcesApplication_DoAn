@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesApplication_DoAn.Model
 {
-    interface IListAttendanceRepository
+    public interface IChangeDepartmentRepository
     {
-        List<Attendance> ListAttendance();
+        public void ChangeDepartment( string?departmentID, string? departmentName, string? head, int? totalEmployees);
     }
 }
