@@ -37,7 +37,6 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
             user = new User();
             user = MyApp.currentUser;
             BindingImage bindingImage = new BindingImage();
-            user.avatar = bindingImage.ConvertPath(user.avatar);
             LeaveCommand = new ViewModelCommand(ExecuteLeaveCommand, CanExecuteLeaveCommand);
             ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             FacebookCommand = new ViewModelCommand(ExecuteFacebookCommand, CanExecuteFacebookCommand);
