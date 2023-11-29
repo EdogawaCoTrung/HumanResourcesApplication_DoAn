@@ -39,7 +39,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         public EmployeeAllViewModel()
         {
-            AddUserCommand = new ViewModelCommand(ExecuteLeaveCommand, CanExecuteLeaveCommand);
+            AddUserCommand = new ViewModelCommand(ExecuteAddUserCommand, CanExecuteAddUserCommand);
             listUsers = new ListUsersRepository();
             Users = new List<User>();
             Users = listUsers.ListUsers();
@@ -59,15 +59,30 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 }
         }
 
-        private bool CanExecuteLeaveCommand(object? obj)
+        private bool CanExecuteAddUserCommand(object? obj)
         {
             return true;
         }
 
-        private void ExecuteLeaveCommand(object? obj)
+        private void ExecuteAddUserCommand(object? obj)
         {
             Employee_AddUser employee_Add = new Employee_AddUser();
             employee_Add.ShowDialog();
+            Users = listUsers.ListUsers();
+            TotalEmployee = Users != null ? Users.Count : 0;
+            NewEmployee = 0;
+            Female = 0;
+            Male = 0;
+            if (Users != null)
+                for (int i = 0; i < Users.Count; i++)
+                {
+                    if (Users[i].joinDate.Value.Year == DateTime.Now.Year)
+                        NewEmployee++;
+                    if (Users[i].gender == false)
+                        Female++;
+                    else
+                        Male++;
+                }
         }
     }
 }

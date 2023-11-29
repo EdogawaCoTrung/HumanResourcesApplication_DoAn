@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 {
-    class MainViewViewModel:ViewModelBase
+    public class MainViewViewModel : ViewModelBase
     {
         private UserViewModel _userViewModel;
         private EmployeeMainViewViewModel _employeeMainViewViewModel;
