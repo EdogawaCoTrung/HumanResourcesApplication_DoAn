@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 {
-    class InsuranceMainViewModel:ViewModelBase
+    public class InsuranceMainViewModel:ViewModelBase
     {
         
     }

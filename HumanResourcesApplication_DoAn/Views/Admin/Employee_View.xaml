@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:VM="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
              xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
              mc:Ignorable="d" 
              Background="{StaticResource Color2}"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
-             d:DesignHeight="750" d:DesignWidth="1100">
+             d:DesignHeight="750" d:DesignWidth="1100" >
     <Grid>
         <Border CornerRadius="20" 
         BorderThickness="1" 
@@ -38,7 +39,7 @@
                         BorderThickness="1"
                         Background="{StaticResource ButtonColor5}"
                         CornerRadius="200">
-                            <Image Source="{Binding avatar}" />
+                            <Image Source="{Binding User.avatar}" />
                         </Border>
                         <StackPanel Height="300"
                             VerticalAlignment="Center"
@@ -47,11 +48,11 @@
                             <TextBlock Margin="60,30,20,0"
                                Height="60"
                                FontSize="50"
-                               Text="Hattie Watkins"
+                               Text="{Binding User.userName}"
                                TextAlignment="Center">
 
                             </TextBlock>
-                            <TextBlock Text="Web developer"
+                            <TextBlock Text="{Binding User.roleId}"
                                TextAlignment="Center"
                                Width="400"
                                FontSize="25"

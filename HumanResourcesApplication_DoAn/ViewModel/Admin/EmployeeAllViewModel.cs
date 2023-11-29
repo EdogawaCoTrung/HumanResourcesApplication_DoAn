@@ -67,7 +67,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                     else
                         Male++;
                 }
-
+            SelectedItem = _selectedItem;
             ShowEmployeeViewCommand = new ViewModelCommand(ExcuteShowEmployeeViewCommand);
             ChangeEmployeeCommand = new ViewModelCommand(ExcuteChangeEmployeeViewCommand);
             DeleteEmployeeCommand = new ViewModelCommand(ExcuteDeleteEmployeeViewCommand);
@@ -99,7 +99,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 if (SelectedItem != null)
                 {
 
-                    EmployeeViewViewModel employeeViewViewModel = new EmployeeViewViewModel(mainViewVM, this); 
+                    EmployeeViewViewModel employeeViewViewModel = new EmployeeViewViewModel(SelectedItem, mainViewVM, this); 
                     mainViewVM.CurrentEmployeeChildView = employeeViewViewModel;
                     
                 }
