@@ -4,9 +4,160 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Employee"
+             xmlns:MU="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.EmployeeVM"
              mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
              d:DesignHeight="750" d:DesignWidth="1100">
-    <Grid>
-        
+    <UserControl.DataContext>
+        <MU:DashboardViewModel></MU:DashboardViewModel>
+    </UserControl.DataContext>
+    <Grid Background="{StaticResource Color3}">
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="0,0,8,0" Text="Welcome" FontSize="22" Foreground="Black"></TextBlock>
+                <TextBlock Text="Quang Trung" FontSize="22" Foreground="Black"></TextBlock>
+                <TextBlock Text="!" FontSize="22" Foreground="Black"></TextBlock>
+            </StackPanel>
+            <StackPanel Margin="0,16,0,0" Orientation="Horizontal">
+                <TextBlock Text="Measure how fast you're growing monthly recurring revenue." FontSize="13" Foreground="Black"></TextBlock>
+                <TextBlock Margin="5,0,0,0" Foreground="{StaticResource FontColor3}" FontSize="13" Text="Learn More"></TextBlock>
+            </StackPanel>
+            <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+                <Grid Background="White"
+                      Width="178"
+                      Margin="0,0,28,0">
+                    <Button
+                          Height="100"
+                          Background="White"
+                          BorderThickness="0"
+                          materialDesign:ButtonAssist.CornerRadius="5"
+                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                          Style="{StaticResource MaterialDesignRaisedLightButton}"
+                          ToolTip="MaterialDesignRaisedLightButton with Round Corners">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <fa:FontAwesome Icon="UserCircleOutline" FontSize="30"></fa:FontAwesome>
+                            <TextBlock Margin="7" Text="Users" FontSize="15" Foreground="{StaticResource FontColor2}"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+                <Grid Background="White"
+                      Width="178"
+                      Margin="0,0,28,0">
+                    <Button
+                          Height="100"
+                          Background="White"
+                          BorderThickness="0"
+                          materialDesign:ButtonAssist.CornerRadius="5"
+                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                          Style="{StaticResource MaterialDesignRaisedLightButton}"
+                          ToolTip="MaterialDesignRaisedLightButton with Round Corners">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <fa:FontAwesome Icon="UserCircleOutline" FontSize="30"></fa:FontAwesome>
+                            <TextBlock Margin="7" Text="Users" FontSize="15" Foreground="{StaticResource FontColor2}"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+                <Grid Background="White"
+                      Width="178">
+                    <Button
+                          Height="100"
+                          Background="White"
+                          BorderThickness="0"
+                          materialDesign:ButtonAssist.CornerRadius="5"
+                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                          Style="{StaticResource MaterialDesignRaisedLightButton}"
+                          ToolTip="MaterialDesignRaisedLightButton with Round Corners">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <fa:FontAwesome Icon="UserCircleOutline" FontSize="30"></fa:FontAwesome>
+                            <TextBlock Margin="7" Text="Users" FontSize="15" Foreground="{StaticResource FontColor2}"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+            </StackPanel>
+            <StackPanel Margin="0,15,0,0" Orientation="Horizontal">
+                <StackPanel HorizontalAlignment="Left" Margin="0 0 30 0" VerticalAlignment="Top" Background="White" Width="588" Height="300">
+                    <Grid>
+                        <TextBlock Margin="10,0,0,0" Padding="10" Text="Salary Statistics" FontWeight="SemiBold" FontSize="17"></TextBlock>
+                        <StackPanel Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock Text="Last year comparison:" Margin="0,0,15,0" FontSize="13" Foreground="{StaticResource FontColor2}"></TextBlock>
+                            <ToggleButton
+                             IsChecked="True"
+                             Style="{StaticResource MaterialDesignSwitchSecondaryToggleButton}"
+                             ToolTip="MaterialDesignSwitchSecondaryToggleButton" />
+                        </StackPanel>
+                        <Border BorderBrush="{StaticResource ButtonColor3}" BorderThickness="0,0,0,1">
+                        </Border>
+                    </Grid>
+                    <lvc:CartesianChart x:Name="myChart"
+                                    BorderBrush="{StaticResource ButtonColor3}"
+                                    BorderThickness="1 0 1 1"
+                                    Width="588"
+                                    Height="260"
+                                    Series="{Binding Series1}"
+                                    XAxes="{Binding XAxes1}"
+                                    YAxes="{Binding YAxes1}"
+                                    ZoomMode="X"
+                                    ZoomingSpeed="3"
+                                    AnimationsSpeed="00:00:03.500"
+                                    LegendPosition="Bottom">
+                    </lvc:CartesianChart>
+                </StackPanel>
+                <StackPanel Background="White">
+                    <Grid>
+                        <Border BorderBrush="{StaticResource ButtonColor3}" BorderThickness="0,0,0,1">
+                        </Border>
+                        <TextBlock  Margin="10,10,0,10" VerticalAlignment="Center" Text="Revenue" FontSize="17" FontWeight="SemiBold" Foreground="Black"></TextBlock>
+                    </Grid>
+                    <StackPanel>
+                        <lvc:PieChart Width="375" Height="250"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Right"
+                      Series="{Binding Series2}"
+                      AnimationsSpeed="00:00:03.500"
+                      LegendPosition="Bottom"
+                      InitialRotation="-90">
+                        </lvc:PieChart>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Background="White" Margin="0 10 0 0" Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Grid>
+                        <Border BorderBrush="{StaticResource ButtonColor3}" BorderThickness="0,0,0,1">
+                        </Border>
+                        <TextBlock  Margin="10,0,0,0" VerticalAlignment="Center" Text="My Balance" FontSize="17" FontWeight="SemiBold" Foreground="Black"></TextBlock>
+                    </Grid>
+                    <lvc:CartesianChart Width="588" 
+                                        Height="218"
+                                        Series="{Binding Series3}"
+                                        AnimationsSpeed="00:00:03.500"
+                                        LegendPosition="Right"
+                                        YAxes="{Binding YAxes2}"
+                                        ZoomMode="Y">
+
+                    </lvc:CartesianChart>
+                </StackPanel>
+                <StackPanel Margin="30,0,0,0" Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <Grid>
+                        <Border BorderBrush="{StaticResource ButtonColor3}" BorderThickness="0,0,0,1">
+                        </Border>
+                        <TextBlock  Margin="10,0,0,0" VerticalAlignment="Center" Text="Performance" FontSize="17" FontWeight="SemiBold" Foreground="Black"></TextBlock>
+                    </Grid>
+                    <lvc:CartesianChart Width="380" 
+                                        Height="218"
+                                        Series="{Binding Series4}"
+                                        AnimationsSpeed="00:00:03.500"
+                                        LegendPosition="Right"
+                                        ZoomMode="Y"
+                                        TooltipPosition="Left"
+                                        YAxes="{Binding YAxes3}"
+                                        >
+
+                    </lvc:CartesianChart>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </UserControl>
