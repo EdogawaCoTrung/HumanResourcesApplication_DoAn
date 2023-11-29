@@ -24,7 +24,16 @@ namespace HumanResourcesApplication_DoAn.Repositories
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                _connectionString = "server=sql12.freesqldatabase.com; user=sql12665837; password=2ZTBmbHdJ5; database=sql12665837; convert zero datetime=True";
+                connection = new MySqlConnection(_connectionString);
+                try
+                {
+                    connection.Open();
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
             }
         } 
     }

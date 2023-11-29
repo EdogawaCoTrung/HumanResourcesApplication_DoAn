@@ -1,5 +1,6 @@
 ﻿using HumanResourcesApplication_DoAn.Model;
 using HumanResourcesApplication_DoAn.Repositories;
+using HumanResourcesApplication_DoAn.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,18 +27,22 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             leaveRequestsRepository = new ListLeaveRequestsRepository();
             ListLeaveRequests = new List<LeaveRequest>();
             listUsers = new ListUsersRepository();
+            Timer timer = new Timer();
             ListLeaveRequests = leaveRequestsRepository.ListLeaveRequests();
             TotalEmployee = listUsers.ListUsers() != null ? listUsers.ListUsers().Count : 0;
             Absence = 0;
             Present = 0;
-            for(int i = 0; i < ListLeaveRequests.Count; i++)
+            List<string?> check = new List<string?>();
+            for (int i = 0; i < ListLeaveRequests.Count; i++)
             {
                 if (ListLeaveRequests[i].startDate <= DateOnly.FromDateTime(DateTime.Now) && ListLeaveRequests[i].endDate >= DateOnly.FromDateTime(DateTime.Now))
                 {
                     Absence++;
                 }
             }
+            check.Clear();
             Present = TotalEmployee - Absence;
+            timer.Setter();
         }
     }
 }
