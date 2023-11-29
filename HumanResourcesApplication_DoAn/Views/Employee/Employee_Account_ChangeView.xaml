@@ -12,6 +12,7 @@
     <Window.DataContext>
         <vme:ChangeProfileVM/>
     </Window.DataContext>
+    
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
     </Window.Resources>
@@ -282,11 +283,12 @@
                                      BorderBrush="{StaticResource ButtonColor5}">
                                     <Button VerticalAlignment="Center" 
                                             HorizontalAlignment="Center" 
-                                            FontWeight="SemiBold"
+                                            FontWeight="SemiBold" 
+                                            Background="Transparent"
                                             BorderThickness="0"
+                                            Command="{Binding UploadImageCommand}"
                                             Foreground="{StaticResource FontColor2}" 
                                             FontSize="13" 
-                                            Background="Transparent"
                                             Content="Choose File"></Button>
                                 </Border>
                                 <TextBlock Margin="5,15,0,10" 
