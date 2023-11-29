@@ -38,7 +38,7 @@
                         BorderThickness="1"
                         Background="{StaticResource ButtonColor5}"
                         CornerRadius="200">
-                            <Image Source="{Binding Avatar}" />
+                            <Image Source="{Binding avatar}" />
                         </Border>
                         <StackPanel Height="300"
                             VerticalAlignment="Center"

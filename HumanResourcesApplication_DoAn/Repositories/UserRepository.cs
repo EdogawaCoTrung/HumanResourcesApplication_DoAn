@@ -1,4 +1,5 @@
 ﻿using HumanResourcesApplication_DoAn.Model;
+using HumanResourcesApplication_DoAn.Utils;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -57,6 +58,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
             command.Parameters.Add("@loginName", MySqlDbType.VarString).Value = loginName;
             MySqlDataReader reader = command.ExecuteReader();
             User _user = new User();
+            BindingImage bindingImage = new BindingImage();
             while (reader.Read())
             {
                 _user.userId = reader["USERID"].ToString();
@@ -77,6 +79,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 _user.roleId = reader["ROLE_NAME"].ToString();
                 _user.payrollId = reader["SALARY"].ToString();
                 _user.avatar = reader["AVATAR"].ToString();
+                _user.avatar = bindingImage.ConvertPath(_user.avatar);
                 _user.gender = reader["GENDER"].ToString() == "0" ? false : true;
             }
             connection.Close();
