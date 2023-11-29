@@ -28,7 +28,12 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public string DepartmentId { get => _departmentID; set { _departmentID = value; OnPropertyChanged(nameof(DepartmentId)); } }
 
         public Department SelectedItem { get => _selectedItem; set { _selectedItem = value; OnPropertyChanged(nameof(SelectedItem)); } }
-
+        public ChangeDepartmentViewModel()
+        {
+            changeDepertmentRepository = new ChangeRepository();
+            ChangeCommand = new ViewModelCommand(ExcuteChangeCommand, CanExcuteAddCommand);
+            CancelCommand = new ViewModelCommand(ExcuteCancelCommand, CanExcuteCancelCommand);
+        }
         public ChangeDepartmentViewModel(Department SelectedItem)
         {
             changeDepertmentRepository = new ChangeRepository();
