@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace HumanResourcesApplication_DoAn.Model
 {
-    interface IListAttendanceRepository
+    public interface IAddDepertmentRepository
     {
-        List<Attendance> ListAttendance();
+        public void AddDepartment(string? _departmentName, string? _head, int? _totalEmployee);
     }
 }

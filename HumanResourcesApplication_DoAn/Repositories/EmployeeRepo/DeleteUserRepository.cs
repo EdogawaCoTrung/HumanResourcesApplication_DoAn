@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HumanResourcesApplication_DoAn.Model
+namespace HumanResourcesApplication_DoAn.Repositories.EmployeeRepo
 {
-    interface IListAttendanceRepository
+    class DeleteUserRepository
     {
-        List<Attendance> ListAttendance();
     }
 }

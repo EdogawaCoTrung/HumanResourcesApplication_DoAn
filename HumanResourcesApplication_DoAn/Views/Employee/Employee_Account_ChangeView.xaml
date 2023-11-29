@@ -8,7 +8,7 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Employee_Account_ChangeView" Height="670" Width="670">
+        Title="Employee_Account_ChangeView" Height="750" Width="670">
     <Window.DataContext>
         <vme:ChangeProfileVM/>
     </Window.DataContext>
@@ -280,12 +280,14 @@
                                      HorizontalAlignment="Left" 
                                      CornerRadius="50" 
                                      BorderBrush="{StaticResource ButtonColor5}">
-                                    <TextBlock VerticalAlignment="Center" 
+                                    <Button VerticalAlignment="Center" 
                                             HorizontalAlignment="Center" 
-                                            FontWeight="SemiBold" 
+                                            FontWeight="SemiBold"
+                                            BorderThickness="0"
                                             Foreground="{StaticResource FontColor2}" 
                                             FontSize="13" 
-                                            Text="Choose File"></TextBlock>
+                                            Background="Transparent"
+                                            Content="Choose File"></Button>
                                 </Border>
                                 <TextBlock Margin="5,15,0,10" 
                                         Text="No file selected." 

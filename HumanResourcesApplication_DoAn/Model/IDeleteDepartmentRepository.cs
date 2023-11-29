@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesApplication_DoAn.Model
 {
-    interface IListAttendanceRepository
+    public interface IDeleteDepartmentRepository
     {
-        List<Attendance> ListAttendance();
+        void DeleteDepartment(string? _departmentID, string? _departmentName, string? _head, int? _totalEmployees);   
     }
 }

@@ -43,7 +43,8 @@
                                            Text="All"></TextBlock>
                 </RadioButton>
                 <RadioButton Style="{StaticResource TopBorderTriggerButton}"
-                             Command="{Binding ShowEmployeeViewCommand}">
+                             IsEnabled="False" 
+                            Command="{Binding ShowEmployeeViewCommand}" >
                     <TextBlock Text="View"></TextBlock>
                 </RadioButton>
                 <RadioButton Style="{StaticResource TopBorderTriggerButton}"

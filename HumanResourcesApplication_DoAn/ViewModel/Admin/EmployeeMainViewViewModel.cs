@@ -1,4 +1,6 @@
-﻿using HumanResourcesApplication_DoAn.Views.Employee;
+﻿using HumanResourcesApplication_DoAn.Model;
+using HumanResourcesApplication_DoAn.ViewModel.EmployeeVM;
+using HumanResourcesApplication_DoAn.Views.Employee;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         EmployeeAllViewModel _employeeAllViewModel;
         LeaveRequestsViewModel _leaveRequestsViewModel;
         EmployeeViewViewModel _employeeViewViewModel;
+        User _selectedItem;
         //properties
         public ViewModelBase CurrentEmployeeChildView 
         {   get => _currentEmployeeChildView;
@@ -51,38 +54,52 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 OnPropertyChanged(nameof(EmployeeViewViewModel));
             }
         }
+        public User SelectedItem
+        {
+            get => _selectedItem;
+
+            set
+            {
+                _selectedItem = value;
+                OnPropertyChanged(nameof(SelectedItem));
+            }
+        }
         //Commands
         public ViewModelCommand ShowEmployeeAllViewCommand { get; }
         public ViewModelCommand ShowLeaveRequestViewCommand { get; }
         public ViewModelCommand ShowEmployeeViewCommand { get; }
+        
+
         //Constructor
         public EmployeeMainViewViewModel()
         {
+
             ShowEmployeeAllViewCommand = new ViewModelCommand(ExcuteShowEmployeeAllViewCommand);
             ShowEmployeeViewCommand = new ViewModelCommand(ExcuteShowEmployeeViewCommand);
             ShowLeaveRequestViewCommand = new ViewModelCommand(ExcuteShowEmployeeLeaveRequestViewCommand);
             //default view 
-            ExcuteShowEmployeeAllViewCommand(null);
+            _employeeAllViewModel = new EmployeeAllViewModel(this);
+            CurrentEmployeeChildView = _employeeAllViewModel;
         }
 
         private void ExcuteShowEmployeeLeaveRequestViewCommand(object? obj)
         {
-            if (_leaveRequestsViewModel == null) { }
+            if (_leaveRequestsViewModel == null) 
                 _leaveRequestsViewModel = new LeaveRequestsViewModel();
             CurrentEmployeeChildView = _leaveRequestsViewModel;
         }
 
         private void ExcuteShowEmployeeViewCommand(object? obj)
         {
-            if (_employeeViewViewModel == null) { }
+            if (_employeeViewViewModel == null) 
                 _employeeViewViewModel = new EmployeeViewViewModel();
             CurrentEmployeeChildView = _employeeViewViewModel;
         }
 
         private void ExcuteShowEmployeeAllViewCommand(object? obj)
         {
-            if (_employeeAllViewModel == null) { }
-                _employeeAllViewModel = new EmployeeAllViewModel();
+            if (_employeeAllViewModel == null) 
+                _employeeAllViewModel = new EmployeeAllViewModel(this);
             CurrentEmployeeChildView = _employeeAllViewModel;
         }
     }

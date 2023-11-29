@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesApplication_DoAn.Model
 {
-    interface IListAttendanceRepository
+    public interface IViewUserRepository
     {
-        List<Attendance> ListAttendance();
+        public void ViewUser(string? _userId);
     }
 }

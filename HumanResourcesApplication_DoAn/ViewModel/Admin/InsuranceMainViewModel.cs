@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HumanResourcesApplication_DoAn.Model
+namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 {
-    interface IListAttendanceRepository
+    class InsuranceMainViewModel:ViewModelBase
     {
-        List<Attendance> ListAttendance();
+        
     }
 }
