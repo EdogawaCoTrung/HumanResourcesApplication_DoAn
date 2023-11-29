@@ -19,6 +19,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         {
             this.mainViewModel = mainViewModel;
             this.allViewModel = allViewModel;
+
         }
     }
 }
