@@ -1,4 +1,5 @@
 ﻿using HumanResourcesApplication_DoAn.Model;
+using HumanResourcesApplication_DoAn.Utils;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
             command.Connection = connection;
             command.CommandText = "SELECT * FROM LEAVE_REQUEST JOIN USERS ON LEAVE_REQUEST.USERID = USERS.USERID";
             MySqlDataReader reader = command.ExecuteReader();
+            BindingImage bindingImage = new BindingImage();
             while (reader.Read())
             {
                 LeaveRequest _leaveRequest = new LeaveRequest();
@@ -30,6 +32,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 _leaveRequest.leaveType = reader["LEAVE_TYPE"].ToString();
                 _leaveRequest.User.userName = reader["USERNAME"].ToString();
                 _leaveRequest.User.avatar = reader["AVATAR"].ToString();
+                _leaveRequest.User.avatar = bindingImage.ConvertPath(_leaveRequest.User.avatar);
                 _leaveRequests.Add(_leaveRequest);
             }
             connection.Close();

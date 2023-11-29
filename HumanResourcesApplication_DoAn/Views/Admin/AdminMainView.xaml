@@ -32,8 +32,12 @@
         <DataTemplate DataType="{x:Type ViewModel:PayrollViewModel }">
             <local:PayrollView />
         </DataTemplate>
-        
-        
+        <DataTemplate DataType="{x:Type ViewModel:InsuranceMainViewModel}">
+            <local:InsuranceMainView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModel:ProjectMainViewModel}">
+            <local:ProjectMainView />
+        </DataTemplate>
     </Window.Resources>
     <Window.DataContext>
         <ViewModel:MainViewViewModel />
@@ -125,7 +129,20 @@
                  Attendance
                         </TextBlock>
                     </RadioButton>
-
+                    <RadioButton Style="{StaticResource SecondSideBarButton}"
+                Command="{Binding ShowInsuranceMainViewCommand}">
+                        <TextBlock Margin="13.5,0,0,0">
+                        <fa:FontAwesome Icon="Heart" Margin="0,0,10,0"></fa:FontAwesome>
+                 Insurance
+                        </TextBlock>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource SecondSideBarButton}"
+                Command="{Binding ShowProjectMainViewCommand}">
+                        <TextBlock Margin="13.5,0,0,0">
+                        <materialDesign:PackIcon Margin="0,0,8,-3" Kind="BullseyeArrow" />
+                            Project
+                        </TextBlock>
+                    </RadioButton>
                 </StackPanel>
             </Grid>
             <!--MainView-->

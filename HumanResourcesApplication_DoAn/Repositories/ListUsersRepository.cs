@@ -1,4 +1,5 @@
 ﻿using HumanResourcesApplication_DoAn.Model;
+using HumanResourcesApplication_DoAn.Utils;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
             command.Connection = connection;
             command.CommandText = "SELECT * FROM USERS JOIN ROLE ON USERS.ROLE_ID = ROLE.ROLE_ID";
             MySqlDataReader reader = command.ExecuteReader();
+            BindingImage bindingImage = new BindingImage();
             while (reader.Read())
             {
                 User _user = new User();
@@ -41,6 +43,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 _user.roleId = reader["ROLE_NAME"].ToString();
                 _user.payrollId = reader["PAYROLL_ID"].ToString();
                 _user.avatar = reader["AVATAR"].ToString();
+                _user.avatar = bindingImage.ConvertPath(_user.avatar);
                 _user.gender = reader["GENDER"].ToString() == "0" ? false : true;
                 _users.Add(_user);
             }

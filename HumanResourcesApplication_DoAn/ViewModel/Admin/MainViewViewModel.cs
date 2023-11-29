@@ -1,4 +1,5 @@
-﻿using HumanResourcesApplication_DoAn.ViewModel.EmployeeVM;
+﻿using HumanResourcesApplication_DoAn.Model;
+using HumanResourcesApplication_DoAn.ViewModel.EmployeeVM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private DepartmentViewModel _departmentViewModel;
         private ViewModelBase _currentChildView;
         private AttendanceViewModel _attendanceViewModel;
+        private InsuranceMainViewModel _insuranceViewModel;
+        private ProjectMainViewModel _projectMainViewModel;
         private string _caption;
+       
         
 
         //properties
@@ -92,7 +96,26 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 OnPropertyChanged(nameof(AttendanceViewModel)); 
             }
         }
+        public InsuranceMainViewModel InsuranceViewModel 
+        { 
+            get => _insuranceViewModel;
 
+            set
+            {
+                _insuranceViewModel = value;
+                OnPropertyChanged(nameof(InsuranceMainViewModel));
+            }
+        }
+        public ProjectMainViewModel ProjectMainViewModel 
+        { 
+            get => _projectMainViewModel;
+            set
+            {
+                _projectMainViewModel = value;
+                OnPropertyChanged(nameof(ProjectMainViewModel));
+            }
+        }
+        
         //Command
         public ViewModelCommand ShowDashBoardViewCommand { get; }
         public ViewModelCommand ShowDepartmentViewCommand {  get; }
@@ -100,7 +123,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public ViewModelCommand ShowEmployeeMainViewCommand { get; }
         public ViewModelCommand ShowAttendanceViewCommand {  get; }
         public ViewModelCommand ShowPayrollViewCommand { get; }
+        public ViewModelCommand ShowInsuranceMainViewCommand { get; }
+        public ViewModelCommand ShowProjectMainViewCommand { get; } 
         
+
 
         //Constructor
         public MainViewViewModel()
@@ -112,9 +138,31 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             ShowDepartmentViewCommand = new ViewModelCommand(ExcuteShowDepartmentViewCommand);
             ShowEmployeeMainViewCommand = new ViewModelCommand(ExcuteShowEmployeeMainViewCommand);
             ShowPayrollViewCommand = new ViewModelCommand(ExcuteShowPayrollViewCommand);
+            ShowInsuranceMainViewCommand = new ViewModelCommand(ExcuteShowInsureanceMainViewCommand);
+            ShowProjectMainViewCommand = new ViewModelCommand(ExcuteShowProjectMainViewCommand);
             //default view
             ExcuteShowDashBoardViewCommand(null);
             
+        }
+
+        private void ExcuteShowProjectMainViewCommand(object? obj)
+        {
+            if(_projectMainViewModel == null)
+            {
+                _projectMainViewModel = new ProjectMainViewModel();
+            }
+            CurrentChildView =  _projectMainViewModel;
+            Caption = "Project";
+        }
+
+        private void ExcuteShowInsureanceMainViewCommand(object? obj)
+        {
+            if(_insuranceViewModel == null)
+            {
+                _insuranceViewModel = new InsuranceMainViewModel();
+            }    
+            CurrentChildView = _insuranceViewModel;
+            Caption = "Insurance";
         }
 
         private void ExcuteShowEmployeeMainViewCommand(object? obj)

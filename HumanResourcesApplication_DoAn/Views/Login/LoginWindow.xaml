@@ -29,7 +29,7 @@
         </Grid.ColumnDefinitions>
         <Grid Background="#1a8eeb" Grid.Column="2">
             <Border BorderBrush="#1a8eeb" BorderThickness="1">
-                <Image Source="/Resources/Images/LoginImage.png" Stretch="UniformToFill"/>
+                <Image Source="{Binding LoginImage}" Stretch="UniformToFill"/>
             </Border>
         </Grid>
         <Grid Grid.Column="0" Grid.ColumnSpan="2">

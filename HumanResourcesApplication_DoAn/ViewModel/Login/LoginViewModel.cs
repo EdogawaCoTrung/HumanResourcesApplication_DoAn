@@ -26,6 +26,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Login
         private string _password;
         private string _errorMessage;
         private bool _isViewVisible = true;
+        private string _loginImage;
 
         private IUserRepository userRepository;
         public string LoginName { get => _loginName; 
@@ -37,7 +38,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Login
         public string Password { get => _password; set { _password = value; OnPropertyChanged(nameof(Password)); } }
         public string ErrorMessage { get => _errorMessage; set { _errorMessage = value; OnPropertyChanged(nameof(ErrorMessage)); } }
         public bool IsViewVisible { get => _isViewVisible; set { _isViewVisible = value; OnPropertyChanged(nameof(IsViewVisible)); } }
-        
+        public string LoginImage { get => _loginImage; set { _loginImage = value; OnPropertyChanged(nameof(LoginImage)); } }
+
         // Commands
 
         public ICommand LoginCommand { get; }
@@ -49,6 +51,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Login
 
         public LoginViewModel()
         {
+            BindingImage bindingImage = new BindingImage();
+            LoginImage = bindingImage.ConvertPath("LoginImage.png");
             userRepository = new UserRepository();
             LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
             RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPasswordCommand("", ""));

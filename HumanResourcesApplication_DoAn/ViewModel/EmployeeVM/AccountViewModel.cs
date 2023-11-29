@@ -6,7 +6,10 @@ using HumanResourcesApplication_DoAn.Views.Employee;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -33,7 +36,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         {
             user = new User();
             user = MyApp.currentUser;
-            MessageBox.Show(user.avatar);
+            BindingImage bindingImage = new BindingImage();
+            user.avatar = bindingImage.ConvertPath(user.avatar);
             LeaveCommand = new ViewModelCommand(ExecuteLeaveCommand, CanExecuteLeaveCommand);
             ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             FacebookCommand = new ViewModelCommand(ExecuteFacebookCommand, CanExecuteFacebookCommand);

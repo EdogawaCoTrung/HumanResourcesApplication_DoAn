@@ -171,7 +171,7 @@
                     </StackPanel>
                 </Grid>
                 <DataGrid Name ="LeaveRequestDatagrid"      
-                          Height="480"
+                          Height="470"
                           Margin="10"
                           RowStyle="{DynamicResource DataGridRowStyle1}" 
                           CellStyle="{DynamicResource DataGridCellTemplate}" 
@@ -183,23 +183,22 @@
                                                 Header="Name"
                                                 IsReadOnly="True"
                                                 CanUserResize="False"
-                                                Width="200"
+                                                Width="250"
                                                 >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel HorizontalAlignment="Left"
                                                 Orientation="Horizontal"
                                                 >
-                                        <!--<Border Width="30"
+                                        <Border Width="30"
                                                 Height="30"
-                                                Background="{Binding BgColor}"
                                                 CornerRadius="50"
                                                 BorderBrush="{StaticResource ButtonColor5}"
                                                 >
-                                            <TextBlock VerticalAlignment="Center" 
+                                            <Image VerticalAlignment="Center" 
                                                        HorizontalAlignment="Center" 
-                                                       Text="{Binding CharacterPicture}" />
-                                        </Border>-->
+                                                       Source="{Binding User.avatar}" />
+                                        </Border>
                                         <TextBlock Name="Name" 
                                                    Background="Transparent" 
                                                    Text="{Binding User.userName}" 
