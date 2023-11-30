@@ -97,12 +97,6 @@
                     <RadioButton Style="{StaticResource TopBorderTriggerButton}">
                         <TextBlock Text="All"></TextBlock>
                     </RadioButton>
-                    <RadioButton Style="{StaticResource TopBorderTriggerButton}">
-                        <TextBlock Text="View"></TextBlock>
-                    </RadioButton>
-                    <RadioButton Style="{StaticResource TopBorderTriggerButton}">
-                        <TextBlock Text="Leave Request"></TextBlock>
-                    </RadioButton>
                 </StackPanel>
             </Grid>
             <!--PanelMain-->

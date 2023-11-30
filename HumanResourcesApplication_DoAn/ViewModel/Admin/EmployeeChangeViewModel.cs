@@ -79,7 +79,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         private void ExcuteChangeEmployeeCommand(object? obj)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

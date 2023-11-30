@@ -23,6 +23,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private int _male;
         private int _female;
         private IListUsersRepository? listUsers;
+        public IUserRepository? userRepository;
         private User _selectedItem;
         public ICommand AddUserCommand { get; }
         private List<User>? users;
@@ -48,6 +49,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
      
         public EmployeeAllViewModel(EmployeeMainViewViewModel mainViewVM)
         {
+            userRepository = new UserRepository();
             this.mainViewVM = mainViewVM;
             AddUserCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             listUsers = new ListUsersRepository();
@@ -70,13 +72,14 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             SelectedItem = _selectedItem;
             ShowEmployeeViewCommand = new ViewModelCommand(ExcuteShowEmployeeViewCommand);
             ChangeEmployeeCommand = new ViewModelCommand(ExcuteChangeEmployeeViewCommand);
-            DeleteEmployeeCommand = new ViewModelCommand(ExcuteDeleteEmployeeViewCommand);
+            DeleteEmployeeCommand = new ViewModelCommand(ExcuteDeleteEmployeeViewCommand,CanExcuteDeleteEmployeeViewCommand);
                  
         }
 
-       
-       
-
+        private bool CanExcuteDeleteEmployeeViewCommand(object? obj)
+        {
+            return true;
+        }
 
         private bool CanExecuteAddCommand(object? obj)
         {
@@ -101,6 +104,12 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         private void ExcuteDeleteEmployeeViewCommand(object? obj)
         {
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này", "Thông báo", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
+            {
+                userRepository.Remove(SelectedItem.userId);
+            }
+            else return;
+            
 
         }
 

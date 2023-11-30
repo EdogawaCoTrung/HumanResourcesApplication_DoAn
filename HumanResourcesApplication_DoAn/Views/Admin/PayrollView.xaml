@@ -97,9 +97,6 @@
                     <RadioButton Style="{StaticResource TopBorderTriggerButton}">
                         <TextBlock Text="Employee"></TextBlock>
                     </RadioButton>
-                    <RadioButton Style="{StaticResource TopBorderTriggerButton}">
-                        <TextBlock Text="Payslip"></TextBlock>
-                    </RadioButton>
                 </StackPanel>
             </Grid>
             <!--PanelMain-->

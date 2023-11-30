@@ -32,6 +32,21 @@ namespace HumanResourcesApplication_DoAn.Repositories
             return validUser;
         }
 
+        public void Remove(string? userId)
+        {
+            if(connection.State.ToString()=="Closed")
+            {
+                connection.Open();
+            }
+            MySqlCommand Command = new MySqlCommand();
+            Command.Connection = connection;
+            Command.CommandText = "DELETE FROM USERS WHERE USERS.USERID =@userId";
+            Command.Parameters.Add("@userId",MySqlDbType.VarString).Value=userId;
+            MySqlDataReader reader = Command.ExecuteReader();
+            reader.Read();
+            connection.Close();
+
+        }
 
         public void Edit(User user)
         {

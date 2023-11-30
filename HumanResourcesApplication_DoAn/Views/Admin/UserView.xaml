@@ -11,10 +11,10 @@
              d:DesignHeight="800" d:DesignWidth="1100"
              Background="{StaticResource Color3}">
     <UserControl.Resources>
-        <DataTemplate DataType="{x:Type  VM:AddDepartmentViewModel}">
+        <DataTemplate DataType="{x:Type  VM:User_AddLeaveRequest_ViewModel}">
             <local:User_AddLeaveRequest/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type VM:ChangeDepartmentViewModel}">
+        <DataTemplate DataType="{x:Type VM:User_ChangeInformation_ViewModel}">
             <local:User_ChangeInformation />
         </DataTemplate>
     </UserControl.Resources>
@@ -303,7 +303,7 @@
                 <StackPanel Height="480"
                    Width="320"
                    Orientation="Vertical">
-                    <TextBlock Margin="10,10,0,0"
+                    <TextBlock Margin="10,0,0,0"
                    Height="50"
                    Width="150"
                    VerticalAlignment="Top"

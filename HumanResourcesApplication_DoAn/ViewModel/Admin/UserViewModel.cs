@@ -44,19 +44,16 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         private void ExcuteChangeInformationCommand(object? obj)
         {
-            //try
-            //{
-            //    Department_Change_xaml changeDepartment = new Department_Change_xaml();
-            //    if (Selectedtem != null)
-            //    {
-            //        changeDepartment.DataContext = new ChangeDepartmentViewModel(Selectedtem);
-            //        changeDepartment.ShowDialog();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw new Exception();
-            //}
+            try
+            {
+               User_ChangeInformation changeUser = new User_ChangeInformation();
+                changeUser.DataContext = new User_ChangeInformation_ViewModel();
+               changeUser.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
         }
 
         private bool CanExcuteSendLeaveRequestCommand(object? obj)
