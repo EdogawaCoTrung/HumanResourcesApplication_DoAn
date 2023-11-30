@@ -17,11 +17,16 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private int _absence;
         private IListLeaveRequestsRepository? leaveRequestsRepository;
         private IListUsersRepository? listUsers;
+        public ViewModelCommand AcceptCommand { get; }
+        public ViewModelCommand DeleteCommand { get; }
         private List<LeaveRequest>? listLeaveRequests;
+        private LeaveRequest? _selectedItem;
+        private List<LeaveRequest> leaveRequestsAccepted;
         public List<LeaveRequest>? ListLeaveRequests { get => listLeaveRequests; set { listLeaveRequests = value; OnPropertyChanged(nameof(ListLeaveRequests)); } }
         public int TotalEmployee { get => _totalEmployee; set { _totalEmployee = value; OnPropertyChanged(nameof(TotalEmployee)); } }
         public int Present { get => _present; set { _present = value; OnPropertyChanged(nameof(Present)); } }
         public int Absence { get => _absence; set { _absence = value; OnPropertyChanged(nameof(Absence)); } }
+        public LeaveRequest? selectedItem { get => _selectedItem; set { _selectedItem = value; OnPropertyChanged(nameof(selectedItem)); } }
 
         public LeaveRequestsViewModel()
         {
@@ -29,36 +34,106 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             ListLeaveRequests = new List<LeaveRequest>();
             listUsers = new ListUsersRepository();
             ListLeaveRequests = leaveRequestsRepository.ListLeaveRequests();
+            selectedItem = new LeaveRequest();
+            leaveRequestsAccepted = leaveRequestsRepository.ListLeaveRequestsAccepted();
+            AcceptCommand = new ViewModelCommand(ExcuteAcceptCommand, CanExecuteAcceptCommand);
+            DeleteCommand = new ViewModelCommand(ExcuteDeleteCommand, CanExecuteDeleteCommand);
             TotalEmployee = listUsers.ListUsers() != null ? listUsers.ListUsers().Count : 0;
             Absence = 0;
             Present = 0;
             List<string?> check = new List<string?>();
-            for (int i = 0; i < ListLeaveRequests.Count; i++)
+            for (int i = 0; i < leaveRequestsAccepted.Count; i++)
             {
                 bool check2 = false;
                 if(check != null)
                     for(int j = 0; j < check.Count; j++)
                     {
-                        if (check[j] == ListLeaveRequests[i].userId)
+                        if (check[j] == leaveRequestsAccepted[i].userId)
                         {
                             check2 = true;
                         }
                     }
                 if (!check2)
-                    if (ListLeaveRequests[i].startDate <= DateOnly.FromDateTime(DateTime.Now) && ListLeaveRequests[i].endDate >= DateOnly.FromDateTime(DateTime.Now))
+                    if (leaveRequestsAccepted[i].startDate <= DateOnly.FromDateTime(DateTime.Now) && leaveRequestsAccepted[i].endDate >= DateOnly.FromDateTime(DateTime.Now))
                     {
                         Absence++;
-                        check.Add(ListLeaveRequests[i].userId);
+                        check.Add(leaveRequestsAccepted[i].userId);
                     }
             }
             check.Clear();
             Present = TotalEmployee - Absence;
-            AcceptCommand = new ViewModelCommand(ExcuteAcceptCommand);
         }
-        public ViewModelCommand AcceptCommand { get; }
+        private bool CanExecuteDeleteCommand(object? obj)
+        {
+            return true;
+        }
+
+        private void ExcuteDeleteCommand(object? obj)
+        {
+            leaveRequestsRepository.DeleteLeaveRequest(selectedItem);
+            ListLeaveRequests = leaveRequestsRepository.ListLeaveRequests();
+            TotalEmployee = listUsers.ListUsers() != null ? listUsers.ListUsers().Count : 0;
+            Absence = 0;
+            Present = 0;
+            List<string?> check = new List<string?>();
+            for (int i = 0; i < leaveRequestsAccepted.Count; i++)
+            {
+                bool check2 = false;
+                if (check != null)
+                    for (int j = 0; j < check.Count; j++)
+                    {
+                        if (check[j] == leaveRequestsAccepted[i].userId)
+                        {
+                            check2 = true;
+                        }
+                    }
+                if (!check2)
+                    if (leaveRequestsAccepted[i].startDate <= DateOnly.FromDateTime(DateTime.Now) && leaveRequestsAccepted[i].endDate >= DateOnly.FromDateTime(DateTime.Now))
+                    {
+                        Absence++;
+                        check.Add(leaveRequestsAccepted[i].userId);
+                    }
+            }
+            check.Clear();
+            Present = TotalEmployee - Absence;
+            MessageBox.Show("Leave Request is deleted!");
+        }
+
+
+        private bool CanExecuteAcceptCommand(object? obj)
+        {
+            return true;
+        }
+
         private void ExcuteAcceptCommand(object? obj)
         {
-            MessageBox.Show("Hi");
+            leaveRequestsRepository.AcceptLeaveRequest(selectedItem);
+            ListLeaveRequests = leaveRequestsRepository.ListLeaveRequests();
+            TotalEmployee = listUsers.ListUsers() != null ? listUsers.ListUsers().Count : 0;
+            Absence = 0;
+            Present = 0;
+            List<string?> check = new List<string?>();
+            for (int i = 0; i < leaveRequestsAccepted.Count; i++)
+            {
+                bool check2 = false;
+                if (check != null)
+                    for (int j = 0; j < check.Count; j++)
+                    {
+                        if (check[j] == leaveRequestsAccepted[i].userId)
+                        {
+                            check2 = true;
+                        }
+                    }
+                if (!check2)
+                    if (leaveRequestsAccepted[i].startDate <= DateOnly.FromDateTime(DateTime.Now) && leaveRequestsAccepted[i].endDate >= DateOnly.FromDateTime(DateTime.Now))
+                    {
+                        Absence++;
+                        check.Add(leaveRequestsAccepted[i].userId);
+                    }
+            }
+            check.Clear();
+            Present = TotalEmployee - Absence;
+            MessageBox.Show("Leave Request is accepted!");
         }
 
     }
