@@ -14,16 +14,25 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 {
     public class EmployeeViewViewModel : ViewModelBase
     {
-        private EmployeeMainViewViewModel  mainViewModel;
+        private User? user;
+        private EmployeeMainViewViewModel mainViewModel;
         private EmployeeAllViewModel allViewModel;
-        public EmployeeViewViewModel()
+        public User? User
         {
+            get => user;
+            set
 
+            {
+                user = value;
+                OnPropertyChanged(nameof(User));
+            }
         }
-        public EmployeeViewViewModel(EmployeeMainViewViewModel mainViewModel, EmployeeAllViewModel allViewModel)
+        public EmployeeViewViewModel(User SelectedItems, EmployeeMainViewViewModel mainViewModel, EmployeeAllViewModel allViewModel)
         {
+            user = SelectedItems;
             this.mainViewModel = mainViewModel;
             this.allViewModel = allViewModel;
+
         }
     }
 }
