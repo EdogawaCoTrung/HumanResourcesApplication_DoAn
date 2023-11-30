@@ -6,9 +6,18 @@
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
+             xmlns:VM="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1100"
              Background="{StaticResource Color3}">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type  VM:AddDepartmentViewModel}">
+            <local:User_AddLeaveRequest/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type VM:ChangeDepartmentViewModel}">
+            <local:User_ChangeInformation />
+        </DataTemplate>
+    </UserControl.Resources>
     <Border CornerRadius="20" 
           BorderThickness="1" 
           BorderBrush="Transparent">
