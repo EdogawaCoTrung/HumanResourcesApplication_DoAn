@@ -42,7 +42,6 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }
             check.Clear();
             Present = TotalEmployee - Absence;
-            timer.Setter();
         }
     }
 }
