@@ -74,13 +74,29 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                  
         }
 
+       
+       
+
+
         private bool CanExecuteAddCommand(object? obj)
         {
             return true;
         }
         private void ExcuteChangeEmployeeViewCommand(object? obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Employee_View_Change changeEmployee = new Employee_View_Change();
+                if (SelectedItem != null)
+                {
+                    changeEmployee.DataContext = new  EmployeeChangeViewModel(SelectedItem);
+                    changeEmployee.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
         }
 
         private void ExcuteDeleteEmployeeViewCommand(object? obj)
@@ -106,25 +122,11 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }
 
         }
+
         private void ExecuteAddCommand(object? obj)
         {
             Employee_AddUser employee_Add = new Employee_AddUser();
             employee_Add.ShowDialog();
-            Users = listUsers.ListUsers();
-            TotalEmployee = Users != null ? Users.Count : 0;
-            NewEmployee = 0;
-            Female = 0;
-            Male = 0;
-            if (Users != null)
-                for (int i = 0; i < Users.Count; i++)
-                {
-                    if (Users[i].joinDate.Value.Year == DateTime.Now.Year)
-                        NewEmployee++;
-                    if (Users[i].gender == false)
-                        Female++;
-                    else
-                        Male++;
-                }
         }
     }
 }

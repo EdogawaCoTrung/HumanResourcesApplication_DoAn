@@ -16,6 +16,9 @@
         <DataTemplate DataType="{x:Type VM:EmployeeViewViewModel}">
             <local:Employee_View />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type VM:EmployeeChangeViewModel}">
+            <local:Employee_View_Change />
+        </DataTemplate>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
         <Style TargetType="DataGrid">
             <Setter Property="VerticalScrollBarVisibility" Value="Disabled"></Setter>
@@ -198,7 +201,8 @@
                                                     </Button>
                                                     <Button  Width="30" Height="30" Margin="0,0,10,0"
                                                              
-                                                          Command="{Binding DataContext.ChangeEmployeeViewCommand}"
+                                                          Command="{Binding DataContext.ChangeEmployeeCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                          CommandParameter="{Binding}"
                                                           Style="{StaticResource MaterialDesignIconForegroundButton}"
                                                           ToolTip="MaterialDesignIconForegroundButton">
                                                         <materialDesign:PackIcon Kind="PencilOutline" Foreground="{StaticResource FontColor2}"/>

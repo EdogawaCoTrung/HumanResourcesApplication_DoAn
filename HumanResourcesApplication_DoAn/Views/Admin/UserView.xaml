@@ -3,11 +3,403 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="800" d:DesignWidth="1100"
              Background="{StaticResource Color3}">
-    <Grid>
-            
-    </Grid>
+    <Border CornerRadius="20" 
+          BorderThickness="1" 
+          BorderBrush="Transparent">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="250"/>
+                <RowDefinition />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Border Height="300"
+                  Width="1100"
+                  BorderThickness="0,0,0,1"
+                  BorderBrush="LightGray"
+                  Grid.ColumnSpan="2" Margin="0,0,-2,0">
+
+                <StackPanel Grid.Row="0"
+                          Orientation="Horizontal"
+                          
+                          Background="Transparent"
+                          >
+                    <Border BorderBrush="Black"
+                          Margin="20,10,196,20"
+                          Height="200"
+                          Width="200"
+                          BorderThickness="1"
+                          Background="{StaticResource ButtonColor5}"
+                          CornerRadius="200">
+                        <Image Source="{Binding user.avatar}" />
+                    </Border>
+                    <StackPanel Height="300"
+                              VerticalAlignment="Center"
+                              Width="600"
+                              Orientation="Vertical">
+                        <TextBlock Margin="60,30,20,0"
+                                 Height="50"
+                                 FontSize="40"
+                                 Text="{Binding user.userName}"
+                                 TextAlignment="Center">
+
+                        </TextBlock>
+                        <TextBlock Text="{Binding user.roleId}"
+                                 TextAlignment="Center"
+                                 Width="400"
+                                 FontSize="20"
+                                 Foreground="LightGray"/>
+                        <StackPanel Margin="20"
+                                  Height="150" 
+                                  Orientation="Horizontal">
+                            <Border Margin="25,0,25,0"
+                                  BorderThickness="1"
+                                  Height="80"
+                                  Width="80"
+                                  CornerRadius="50"
+                                  BorderBrush="Transparent"
+                                  Background="#006FD6" 
+                                  >
+                                <Button Width="80"
+                                      Command="{Binding FacebookCommand}"
+                                      Height="80"
+                                      Background="Transparent"
+                                      BorderBrush="{StaticResource Color2}"
+                                      BorderThickness="0"
+                                      Content="f"
+                                      FontSize="50"
+                                      >
+                                </Button>
+
+                            </Border>
+                            <Border Margin="25,0,25,0"
+                                  BorderThickness="1"
+                                  Height="80"
+                                  Width="80"
+                                  CornerRadius="50"
+                                  BorderBrush="Transparent"
+                                  Background="#0095FF" 
+                                  >
+                                <Button Width="80"
+                                      Command="{Binding TwitterCommand}"
+                                      Height="80"
+                                      Background="Transparent"
+                                      BorderBrush="{StaticResource Color2}"
+                                      BorderThickness="0"
+                                  
+                                      FontSize="50">
+                                    <fa:ImageAwesome Foreground="White" Icon="Twitter" ></fa:ImageAwesome>
+                                </Button>
+
+                            </Border>
+                            <Border Margin="25,0,25,0"
+                                  BorderThickness="1"
+                                  Height="80"
+                                  Width="80"
+             
+                                  CornerRadius="50"
+                                  BorderBrush="Transparent"
+                                  Background="#0a66c2" 
+                                  >
+                                <Button Width="80"
+                                      Command="{Binding LinkedInCommand}"
+                                      Height="80"
+                                      Background="Transparent"
+                                      BorderBrush="{StaticResource Color2}"
+                                      BorderThickness="0"
+                                      FontSize="50"
+                                      HorizontalAlignment="Center"
+                                      Content="in">
+
+                                </Button>
+
+                            </Border>
+                            <Border Margin="25,0,25,0"
+                                  BorderThickness="1"
+                                  Height="80"
+                                  Width="80"
+                                  CornerRadius="50"
+                                  BorderBrush="Transparent"
+                                  Background="#00E096"
+                                  >
+
+
+
+                                <Button Width="80"
+                                      Command="{Binding PhoneNumberCommand}"
+                                      Height="80"
+                                      Background="Transparent"
+                                      BorderBrush="{StaticResource Color2}"
+                                      BorderThickness="0"
+                                      FontSize="50"
+                                      
+                                      >
+                                    <fa:ImageAwesome Foreground="White" Icon="Phone"></fa:ImageAwesome>
+                                </Button>
+                            </Border>
+
+                        </StackPanel>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+            <StackPanel Grid.Row="1"
+                      Orientation="Horizontal">
+                <StackPanel
+                    
+                          Height="400"
+                          Orientation="Vertical"
+                          VerticalAlignment="Top"
+                          Width="320"
+                          HorizontalAlignment="Left">
+                    <TextBlock Margin="10,20,0,0"
+                     Height="50"
+                     Width="150"
+                     VerticalAlignment="Top"
+                     HorizontalAlignment="Left"
+                     Text="Department"
+                     FontSize="25"
+                     TextAlignment="Left"
+                     Foreground="LightGray"
+                     Padding="10"/>
+                    <TextBlock Margin="10,0,0,0"
+                     Height="50"
+                     Width="150"
+                     VerticalAlignment="Top"
+                     HorizontalAlignment="Left"
+                     Text="{Binding user.departmentId}"
+                     FontSize="20"
+                     TextAlignment="Left"
+                     Foreground="Black"
+                     Padding="10"/>
+                    <TextBlock Margin="20,0,0,0"
+                     Height="50"
+                     Width="200"
+                     VerticalAlignment="Top"
+                     HorizontalAlignment="Left"
+                     Text="Email"
+                     FontSize="25"
+                     TextAlignment="Left"
+                     Foreground="LightGray"
+                     Padding="0,0,10,10"/>
+                    <TextBlock Margin="10,0,0,0"
+                     Height="50"
+                     Width="200"
+                     VerticalAlignment="Top"
+                     HorizontalAlignment="Left"
+                     Text="{Binding user.email}"
+                     FontSize="20"
+                     TextAlignment="Left"
+                     Foreground="Black"
+                     Padding="10"/>
+                    <TextBlock Margin="20,0,0,0"
+                     Height="50"
+                     Width="200"
+                     VerticalAlignment="Top"
+                     HorizontalAlignment="Left"
+                     Text="Education"
+                     FontSize="25"
+                     TextAlignment="Left"
+                     Foreground="LightGray"
+                     Padding="0,0,10,0"/>
+                    <TextBlock Margin="10,0,0,0"
+                     Height="100"
+                     Width="310"
+                     VerticalAlignment="Top"
+                     HorizontalAlignment="Left"
+                     Text="{Binding user.educationId}"
+                     FontSize="20"
+                     TextWrapping="Wrap"
+                     TextAlignment="Left"
+                     Foreground="Black"
+                     Padding="10"/>
+
+                </StackPanel>
+                <StackPanel
+                   Height="400"
+                   Orientation="Vertical"
+                   VerticalAlignment="Top"
+                   Width="320"
+                   HorizontalAlignment="Left">
+                    <TextBlock Margin="10,20,0,0"
+                      Height="50"
+                      Width="150"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Left"
+                      Text="Gender"
+                      FontSize="25"
+                      TextAlignment="Left"
+                      Foreground="LightGray"
+                      Padding="10"/>
+                    <TextBlock Margin="10,0,0,0"
+                      Height="50"
+                      Width="150"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Left"
+                      Text="{Binding user.gender}"
+                      FontSize="20"
+                      TextAlignment="Left"
+                      Foreground="Black"
+                      Padding="10"/>
+                    <TextBlock Margin="20,0,0,0"
+                      Height="50"
+                      Width="200"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Left"
+                      Text="Country"
+                      FontSize="25"
+                      TextAlignment="Left"
+                      Foreground="LightGray"
+                      Padding="0,0,10,10"/>
+                    <TextBlock Margin="10,0,0,0"
+                      Height="50"
+                      Width="150"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Left"
+                      Text="{Binding user.countryId}"
+                      FontSize="20"
+                      TextAlignment="Left"
+                      Foreground="Black"
+                      Padding="10"/>
+                    <TextBlock Margin="20,0,0,0"
+                      Height="50"
+                      Width="200"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Left"
+                      Text="Role"
+                      FontSize="25"
+                      TextAlignment="Left"
+                      Foreground="LightGray"
+                      Padding="0,0,10,0"/>
+                    <TextBlock Margin="10,0,0,0"
+                     Height="100"
+                     Width="310"
+                     VerticalAlignment="Top"
+                     HorizontalAlignment="Left"
+                     Text="{Binding user.roleId}"
+                     FontSize="20"
+                     TextWrapping="Wrap"
+                     TextAlignment="Left"
+                     Foreground="Black"
+                     Padding="10"/>
+
+                </StackPanel>
+                <StackPanel Height="480"
+                   Width="320"
+                   Orientation="Vertical">
+                    <TextBlock Margin="10,10,0,0"
+                   Height="50"
+                   Width="150"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                   Text="Date of birth"
+                   FontSize="25"
+                   TextAlignment="Left"
+                   Foreground="LightGray"
+                   Padding="10"/>
+
+                    <TextBlock Margin="10,0,0,0"
+                       Height="50"
+                       Width="150"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Text="{Binding user.dateOfBirth}"
+                       FontSize="20"
+                       TextAlignment="Left"
+                       Foreground="Black"
+                       Padding="10"/>
+                    <TextBlock Margin="20,0,0,0"
+                       Height="50"
+                       Width="200"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Text="Payroll"
+                       FontSize="25"
+                       TextAlignment="Left"
+                       Foreground="LightGray"
+                       Padding="0,0,10,10"/>
+                    <TextBlock Margin="10,0,0,0"
+                       Height="50"
+                       Width="150"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Text="{Binding user.payrollId}"
+                       FontSize="20"
+                       TextAlignment="Left"
+                       Foreground="Black"
+                       Padding="10"/>
+
+                    <TextBlock Margin="20,0,0,0"
+                       Height="50"
+                       Width="200"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Text="Joindate"
+                       FontSize="25"
+                       TextAlignment="Left"
+                       Foreground="LightGray"
+                       Padding="0,0,10,0"/>
+
+                    <TextBlock Margin="10,0,0,0"
+                      Height="100"
+                      Width="310"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Left"
+                      Text="{Binding user.joinDate}"
+                      FontSize="20"
+                      TextWrapping="Wrap"
+                      TextAlignment="Left"
+                      Foreground="Black"
+                      Padding="10"/>
+
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2"
+                      FlowDirection="RightToLeft"
+                      Orientation="Horizontal">
+                <Border BorderThickness="1"
+                      Background="#00E096"
+                      Height="40"
+                      Width="100"
+                      CornerRadius="10"
+                 
+                      
+                      Margin="100,0,0,0" >
+                    <Button Height="40"
+                          Command="{Binding ChangeInformationCommand}"
+                          BorderThickness="0"
+                          Background="Transparent"
+                          Content="Change"
+                          FontSize="20"
+                          Width="100">
+
+                    </Button>
+                </Border>
+                <Border BorderThickness="1"
+                      Background="Red"
+                      Height="40"
+                      Width="100"
+                      CornerRadius="10"
+                      Margin="100,0,0,0" >
+                    <Button Height="40"
+                          Command="{Binding SendLeaveRequestCommand}"
+                          BorderThickness="0"
+                          Background="Transparent"
+                          Content="Leave"
+                          FontSize="20"
+                          Width="100">
+
+                    </Button>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Border>
 </UserControl>

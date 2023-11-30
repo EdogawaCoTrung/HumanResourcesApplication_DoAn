@@ -15,9 +15,9 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
     public class EmployeeViewViewModel : ViewModelBase
     {
         private User? user;
-        private EmployeeMainViewViewModel  mainViewModel;
+        private EmployeeMainViewViewModel mainViewModel;
         private EmployeeAllViewModel allViewModel;
-        public User? User 
+        public User? User
         {
             get => user;
             set
@@ -34,7 +34,5 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             this.allViewModel = allViewModel;
 
         }
-
-        
     }
 }
