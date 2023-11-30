@@ -208,7 +208,7 @@
                                                         <materialDesign:PackIcon Kind="PencilOutline" Foreground="{StaticResource FontColor2}"/>
                                                     </Button>
                                                     <Button  Width="30" Height="30"
-                                                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                          Command="{Binding DataContext.DeleteEmployeeCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
                                                           Style="{StaticResource MaterialDesignIconForegroundButton}"
                                                           ToolTip="MaterialDesignIconForegroundButton">
                                                         <materialDesign:PackIcon Foreground="{StaticResource FontColor2}" Kind="TrashCanOutline" />
