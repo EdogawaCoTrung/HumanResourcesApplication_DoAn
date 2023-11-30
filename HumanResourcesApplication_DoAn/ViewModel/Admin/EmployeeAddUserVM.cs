@@ -1,8 +1,10 @@
 ﻿using HumanResourcesApplication_DoAn.Model;
 using HumanResourcesApplication_DoAn.Repositories;
 using HumanResourcesApplication_DoAn.Utils;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,8 +32,12 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private string? _isAdmin;
         private string? _joinDate;
         private string? _payroll;
+        private string? _filePath;
+        private string? _fileName;
+        private string? _newPath;
         public ICommand AddCommand { get; }
         public ICommand CancelCommand { get; }
+        public ICommand UploadImageCommand { get; }
         public IAddUserRepository addUserRepository { get; }
 
         public string? UserName { get => _userName; set { _userName = value; OnPropertyChanged(nameof(UserName)); } }
@@ -53,11 +59,38 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public string? JoinDate { get => _joinDate; set { _joinDate = value; OnPropertyChanged(nameof(JoinDate)); } }
         public string? Payroll { get => _payroll; set { _payroll = value; OnPropertyChanged(nameof(Payroll)); } }
 
+        public string? FilePath { get => _filePath; set { _filePath = value; OnPropertyChanged(nameof(FilePath)); } }
+        public string? FileName { get => _fileName; set { _fileName = value; OnPropertyChanged(nameof(FileName)); } }
+        public string? NewPath { get => _newPath; set { _newPath = value; OnPropertyChanged(nameof(NewPath)); } }
+
         public EmployeeAddUserVM()
         {
             AddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
+            UploadImageCommand = new ViewModelCommand(ExecuteUploadImageCommand, CanExecuteUploadImageCommand);
             addUserRepository = new AddUserRepository();
+        }
+
+        private bool CanExecuteUploadImageCommand(object? obj)
+        {
+            return true;
+        }
+
+        private void ExecuteUploadImageCommand(object? obj)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            bool? response = openFileDialog.ShowDialog();
+            if (response == true)
+            {
+                string? filePath = openFileDialog.FileName;
+                string? fileName = Path.GetFileName(filePath);
+                BindingImage bindingImage = new BindingImage();
+                string? newPath = fileName;
+                newPath = bindingImage.ConvertPath(newPath);
+                FilePath = filePath;
+                FileName = fileName;
+                NewPath = newPath;
+            }
         }
 
         private bool CanExecuteAddCommand(object? obj)
@@ -95,14 +128,16 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 canExecute = false;
             if (Email == null || Email == "")
                 canExecute = false;
-            //if (Avatar == null & Avatar == "")
-            //    canExecute = false;
+            if (Avatar == null & Avatar == "")
+                canExecute = false;
             return canExecute;
         }
 
         private void ExecuteAddCommand(object? obj)
         {
-            addUserRepository.AddUser(UserName, LoginName, Password, IsAdmin, PhoneNumber, DateOfBirth, Country, Education, Gender, JoinDate, Role, Payroll, Facebook, Twitter, LinkedIn, Email, Avatar);
+            addUserRepository.AddUser(UserName, LoginName, Password, IsAdmin, PhoneNumber, DateOfBirth, Country, Education, Gender, JoinDate, Role, Payroll, Facebook, Twitter, LinkedIn, Email, FileName);
+            if (!File.Exists(NewPath))
+                File.Copy(FilePath, NewPath);
             Application.Current.MainWindow.Close();
         }
 

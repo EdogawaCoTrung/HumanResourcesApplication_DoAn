@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
 {
-    class MainViewViewModel : ViewModelBase
+    public class MainViewViewModel : ViewModelBase
     {
         private AccountViewModel _accountViewModel;
         private AttendanceViewModel _attendanceViewModel;
@@ -80,7 +80,9 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
 
         private void ExcuteShowAccountViewCommand(object obj)
         {
-            CurrentChildView = new AccountViewModel();
+            if (_accountViewModel == null)
+                _accountViewModel = new AccountViewModel();
+            CurrentChildView = _accountViewModel;
             Caption = "Account";
         }
     }
