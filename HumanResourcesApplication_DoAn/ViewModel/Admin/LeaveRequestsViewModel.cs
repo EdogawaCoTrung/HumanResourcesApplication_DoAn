@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 {
@@ -52,6 +53,13 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }
             check.Clear();
             Present = TotalEmployee - Absence;
+            AcceptCommand = new ViewModelCommand(ExcuteAcceptCommand);
         }
+        public ViewModelCommand AcceptCommand { get; }
+        private void ExcuteAcceptCommand(object? obj)
+        {
+            MessageBox.Show("Hi");
+        }
+
     }
 }

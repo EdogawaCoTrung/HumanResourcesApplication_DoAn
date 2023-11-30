@@ -19,17 +19,35 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
 
        
-        public string? LeaveRequestType { get => _leaveRequestType; set => _leaveRequestType = value; }
-        public string StartDate { get => _startDate; set => _startDate = value; }
-        public string EndDate { get => _endDate; set => _endDate = value; }
-        public string UserName { get => _userName; set => _userName = value; }
-        public string UserId { get => _userId; set => _userId = value; }
-        public string Note { get => _note; set => _note = value; }
+        public string? LeaveRequestType { get => _leaveRequestType; set { _leaveRequestType = value; OnPropertyChanged(nameof(LeaveRequestType)); } }
+        public string StartDate { get => _startDate; set { _startDate = value; OnPropertyChanged(nameof(StartDate)); } }
+        public string EndDate { get => _endDate; set { _endDate = value; OnPropertyChanged(nameof(EndDate)); } }
+        public string UserName { get => _userName; set { _userName = value; OnPropertyChanged(nameof(UserName)); }}
+        public string UserId { get => _userId; set { _userId = value; OnPropertyChanged(nameof(UserId)); } }
+        public string Note { get => _note; set { _note = value; OnPropertyChanged(nameof(Note)); }  }
         //Command
         public ViewModelCommand SendLeaveRequestCommand { get; }
         public ViewModelCommand CancelCommand { get; }
         public User_AddLeaveRequest_ViewModel()
         {
+            SendLeaveRequestCommand = new ViewModelCommand(ExcuteSendLeaveRequestCommand, CanExcuteSendLeaveRequestCommand);
+            CancelCommand = new ViewModelCommand(ExcuteCancelCommand);
+        }
+
+        
+        private void ExcuteCancelCommand(object? obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool CanExcuteSendLeaveRequestCommand(object? obj)
+        {
+            return true;
+        }
+
+        private void ExcuteSendLeaveRequestCommand(object? obj)
+        {
+           
         }
     }
 }
