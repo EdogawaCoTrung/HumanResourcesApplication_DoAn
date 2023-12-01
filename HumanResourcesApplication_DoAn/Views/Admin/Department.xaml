@@ -181,7 +181,7 @@
                                   SelectedItem="{Binding Selectedtem}"
                                   Name="Users" 
                                   RowStyle="{DynamicResource DataGridRowStyle1}" 
-                                  CellStyle="{DynamicResource DataGridCellTemplate3}" 
+                                  CellStyle="{DynamicResource DataGridCellTemplate4}" 
                                   ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="#" 

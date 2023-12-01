@@ -17,6 +17,7 @@
     <UserControl.Resources>
             <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
             <Style TargetType="DataGrid">
+            <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"></Setter>
                 <Setter Property="VerticalScrollBarVisibility" Value="Disabled"></Setter>
                 <Setter Property="Background" Value="Transparent"/>
                 <Setter Property="Foreground" Value="#222528"/>
@@ -174,47 +175,72 @@
                               Name="Users" 
                               RowStyle="{DynamicResource DataGridRowStyle1}" 
                               CellStyle="{DynamicResource DataGridCellTemplate3}" 
-                              ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
+                              ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle4}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="#" 
                                                 Binding="{Binding projectId}"  
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 
-                                                Width="40"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Project Name" 
-                                                Binding="{Binding projectName}" 
+                                                Width="42"
+                                                FontSize="12"></DataGridTextColumn>
+                                <DataGridTemplateColumn Header="Project Name" 
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 
-                                                Width="200"></DataGridTextColumn>
+                                                Width="150"
+                                                   >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding projectName}" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="12" TextWrapping="Wrap"></TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
                                 <DataGridTextColumn Header="Start Date" 
                                                 Binding="{Binding startDate}" 
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 
-                                                Width="100"></DataGridTextColumn>   
+                                                Width="95"
+                                                    FontSize="12"></DataGridTextColumn>   
                                 <DataGridTextColumn Header="End Date" 
                                                 Binding="{Binding endDate}" 
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 
-                                                Width="100"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Project Manager"
-                                                Binding="{Binding projectManager.userName}" 
+                                                Width="95"
+                                                    FontSize="12"></DataGridTextColumn>
+                                <DataGridTemplateColumn Header="Project Manager"
+                                                
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 
-                                                Width="150"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Department Name" 
-                                                Binding="{Binding department.departmentName}" 
+                                                Width="130">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding projectManager.userName}" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="12" TextWrapping="Wrap"></TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Department Name" 
                                                 IsReadOnly="True" 
-                                                CanUserResize="False" Width="150"></DataGridTextColumn>
+                                                CanUserResize="False" Width="150">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding department.departmentName}" VerticalAlignment="Center" Margin="5,0,0,0"  FontSize="12" TextWrapping="Wrap"></TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
                                 <DataGridTextColumn Header="Num of members" 
                                                 Binding="{Binding numOfMember}" 
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 
-                                                Width="150"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Description" 
-                                                Binding="{Binding description}" 
+                                                Width="140"></DataGridTextColumn>
+                                <DataGridTemplateColumn Header="Description"  
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 
-                                                Width="150"></DataGridTextColumn> 
+                                                Width="150">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding description}" VerticalAlignment="Center" Margin="5,0,0,0"  FontSize="12" TextWrapping="Wrap"></TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn> 
                                 <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="Auto"> 
                                     
                                     <DataGridTemplateColumn.CellTemplate>

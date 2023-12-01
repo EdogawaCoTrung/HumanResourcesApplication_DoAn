@@ -172,6 +172,14 @@
     <Style x:Key="DataGridColumnHeaderStyle3" TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="Background" Value="{DynamicResource PanelColor2}"/>
         <Setter Property="Foreground" Value="{DynamicResource FontColor2}"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="Padding" Value="30,0,0,0"></Setter>
+    </Style>
+    <Style x:Key="DataGridColumnHeaderStyle4" TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="Background" Value="{DynamicResource PanelColor2}"/>
+        <Setter Property="Foreground" Value="{DynamicResource FontColor2}"/>
         <Setter Property="FontSize" Value="13"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="Height" Value="60"/>
@@ -183,6 +191,14 @@
         <Setter Property="HorizontalAlignment" Value="Left"></Setter>
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
         <Setter Property="Margin" Value="25,10,0,10"></Setter>
-
+        <Setter Property="FontSize" Value="12"></Setter>
+    </Style>
+    <Style x:Key="DataGridCellTemplate4" TargetType="DataGridCell">
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Setter Property="Margin" Value="28,10,0,10"></Setter>
+      
     </Style>
 </ResourceDictionary>
