@@ -46,7 +46,9 @@
                           BorderThickness="1"
                           Background="{StaticResource ButtonColor5}"
                           CornerRadius="200">
-                        <Image Source="{Binding user.avatar}" />
+                        <Image Source="{Binding user.avatar}" Stretch="UniformToFill">
+                            
+                        </Image>
                     </Border>
                     <StackPanel Height="300"
                               VerticalAlignment="Center"

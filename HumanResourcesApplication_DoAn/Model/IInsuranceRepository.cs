@@ -12,6 +12,6 @@ namespace HumanResourcesApplication_DoAn.Model
         void Edit(Insurance user);
         void Remove(string? insuranceId);
         User GetById(string? insuranceId);
-        IEnumerable<User> GetByAll();
+        List<InsuranceForView> GetByAll();
     }
 }

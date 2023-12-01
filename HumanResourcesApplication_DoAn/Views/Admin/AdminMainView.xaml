@@ -66,13 +66,25 @@
                     <StackPanel VerticalAlignment="Bottom">
                         <RadioButton Style="{StaticResource BlueSideBarButton}">
                             <StackPanel>
-                                <fa:FontAwesome Icon="Bars" Style="{StaticResource BlueSideBarIcon}" ></fa:FontAwesome>
+                                <materialDesign:PackIcon Kind="AccountArrowLeftOutline" HorizontalAlignment="Center" Height="30" Width="50" Margin="0,0,0,30"/>
                             </StackPanel>
                         </RadioButton>
-                        <RadioButton Style="{StaticResource BlueSideBarButton}">
+                        <RadioButton 
+                            
+                            Style="{StaticResource BlueSideBarButton}">
                             <StackPanel>
                                 <TextBlock Width="50" TextAlignment="Center" Margin="0,0,0,30">
-                    <Ellipse Width="20" Margin="0,0,0,0" Height="20" Fill="White"></Ellipse>
+                                <Border Height="30" Width="30" CornerRadius="50" 
+                                        Background="Transparent"
+                                        Margin="5,0,0,0"
+                                        BorderBrush="LightGray"
+                                        BorderThickness="1">
+                                        <Image Source="{Binding User.avatar}">
+                                            
+                                        </Image>
+                                </Border>
+                                    
+
                                 </TextBlock>
                             </StackPanel>
                         </RadioButton>

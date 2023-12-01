@@ -1,4 +1,5 @@
 ﻿using HumanResourcesApplication_DoAn.Model;
+using HumanResourcesApplication_DoAn.Utils;
 using HumanResourcesApplication_DoAn.ViewModel.EmployeeVM;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 {
     public class MainViewViewModel : ViewModelBase
     {
+        User _user;
         private UserViewModel _userViewModel;
         private EmployeeMainViewViewModel _employeeMainViewViewModel;
         private DashBoardViewModel _dashboardViewModel;
@@ -115,7 +117,9 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 OnPropertyChanged(nameof(ProjectMainViewModel));
             }
         }
-        
+        public User User { get => _user; set { _user = value; OnPropertyChanged(nameof(User)); }}
+
+
         //Command
         public ViewModelCommand ShowDashBoardViewCommand { get; }
         public ViewModelCommand ShowDepartmentViewCommand {  get; }
@@ -124,14 +128,16 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public ViewModelCommand ShowAttendanceViewCommand {  get; }
         public ViewModelCommand ShowPayrollViewCommand { get; }
         public ViewModelCommand ShowInsuranceMainViewCommand { get; }
-        public ViewModelCommand ShowProjectMainViewCommand { get; } 
-        
+        public ViewModelCommand ShowProjectMainViewCommand { get; }
+
 
 
         //Constructor
         public MainViewViewModel()
         {
             //initialize commands
+            _user = new User();
+            _user = MyApp.currentUser; 
             ShowAccountViewCommand = new ViewModelCommand(ExcuteShowAccountViewCommand);
             ShowAttendanceViewCommand = new ViewModelCommand(ExcuteShowAttendanceViewCommand);
             ShowDashBoardViewCommand = new ViewModelCommand(ExcuteShowDashBoardViewCommand);
@@ -144,6 +150,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             ExcuteShowDashBoardViewCommand(null);
             
         }
+
+      
 
         private void ExcuteShowProjectMainViewCommand(object? obj)
         {

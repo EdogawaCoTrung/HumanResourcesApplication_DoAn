@@ -17,6 +17,8 @@ using HumanResourcesApplication_DoAn.Views.Employee;
 using HumanResourcesApplication_DoAn.Views.Admin;
 using MaterialDesignThemes.Wpf;
 using HumanResourcesApplication_DoAn.Utils;
+using HumanResourcesApplication_DoAn.ViewModel.Admin;
+using HumanResourcesApplication_DoAn.ViewModel.EmployeeVM;
 
 namespace HumanResourcesApplication_DoAn.ViewModel.Login
 {
@@ -27,6 +29,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Login
         private string _errorMessage;
         private bool _isViewVisible = true;
         private string _loginImage;
+        private AdminMainView _adminMainView;
+        private EmployeeMainView _employeeMainView;
+        private Admin.MainViewViewModel _mainViewModel = null;
+        private EmployeeVM.MainViewViewModel _employeeMainViewModel = null;
 
         private IUserRepository userRepository;
         public string LoginName { get => _loginName; 
@@ -83,9 +89,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Login
                 }
                 else
                 {
-                    AdminMainView adminMainView = new AdminMainView();
-                    adminMainView.Show();
                     MyApp.currentUser = userRepository.GetByLoginName(LoginName);
+                    AdminMainView _adminMainView = new AdminMainView();
+                    _adminMainView.Show();
+                   
                 }
                 Application.Current.MainWindow.Close();
             }
