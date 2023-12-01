@@ -75,7 +75,6 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         {
 
             ShowEmployeeAllViewCommand = new ViewModelCommand(ExcuteShowEmployeeAllViewCommand);
-            ShowEmployeeViewCommand = new ViewModelCommand(ExcuteShowEmployeeViewCommand);
             ShowLeaveRequestViewCommand = new ViewModelCommand(ExcuteShowEmployeeLeaveRequestViewCommand);
             //default view 
             _employeeAllViewModel = new EmployeeAllViewModel(this);
@@ -89,12 +88,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             CurrentEmployeeChildView = _leaveRequestsViewModel;
         }
 
-        private void ExcuteShowEmployeeViewCommand(object? obj)
-        {
-            if (_employeeViewViewModel == null) 
-                _employeeViewViewModel = new EmployeeViewViewModel();
-            CurrentEmployeeChildView = _employeeViewViewModel;
-        }
+        
 
         private void ExcuteShowEmployeeAllViewCommand(object? obj)
         {

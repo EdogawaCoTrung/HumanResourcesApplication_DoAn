@@ -169,7 +169,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         {
             if (_employeeMainViewViewModel == null) 
             {
-                _employeeMainViewViewModel = new ();
+                _employeeMainViewViewModel = new EmployeeMainViewViewModel ();
             }
             CurrentChildView = _employeeMainViewViewModel;
             Caption = "Employee";

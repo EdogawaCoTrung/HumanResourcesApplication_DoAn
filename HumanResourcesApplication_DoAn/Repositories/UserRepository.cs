@@ -32,6 +32,21 @@ namespace HumanResourcesApplication_DoAn.Repositories
             return validUser;
         }
 
+        public void Remove(string? userId)
+        {
+            if(connection.State.ToString()=="Closed")
+            {
+                connection.Open();
+            }
+            MySqlCommand Command = new MySqlCommand();
+            Command.Connection = connection;
+            Command.CommandText = "DELETE FROM USERS WHERE USERS.USERID =@userId";
+            Command.Parameters.Add("@userId",MySqlDbType.VarString).Value=userId;
+            MySqlDataReader reader = Command.ExecuteReader();
+            reader.Read();
+            connection.Close();
+
+        }
 
         public void Edit(User user)
         {
@@ -54,7 +69,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 connection.Open();
             MySqlCommand command = new MySqlCommand();
             command.Connection = connection;
-            command.CommandText = "SELECT * FROM USERS JOIN ROLE ON ROLE.ROLE_ID = USERS.ROLE_ID JOIN DEPARTMENT ON USERS.DEPARTMENT_ID = DEPARTMENT.DEPARTMENT_ID JOIN EDUCATION ON USERS.EDUCATION_ID = EDUCATION.EDUCATION_ID JOIN COUNTRY ON USERS.COUNTRY_ID = COUNTRY.COUNTRY_ID JOIN PAYROLL ON USERS.PAYROLL_ID = PAYROLL.PAYROLL_ID WHERE LOGINNAME=@loginName";
+            command.CommandText = "SELECT * FROM USERS LEFT JOIN ROLE ON ROLE.ROLE_ID = USERS.ROLE_ID LEFT JOIN DEPARTMENT ON USERS.DEPARTMENT_ID = DEPARTMENT.DEPARTMENT_ID LEFT JOIN EDUCATION ON USERS.EDUCATION_ID = EDUCATION.EDUCATION_ID LEFT JOIN COUNTRY ON USERS.COUNTRY_ID = COUNTRY.COUNTRY_ID LEFT JOIN PAYROLL ON USERS.PAYROLL_ID = PAYROLL.PAYROLL_ID WHERE LOGINNAME=@loginName";
             command.Parameters.Add("@loginName", MySqlDbType.VarString).Value = loginName;
             MySqlDataReader reader = command.ExecuteReader();
             User _user = new User();
@@ -80,7 +95,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 _user.payrollId = reader["SALARY"].ToString();
                 _user.avatar = reader["AVATAR"].ToString();
                 _user.avatar = bindingImage.ConvertPath(_user.avatar);
-                _user.gender = reader["GENDER"].ToString() == "0" ? false : true;
+                _user.gender = reader["GENDER"].ToString() == "0" ? "Female" : "Male";
             }
             connection.Close();
             return _user;

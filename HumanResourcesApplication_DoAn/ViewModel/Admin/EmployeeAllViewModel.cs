@@ -23,6 +23,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private int _male;
         private int _female;
         private IListUsersRepository? listUsers;
+        public IUserRepository? userRepository;
         private User _selectedItem;
         public ICommand AddUserCommand { get; }
         private List<User>? users;
@@ -48,6 +49,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
      
         public EmployeeAllViewModel(EmployeeMainViewViewModel mainViewVM)
         {
+            userRepository = new UserRepository();
             this.mainViewVM = mainViewVM;
             AddUserCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             listUsers = new ListUsersRepository();
@@ -62,16 +64,21 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 {
                     if (Users[i].joinDate.Value.Year == DateTime.Now.Year)
                         NewEmployee++;
-                    if (Users[i].gender == false)
+                    if (Users[i].gender == "Female")
                         Female++;
                     else
                         Male++;
                 }
-
+            SelectedItem = _selectedItem;
             ShowEmployeeViewCommand = new ViewModelCommand(ExcuteShowEmployeeViewCommand);
             ChangeEmployeeCommand = new ViewModelCommand(ExcuteChangeEmployeeViewCommand);
-            DeleteEmployeeCommand = new ViewModelCommand(ExcuteDeleteEmployeeViewCommand);
+            DeleteEmployeeCommand = new ViewModelCommand(ExcuteDeleteEmployeeViewCommand,CanExcuteDeleteEmployeeViewCommand);
                  
+        }
+
+        private bool CanExcuteDeleteEmployeeViewCommand(object? obj)
+        {
+            return true;
         }
 
         private bool CanExecuteAddCommand(object? obj)
@@ -80,11 +87,29 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         }
         private void ExcuteChangeEmployeeViewCommand(object? obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Employee_View_Change changeEmployee = new Employee_View_Change();
+                if (SelectedItem != null)
+                {
+                    changeEmployee.DataContext = new  EmployeeChangeViewModel(SelectedItem);
+                    changeEmployee.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
         }
 
         private void ExcuteDeleteEmployeeViewCommand(object? obj)
         {
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này", "Thông báo", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
+            {
+                userRepository.Remove(SelectedItem.userId);
+            }
+            else return;
+            
 
         }
 
@@ -95,7 +120,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 if (SelectedItem != null)
                 {
 
-                    EmployeeViewViewModel employeeViewViewModel = new EmployeeViewViewModel(mainViewVM, this); 
+                    EmployeeViewViewModel employeeViewViewModel = new EmployeeViewViewModel(SelectedItem, mainViewVM, this); 
                     mainViewVM.CurrentEmployeeChildView = employeeViewViewModel;
                     
                 }
@@ -106,25 +131,11 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }
 
         }
+
         private void ExecuteAddCommand(object? obj)
         {
             Employee_AddUser employee_Add = new Employee_AddUser();
             employee_Add.ShowDialog();
-            Users = listUsers.ListUsers();
-            TotalEmployee = Users != null ? Users.Count : 0;
-            NewEmployee = 0;
-            Female = 0;
-            Male = 0;
-            if (Users != null)
-                for (int i = 0; i < Users.Count; i++)
-                {
-                    if (Users[i].joinDate.Value.Year == DateTime.Now.Year)
-                        NewEmployee++;
-                    if (Users[i].gender == false)
-                        Female++;
-                    else
-                        Male++;
-                }
         }
     }
 }

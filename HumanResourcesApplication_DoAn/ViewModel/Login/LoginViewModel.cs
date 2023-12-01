@@ -85,6 +85,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Login
                 {
                     AdminMainView adminMainView = new AdminMainView();
                     adminMainView.Show();
+                    MyApp.currentUser = userRepository.GetByLoginName(LoginName);
                 }
                 Application.Current.MainWindow.Close();
             }

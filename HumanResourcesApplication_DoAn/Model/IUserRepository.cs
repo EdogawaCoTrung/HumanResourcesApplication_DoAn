@@ -12,7 +12,7 @@ namespace HumanResourcesApplication_DoAn.Model
         bool AuthenticateUser(NetworkCredential credential);
         void Add(User user);
         void Edit(User user);
-        void Remove(int id);
+        void Remove(string? userid);
         User GetById(int id);
         User GetByLoginName(string loginName);
         IEnumerable<User> GetByAll();

@@ -7,15 +7,15 @@
         mc:Ignorable="d"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Employee_View_Change" Height="710" Width="670">
+        Title="Employee_View_Change" Height="750" Width="670">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
     </Window.Resources>
     <Grid Background="{StaticResource Color2}">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="56"/>
+            <RowDefinition Height="600"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Border BorderThickness="0,0,0,1" 
@@ -55,6 +55,7 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="USERNAME" 
+                                     Text="{Binding SelectedItem.userName}"
                                      BorderThickness="0"  
                                      Height="34" 
                                      Padding="10,8,10,0"  
@@ -75,6 +76,7 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="LOGINNAME" 
+                                     Text="{Binding SelectedItem.loginName}"
                                      BorderThickness="0"  
                                      Height="34" 
                                      Padding="10,8,10,0"  
@@ -98,7 +100,9 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="PASSWORD" 
+                                     Text="{Binding SelectedItem.passWord}"
                                      BorderThickness="0"  
+                                     
                                      Height="34" 
                                      Padding="10,8,10,0"  
                                      VerticalAlignment="Center" 
@@ -124,7 +128,8 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="ISADMIN" 
-                                     BorderThickness="0"  
+                                     BorderThickness="0" 
+                                     Text="{Binding SelectedItem.isAdmin}"
                                      Height="34" 
                                      Padding="10,8,10,0"  
                                      VerticalAlignment="Center" FontSize="13"
@@ -148,6 +153,7 @@
                                 CornerRadius="5">
                             <TextBox x:Name="PHONENUMBER" 
                                      BorderThickness="0"  
+                                     Text="{Binding SelectedItem.phoneNumber}"
                                      Height="34" 
                                      Padding="10,8,10,0"  
                                      VerticalAlignment="Center" FontSize="13"
@@ -170,7 +176,8 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="DATEOFBIRTH" 
-                                     BorderThickness="0"  
+                                     BorderThickness="0" 
+                                     Text="{Binding SelectedItem.dateOfBirth}"
                                      Height="34" 
                                      Padding="10,8,10,0"  
                                      VerticalAlignment="Center" FontSize="13"
@@ -194,7 +201,8 @@
                         <Border BorderBrush="LightGray" 
                                 BorderThickness="1" 
                                 CornerRadius="5">
-                            <TextBox x:Name="COUNTRY_ID" 
+                            <TextBox x:Name="COUNTRY_ID"
+                                     Text="{Binding SelectedItem.countryId}"
                                      BorderThickness="0"  
                                      Height="34" 
                                      Padding="10,8,10,0"  
@@ -218,6 +226,7 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="EDUCATION_ID" 
+                                     Text="{Binding SelectedItem.educationId}"
                                      BorderThickness="0"  
                                      Height="34" 
                                      Padding="10,8,10,0" 
@@ -239,6 +248,7 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="GENDER" 
+                                     Text="{Binding SelectedItem.gender}"
                                      BorderThickness="0"  
                                      Height="34" 
                                      Padding="10,8,10,0"  
@@ -264,6 +274,7 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="JOIN_DATE" 
+                                     Text="{Binding SelectedItem.joinDate}"
                                      BorderThickness="0"  
                                      Height="34" 
                                      Padding="10,8,10,0"  
@@ -290,6 +301,7 @@
                             <TextBox x:Name="ROLE_ID" 
                                      BorderThickness="0"  
                                      Height="34" 
+                                     Text="{Binding SelectedItem}"
                                      Padding="10,8,10,0" 
                                      VerticalAlignment="Center" 
                                      FontSize="13"
@@ -312,6 +324,7 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="PAYROLL_ID" 
+                                     Text="{Binding SelectedItem.payrollId}"
                                      BorderThickness="0"  
                                      Height="34" 
                                      Padding="10,8,10,0"  
@@ -376,6 +389,7 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="FACEBOOK" 
+                                     Text="{Binding SelectedItem.facebook}"
                                      BorderThickness="0"  
                                      Height="34" 
                                      Padding="10,8,10,0"  
@@ -399,6 +413,7 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="TWITTER" 
+                                      Text="{Binding SelectedItem.twitter}"
                                      BorderThickness="0"  
                                      Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                          ></TextBox>
@@ -423,6 +438,7 @@
                                 CornerRadius="5">
                             <TextBox x:Name="LINKEDIN" 
                                      BorderThickness="0"  
+                                      Text="{Binding SelectedItem.linkedIn}"
                                      Height="34" 
                                      Padding="10,8,10,0"  
                                      VerticalAlignment="Center" 
@@ -449,7 +465,7 @@
                                 CornerRadius="5">
                             
                             <TextBox x:Name="EMAIL" 
-                                     
+                              Text="{Binding SelectedItem.email}"        
                              BorderThickness="0"  
                              Height="34" Padding="10,8,10,0"  
                              VerticalAlignment="Center" 
