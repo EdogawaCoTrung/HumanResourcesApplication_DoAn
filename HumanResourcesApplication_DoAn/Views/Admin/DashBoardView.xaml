@@ -17,7 +17,7 @@
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin="0,0,8,0" Text="Welcome" FontSize="22" Foreground="Black"></TextBlock>
-                <TextBlock Text="Quang Trung" FontSize="22" Foreground="Black"></TextBlock>
+                <TextBlock Text="{Binding user.userName}" FontSize="22" Foreground="Black"></TextBlock>
                 <TextBlock Text="!" FontSize="22" Foreground="Black"></TextBlock>
             </StackPanel>
             <StackPanel Margin="0,16,0,0" Orientation="Horizontal">

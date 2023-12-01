@@ -213,7 +213,7 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                         <DataGridTextColumn Header="Employee ID" 
-                                            Binding="{Binding userId}"  
+                                            Binding="{Binding User.userId}"  
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
                                             Width="100" />
