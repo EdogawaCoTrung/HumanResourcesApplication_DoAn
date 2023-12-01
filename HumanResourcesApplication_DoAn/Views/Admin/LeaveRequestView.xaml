@@ -200,6 +200,9 @@
                                                        Source="{Binding User.avatar}" />
                                         </Border>
                                         <TextBlock Name="Name" 
+                                                   VerticalAlignment="Center"
+                                                   Margin="10 0 0 0"
+                                                   TextWrapping="Wrap"
                                                    Background="Transparent" 
                                                    Text="{Binding User.userName}" 
                                                    Foreground="{StaticResource FontColor8}" 
