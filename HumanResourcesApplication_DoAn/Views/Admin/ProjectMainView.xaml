@@ -25,7 +25,7 @@
                 <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
                 <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
                 <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
-                <Setter Property="Stylus.IsFlicksEnabled" Value="True"/>
+                <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
                 <Setter Property="AutoGenerateColumns" Value="False" />
                 <Setter Property="HeadersVisibility" Value="Column" />
                 <Setter Property="Margin" Value="0 10 0 0" />
@@ -182,7 +182,8 @@
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 
                                                 Width="42"
-                                                FontSize="12"></DataGridTextColumn>
+                                                FontSize="12"
+                                                    ></DataGridTextColumn>
                                 <DataGridTemplateColumn Header="Project Name" 
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 

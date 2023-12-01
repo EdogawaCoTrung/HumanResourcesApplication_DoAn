@@ -9,6 +9,7 @@
         <Setter Property="HorizontalAlignment" Value="Left"></Setter>
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
         <Setter Property="Margin" Value="0,10,0,10"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
     </Style>
     <Style x:Key="DataGridColumnHeaderStyle1" TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="Background" Value="{DynamicResource PanelColor2}"/>
@@ -52,10 +53,11 @@
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Background" Value="{DynamicResource ButtonColor3}"/>
-
+                <Setter Property="Foreground" Value="#ffffff"/>
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{DynamicResource ButtonColor3}"/>
+                <Setter Property="Foreground" Value="#ffffff"/>
             </Trigger>
             <Trigger Property="IsNewItem" Value="True">
                 <Setter Property="Margin" Value="{Binding NewItemMargin, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
@@ -65,7 +67,7 @@
                     <Condition Property="IsSelected" Value="true"/>
                     <Condition Property="Selector.IsSelectionActive" Value="false"/>
                 </MultiTrigger.Conditions>
-                <Setter Property="Background" Value="#dfdfdf"/>
+                <Setter Property="Background" Value="Transparent"/>
             </MultiTrigger>
         </Style.Triggers>
     </Style>
@@ -112,6 +114,7 @@
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
         <Setter Property="Margin" Value="0,10,0,10"></Setter>
         <Setter Property="Foreground" Value="{DynamicResource FontColor3}"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
     </Style>
 
     <Style x:Key="DataGridRowStyle2" TargetType="{x:Type DataGridRow}">
@@ -192,6 +195,8 @@
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
         <Setter Property="Margin" Value="25,10,0,10"></Setter>
         <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        
     </Style>
     <Style x:Key="DataGridCellTemplate4" TargetType="DataGridCell">
         <Setter Property="BorderThickness" Value="0"></Setter>
@@ -199,6 +204,6 @@
         <Setter Property="HorizontalAlignment" Value="Left"></Setter>
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
         <Setter Property="Margin" Value="28,10,0,10"></Setter>
-      
+        <Setter Property="Background" Value="Transparent"></Setter>
     </Style>
 </ResourceDictionary>
