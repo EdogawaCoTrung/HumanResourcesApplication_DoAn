@@ -8,7 +8,8 @@
              mc:Ignorable="d" 
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             d:DesignHeight="500" d:DesignWidth="800">
+             d:DesignHeight="500" d:DesignWidth="800"
+             >
     <UserControl.DataContext>
         <viewModel:LoginViewModel/>
     </UserControl.DataContext>
@@ -17,7 +18,7 @@
         <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
     </UserControl.Resources>
-    
+
     <UserControl.Visibility>
         <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
     </UserControl.Visibility>
@@ -27,7 +28,7 @@
             <ColumnDefinition Width="383*"/>
             <ColumnDefinition Width="400*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid Background="#1a8eeb" Grid.Column="2">
+        <Grid Background="Transparent" Grid.Column="2">
             <Border BorderBrush="#1a8eeb" BorderThickness="1">
                 <Image Source="{Binding LoginImage}" Stretch="UniformToFill"/>
             </Border>
@@ -43,7 +44,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="24*"/>
                 </Grid.ColumnDefinitions>
-                <Border Margin="-79,0,0,0" BorderThickness="0" Background="#2494ea" Width="200" Height="85" VerticalAlignment="Center" CornerRadius="0 0 70 70" Grid.ColumnSpan="2" HorizontalAlignment="Left">
+                <Border Margin="-79,0,0,0" BorderThickness="0" Background="#5d68ff" Width="200" Height="85" VerticalAlignment="Center" CornerRadius="0 0 70 70" Grid.ColumnSpan="2" HorizontalAlignment="Left">
                     <TextBlock TextAlignment="Center" Width="200" Height="100" FontSize="30" Text="LOGO" Foreground="White" FontWeight="Medium" Margin="28,10,-28,-25"></TextBlock>
                 </Border>
             </Grid>
@@ -98,5 +99,4 @@
             </Grid>
         </Grid>
     </Grid>
-    
 </UserControl>
