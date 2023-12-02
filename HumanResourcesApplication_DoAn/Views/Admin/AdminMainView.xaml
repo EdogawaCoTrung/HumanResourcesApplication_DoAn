@@ -64,7 +64,8 @@
                         </RadioButton>
                     </StackPanel>
                     <StackPanel VerticalAlignment="Bottom">
-                        <RadioButton Style="{StaticResource BlueSideBarButton}">
+                        <RadioButton Style="{StaticResource BlueSideBarButton}"
+                                     Command="{Binding LogoutCommand}">
                             <StackPanel>
                                 <materialDesign:PackIcon Kind="AccountArrowLeftOutline" HorizontalAlignment="Center" Height="30" Width="50" Margin="0,0,0,30"/>
                             </StackPanel>
@@ -83,7 +84,7 @@
                                             
                                         </Image>
                                 </Border>
-                                    
+
 
                                 </TextBlock>
                             </StackPanel>
@@ -98,7 +99,11 @@
             </Grid>
             <!--SecondSideBar-->
             <Grid Grid.Column="1" Background="{StaticResource Color2}">
-                <StackPanel Margin="0,87,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="277*"/>
+                    <RowDefinition Height="51*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Margin="0,87,0,0" Grid.RowSpan="2">
                     <RadioButton Style="{StaticResource SecondSideBarButton}"
                                  Command="{Binding ShowDashBoardViewCommand}">
                         <TextBlock Margin="13.5,0,0,0">
@@ -274,7 +279,7 @@
                 <ContentControl Grid.Row="1"
                     Content="{Binding CurrentChildView}"
                     Margin="25,25,25,25"/>
-                
+
             </Grid>
         </Grid>
     </Grid>

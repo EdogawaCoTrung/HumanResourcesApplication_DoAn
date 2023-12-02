@@ -1,11 +1,13 @@
 ﻿using HumanResourcesApplication_DoAn.Model;
 using HumanResourcesApplication_DoAn.Utils;
 using HumanResourcesApplication_DoAn.ViewModel.EmployeeVM;
+using HumanResourcesApplication_DoAn.Views.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 {
@@ -130,7 +132,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public ViewModelCommand ShowInsuranceMainViewCommand { get; }
         public ViewModelCommand ShowProjectMainViewCommand { get; }
 
-
+        public ViewModelCommand LogoutCommand { get; }
 
         //Constructor
         public MainViewViewModel()
@@ -146,12 +148,21 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             ShowPayrollViewCommand = new ViewModelCommand(ExcuteShowPayrollViewCommand);
             ShowInsuranceMainViewCommand = new ViewModelCommand(ExcuteShowInsureanceMainViewCommand);
             ShowProjectMainViewCommand = new ViewModelCommand(ExcuteShowProjectMainViewCommand);
+            LogoutCommand = new ViewModelCommand(ExcuteLogoutCommand);
             //default view
             ExcuteShowDashBoardViewCommand(null);
             
         }
 
-      
+        private void ExcuteLogoutCommand(object? obj)
+        {
+            if(MessageBox.Show("Bạn có chắc chắn muốn đăng xuất ?","Thông báo",MessageBoxButton.OKCancel,MessageBoxImage.Question)==MessageBoxResult.OK) 
+            {
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Show();
+            }
+            Application.Current.MainWindow.Close();
+        }
 
         private void ExcuteShowProjectMainViewCommand(object? obj)
         {
