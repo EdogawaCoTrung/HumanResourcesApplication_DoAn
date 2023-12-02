@@ -16,7 +16,7 @@ namespace HumanResourcesApplication_DoAn.Model
         public Department? department { get; set; }
         public string? numOfMember { get; set; }   
         public string? description { get; set; }   
-
+        public string? revenue { get; set; }
         public Project() 
         {
             projectManager = new User();

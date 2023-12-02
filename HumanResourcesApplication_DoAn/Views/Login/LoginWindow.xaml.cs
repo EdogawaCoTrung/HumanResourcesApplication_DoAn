@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace HumanResourcesApplication_DoAn.Views.Login
@@ -18,21 +17,11 @@ namespace HumanResourcesApplication_DoAn.Views.Login
     /// <summary>
     /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    public partial class LoginWindow : UserControl
+    public partial class LoginWindow : Window
     {
         public LoginWindow()
         {
             InitializeComponent();
-        }
-
-        private void UserName_box_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void SignIn_button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

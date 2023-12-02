@@ -35,6 +35,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 _project.department.departmentName = reader["DEPARTMENT_NAME"].ToString();
                 _project.description = reader["DESCRIPTION"].ToString();
                 _project.numOfMember = reader["NUM_MEMBERS"].ToString();
+                _project.revenue = reader["REVENUE"].ToString() ;
                 _listPoject.Add(_project);
                  
             }
