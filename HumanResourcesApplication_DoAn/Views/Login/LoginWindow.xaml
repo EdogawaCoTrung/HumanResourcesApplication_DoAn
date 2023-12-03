@@ -12,13 +12,11 @@
     <Window.DataContext>
         <viewModel:LoginViewModel/>
     </Window.DataContext>
-
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
-    </UserControl.Resources>
-    
-    <UserControl.Visibility>
+    </Window.Resources>
+    <Window.Visibility>
         <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
     </Window.Visibility>
     <Grid Background="White">
@@ -99,4 +97,4 @@
         </Grid>
     </Grid>
     
-</UserControl>
+</Window>
