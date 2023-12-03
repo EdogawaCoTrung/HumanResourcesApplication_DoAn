@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HumanResourcesApplication_DoAn.Views.Login
+namespace HumanResourcesApplication_DoAn.Views.Employee
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for Employee_Payroll.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class Employee_Payroll : UserControl
     {
-        public LoginWindow()
+        public Employee_Payroll()
         {
             InitializeComponent();
         }

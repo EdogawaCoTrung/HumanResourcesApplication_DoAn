@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HumanResourcesApplication_DoAn.Views.Login;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,21 @@ namespace HumanResourcesApplication_DoAn
     /// </summary>
     public partial class App : Application
     {
+        protected void ApplicationStart(object sender, StartupEventArgs e)
+        {
+            /*var loginView = new LoginView();
+            loginView.Show();
+            loginView.IsVisibleChanged += (s, ev) =>
+            {
+                if (loginView.IsVisible == false && loginView.IsLoaded)
+                {
+                    var mainView = new MainView();
+                    mainView.Show();
+                }
+            };*/
+
+            var loginView = new LoginWindow();
+            loginView.Show();
+        }
     }
 }

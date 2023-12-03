@@ -232,6 +232,12 @@
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 
                                                 Width="140"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Revenue" 
+                                                Binding="{Binding revenue}" 
+                                                IsReadOnly="True" 
+                                                CanUserResize="False" 
+                                                Width="140">
+                                </DataGridTextColumn>
                                 <DataGridTemplateColumn Header="Description"  
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 
