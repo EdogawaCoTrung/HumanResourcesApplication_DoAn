@@ -85,6 +85,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Login
                 {
                     EmployeeMainView employeeMainView = new EmployeeMainView();
                     MyApp.currentUser = userRepository.GetByLoginName(LoginName);
+                    employeeMainView.DataContext = new EmployeeVM.MainViewViewModel();
                     employeeMainView.Show();
                 }
                 else
