@@ -38,7 +38,11 @@
         <DataTemplate DataType="{x:Type ViewModel:ProjectMainViewModel}">
             <local:ProjectMainView />
         </DataTemplate>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
     </Window.Resources>
+    <Window.Visibility>
+        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
+    </Window.Visibility>
     <Window.DataContext>
         <ViewModel:MainViewViewModel />
     </Window.DataContext>

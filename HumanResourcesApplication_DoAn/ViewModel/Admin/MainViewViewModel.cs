@@ -1,11 +1,14 @@
 ﻿using HumanResourcesApplication_DoAn.Model;
 using HumanResourcesApplication_DoAn.Utils;
 using HumanResourcesApplication_DoAn.ViewModel.EmployeeVM;
+using HumanResourcesApplication_DoAn.ViewModel.Login;
 using HumanResourcesApplication_DoAn.Views.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -24,6 +27,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private InsuranceMainViewModel _insuranceViewModel;
         private ProjectMainViewModel _projectMainViewModel;
         private string _caption;
+        private bool isViewVisible;
+
        
         
 
@@ -121,7 +126,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         }
         public User User { get => _user; set { _user = value; OnPropertyChanged(nameof(User)); }}
 
-
+        public bool IsViewVisible { get => isViewVisible; set { isViewVisible = value; OnPropertyChanged(nameof(IsViewVisible)); } }
         //Command
         public ViewModelCommand ShowDashBoardViewCommand { get; }
         public ViewModelCommand ShowDepartmentViewCommand {  get; }
@@ -134,11 +139,13 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         public ViewModelCommand LogoutCommand { get; }
 
+
         //Constructor
         public MainViewViewModel()
         {
             //initialize commands
             _user = new User();
+            isViewVisible = true;
             _user = MyApp.currentUser; 
             ShowAccountViewCommand = new ViewModelCommand(ExcuteShowAccountViewCommand);
             ShowAttendanceViewCommand = new ViewModelCommand(ExcuteShowAttendanceViewCommand);
@@ -156,12 +163,15 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         private void ExcuteLogoutCommand(object? obj)
         {
-            if(MessageBox.Show("Bạn có chắc chắn muốn đăng xuất ?","Thông báo",MessageBoxButton.OKCancel,MessageBoxImage.Question)==MessageBoxResult.OK) 
+            if (MessageBox.Show("Bạn có chắc chắn muốn đăng xuất ?", "Thông báo", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
             {
+                IsViewVisible = false;
                 LoginWindow loginWindow = new LoginWindow();
-                loginWindow.Show();
+                loginWindow.DataContext = new LoginViewModel();
+                loginWindow.ShowDialog();
             }
-            Application.Current.MainWindow.Close();
+            else return;
+            
         }
 
         private void ExcuteShowProjectMainViewCommand(object? obj)

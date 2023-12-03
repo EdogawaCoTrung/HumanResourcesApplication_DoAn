@@ -11,6 +11,7 @@
         xmlns:ViewModel="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.EmployeeVM">
 
     <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
         <DataTemplate DataType="{x:Type ViewModel:AccountViewModel}">
             <local:Employee_AccountView />
@@ -25,6 +26,9 @@
     <Window.DataContext>
         <ViewModel:MainViewViewModel />
     </Window.DataContext>
+    <Window.Visibility >
+        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}" />
+    </Window.Visibility>
 
     <Grid>
         <Grid>
@@ -48,9 +52,11 @@
                         </RadioButton>
                     </StackPanel>
                     <StackPanel VerticalAlignment="Bottom">
-                        <RadioButton Style="{StaticResource BlueSideBarButton}">
+                        <RadioButton 
+                            Command="{Binding LogoutCommand}"
+                            Style="{StaticResource BlueSideBarButton}">
                             <StackPanel>
-                                <fa:FontAwesome Icon="Bars" Style="{StaticResource BlueSideBarIcon}" ></fa:FontAwesome>
+                                <materialDesign:PackIcon Kind="AccountArrowLeftOutline" HorizontalAlignment="Center" Height="30" Width="50" Margin="0,0,0,30"/>
                             </StackPanel>
                         </RadioButton>
                         <RadioButton Style="{StaticResource BlueSideBarButton}">
@@ -91,6 +97,13 @@
                         <TextBlock Margin="13.5,0,0,0">
                         <fa:FontAwesome Icon="ClockOutline" Margin="0,0,10,0"></fa:FontAwesome>
                     Attendance
+                        </TextBlock>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource SecondSideBarButton}"
+                                 Command="{Binding ShowPayrollViewCommand}">
+                        <TextBlock Margin="13.5,0,0,0">
+                        <fa:FontAwesome Icon="CreditCard" Margin="0,0,10,0"></fa:FontAwesome>
+                               Payroll
                         </TextBlock>
                     </RadioButton>
                 </StackPanel>
