@@ -39,6 +39,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
               
                 if(item.PayrollHistory.StartDate > tempdate)
                 {
+                    tempEmployee = item;
                     temp = item.Payroll.salary;
                     tempdate = item.PayrollHistory.EndDate;
                 }
@@ -60,16 +61,15 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
             }
             else
             {
-                int? temp1 = employeePayroll[0].Payroll.salary;
-                DateOnly? tempdate1 = employeePayroll[0].PayrollHistory.EndDate;
-                EmployeePayroll tempEmployee1 = new EmployeePayroll();
+                int? temp1 = list[0].Payroll.salary;
+                DateOnly? tempdate1 = list[0].PayrollHistory.EndDate;
                 foreach (EmployeePayroll item in employeePayroll)
                 {
 
-                    if (item.PayrollHistory.StartDate > tempdate)
+                    if (item.PayrollHistory.StartDate > tempdate1)
                     {
-                        temp = item.Payroll.salary;
-                        tempdate = item.PayrollHistory.EndDate;
+                        temp1 = item.Payroll.salary;
+                        tempdate1 = item.PayrollHistory.EndDate;
                     }
                 }
                 previous = temp1.ToString();
