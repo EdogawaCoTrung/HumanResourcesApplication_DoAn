@@ -247,7 +247,14 @@
                                             <TextBlock Text="{Binding description}" VerticalAlignment="Center" Margin="5,0,0,0"  FontSize="12" TextWrapping="Wrap"></TextBlock>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn> 
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="Type" 
+                                            Binding="{Binding type}"  
+                                            IsReadOnly="True" 
+                                            CanUserResize="False" 
+                                            Width="150"
+                                            FontSize="12"
+                                        ></DataGridTextColumn>
                                 <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="Auto"> 
                                     
                                     <DataGridTemplateColumn.CellTemplate>

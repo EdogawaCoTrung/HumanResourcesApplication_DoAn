@@ -54,8 +54,8 @@
                               VerticalAlignment="Center"
                               Width="600"
                               Orientation="Vertical">
-                        <TextBlock Margin="60,30,20,0"
-                                 Height="50"
+                        <TextBlock Margin="60,20,20,0"
+                                 Height="60"
                                  FontSize="40"
                                  Text="{Binding user.userName}"
                                  TextAlignment="Center">
@@ -64,6 +64,7 @@
                         <TextBlock Text="{Binding user.roleId}"
                                  TextAlignment="Center"
                                  Width="400"
+                                   
                                  FontSize="20"
                                  Foreground="LightGray"/>
                         <StackPanel Margin="20"

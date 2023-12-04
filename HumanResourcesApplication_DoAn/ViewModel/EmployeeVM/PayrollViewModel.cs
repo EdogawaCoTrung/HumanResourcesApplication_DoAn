@@ -1,11 +1,13 @@
 ﻿using HumanResourcesApplication_DoAn.Model;
 using HumanResourcesApplication_DoAn.Repositories;
 using HumanResourcesApplication_DoAn.Utils;
+using Org.BouncyCastle.Math.EC;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
 {
@@ -33,37 +35,37 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
             employeePayroll = getPayrollByIdRepository.GetPayrollById(MyApp.currentUser.userId);
             int? temp = employeePayroll[0].Payroll.salary;
             DateOnly? tempdate = employeePayroll[0].PayrollHistory.EndDate;
-            EmployeePayroll tempEmployee = new EmployeePayroll();
+   
             foreach (EmployeePayroll item in employeePayroll )
             {
               
                 if(item.PayrollHistory.StartDate > tempdate)
                 {
-                    tempEmployee = item;
                     temp = item.Payroll.salary;
                     tempdate = item.PayrollHistory.EndDate;
                 }
             }
             current = temp.ToString();
-            List<EmployeePayroll> list = new List<EmployeePayroll>();
-            list = getPayrollByIdRepository.GetPayrollById(MyApp.currentUser.userId);
-            foreach (EmployeePayroll item in list)
+            List<EmployeePayroll> listEmp = new List<EmployeePayroll>();
+            listEmp = getPayrollByIdRepository.GetPayrollById(MyApp.currentUser.userId);
+            foreach (EmployeePayroll item in listEmp)
             {
-                if(item == tempEmployee)
+                if(item.PayrollHistory.EndDate == tempdate)
                 {
-                    list.Remove(item);
+                    listEmp.Remove(item);
+                    break;
                 }
             }
-            if (list.Count == 0)
+            if (listEmp.Count == 0)
             {
                 previous = temp.ToString();
-                different = "UNCHANGE";
+                different = "UNCHANGE 0%";
             }
             else
             {
-                int? temp1 = list[0].Payroll.salary;
-                DateOnly? tempdate1 = list[0].PayrollHistory.EndDate;
-                foreach (EmployeePayroll item in employeePayroll)
+                int? temp1 = listEmp[0].Payroll.salary;
+                DateOnly? tempdate1 = listEmp[0].PayrollHistory.EndDate;
+                foreach (EmployeePayroll item in listEmp)
                 {
 
                     if (item.PayrollHistory.StartDate > tempdate1)
@@ -76,7 +78,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
             }
             if(int.Parse(current)-int.Parse(previous) > 0)
             {
-                different = "INCREASE + " + (((double.Parse(current) - double.Parse(previous)) / (double.Parse(Previous))).ToString() + "%").ToString();
+                different = "INCREASE " + (((double.Parse(current) - double.Parse(previous)) / (double.Parse(Previous))).ToString("N2") + "%").ToString();
             }
             else if(int.Parse(current) - int.Parse(previous) == 0 )
             {
@@ -84,7 +86,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
             }
             else
             {
-                different = "DECREASE + " + (((double.Parse(previous) - double.Parse(current)) / (double.Parse(Previous))).ToString() + "%").ToString();
+                different = "DECREASE " + (((double.Parse(previous) - double.Parse(current)) / (double.Parse(Previous))).ToString("N2") + "%").ToString();
             }
            
         }

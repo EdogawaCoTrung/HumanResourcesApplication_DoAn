@@ -16,22 +16,14 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
     {
         private AccountViewModel _accountViewModel;
         private AttendanceViewModel _attendanceViewModel;
-        private DashboardViewModel _dashboardViewModel;
+ 
         private ViewModelBase _currentChildView;
         private PayrollViewModel _payrollViewModel;
         private string _caption;
         private bool isViewVisible;
         private User user;
         //properties
-        public DashboardViewModel DashboardViewModel
-        { get => _dashboardViewModel;
-            set
-            {
-
-                _dashboardViewModel = value;
-                OnPropertyChanged(nameof(DashboardViewModel));
-            }
-        }
+        
         public ViewModelBase CurrentChildView
         {
             get => _currentChildView;
@@ -87,11 +79,11 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
             user = MyApp.currentUser;
             ShowAccountViewCommand = new ViewModelCommand(ExcuteShowAccountViewCommand);
             ShowAttendanceViewCommand = new ViewModelCommand(ExcuteShowAttendanceViewCommand);
-            ShowDashboardViewCommand = new ViewModelCommand(ExcuteShowDashboardViewCommand);
+            
             LogoutCommand = new ViewModelCommand(ExcuteLogoutCommand);
             ShowPayrollViewCommand = new ViewModelCommand(ExcuteShowPayrollViewCommand);
             //Default view
-            ExcuteShowDashboardViewCommand(null);
+            ExcuteShowAccountViewCommand(null);
         }
 
         private void ExcuteShowPayrollViewCommand(object? obj)
@@ -114,12 +106,6 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
                 loginWindow.ShowDialog();
             }
             else return;
-        }
-
-        private void ExcuteShowDashboardViewCommand(object obj)
-        {
-            CurrentChildView = new DashboardViewModel();
-            Caption = "Dashboard";
         }
 
         private void ExcuteShowAttendanceViewCommand(object obj)
