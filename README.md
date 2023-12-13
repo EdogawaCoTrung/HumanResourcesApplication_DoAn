@@ -1,61 +1,87 @@
-# HumanResourcesApplication_DoAn
+<div align="center">
+   <br>
+   ![HRMLogo](https://github.com/EdogawaCoTrung/HumanResourcesApplication_DoAn/assets/112166397/d7ef050b-4bea-4e2b-b376-44b16092d8fe)
+   <br>
+   <h3 align="center">
+      Human Resources Application
+   <h4 align="center">
+         WPF Version
+                <p>
+                    <a href="https://learn.microsoft.com/vi-vn/dotnet/desktop/wpf/getting-started/?view=netframeworkdesktop-4.8">
+                        <img src="https://img.shields.io/badge/WPF%20Version-%3E%3D4.5-blue" alt="WPF">
+                    </a>
+                    <a href="https://learn.microsoft.com/vi-vn/dotnet/csharp/programming-guide/">
+                        <img src="https://img.shields.io/badge/C%23%20-%20%20-white" alt="C#">
+                    </a>
+                    <a href="https://dotnet.microsoft.com/en-us/">
+                        <img src="https://img.shields.io/badge/.NET%20Version%20-%3E%3D4.8-purple" alt=".NET">
+                    </a>
+                    <a href="https://www.mysql.com/">
+                        <img src="https://img.shields.io/badge/MySQL%20-%20%20-orange" alt="MySQL">
+                    </a>
+                </p>
+         <p>
+            <a href="#Overview">Overview</a>
+            •
+            <a href="#Features">Features</a>
+            •
+            <a href="#GetStarted">Get Started</a>
+            •
+            <a href="#Usage">Usage</a>
+            •
+            <a href="#Contributors">Contributors</a>
+         </p>
+      </h4>
+   </h3>
+   <br>
+</div>
+<h1 id="Overview">Overview👋</h1>
 
-![image](https://github.com/EdogawaCoTrung/HumanResourcesApplication_DoAn/assets/86793610/d8c436be-7463-4c8a-9453-83c3544f2668)
+>The Human Resources Application is a desktop application developed for the `IT008  subject - Visual Programming`. It is designed to `simplify` and `streamline` HR-related tasks, making employee management more `efficient`.
 
-## Overview
+**`Video`**
 
-The Human Resources Application is a desktop application developed for the IT008 subject - Visual Programming. It is designed to simplify and streamline HR-related tasks, making employee management more efficient.
+<h1 id="Features">Features🤖</h1>
 
-## Features
+* **`Employee Management`**: Easily manage employee information, including personal details, contact information, and employment history.
+* **`Department Management`**: Organize employees by departments for better organization and tracking.
+* **`Leave Management`**: Keep track of employee leave requests, approvals, and balances.
+* **`Performance Tracking`**: Capture and analyze employee performance data for evaluation purposes.
+* **`User-Friendly Interface`**: Intuitive and responsive user interface designed with the end-user in mind.
 
-- **Employee Management:** Easily manage employee information, including personal details, contact information, and employment history.
-- **Department Management:** Organize employees by departments for better organization and tracking.
-- **Leave Management:** Keep track of employee leave requests, approvals, and balances.
-- **Performance Tracking:** Capture and analyze employee performance data for evaluation purposes.
-- **User-Friendly Interface:** Intuitive and responsive user interface designed with the end-user in mind.
+<h1 id="GetStarted">GetStarted⚙️</h1>
 
-## Technologies
+>Follow these steps to get the Human Resources Application up and running on your device:
+1. Clone the repository:
 
-![image](https://github.com/EdogawaCoTrung/HumanResourcesApplication_DoAn/assets/86793610/92b86c77-6d3b-48ec-a7d0-3670dd848f7e) 
-
-![image](https://github.com/EdogawaCoTrung/HumanResourcesApplication_DoAn/assets/86793610/dab74634-dd84-4a0c-ba36-3b0c462060da) 
-
-![image](https://github.com/EdogawaCoTrung/HumanResourcesApplication_DoAn/assets/86793610/55e823e6-55f3-43b2-948c-3ebee86bd7bf)
-
-![image](https://github.com/EdogawaCoTrung/HumanResourcesApplication_DoAn/assets/86793610/e14381dc-4c89-4d27-a630-9cdfdfd65eb7)
-
-## Get Started
-
-Follow these steps to get the Human Resources Application up and running on your device:
-
-1. **Clone the repository:**
-
-   ```bash
+     ```bash
      git clone https://github.com/your-username/human-resources-app.git
-   
-2. **Login:**
-    
+     
+2. Login:
+
     ![image](https://github.com/EdogawaCoTrung/HumanResourcesApplication_DoAn/assets/86793610/0aaacb6d-00e7-4f38-aeda-900d600130b1)
     
-3. **Admin view**
+3. Admin view:
+
     ![image](https://github.com/EdogawaCoTrung/HumanResourcesApplication_DoAn/assets/86793610/600ec7e7-ea02-4a9d-aa04-33c27a1bd1a7)
+    
+4. Employee view:
 
-4. **Employee view**
+     ![image](https://github.com/EdogawaCoTrung/HumanResourcesApplication_DoAn/assets/86793610/10b83a84-3dd0-48bc-b857-ee9cfb84cae2)
 
-    ![image](https://github.com/EdogawaCoTrung/HumanResourcesApplication_DoAn/assets/86793610/10b83a84-3dd0-48bc-b857-ee9cfb84cae2)
+<h1 id="Usage">Usage📱</h1>
 
-## Usage
+**`Dynamic Reporting`**
+ >Generate dynamic and customizable reports to analyze various HR metrics, including employee performance, leave trends, and departmental statistics.
+ 
+**`Notifications and Reminders`**
+ >Receive timely notifications for upcoming employee evaluations, pending leave requests, and other important HR-related events.
+ 
+**`Employee Self-Service`**
+>Empower employees with self-service capabilities, allowing them to update their personal information, submit leave requests, and view performance feedback.
 
-**Dynamic Reporting**
-Generate dynamic and customizable reports to analyze various HR metrics, including employee performance, leave trends, and departmental statistics.
+<h1 id="Contributors">Contributors🤝</h1>
 
-**Notifications and Reminders**
-Receive timely notifications for upcoming employee evaluations, pending leave requests, and other important HR-related events.
-
-**Employee Self-Service**
-Empower employees with self-service capabilities, allowing them to update their personal information, submit leave requests, and view performance feedback.
-
-## Contributors
 <a href="https://github.com/EdogawaCoTrung/HumanResourcesApplication_DoAn/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=EdogawaCoTrung/HumanResourcesApplication_DoAn" />
 </a>
