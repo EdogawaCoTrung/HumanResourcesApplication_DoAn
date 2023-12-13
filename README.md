@@ -1,11 +1,11 @@
 <div align="center">
    <br>
-   ![HRMLogo](https://github.com/EdogawaCoTrung/HumanResourcesApplication_DoAn/assets/112166397/d7ef050b-4bea-4e2b-b376-44b16092d8fe)
+   ![image](https://github.com/EdogawaCoTrung/HumanResourcesApplication_DoAn/assets/112166397/d7ef050b-4bea-4e2b-b376-44b16092d8fe)
    <br>
    <h3 align="center">
-      Human Resources Application
+      🏢Human Resources Application🏢
    <h4 align="center">
-         WPF Version
+         ✨WPF Version✨
                 <p>
                     <a href="https://learn.microsoft.com/vi-vn/dotnet/desktop/wpf/getting-started/?view=netframeworkdesktop-4.8">
                         <img src="https://img.shields.io/badge/WPF%20Version-%3E%3D4.5-blue" alt="WPF">
