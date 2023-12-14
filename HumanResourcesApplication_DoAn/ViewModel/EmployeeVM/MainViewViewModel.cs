@@ -16,7 +16,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
     {
         private AccountViewModel _accountViewModel;
         private AttendanceViewModel _attendanceViewModel;
- 
+        private DashboardViewModel _dashboardViewModel;
         private ViewModelBase _currentChildView;
         private PayrollViewModel _payrollViewModel;
         private string _caption;
@@ -69,7 +69,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         public ICommand ShowAccountViewCommand { get; }
         public ViewModelCommand ShowPayrollViewCommand { get; }
         public ViewModelCommand LogoutCommand {get; }
-   
+        internal DashboardViewModel DashboardViewModel { get => _dashboardViewModel; set { _dashboardViewModel = value; OnPropertyChanged(nameof(DashboardViewModel)); } }
 
         public MainViewViewModel()
         {
@@ -79,11 +79,19 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
             user = MyApp.currentUser;
             ShowAccountViewCommand = new ViewModelCommand(ExcuteShowAccountViewCommand);
             ShowAttendanceViewCommand = new ViewModelCommand(ExcuteShowAttendanceViewCommand);
-            
+            ShowDashboardViewCommand = new ViewModelCommand(ExcuteShowDashboardViewCommand);
             LogoutCommand = new ViewModelCommand(ExcuteLogoutCommand);
             ShowPayrollViewCommand = new ViewModelCommand(ExcuteShowPayrollViewCommand);
             //Default view
-            ExcuteShowAccountViewCommand(null);
+            ExcuteShowDashboardViewCommand(null);
+        }
+
+        private void ExcuteShowDashboardViewCommand(object? obj)
+        {
+            if(_dashboardViewModel==null)
+                _dashboardViewModel = new DashboardViewModel();
+            CurrentChildView = _dashboardViewModel;
+            Caption = "Dashboard";
         }
 
         private void ExcuteShowPayrollViewCommand(object? obj)
