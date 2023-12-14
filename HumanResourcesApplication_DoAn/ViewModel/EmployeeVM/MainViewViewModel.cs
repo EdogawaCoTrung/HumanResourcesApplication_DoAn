@@ -23,15 +23,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         private bool isViewVisible;
         private User user;
         //properties
-        public DashboardViewModel DashboardViewModel
-        { get => _dashboardViewModel;
-            set
-            {
-
-                _dashboardViewModel = value;
-                OnPropertyChanged(nameof(DashboardViewModel));
-            }
-        }
+        
         public ViewModelBase CurrentChildView
         {
             get => _currentChildView;
@@ -77,7 +69,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         public ICommand ShowAccountViewCommand { get; }
         public ViewModelCommand ShowPayrollViewCommand { get; }
         public ViewModelCommand LogoutCommand {get; }
-   
+        internal DashboardViewModel DashboardViewModel { get => _dashboardViewModel; set { _dashboardViewModel = value; OnPropertyChanged(nameof(DashboardViewModel)); } }
 
         public MainViewViewModel()
         {
@@ -92,6 +84,14 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
             ShowPayrollViewCommand = new ViewModelCommand(ExcuteShowPayrollViewCommand);
             //Default view
             ExcuteShowDashboardViewCommand(null);
+        }
+
+        private void ExcuteShowDashboardViewCommand(object? obj)
+        {
+            if(_dashboardViewModel==null)
+                _dashboardViewModel = new DashboardViewModel();
+            CurrentChildView = _dashboardViewModel;
+            Caption = "Dashboard";
         }
 
         private void ExcuteShowPayrollViewCommand(object? obj)
@@ -114,12 +114,6 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
                 loginWindow.ShowDialog();
             }
             else return;
-        }
-
-        private void ExcuteShowDashboardViewCommand(object obj)
-        {
-            CurrentChildView = new DashboardViewModel();
-            Caption = "Dashboard";
         }
 
         private void ExcuteShowAttendanceViewCommand(object obj)

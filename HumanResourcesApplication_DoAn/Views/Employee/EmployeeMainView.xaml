@@ -15,14 +15,14 @@
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
+        <DataTemplate DataType="{x:Type ViewModel:DashboardViewModel}">
+            <local:DashboardEmployeeView />
+        </DataTemplate>
         <DataTemplate DataType="{x:Type ViewModel:AccountViewModel}">
             <local:Employee_AccountView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type ViewModel:AttendanceViewModel}">
             <local:Employee_AttendanceView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type ViewModel:DashboardViewModel}">
-            <local:Employee_DashBoardView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type ViewModel:PayrollViewModel}">
             <local:Employee_Payroll/>
@@ -92,9 +92,9 @@
             <Grid Grid.Column="1" Background="{StaticResource Color2}">
                 <StackPanel Margin="0,87,0,0">
                     <RadioButton Style="{StaticResource SecondSideBarButton}"
-                                 Command="{Binding ShowDashboardViewCommand}">
+                 Command="{Binding ShowDashboardViewCommand}">
                         <TextBlock Margin="13.5,0,0,0">
-                        <fa:FontAwesome Icon="Dashboard" Margin="0,0,10,0"></fa:FontAwesome>
+                         <fa:FontAwesome Icon="Dashboard" Margin="0,0,10,0"></fa:FontAwesome>
                     Dashboard
                         </TextBlock>
                     </RadioButton>

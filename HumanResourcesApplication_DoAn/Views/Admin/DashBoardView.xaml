@@ -9,7 +9,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
-             d:DesignHeight="750" d:DesignWidth="1100">
+             d:DesignHeight="800" d:DesignWidth="1100">
     <UserControl.DataContext>
         <MU:DashBoardViewModel></MU:DashBoardViewModel>
     </UserControl.DataContext>
@@ -17,8 +17,8 @@
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin="0,0,8,0" Text="Welcome" FontSize="22" Foreground="Black"></TextBlock>
-                <TextBlock Text="{Binding user.userName}" FontSize="22" Foreground="Black"></TextBlock>
-                <TextBlock Text="!" FontSize="22" Foreground="Black"></TextBlock>
+                <TextBlock Width="500" Text="{Binding User.userName}" FontSize="22" Foreground="Black"></TextBlock>
+              
             </StackPanel>
             <StackPanel Margin="0,16,0,0" Orientation="Horizontal">
                 <TextBlock Text="Measure how fast you're growing monthly recurring revenue." FontSize="13" Foreground="Black"></TextBlock>
@@ -89,12 +89,13 @@
                         </StackPanel><Border BorderBrush="{StaticResource ButtonColor3}" BorderThickness="0,0,0,1">
                         </Border>
                     </Grid>
-                    <lvc:CartesianChart x:Name="myChart"
+                    <lvc:CartesianChart 
+                                    x:Name="myChart"
                                     BorderBrush="{StaticResource ButtonColor3}"
                                     BorderThickness="1 0 1 1"
                                     Width="588"
                                     Height="260"
-                                    Series="{Binding Series1}"
+                                    Series="{Binding ColumnSeriesCollection}"
                                     XAxes="{Binding XAxes1}"
                                     YAxes="{Binding YAxes1}"
                                     ZoomMode="X"
@@ -113,7 +114,7 @@
                         <lvc:PieChart Width="375" Height="250"
                       VerticalAlignment="Top"
                       HorizontalAlignment="Right"
-                      Series="{Binding Series2}"
+                      Series="{Binding PieSeriesCollection}"
                       AnimationsSpeed="00:00:03.500"
                       LegendPosition="Bottom"
                       InitialRotation="-90">

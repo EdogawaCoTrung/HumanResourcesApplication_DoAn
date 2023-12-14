@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace HumanResourcesApplication_DoAn.Views.Employee
 {
     /// <summary>
-    /// Interaction logic for Employee_DashBoardView.xaml
+    /// Interaction logic for DashboardEmployeeView.xaml
     /// </summary>
-    public partial class Employee_DashBoardView : UserControl
+    public partial class DashboardEmployeeView : UserControl
     {
-        public Employee_DashBoardView()
+        public DashboardEmployeeView()
         {
             InitializeComponent();
         }
