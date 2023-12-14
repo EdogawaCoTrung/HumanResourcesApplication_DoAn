@@ -99,9 +99,9 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             {
                 Name = "Department",
                 Fill = new SolidColorPaint(SKColors.Blue),
-                Values = new int[]{int.Parse(totalDepartment) },
+                Values = new int[]{int.Parse(totalDepartment),13,15,17,19,20 },
                 Stroke = null,
-                MaxBarWidth = 50,
+                MaxBarWidth = 20,
                 Rx = 50,
                 Ry = 50
              },
@@ -109,51 +109,15 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
               new ColumnSeries<int>
               {
                   Name = "Employee",
-                  Fill = new SolidColorPaint(SKColors.Blue),
-                  Values = new int[]{int.Parse(totalEmployee) },
+                  Fill = new SolidColorPaint(SKColors.Gray),
+                  Values = new int[]{int.Parse(totalEmployee),20,30,40,50,60 },
                   Stroke = null,
-                  MaxBarWidth = 50,
+                  MaxBarWidth = 20,
                   Rx = 50,
                   Ry = 50
               },
             };
         }
-
-        //public ObservableCollection<ISeries> Series1 { get; set; }
-        //= new ObservableCollection<ISeries>
-        //{
-        //    new ColumnSeries<int>
-        //    {
-        //        Name = "Object1",
-        //        Fill = new SolidColorPaint(SKColors.Blue),
-        //        Values = new int[]{80,60,30,50,92,100},
-        //        Stroke = null,
-        //        MaxBarWidth = 10,
-        //        Rx = 50,
-        //        Ry = 50
-        //    },
-        //    new ColumnSeries<int>
-        //    {
-        //        Name = "Object2",
-        //        Fill = new SolidColorPaint(SKColors.LightBlue),
-        //        Stroke = null,
-        //        Values = new int[]{50,40,60,70,75,75},
-        //        Rx = 50,
-        //        MaxBarWidth = 10,
-        //        Ry = 50
-        //    },
-        //    new ColumnSeries<int>
-        //    {
-
-        //        Name = "Object3",
-        //        Fill = new SolidColorPaint(SKColors.LightSteelBlue),
-        //        Stroke = null,
-        //        Values = new int[]{70,100,80,50,82,110},
-        //        Rx = 50,
-        //        MaxBarWidth = 10,
-        //        Ry = 50
-        //    }
-        //};
 
 
         public Axis[] XAxes1 { get; set; }
@@ -164,7 +128,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 NamePaint = new SolidColorPaint(SKColors.Blue),
                 LabelsPaint = new SolidColorPaint(SKColors.Gray),
                 TextSize = 12,
-                Labels = new string[] {DateTime.Now.Year.ToString()}
+                Labels = new string[] {DateTime.Now.Year.ToString(),"2024","2025","2026","2027","2028"}
            }
          };
         public Axis[] YAxes1 { get; set; }
@@ -173,9 +137,9 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             new Axis
             {
                 ForceStepToMin = true,
-                MinStep = 3,
+                MinStep = 10,
                 SeparatorsAtCenter = false,
-                MaxLimit = 30,
+                MaxLimit = 60,
                 MinLimit = 0,
                 NamePaint = new SolidColorPaint(SKColors.Black),
                 LabelsPaint = new SolidColorPaint(SKColors.Gray),
