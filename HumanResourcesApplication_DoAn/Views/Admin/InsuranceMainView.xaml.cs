@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace HumanResourcesApplication_DoAn.Views.Admin
@@ -17,7 +18,7 @@ namespace HumanResourcesApplication_DoAn.Views.Admin
     /// <summary>
     /// Interaction logic for InsuranceMainView.xaml
     /// </summary>
-    public partial class InsuranceMainView : Window
+    public partial class InsuranceMainView : UserControl
     {
         public InsuranceMainView()
         {

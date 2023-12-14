@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
         xmlns:ViewModel="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
         mc:Ignorable="d"
-        
+        WindowStartupLocation="CenterOwner"
+        WindowState="Maximized"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
         VerticalAlignment="Center"
@@ -32,9 +33,17 @@
         <DataTemplate DataType="{x:Type ViewModel:PayrollViewModel }">
             <local:PayrollView />
         </DataTemplate>
-        
-        
+        <DataTemplate DataType="{x:Type ViewModel:InsuranceMainViewModel}">
+            <local:InsuranceMainView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModel:ProjectMainViewModel}">
+            <local:ProjectMainView />
+        </DataTemplate>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
     </Window.Resources>
+    <Window.Visibility>
+        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
+    </Window.Visibility>
     <Window.DataContext>
         <ViewModel:MainViewViewModel />
     </Window.DataContext>
@@ -60,15 +69,28 @@
                         </RadioButton>
                     </StackPanel>
                     <StackPanel VerticalAlignment="Bottom">
-                        <RadioButton Style="{StaticResource BlueSideBarButton}">
+                        <RadioButton Style="{StaticResource BlueSideBarButton}"
+                                     Command="{Binding LogoutCommand}">
                             <StackPanel>
-                                <fa:FontAwesome Icon="Bars" Style="{StaticResource BlueSideBarIcon}" ></fa:FontAwesome>
+                                <materialDesign:PackIcon Kind="AccountArrowLeftOutline" HorizontalAlignment="Center" Height="30" Width="50" Margin="0,0,0,30"/>
                             </StackPanel>
                         </RadioButton>
-                        <RadioButton Style="{StaticResource BlueSideBarButton}">
+                        <RadioButton 
+                            
+                            Style="{StaticResource BlueSideBarButton}">
                             <StackPanel>
                                 <TextBlock Width="50" TextAlignment="Center" Margin="0,0,0,30">
-                    <Ellipse Width="20" Margin="0,0,0,0" Height="20" Fill="White"></Ellipse>
+                                <Border Height="30" Width="30" CornerRadius="50" 
+                                        Background="Transparent"
+                                        Margin="5,0,0,0"
+                                        BorderBrush="LightGray"
+                                        BorderThickness="1">
+                                        <Image Source="{Binding User.avatar}">
+                                            
+                                        </Image>
+                                </Border>
+
+
                                 </TextBlock>
                             </StackPanel>
                         </RadioButton>
@@ -82,7 +104,11 @@
             </Grid>
             <!--SecondSideBar-->
             <Grid Grid.Column="1" Background="{StaticResource Color2}">
-                <StackPanel Margin="0,87,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="277*"/>
+                    <RowDefinition Height="51*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Margin="0,87,0,0" Grid.RowSpan="2">
                     <RadioButton Style="{StaticResource SecondSideBarButton}"
                                  Command="{Binding ShowDashBoardViewCommand}">
                         <TextBlock Margin="13.5,0,0,0">
@@ -125,7 +151,20 @@
                  Attendance
                         </TextBlock>
                     </RadioButton>
-
+                    <RadioButton Style="{StaticResource SecondSideBarButton}"
+                Command="{Binding ShowInsuranceMainViewCommand}">
+                        <TextBlock Margin="13.5,0,0,0">
+                        <fa:FontAwesome Icon="Heart" Margin="0,0,10,0"></fa:FontAwesome>
+                 Insurance
+                        </TextBlock>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource SecondSideBarButton}"
+                Command="{Binding ShowProjectMainViewCommand}">
+                        <TextBlock Margin="13.5,0,0,0">
+                        <materialDesign:PackIcon Margin="0,0,8,-3" Kind="BullseyeArrow" />
+                            Project
+                        </TextBlock>
+                    </RadioButton>
                 </StackPanel>
             </Grid>
             <!--MainView-->
@@ -245,7 +284,7 @@
                 <ContentControl Grid.Row="1"
                     Content="{Binding CurrentChildView}"
                     Margin="25,25,25,25"/>
-                
+
             </Grid>
         </Grid>
     </Grid>

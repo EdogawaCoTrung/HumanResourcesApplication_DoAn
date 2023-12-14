@@ -16,15 +16,15 @@ namespace HumanResourcesApplication_DoAn.Repositories
         protected MySqlConnection connection;
         public RepositoryBase()
         {
-            _connectionString = "server=sql12.freesqldatabase.com; user=sql12664930; password=ZCLR9gV83r; database=sql12664930; convert zero datetime=True";
+            _connectionString = "server=sql12.freesqldatabase.com; user=sql12670340; password=9ENbKpUHnd; database=sql12670340; convert zero datetime=True";
             connection = new MySqlConnection(_connectionString);
             try
             {
                 connection.Open();
             }
-            catch (Exception ex)
+            catch (Exception exc)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(exc.Message);
             }
         } 
     }

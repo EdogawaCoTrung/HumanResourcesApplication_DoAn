@@ -322,4 +322,17 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <Style x:Key="StatusTextBlock" TargetType="TextBlock">
+        <Style.Triggers>
+            <Trigger Property="Text" Value="Present">
+                <Setter Property="Foreground" Value="{StaticResource FontColor6}"></Setter>
+            </Trigger>
+            <Trigger Property="Text" Value="Absent">
+                <Setter Property="Foreground" Value="{StaticResource FontColor5}"></Setter>
+            </Trigger>
+            <Trigger Property="Text" Value="--:--:--">
+                <Setter Property="Foreground" Value="{StaticResource FontColor5}"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

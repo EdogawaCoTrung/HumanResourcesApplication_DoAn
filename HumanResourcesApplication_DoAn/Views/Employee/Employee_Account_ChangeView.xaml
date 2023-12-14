@@ -12,20 +12,17 @@
     <Window.DataContext>
         <vme:ChangeProfileVM/>
     </Window.DataContext>
+
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
     </Window.Resources>
     <Grid Background="{StaticResource Color2}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="282*"/>
-            <ColumnDefinition Width="53*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="56"/>
+            <RowDefinition/>
+            <RowDefinition Height="0"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+        <Grid Grid.Row="0">
             <Border BorderThickness="0,0,0,1" 
               BorderBrush="{StaticResource FontColor2}">
                 <Grid>
@@ -37,7 +34,7 @@
             </Border>
         </Grid>
         <Grid Margin="20,0,0,0" 
-           Grid.Row="1" Grid.ColumnSpan="2">
+           Grid.Row="1">
             <StackPanel Margin="0,0,0,0" 
                      Orientation="Vertical">
                 <TextBlock Margin="0,20,0,15" 
@@ -280,12 +277,15 @@
                                      HorizontalAlignment="Left" 
                                      CornerRadius="50" 
                                      BorderBrush="{StaticResource ButtonColor5}">
-                                    <TextBlock VerticalAlignment="Center" 
+                                    <Button VerticalAlignment="Center" 
                                             HorizontalAlignment="Center" 
                                             FontWeight="SemiBold" 
+                                            Background="Transparent"
+                                            BorderThickness="0"
+                                            Command="{Binding UploadImageCommand}"
                                             Foreground="{StaticResource FontColor2}" 
                                             FontSize="13" 
-                                            Text="Choose File"></TextBlock>
+                                            Content="Choose File"></Button>
                                 </Border>
                                 <TextBlock Margin="5,15,0,10" 
                                         Text="No file selected." 
@@ -409,7 +409,7 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,538,0,0" Grid.RowSpan="2">
+        <Grid Grid.Row="1" Margin="0,538,0,0">
             <StackPanel Orientation="Horizontal" 
                      FlowDirection="RightToLeft">
                 <Button Width="90" Height="30"

@@ -17,6 +17,8 @@ using HumanResourcesApplication_DoAn.Views.Employee;
 using HumanResourcesApplication_DoAn.Views.Admin;
 using MaterialDesignThemes.Wpf;
 using HumanResourcesApplication_DoAn.Utils;
+using HumanResourcesApplication_DoAn.ViewModel.Admin;
+using HumanResourcesApplication_DoAn.ViewModel.EmployeeVM;
 
 namespace HumanResourcesApplication_DoAn.ViewModel.Login
 {
@@ -26,6 +28,11 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Login
         private string _password;
         private string _errorMessage;
         private bool _isViewVisible = true;
+        private string _loginImage;
+        private AdminMainView _adminMainView;
+        private EmployeeMainView _employeeMainView;
+        private Admin.MainViewViewModel _mainViewModel = null;
+        private EmployeeVM.MainViewViewModel _employeeMainViewModel = null;
 
         private IUserRepository userRepository;
         public string LoginName { get => _loginName; 
@@ -37,7 +44,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Login
         public string Password { get => _password; set { _password = value; OnPropertyChanged(nameof(Password)); } }
         public string ErrorMessage { get => _errorMessage; set { _errorMessage = value; OnPropertyChanged(nameof(ErrorMessage)); } }
         public bool IsViewVisible { get => _isViewVisible; set { _isViewVisible = value; OnPropertyChanged(nameof(IsViewVisible)); } }
-        
+        public string LoginImage { get => _loginImage; set { _loginImage = value; OnPropertyChanged(nameof(LoginImage)); } }
+
         // Commands
 
         public ICommand LoginCommand { get; }
@@ -49,6 +57,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Login
 
         public LoginViewModel()
         {
+            BindingImage bindingImage = new BindingImage();
+            LoginImage = bindingImage.ConvertPath("LoginImage.png");
             userRepository = new UserRepository();
             LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
             RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPasswordCommand("", ""));
@@ -75,12 +85,15 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Login
                 {
                     EmployeeMainView employeeMainView = new EmployeeMainView();
                     MyApp.currentUser = userRepository.GetByLoginName(LoginName);
+                    employeeMainView.DataContext = new EmployeeVM.MainViewViewModel();
                     employeeMainView.Show();
                 }
                 else
                 {
-                    AdminMainView adminMainView = new AdminMainView();
-                    adminMainView.Show();
+                    MyApp.currentUser = userRepository.GetByLoginName(LoginName);
+                    AdminMainView _adminMainView = new AdminMainView();
+                    _adminMainView.Show();
+                   
                 }
                 Application.Current.MainWindow.Close();
             }

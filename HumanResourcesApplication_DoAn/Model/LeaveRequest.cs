@@ -14,6 +14,7 @@ namespace HumanResourcesApplication_DoAn.Model
         public DateOnly endDate { get; set; }
         public string? reason { get; set; }
         public string? leaveType { get; set; }
+        public bool? isAccepted { get; set; }
         public virtual User? User { get; set; }
 
         public LeaveRequest()

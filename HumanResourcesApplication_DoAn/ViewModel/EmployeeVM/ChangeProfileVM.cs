@@ -1,6 +1,7 @@
 ﻿using HumanResourcesApplication_DoAn.Model;
 using HumanResourcesApplication_DoAn.Repositories;
 using HumanResourcesApplication_DoAn.Utils;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.IO;
 
 namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
 {
@@ -27,8 +29,12 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         private string? _linkedIn;
         private string? _email;
         private string? _avatar;
+        private string? _filePath;
+        private string? _newPath;
+        private string? _fileName;
         public ICommand ChangeCommand { get; }
         public ICommand CancelCommand { get; }
+        public ICommand UploadImageCommand { get; }
 
         private IChangeProfileRepository changeProfileRepository;
 
@@ -46,13 +52,39 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         public string? LinkedIn { get => _linkedIn; set { _linkedIn = value; OnPropertyChanged(nameof(LinkedIn)); } }
         public string? Email { get => _email; set { _email = value; OnPropertyChanged(nameof(Email)); } }
         public string? Avatar { get => _avatar; set { _avatar = value; OnPropertyChanged(nameof(Avatar)); } }
-
+        public string? FilePath { get => _filePath; set { _filePath = value; OnPropertyChanged(nameof(FilePath)); } }
+        public string? NewPath { get => _newPath; set { _newPath = value; OnPropertyChanged(nameof(NewPath)); } }
+        public string? FileName { get => _fileName; set { _fileName = value; OnPropertyChanged(nameof(FileName)); } }
 
         public ChangeProfileVM()
         {
             ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
+            UploadImageCommand = new ViewModelCommand(ExecuteUploadImageCommand, CanExecuteUploadImageCommand);
             changeProfileRepository = new ChangeProfileRepository();
+        }
+
+        private bool CanExecuteUploadImageCommand(object? obj)
+        {
+            return true;
+        }
+
+        private void ExecuteUploadImageCommand(object? obj)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            bool? response = openFileDialog.ShowDialog();
+            if (response == true)
+            {
+                string filePath = openFileDialog.FileName;
+                string fileName = Path.GetFileName(filePath);
+                BindingImage bindingImage = new BindingImage();
+                string newPath = fileName;
+                newPath = bindingImage.ConvertPath(newPath);
+                FilePath = filePath;
+                FileName = fileName;
+                NewPath = newPath;
+                Avatar = newPath;
+            }
         }
 
         private bool CanExecuteChangeCommand(object? obj)
@@ -80,14 +112,17 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
                 canExecute = true;
             if (Email != null && Email != "")
                 canExecute = true;
-            if (Avatar != null & Avatar != "")
+            if (Avatar != null && Avatar != "")
                 canExecute = true;
             return canExecute;
         }
 
         private void ExecuteChangeCommand(object? obj)
         {
-            changeProfileRepository.ChangeProfile(MyApp.currentUser.loginName, UserName, Password, PhoneNumber, DateOfBirth, Gender, Country, Education, Facebook, Twitter, LinkedIn, Email, Avatar);
+            changeProfileRepository.ChangeProfile(MyApp.currentUser.loginName, UserName, Password, PhoneNumber, DateOfBirth, Gender, Country, Education, Facebook, Twitter, LinkedIn, Email, FileName);
+            if(!File.Exists(NewPath))
+                File.Copy(FilePath, NewPath);
+            MyApp.currentUser.avatar = FilePath;
             Application.Current.MainWindow.Close();
         }
 
