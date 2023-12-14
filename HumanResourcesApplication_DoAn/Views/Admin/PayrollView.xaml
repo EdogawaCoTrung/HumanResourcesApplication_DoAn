@@ -204,7 +204,7 @@
 
                         </Grid>
 
-                        <DataGrid ItemsSource="{Binding payrolls}"  Height="500" Name="Users" RowStyle="{DynamicResource DataGridRowStyle2}" CellStyle="{DynamicResource DataGridCellTemplate4}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
+                        <DataGrid ItemsSource="{Binding payrolls}"  Height="500" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate4}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="280">
                                     <DataGridTemplateColumn.CellTemplate>

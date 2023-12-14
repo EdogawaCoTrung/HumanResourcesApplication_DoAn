@@ -198,6 +198,16 @@
         <Setter Property="Background" Value="Transparent"></Setter>
         
     </Style>
+    <Style x:Key="DataGridCellTemplate5" TargetType="DataGridCell">
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Setter Property="Margin" Value="-10,10,0,10"></Setter>
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+
+    </Style>
     <Style x:Key="DataGridCellTemplate4" TargetType="DataGridCell">
         <Setter Property="BorderThickness" Value="0"></Setter>
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />

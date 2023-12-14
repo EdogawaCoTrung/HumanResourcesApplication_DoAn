@@ -156,7 +156,7 @@
 
                         </Grid>
 
-                        <DataGrid ItemsSource="{Binding Attendances}" Height="500" Name="Attendance_Users" RowStyle="{DynamicResource DataGridRowStyle2}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}">
+                        <DataGrid ItemsSource="{Binding Attendances}" Height="500" Name="Attendance_Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn CellStyle="{DynamicResource DataGridCellTemplate2}" Binding="{Binding userId}" IsReadOnly="True" CanUserResize="False" Width="150"></DataGridTextColumn>
                                 <DataGridTextColumn Header="Date" Binding="{Binding date}" IsReadOnly="True" CanUserResize="False" Width="220">

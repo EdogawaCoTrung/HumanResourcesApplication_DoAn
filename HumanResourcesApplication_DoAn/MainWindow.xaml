@@ -11,7 +11,8 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Title="MainWindow" Height="500" Width="800"
-        Background="Transparent">
+        Background="Transparent"
+        >
     <Grid>
         <Login:LoginWindow></Login:LoginWindow>
     </Grid>

@@ -102,19 +102,17 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 Values = new int[]{int.Parse(totalDepartment),13,15,17,19,20 },
                 Stroke = null,
                 MaxBarWidth = 20,
-                Rx = 50,
-                Ry = 50
+                
              },
 
               new ColumnSeries<int>
               {
                   Name = "Employee",
-                  Fill = new SolidColorPaint(SKColors.Gray),
+                  Fill = new SolidColorPaint(SKColors.LightBlue),
                   Values = new int[]{int.Parse(totalEmployee),20,30,40,50,60 },
                   Stroke = null,
                   MaxBarWidth = 20,
-                  Rx = 50,
-                  Ry = 50
+                  
               },
             };
         }
@@ -137,9 +135,9 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             new Axis
             {
                 ForceStepToMin = true,
-                MinStep = 10,
+                MinStep = 15,
                 SeparatorsAtCenter = false,
-                MaxLimit = 60,
+                MaxLimit = 50,
                 MinLimit = 0,
                 NamePaint = new SolidColorPaint(SKColors.Black),
                 LabelsPaint = new SolidColorPaint(SKColors.Gray),

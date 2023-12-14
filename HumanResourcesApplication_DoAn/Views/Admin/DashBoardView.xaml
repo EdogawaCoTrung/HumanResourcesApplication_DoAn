@@ -98,7 +98,7 @@
                                     Series="{Binding ColumnSeriesCollection}"
                                     XAxes="{Binding XAxes1}"
                                     YAxes="{Binding YAxes1}"
-                                    ZoomMode="X"
+                                    ZoomMode="Both"
                                     ZoomingSpeed="3"
                                     AnimationsSpeed="00:00:03.500"
                                     LegendPosition="Bottom">

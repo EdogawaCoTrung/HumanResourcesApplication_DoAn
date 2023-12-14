@@ -90,8 +90,7 @@
                                     AnimationsSpeed="00:00:03.500"
                                     LegendPosition="Right"
                                     YAxes="{Binding YAxes2}"
-                                    ZoomMode="Y">
-
+                                    ZoomMode="Both">
                     </lvc:CartesianChart>
                 </StackPanel>
             </StackPanel>

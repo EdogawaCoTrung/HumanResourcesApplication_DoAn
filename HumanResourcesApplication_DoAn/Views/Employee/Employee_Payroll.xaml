@@ -178,7 +178,7 @@
                                                 IsReadOnly="True"
                                                 CanUserResize="False"
                                                 Width="250"
-                                                >
+                                                CellStyle="{DynamicResource DataGridCellTemplate5}">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Name="Name" 
@@ -187,13 +187,9 @@
                                                    TextWrapping="Wrap"
                                                    Background="Transparent" 
                                                    Text="{Binding User.userName}" 
-                                                   Foreground="{StaticResource FontColor8}" 
-                                                   FontSize="15"
                                                    Width="170"
-                                                   FontWeight="SemiBold"
                                                    TextAlignment="Left">
-                                        </TextBlock>
-                                   
+                                    </TextBlock>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -201,23 +197,23 @@
                                             Binding="{Binding User.userId}"  
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="100" />
+                                            Width="1*" />
                         
                         <DataGridTextColumn Header="Start Date" 
                                             Binding="{Binding PayrollHistory.StartDate}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="150" />
+                                            Width="1*" />
                         <DataGridTextColumn Header="End Date" 
                                             Binding="{Binding PayrollHistory.EndDate}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="150" />
+                                            Width="1*" />
                         <DataGridTextColumn Header="Salary" 
                                             Binding="{Binding Payroll.salary}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="*" />
+                                            Width="1*" />
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
