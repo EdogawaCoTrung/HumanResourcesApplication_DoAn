@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 {
@@ -28,6 +29,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private ProjectMainViewModel _projectMainViewModel;
         private string _caption;
         private bool isViewVisible;
+        private string icon;
+
 
        
         
@@ -51,6 +54,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 OnPropertyChanged(nameof(EmployeeMainViewViewModel));   
             }
         }
+        public string Icon { get => icon; set { icon = value; OnPropertyChanged(nameof(icon)); } }
         public DashBoardViewModel DashboardViewModel 
         { 
             get => _dashboardViewModel; 
@@ -138,12 +142,16 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public ViewModelCommand ShowProjectMainViewCommand { get; }
 
         public ViewModelCommand LogoutCommand { get; }
+        
 
 
         //Constructor
         public MainViewViewModel()
         {
             //initialize commands
+            BindingImage bindingIcon = new BindingImage();
+       
+            Icon = bindingIcon.ConvertPath("favicon.ico");
             _user = new User();
             isViewVisible = true;
             _user = MyApp.currentUser; 

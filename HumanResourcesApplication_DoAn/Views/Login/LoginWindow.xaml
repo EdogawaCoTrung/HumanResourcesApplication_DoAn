@@ -43,7 +43,7 @@
                     <ColumnDefinition Width="24*"/>
                 </Grid.ColumnDefinitions>
                 <Border Margin="-79,0,0,0" BorderThickness="0" Background="#5d68ff" Width="200" Height="85" VerticalAlignment="Center" CornerRadius="0 0 70 70" Grid.ColumnSpan="2" HorizontalAlignment="Left">
-                    <TextBlock TextAlignment="Center" Width="200" Height="100" FontSize="30" Text="LOGO" Foreground="White" FontWeight="Medium" Margin="28,10,-28,-25"></TextBlock>
+                    <TextBlock TextAlignment="Center" Width="200" Height="100" FontSize="30" Text="HRM" Foreground="White" FontWeight="Medium" Margin="28,10,-28,-25"></TextBlock>
                 </Border>
             </Grid>
             <Grid Grid.Row="1">
