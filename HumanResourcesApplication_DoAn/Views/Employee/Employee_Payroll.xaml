@@ -177,7 +177,7 @@
                                                 Header="Name"
                                                 IsReadOnly="True"
                                                 CanUserResize="False"
-                                                Width="250"
+                                                Width="1.5*"
                                                 CellStyle="{DynamicResource DataGridCellTemplate5}">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>

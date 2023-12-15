@@ -98,28 +98,28 @@
                                         Binding="{Binding date}" 
                                         IsReadOnly="True" 
                                         CanUserResize="False" 
-                                        Width="220" CanUserReorder="False"
+                                        Width="1*" CanUserReorder="False"
                                         />
                     <DataGridTextColumn Header="In time" 
                                         Binding="{Binding inTime}"  
                                         IsReadOnly="True" 
                                         CanUserResize="False" 
-                                        Width="250"></DataGridTextColumn>
+                                        Width="1*"></DataGridTextColumn>
                     <DataGridTextColumn Header="Out time" 
                                         Binding="{Binding outTime}" 
                                         IsReadOnly="True" 
                                         CanUserResize="False" 
-                                        Width="250"></DataGridTextColumn>
+                                        Width="1*"></DataGridTextColumn>
                     <DataGridTextColumn Header="Hours" 
                                         Binding="{Binding hours}" 
                                         IsReadOnly="True" 
                                         CanUserResize="False" 
-                                        Width="200"></DataGridTextColumn>
+                                        Width="1*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Status" 
                                         Binding="{Binding status}" 
                                         IsReadOnly="True" 
                                         CanUserResize="False" 
-                                        Width="Auto"></DataGridTextColumn>
+                                        Width="0.5*"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
