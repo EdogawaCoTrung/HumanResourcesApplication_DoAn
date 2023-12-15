@@ -24,6 +24,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         private bool isViewVisible;
         private User user;
         //properties
+        private string _icon;
+   
         
         public ViewModelBase CurrentChildView
         {
@@ -72,9 +74,14 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         public ViewModelCommand LogoutCommand {get; }
         internal DashboardViewModel DashboardViewModel { get => _dashboardViewModel; set { _dashboardViewModel = value; OnPropertyChanged(nameof(DashboardViewModel)); } }
 
+        public string Icon { get => _icon; set { _icon = value; OnPropertyChanged(nameof(_icon)); } }
+
         public MainViewViewModel()
         {
             //Initialize commands
+            BindingImage bindingIcon = new BindingImage();
+
+            Icon = bindingIcon.ConvertPath("favicon.ico");
             isViewVisible = true;
             user = new User();
             user = MyApp.currentUser;

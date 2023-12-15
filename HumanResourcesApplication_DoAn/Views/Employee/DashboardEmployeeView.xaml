@@ -89,6 +89,7 @@
                                     Series="{Binding Series3}"
                                     AnimationsSpeed="00:00:03.500"
                                     LegendPosition="Right"
+                                    XAxes="{Binding XAxes2}"
                                     YAxes="{Binding YAxes2}"
                                     ZoomMode="Both">
                     </lvc:CartesianChart>

@@ -196,38 +196,38 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         {
             new LineSeries<double>
             {
-                Name = "Object1",
+                Name = "Department 1",
                 Fill = null,
                 GeometryStroke = null,
                 GeometryFill = null,
-                Values = new double[]{10,8,15,20,5},
+                Values = new double[]{10,8,15,20,5,5,10,15,6,6,5,5,15},
                 LineSmoothness = 1
             },
             new LineSeries<double>
             {
-                Name = "Object2",
+                Name = "Department 2",
                 Fill = null,
                 GeometryStroke = null,
                 GeometryFill = null,
-                Values = new double[]{7,18,5,10,15},
+                Values = new double[]{7,18,5,10,15,6,6,5,5,3,3,7,15},
                 LineSmoothness = 1
             },
             new LineSeries<double>
             {
-                Name = "Object3",
+                Name = "Department 3",
                 Fill = null,
                 GeometryStroke = null,
                 GeometryFill = null,
-                Values = new double[]{12,18,11,2,15},
+                Values = new double[]{12,18,11,2,15,16,16,16,17,18,19,15,16},
                 LineSmoothness = 1
             },
             new LineSeries<double>
             {
-                Name = "Object4",
+                Name = "Department 4",
                 Fill = null,
                 GeometryStroke = null,
                 GeometryFill = null,
-                Values = new double[]{1,8,10,20,15},
+                Values = new double[]{1,8,10,20,15,7,8,8,7,7,10,11,8},
                 LineSmoothness = 1
             },
         };
@@ -246,6 +246,21 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 TextSize = 12,
             }
         };
+        public Axis[] XAxes2 { get; set; }
+       = new Axis[]
+       {
+            new Axis
+            {
+                ForceStepToMin = true,
+                MinStep = 1,
+                SeparatorsAtCenter = false,
+                MaxLimit = 12,
+                MinLimit = 1,
+                NamePaint = new SolidColorPaint(SKColors.Black),
+                LabelsPaint = new SolidColorPaint(SKColors.Gray),
+                TextSize = 12,
+            }
+       };
 
         //ROWCHART
         public ObservableCollection<ISeries> Series4 { get; set; }
@@ -253,7 +268,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
        {
             new RowSeries<int>
             {
-                Name = "Object1",
+                Name = "Project 1",
                 Values = new int[]{80},
                 Stroke = null,
                 MaxBarWidth = 30,
@@ -262,7 +277,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             },
             new RowSeries<int>
             {
-                Name = "Object2",
+                Name = "Project 2",
                 Stroke = null,
                 Values = new int[]{50},
                 Rx = 50,
@@ -272,7 +287,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             new RowSeries<int>
             {
 
-                Name = "Object3",
+                Name = "Project 3",
                 Stroke = null,
                 Values = new int[]{30},
                 Rx = 50,
@@ -282,7 +297,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             new RowSeries<int>
             {
 
-                Name = "Object4",
+                Name = "Project 4",
                 Stroke = null,
                 Values = new int[]{20},
                 Rx = 50,
@@ -292,7 +307,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             new RowSeries<int>
             {
 
-                Name = "Object5",
+                Name = "Project 5",
                 Stroke = null,
                 Values = new int[]{10},
                 Rx = 50,
