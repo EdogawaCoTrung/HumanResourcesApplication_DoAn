@@ -59,8 +59,9 @@
             <Grid Grid.Column="0">
                 <Grid Background="{StaticResource Color1}">
                     <StackPanel>
+                        <Image Source="{Binding Icon}"/>
                         <TextBlock Width="50" TextAlignment="Center" Margin="0,0,0,36.35">
-                    <fa:FontAwesome Icon="CcStripe" FontSize="34" Foreground="White" TextAlignment="Center"></fa:FontAwesome>
+                        
                         </TextBlock>
                         <RadioButton Style="{StaticResource BlueSideBarButton}">
                             <StackPanel>

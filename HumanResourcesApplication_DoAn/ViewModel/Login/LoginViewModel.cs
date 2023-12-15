@@ -19,6 +19,7 @@ using MaterialDesignThemes.Wpf;
 using HumanResourcesApplication_DoAn.Utils;
 using HumanResourcesApplication_DoAn.ViewModel.Admin;
 using HumanResourcesApplication_DoAn.ViewModel.EmployeeVM;
+using System.Windows.Media.Imaging;
 
 namespace HumanResourcesApplication_DoAn.ViewModel.Login
 {
@@ -58,6 +59,11 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Login
         public LoginViewModel()
         {
             BindingImage bindingImage = new BindingImage();
+            BindingImage bindingIcon = new BindingImage();
+            BitmapSource icon = new BitmapImage(new Uri(bindingIcon.ConvertPath("favicon.ico")));
+
+            Application.Current.MainWindow.Icon = new BitmapImage();
+            Application.Current.MainWindow.Icon = icon;
             LoginImage = bindingImage.ConvertPath("LoginImage.png");
             userRepository = new UserRepository();
             LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
