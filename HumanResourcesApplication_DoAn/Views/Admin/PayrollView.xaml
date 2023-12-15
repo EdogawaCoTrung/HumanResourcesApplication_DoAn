@@ -206,7 +206,7 @@
 
                         <DataGrid ItemsSource="{Binding payrolls}"  Height="500" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate4}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="280">
+                                <DataGridTemplateColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="1*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
@@ -221,8 +221,8 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <DataGridTextColumn Header="Role" Binding="{Binding role.roleName, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" CanUserResize="False" Width="250"></DataGridTextColumn>
-                                <DataGridTemplateColumn Header="Salary"  IsReadOnly="True" CanUserResize="False" Width="250">
+                                <DataGridTextColumn Header="Role" Binding="{Binding role.roleName, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" CanUserResize="False" Width="1*"></DataGridTextColumn>
+                                <DataGridTemplateColumn Header="Salary"  IsReadOnly="True" CanUserResize="False" Width="1*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
@@ -245,7 +245,7 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>-->
-                                <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="Auto">
+                                <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="0.5*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Name="Button_Wrapper" Orientation="Horizontal">

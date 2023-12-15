@@ -177,19 +177,19 @@
                                                 Binding="{Binding _insuranceId}"  
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 
-                                                Width="100"></DataGridTextColumn>
+                                                Width="0.5*"></DataGridTextColumn>
                                 <DataGridTextColumn Header="Insurance Name" 
                                                 Binding="{Binding _insuranceName}" 
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 
-                                                Width="300"></DataGridTextColumn>
+                                                Width="1.5*"></DataGridTextColumn>
                                 <DataGridTextColumn Header="User Name" 
                                                 Binding="{Binding _userName}" 
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 
-                                                Width="300"></DataGridTextColumn>
+                                                Width="1.5*"></DataGridTextColumn>
                                 <DataGridTemplateColumn 
-                                    Header="Action" IsReadOnly="True" CanUserResize="False" Width="Auto">
+                                    Header="Action" IsReadOnly="True" CanUserResize="False" Width="1*">
 
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>

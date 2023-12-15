@@ -180,7 +180,7 @@
                                                 Header="Name"
                                                 IsReadOnly="True"
                                                 CanUserResize="False"
-                                                Width="250"
+                                                Width="1*"
                                                 >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -216,31 +216,31 @@
                                             Binding="{Binding User.userId}"  
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="100" />
+                                            Width="1*" />
                         <DataGridTextColumn Header="Leave Type" 
                                             Binding="{Binding leaveType}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="157" />
+                                            Width="1*" />
                         <DataGridTextColumn Header="Start Date" 
                                             Binding="{Binding startDate}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="100" />
+                                            Width="1*" />
                         <DataGridTextColumn Header="End Date" 
                                             Binding="{Binding endDate}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="100" />
+                                            Width="1*" />
                         <DataGridTextColumn Header="Reason" 
                                             Binding="{Binding reason}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="180" />
+                                            Width="1*" />
                         <DataGridTemplateColumn Header="Action" 
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 
-                                                Width="Auto">
+                                                Width="0.5*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Name="Button_Wrapper" 

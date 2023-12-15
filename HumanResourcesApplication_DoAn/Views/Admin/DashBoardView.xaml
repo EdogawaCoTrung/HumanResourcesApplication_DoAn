@@ -9,7 +9,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
-             d:DesignHeight="800" d:DesignWidth="1100">
+             d:DesignHeight="800" d:DesignWidth="1200">
     <UserControl.DataContext>
         <MU:DashBoardViewModel></MU:DashBoardViewModel>
     </UserControl.DataContext>
@@ -77,7 +77,7 @@
                 </Grid>
             </StackPanel>
             <StackPanel Margin="0,15,0,0" Orientation="Horizontal">
-                <StackPanel HorizontalAlignment="Left" Margin="0 0 30 0" VerticalAlignment="Top" Background="White" Width="588" Height="300">
+                <StackPanel HorizontalAlignment="Left" Margin="0 0 30 0" VerticalAlignment="Top" Background="White" Width="650" Height="300">
                     <Grid>
                         <TextBlock Margin="10,0,0,0" Padding="10" Text="Salary Statistics" FontWeight="SemiBold" FontSize="17"></TextBlock>
                         <StackPanel Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
@@ -93,7 +93,7 @@
                                     x:Name="myChart"
                                     BorderBrush="{StaticResource ButtonColor3}"
                                     BorderThickness="1 0 1 1"
-                                    Width="588"
+                                    Width="650"
                                     Height="260"
                                     Series="{Binding ColumnSeriesCollection}"
                                     XAxes="{Binding XAxes1}"
@@ -111,7 +111,7 @@
                         <TextBlock  Margin="10,10,0,10" VerticalAlignment="Center" Text="Revenue" FontSize="17" FontWeight="SemiBold" Foreground="Black"></TextBlock>
                     </Grid>
                     <StackPanel>
-                        <lvc:PieChart Width="375" Height="250"
+                        <lvc:PieChart Width="470" Height="250"
                       VerticalAlignment="Top"
                       HorizontalAlignment="Right"
                       Series="{Binding PieSeriesCollection}"
@@ -129,7 +129,7 @@
                         </Border>
                         <TextBlock  Margin="10,0,0,0" VerticalAlignment="Center" Text="My Balance" FontSize="17" FontWeight="SemiBold" Foreground="Black"></TextBlock>
                     </Grid>
-                    <lvc:CartesianChart Width="588" 
+                    <lvc:CartesianChart Width="650" 
                                         Height="218"
                                         Series="{Binding Series3}"
                                         AnimationsSpeed="00:00:03.500"
@@ -145,7 +145,7 @@
                         </Border>
                         <TextBlock  Margin="10,0,0,0" VerticalAlignment="Center" Text="Performance" FontSize="17" FontWeight="SemiBold" Foreground="Black"></TextBlock>
                     </Grid>
-                    <lvc:CartesianChart Width="380" 
+                    <lvc:CartesianChart Width="470" 
                                         Height="218"
                                         Series="{Binding Series4}"
                                         AnimationsSpeed="00:00:03.500"

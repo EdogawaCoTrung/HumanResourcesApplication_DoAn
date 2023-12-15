@@ -164,9 +164,9 @@
                                       Margin="0,0,0,10"
                                       Height="400" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
                                 <DataGrid.Columns>
-                                    <DataGridCheckBoxColumn Width="35" ElementStyle="{StaticResource CheckBoxStyle1}">
+                                    <DataGridCheckBoxColumn Width="0.3*" ElementStyle="{StaticResource CheckBoxStyle1}">
                                     </DataGridCheckBoxColumn>
-                                    <DataGridTemplateColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="250">
+                                    <DataGridTemplateColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="1*">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
@@ -181,11 +181,11 @@
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-                                    <DataGridTextColumn Header="Employee ID" Binding="{Binding userId, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" CanUserResize="False" Width="130"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="Phone" Binding="{Binding phoneNumber, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="157"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="Join Date" Binding="{Binding joinDate, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="200"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="Role" Binding="{Binding roleId, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="180"></DataGridTextColumn>
-                                    <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="Auto">
+                                    <DataGridTextColumn Header="Employee ID" Binding="{Binding userId, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" CanUserResize="False" Width="1*"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Phone" Binding="{Binding phoneNumber, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="1*"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Join Date" Binding="{Binding joinDate, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="1*"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Role" Binding="{Binding roleId, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="1*"></DataGridTextColumn>
+                                    <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="0.5*">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel Name="Button_Wrapper" Orientation="Horizontal">
