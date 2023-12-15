@@ -79,7 +79,7 @@
             <StackPanel Margin="0,15,0,0" Orientation="Horizontal">
                 <StackPanel HorizontalAlignment="Left" Margin="0 0 30 0" VerticalAlignment="Top" Background="White" Width="650" Height="300">
                     <Grid>
-                        <TextBlock Margin="10,0,0,0" Padding="10" Text="Salary Statistics" FontWeight="SemiBold" FontSize="17"></TextBlock>
+                        <TextBlock Margin="10,0,0,0" Padding="10" Text="Total Department and Employee" FontWeight="SemiBold" FontSize="17"></TextBlock>
                         <StackPanel Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
                             <TextBlock Text="Last year comparison:" Margin="0,0,15,0" FontSize="13" Foreground="{StaticResource FontColor2}"></TextBlock>
                             <ToggleButton
@@ -127,13 +127,14 @@
                     <Grid>
                         <Border BorderBrush="{StaticResource ButtonColor3}" BorderThickness="0,0,0,1">
                         </Border>
-                        <TextBlock  Margin="10,0,0,0" VerticalAlignment="Center" Text="My Balance" FontSize="17" FontWeight="SemiBold" Foreground="Black"></TextBlock>
+                        <TextBlock  Margin="10,0,0,0" VerticalAlignment="Center" Text="Workforce Dynamics" FontSize="17" FontWeight="SemiBold" Foreground="Black"></TextBlock>
                     </Grid>
                     <lvc:CartesianChart Width="650" 
-                                        Height="218"
+                                        Height="240"
                                         Series="{Binding Series3}"
                                         AnimationsSpeed="00:00:03.500"
                                         LegendPosition="Right"
+                                        XAxes="{Binding XAxes2}"
                                         YAxes="{Binding YAxes2}"
                                         ZoomMode="Y">
                         

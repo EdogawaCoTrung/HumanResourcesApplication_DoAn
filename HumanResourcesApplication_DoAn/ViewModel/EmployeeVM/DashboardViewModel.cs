@@ -29,38 +29,38 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         {
             new LineSeries<double>
             {
-                Name = "Object1",
+                Name = "Base Salary",
                 Fill = null,
                 GeometryStroke = null,
                 GeometryFill = null,
-                Values = new double[]{10,8,15,20,5},
+                Values = new double[]{10,10,15,20,20},
                 LineSmoothness = 1
             },
             new LineSeries<double>
             {
-                Name = "Object2",
+                Name = "Attendance Bonus",
                 Fill = null,
                 GeometryStroke = null,
                 GeometryFill = null,
-                Values = new double[]{7,18,5,10,15},
+                Values = new double[]{7,8,8,9,10},
                 LineSmoothness = 1
             },
             new LineSeries<double>
             {
-                Name = "Object3",
+                Name = "Performance Bonus",
                 Fill = null,
                 GeometryStroke = null,
                 GeometryFill = null,
-                Values = new double[]{12,18,11,2,15},
+                Values = new double[]{10,10,11,12,13},
                 LineSmoothness = 1
             },
             new LineSeries<double>
             {
-                Name = "Object4",
+                Name = "Yearend Bonus",
                 Fill = null,
                 GeometryStroke = null,
                 GeometryFill = null,
-                Values = new double[]{1,8,10,20,15},
+                Values = new double[]{6,6,7,7,9},
                 LineSmoothness = 1
             },
         };
@@ -74,6 +74,18 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
                 SeparatorsAtCenter = false,
                 MaxLimit = 20,
                 MinLimit = 0,
+                NamePaint = new SolidColorPaint(SKColors.Black),
+                LabelsPaint = new SolidColorPaint(SKColors.Gray),
+                TextSize = 12,
+            }
+        };
+        public Axis[] XAxes2 { get; set; }
+        = new Axis[]
+        {
+            new Axis
+            {
+                ForceStepToMin = true,
+                Labels= new string[]{"2019","2020","2021","2022","2023"},
                 NamePaint = new SolidColorPaint(SKColors.Black),
                 LabelsPaint = new SolidColorPaint(SKColors.Gray),
                 TextSize = 12,
