@@ -46,9 +46,11 @@
                           BorderThickness="1"
                           Background="{StaticResource ButtonColor5}"
                           CornerRadius="200">
-                        <Image Source="{Binding user.avatar}" Stretch="UniformToFill">
-                            
-                        </Image>
+                        <Ellipse>
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding user.avatar}"></ImageBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
                     </Border>
                     <StackPanel Height="300"
                               VerticalAlignment="Center"
