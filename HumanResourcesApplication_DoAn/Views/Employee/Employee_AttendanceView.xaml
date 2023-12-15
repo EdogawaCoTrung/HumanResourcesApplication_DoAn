@@ -100,26 +100,38 @@
                                         CanUserResize="False" 
                                         Width="1*" CanUserReorder="False"
                                         />
-                    <DataGridTextColumn Header="In time" 
-                                        Binding="{Binding inTime}"  
-                                        IsReadOnly="True" 
-                                        CanUserResize="False" 
-                                        Width="1*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Out time" 
-                                        Binding="{Binding outTime}" 
-                                        IsReadOnly="True" 
-                                        CanUserResize="False" 
-                                        Width="1*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Hours" 
-                                        Binding="{Binding hours}" 
-                                        IsReadOnly="True" 
-                                        CanUserResize="False" 
-                                        Width="1*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Status" 
-                                        Binding="{Binding status}" 
-                                        IsReadOnly="True" 
-                                        CanUserResize="False" 
-                                        Width="0.5*"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="In time" IsReadOnly="True" CanUserResize="False" Width="1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding inTime}" Style="{StaticResource StatusTextBlock}">
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Out time" IsReadOnly="True" CanUserResize="False" Width="1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding outTime}" Style="{StaticResource StatusTextBlock}">
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Hours" IsReadOnly="True" CanUserResize="False" Width="1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding hours}" Style="{StaticResource StatusTextBlock}">
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Status" IsReadOnly="True" CanUserResize="False" Width="1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding status}" FontWeight="SemiBold" Style="{StaticResource StatusTextBlock}">
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
