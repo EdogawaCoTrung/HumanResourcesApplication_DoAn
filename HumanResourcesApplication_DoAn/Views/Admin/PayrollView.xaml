@@ -206,12 +206,16 @@
 
                         <DataGrid ItemsSource="{Binding payrolls}"  Height="500" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate4}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="280">
+                                <DataGridTemplateColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="1*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                                                <Border Width="30" Height="30" Margin="0,0,8,0" HorizontalAlignment="Left" CornerRadius="50" BorderBrush="{StaticResource ButtonColor5}">
-                                                    <Image  VerticalAlignment="Center" HorizontalAlignment="Center" Source="{Binding user.avatar}" Stretch="UniformToFill"/>
+                                                <Border Width="30" Height="30" Margin="0,0,8,0" HorizontalAlignment="Left" BorderThickness="1" CornerRadius="50" BorderBrush="{StaticResource FontColor2}">
+                                                    <Ellipse>
+                                                        <Ellipse.Fill>
+                                                            <ImageBrush ImageSource="{Binding user.avatar}"></ImageBrush>
+                                                        </Ellipse.Fill>
+                                                    </Ellipse>
                                                 </Border>
                                                 <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
                                                     <TextBlock Name="Name" Background="Transparent" Text="{Binding user.userName, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>
@@ -221,8 +225,8 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <DataGridTextColumn Header="Role" Binding="{Binding role.roleName, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" CanUserResize="False" Width="250"></DataGridTextColumn>
-                                <DataGridTemplateColumn Header="Salary"  IsReadOnly="True" CanUserResize="False" Width="250">
+                                <DataGridTextColumn Header="Role" Binding="{Binding role.roleName, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" CanUserResize="False" Width="1*"></DataGridTextColumn>
+                                <DataGridTemplateColumn Header="Salary"  IsReadOnly="True" CanUserResize="False" Width="1*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
@@ -245,7 +249,7 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>-->
-                                <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="Auto">
+                                <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="0.5*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Name="Button_Wrapper" Orientation="Horizontal">
