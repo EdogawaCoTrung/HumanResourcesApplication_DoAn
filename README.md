@@ -71,13 +71,13 @@
    
         ![image](https://github.com/EdogawaCoTrung/HumanResourcesApplication_DoAn/assets/86793610/10b83a84-3dd0-48bc-b857-ee9cfb84cae2)
    
-   <h1 id="Usage">Usage📱</h1>
-   
+  <h1 id="Usage">Usage📱</h1>
+  
    **`Dynamic Reporting`**
-    >Generate dynamic and customizable reports to analyze various HR metrics, including employee performance, leave trends, and departmental statistics.
+   >Generate dynamic and customizable reports to analyze various HR metrics, including employee performance, leave trends, and departmental statistics.
     
    **`Notifications and Reminders`**
-    >Receive timely notifications for upcoming employee evaluations, pending leave requests, and other important HR-related events.
+   >Receive timely notifications for upcoming employee evaluations, pending leave requests, and other important HR-related events.
     
    **`Employee Self-Service`**
    >Empower employees with self-service capabilities, allowing them to update their personal information, submit leave requests, and view performance feedback.
