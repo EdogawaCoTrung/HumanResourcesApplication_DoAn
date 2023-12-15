@@ -39,7 +39,7 @@
                         BorderThickness="1"
                         Background="{StaticResource ButtonColor5}"
                         CornerRadius="200">
-                            <Image Source="{Binding User.avatar}" />
+                            <Image x:Name="image" Source="{Binding User.avatar}" OpacityMask="{Binding Stretch.UniformToFill, ElementName=image}" Stretch="UniformToFill" />
                         </Border>
                         <StackPanel Height="300"
                             VerticalAlignment="Center"
@@ -338,11 +338,11 @@
                                 FontSize="20"
                                 TextAlignment="Left"
                                 Foreground="Black"
-                                Padding="10"/>  
-                        
+                                Padding="10"/>
+
                     </StackPanel>
                 </StackPanel>
-                
+
 
                 <StackPanel Grid.Row="2"
                     FlowDirection="RightToLeft"
