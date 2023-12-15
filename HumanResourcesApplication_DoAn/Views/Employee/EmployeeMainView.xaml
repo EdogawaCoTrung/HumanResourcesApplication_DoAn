@@ -73,9 +73,11 @@
                                         Margin="5,0,0,0"
                                         BorderBrush="LightGray"
                                         BorderThickness="1">
-                                        <Image Source="{Binding User.avatar}">
-                                        
-                                        </Image>
+                                       <Ellipse>
+                                         <Ellipse.Fill>
+                                             <ImageBrush ImageSource="{Binding User.avatar}"></ImageBrush>
+                                         </Ellipse.Fill>
+                                       </Ellipse>
                                 </Border>
                                 </TextBlock>
                             </StackPanel>

@@ -192,9 +192,12 @@
                                                 CornerRadius="50"
                                                 BorderBrush="{StaticResource ButtonColor5}"
                                                 >
-                                            <Image VerticalAlignment="Center" 
-                                                       HorizontalAlignment="Center" 
-                                                       Source="{Binding User.avatar}" />
+                                            <Ellipse>
+                                                <Ellipse.Fill>
+                                                    <ImageBrush ImageSource="{Binding User.avatar}"></ImageBrush>
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                            
                                         </Border>
                                         <TextBlock Name="Name" 
                                                    VerticalAlignment="Center"
