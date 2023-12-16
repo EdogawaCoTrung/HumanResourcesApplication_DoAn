@@ -1,6 +1,8 @@
 ﻿using HumanResourcesApplication_DoAn.Model;
 using HumanResourcesApplication_DoAn.Repositories;
+using HumanResourcesApplication_DoAn.Views.Admin;
 using MaterialDesignColors;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +12,13 @@ using System.Windows;
 
 namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 {
-    public class PayrollViewModel:ViewModelBase
+    public class PayrollViewModel : ViewModelBase
     {
-        public struct salarySta{
+        public struct salarySta {
             public int? salary { get; set; }
             public string? departmentName { get; set; }
         };
-        
+        public ViewModelCommand AddPayrollCommand { get; }
         public IListPayrollRepository? payrollRepository { get;}
         private List<Payroll>? _payrolls;
         private List<salarySta> _salSta;
@@ -68,7 +70,15 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                     }
                 }
             }
+            AddPayrollCommand = new ViewModelCommand(ExcutePayrollCommand);
         }
 
+        private void ExcutePayrollCommand(object? obj)
+        {
+            Payroll_Add payrollView = new Payroll_Add();
+            AddPayrollViewModel addPayrollViewModel = new AddPayrollViewModel();
+            payrollView.DataContext= addPayrollViewModel;
+            payrollView.ShowDialog();
+        }
     }
 }
