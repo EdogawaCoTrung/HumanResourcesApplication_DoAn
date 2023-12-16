@@ -40,7 +40,7 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="USERNAME" Text="{Binding UserName}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <TextBox x:Name="USERNAME" Text="{Binding User.userName}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                     ></TextBox>
                             </Border>
                         </Grid>
@@ -50,7 +50,7 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="LOGINNAME" Text="{Binding LoginName}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <TextBox x:Name="LOGINNAME" Text="{Binding User.loginName}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                     ></TextBox>
                             </Border>
                         </Grid>
@@ -60,7 +60,7 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="PASSWORD" Text="{Binding Password}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <TextBox x:Name="PASSWORD" Text="{Binding User.password}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                     ></TextBox>
                             </Border>
                         </Grid>
@@ -72,7 +72,7 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="ISADMIN" Text="{Binding IsAdmin}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <TextBox x:Name="ISADMIN" Text="{Binding User.isAdmin}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                     ></TextBox>
                             </Border>
                         </Grid>
@@ -82,7 +82,7 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="PHONENUMBER" Text="{Binding PhoneNumber}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <TextBox x:Name="PHONENUMBER" Text="{Binding User.phoneNumber}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                     ></TextBox>
                             </Border>
                         </Grid>
@@ -92,7 +92,7 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="DATEOFBIRTH" Text="{Binding DateOfBirth}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <TextBox x:Name="DATEOFBIRTH" Text="{Binding User.dateOfBirth}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                     ></TextBox>
                             </Border>
                         </Grid>
@@ -104,7 +104,7 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="COUNTRY_ID" Text="{Binding Country}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <TextBox x:Name="COUNTRY_ID" Text="{Binding User.country}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                     ></TextBox>
                             </Border>
                         </Grid>
@@ -114,7 +114,7 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="EDUCATION_ID" Text="{Binding Education}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <TextBox x:Name="EDUCATION_ID" Text="{Binding User.education}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                     ></TextBox>
                             </Border>
                         </Grid>
@@ -124,7 +124,7 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="GENDER" Text="{Binding Gender}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <TextBox x:Name="GENDER" Text="{Binding User.gender}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                     ></TextBox>
                             </Border>
                         </Grid>
@@ -136,7 +136,7 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="JOIN_DATE" Text="{Binding JoinDate}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <TextBox x:Name="JOIN_DATE" Text="{Binding User.joinDate}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                     ></TextBox>
                             </Border>
                         </Grid>
@@ -146,7 +146,7 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="ROLE_ID" Text="{Binding Role}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <TextBox x:Name="ROLE_ID" Text="{Binding User.role}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                     ></TextBox>
                             </Border>
                         </Grid>
@@ -156,7 +156,7 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="PAYROLL_ID" Text="{Binding Payroll}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <TextBox x:Name="PAYROLL_ID" Text="{Binding User.payroll}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                     ></TextBox>
                             </Border>
                         </Grid>
@@ -168,7 +168,7 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="EMPLOYEE_ID" Text="{Binding EMPLOYEE_ID}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <TextBox x:Name="EMPLOYEE_ID" Text="{Binding User.}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                     ></TextBox>
                             </Border>
                         </Grid>
@@ -203,7 +203,7 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="FACEBOOK" Text="{Binding Facebook}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <TextBox x:Name="FACEBOOK" Text="{Binding User.facebook}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                     ></TextBox>
                             </Border>
                         </Grid>
@@ -213,7 +213,7 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="TWITTER" Text="{Binding Twitter}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <TextBox x:Name="TWITTER" Text="{Binding User.twitter}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                     ></TextBox>
                             </Border>
                         </Grid>
@@ -226,7 +226,7 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="LINKEDIN" Text="{Binding LinkedIn}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <TextBox x:Name="LINKEDIN" Text="{Binding User.linkedIn}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                     ></TextBox>
                             </Border>
                         </Grid>
@@ -236,7 +236,7 @@
                 HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="EMAIL" Text="{Binding Email}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <TextBox x:Name="EMAIL" Text="{Binding User.email}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                  ></TextBox>
                             </Border>
                         </Grid>

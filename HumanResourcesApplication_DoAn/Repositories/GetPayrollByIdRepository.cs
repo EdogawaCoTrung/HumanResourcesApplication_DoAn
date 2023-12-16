@@ -29,7 +29,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 EmployeePayroll _employeePayroll = new EmployeePayroll();  
                 _employeePayroll.Payroll.salary = int.Parse(reader["SALARY"].ToString()) ;
                 _employeePayroll.PayrollHistory.StartDate = DateOnly.FromDateTime(DateTime.Parse(reader["START_DATE"].ToString()));
-                _employeePayroll.PayrollHistory.EndDate = DateOnly.FromDateTime(DateTime.Parse(reader["END_DATE"].ToString() == "" ? "12/31/2024" : reader["END_DATE"].ToString()));
+                _employeePayroll.PayrollHistory.EndDate = DateOnly.FromDateTime(DateTime.Parse(reader["END_DATE"].ToString() == "" ? "31/12/2024" : reader["END_DATE"].ToString()));
                 _employeePayroll.User.userName = reader["USERNAME"].ToString();
                 _employeePayroll.User.userId = reader["USERID"].ToString();
                 employeePayroll.Add(_employeePayroll);

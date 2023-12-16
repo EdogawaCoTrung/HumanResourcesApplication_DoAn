@@ -1,8 +1,10 @@
 ﻿using HumanResourcesApplication_DoAn.Model;
 using HumanResourcesApplication_DoAn.Repositories;
 using HumanResourcesApplication_DoAn.Utils;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -22,9 +24,16 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 OnPropertyChanged(nameof(User));
             }
         }
+        private string? _filePath;
+        private string? _newPath;
+        private string? _fileName;
+        public string? FilePath { get => _filePath; set { _filePath = value; OnPropertyChanged(nameof(FilePath)); } }
+        public string? NewPath { get => _newPath; set { _newPath = value; OnPropertyChanged(nameof(NewPath)); } }
+        public string? FileName { get => _fileName; set { _fileName = value; OnPropertyChanged(nameof(FileName)); } }
         public IChangeProfileRepository changeProfileRepository;
         public ViewModelCommand ChangeCommand { get; }
         public ViewModelCommand CancelCommand { get; }
+        public ViewModelCommand UploadImageCommand { get; }
 
         public User_ChangeInformation_ViewModel()
         {
@@ -32,6 +41,24 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             changeProfileRepository = new ChangeProfileRepository();
             ChangeCommand = new ViewModelCommand(ExcuteChangeCommand,CanExcuteChangeCommand);
             CancelCommand = new ViewModelCommand(ExcuteCancelCommand);
+            UploadImageCommand = new ViewModelCommand(ExecuteUploadImageCommand);
+        }
+        private void ExecuteUploadImageCommand(object? obj)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            bool? response = openFileDialog.ShowDialog();
+            if (response == true)
+            {
+                string filePath = openFileDialog.FileName;
+                string fileName = Path.GetFileName(filePath);
+                BindingImage bindingImage = new BindingImage();
+                string newPath = fileName;
+                newPath = bindingImage.ConvertPath(newPath);
+                FilePath = filePath;
+                FileName = fileName;
+                NewPath = newPath;
+                _user.avatar = newPath;
+            }
         }
         private void ExcuteCancelCommand(object? obj)
         {
@@ -40,9 +67,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         }
         private void ExcuteChangeCommand(object? obj)
         {
-            MessageBox.Show("Changed");
-          
-
+            changeProfileRepository.ChangeProfile(User.loginName, User.userName, User.password, User.phoneNumber, User.dateOfBirth.ToString(), User.gender, User.countryId, User.educationId, User.facebook, User.twitter, User.linkedIn, User.email, FileName);
+            Application.Current.MainWindow.Close();
         }
         private bool CanExcuteChangeCommand(object? obj)
         {

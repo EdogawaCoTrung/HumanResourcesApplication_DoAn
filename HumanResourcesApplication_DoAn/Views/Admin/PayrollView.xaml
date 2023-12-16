@@ -13,6 +13,7 @@
         <vm:PayrollViewModel/>
     </UserControl.DataContext>
     <UserControl.Resources>
+        
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
         <Style TargetType="DataGrid">
             <Setter Property="VerticalScrollBarVisibility" Value="Disabled"></Setter>
@@ -89,13 +90,16 @@
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
+        <DataTemplate DataType="{x:Type vm:AddPayrollViewModel}">
+            <local:Payroll_Add />
+        </DataTemplate>
     </UserControl.Resources>
     <Grid Background="{StaticResource Color3}">
         <StackPanel Orientation="Vertical">
             <Grid>
                 <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
                     <RadioButton Style="{StaticResource TopBorderTriggerButton}">
-                        <TextBlock Text="Employee"></TextBlock>
+                        <TextBlock Text="Payroll"></TextBlock>
                     </RadioButton>
                 </StackPanel>
             </Grid>
@@ -188,8 +192,26 @@
             <Grid Height="480" Margin="0,0,0,0">
                 <Border BorderBrush="{StaticResource ButtonColor5}" BorderThickness="0,1.5,0,1.5" CornerRadius="10">
                     <StackPanel Orientation="Vertical">
+                        <StackPanel Height="50"
+                                    Orientation="Horizontal"
+                                    FlowDirection="RightToLeft">
+                            <Button 
+                                 Width="88"
+                                 Command="{Binding AddPayrollCommand}"
+                                 Height="34"
+                                 Foreground="White"
+                                 FontSize="13"
+                                 FontWeight="SemiBold"
+                                 Background="{StaticResource ButtonColor2}"
+                                 BorderThickness="0"
+                                 materialDesign:RippleAssist.Feedback="#DD000000"
+                                 Content="Add New"
+                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                 Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
+                                 ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
+                        </StackPanel>
                         <Grid Height="50" Background="White">
-                            <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Departments" FontSize="17" Foreground="{StaticResource FontColor8}" FontWeight="SemiBold" Background="White"></TextBlock>
+                            <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Payroll" FontSize="17" Foreground="{StaticResource FontColor8}" FontWeight="SemiBold" Background="White"></TextBlock>
                             <Grid HorizontalAlignment="Right" Width="300" Height="34" Margin="0,0,0,0">
                                 <TextBlock Margin="15,5,5,5" Text="Search..." FontSize="13"
                                            Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"

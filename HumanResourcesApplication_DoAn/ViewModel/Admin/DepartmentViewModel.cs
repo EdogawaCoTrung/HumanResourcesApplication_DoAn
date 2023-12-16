@@ -60,6 +60,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
                 throw new Exception();
             }
 
@@ -67,7 +68,11 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         private void ExcuteDeleteDepartmentCommand(object? obj)
         {
-            deleteDepartmentRepository.DeleteDepartment(Selectedtem.departmentId, Selectedtem.departmentName, Selectedtem.head, Selectedtem.totalEmployees);
+            if(MessageBox.Show("Bạn có chắc chắn muốn xóa phòng ban này?","Thông báo",MessageBoxButton.YesNo,MessageBoxImage.Warning,MessageBoxResult.No)== MessageBoxResult.Yes) 
+            {
+                deleteDepartmentRepository.DeleteDepartment(Selectedtem.departmentId, Selectedtem.departmentName, Selectedtem.head, Selectedtem.totalEmployees);
+            }                
+            
         }
 
         private void ExcuteAddDepartmentCommand(object? obj)
