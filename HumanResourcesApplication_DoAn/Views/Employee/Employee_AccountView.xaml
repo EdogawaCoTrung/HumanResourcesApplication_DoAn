@@ -42,7 +42,7 @@
                             CornerRadius="200">
                         <Ellipse>
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="{Binding user.avatar}"></ImageBrush>
+                                <ImageBrush ImageSource="{Binding user.avatar}" Stretch="UniformToFill"></ImageBrush>
                             </Ellipse.Fill>
                         </Ellipse>
                     </Border>

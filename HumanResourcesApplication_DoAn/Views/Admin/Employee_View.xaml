@@ -41,7 +41,7 @@
                         CornerRadius="200">
                             <Ellipse>
                                 <Ellipse.Fill>
-                                    <ImageBrush ImageSource="{Binding User.avatar}"></ImageBrush>
+                                    <ImageBrush ImageSource="{Binding User.avatar}" Stretch="UniformToFill"></ImageBrush>
                                 </Ellipse.Fill>
                             </Ellipse>
                             <!--<Image x:Name="image" Source="{Binding User.avatar}" OpacityMask="{Binding Stretch.UniformToFill, ElementName=image}" Stretch="UniformToFill" />-->

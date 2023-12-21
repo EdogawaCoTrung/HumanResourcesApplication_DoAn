@@ -235,7 +235,7 @@
                                                 <Border Width="30" Height="30" Margin="0,0,8,0" HorizontalAlignment="Left" BorderThickness="1" CornerRadius="50" BorderBrush="{StaticResource FontColor2}">
                                                     <Ellipse>
                                                         <Ellipse.Fill>
-                                                            <ImageBrush ImageSource="{Binding user.avatar}"></ImageBrush>
+                                                            <ImageBrush ImageSource="{Binding user.avatar}" Stretch="UniformToFill"></ImageBrush>
                                                         </Ellipse.Fill>
                                                     </Ellipse>
                                                 </Border>

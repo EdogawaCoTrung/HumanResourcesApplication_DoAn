@@ -194,7 +194,7 @@
                                                 >
                                             <Ellipse>
                                                 <Ellipse.Fill>
-                                                    <ImageBrush ImageSource="{Binding User.avatar}"></ImageBrush>
+                                                    <ImageBrush ImageSource="{Binding User.avatar}" Stretch="UniformToFill"></ImageBrush>
                                                 </Ellipse.Fill>
                                             </Ellipse>
                                             
