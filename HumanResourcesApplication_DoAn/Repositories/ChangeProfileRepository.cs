@@ -78,6 +78,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 command.Parameters.Add("@avatar", MySqlDbType.VarString).Value = avatar;
             }
             MySqlDataReader reader = command.ExecuteReader();
+            reader.Read();
             connection.Close();
         }
     }
