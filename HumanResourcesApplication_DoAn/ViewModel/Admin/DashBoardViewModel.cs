@@ -149,7 +149,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public ViewModelCommand InitPieChartMonthCommand { get; }
         private void ExcuteInitPieChartMonthCommand(object? obj)
         {
-            string currentYear = DateTime.Now.Year.ToString();
+            string currentYear = (DateTime.Now.Year+1).ToString();
             OrganicProject = (DashboarRepository.Instance.QueryOrganicPJInYear(currentYear)).ToString();
             DiretProject = (DashboarRepository.Instance.QueryDirectPJRevenueInYear(currentYear)).ToString();
             ReferralProject = (DashboarRepository.Instance.QueryReferralPJRevenueInYear(currentYear)).ToString();

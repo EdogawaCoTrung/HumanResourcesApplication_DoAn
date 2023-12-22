@@ -31,9 +31,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             _user = new User();
             _user = MyApp.currentUser;
             SendLeaveRequestCommand = new ViewModelCommand(ExcuteSendLeaveRequestCommand, CanExcuteSendLeaveRequestCommand);
-
             ChangeInformationCommand = new ViewModelCommand(ExcuteChangeInformationCommand, CanExcuteChangeInformationCommand);
-
 
         }
 
