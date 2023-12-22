@@ -1,6 +1,7 @@
 ﻿using HumanResourcesApplication_DoAn.Model;
 using HumanResourcesApplication_DoAn.Repositories;
 using HumanResourcesApplication_DoAn.Utils;
+using HumanResourcesApplication_DoAn.Views.Admin;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private string? _filePath;
         private string? _fileName;
         private string? _newPath;
+        private string? _departmentId;
         public ICommand AddCommand { get; }
         public ICommand CancelCommand { get; }
         public ICommand UploadImageCommand { get; }
@@ -62,6 +64,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public string? FilePath { get => _filePath; set { _filePath = value; OnPropertyChanged(nameof(FilePath)); } }
         public string? FileName { get => _fileName; set { _fileName = value; OnPropertyChanged(nameof(FileName)); } }
         public string? NewPath { get => _newPath; set { _newPath = value; OnPropertyChanged(nameof(NewPath)); } }
+
+        public string? DepartmentId { get => _departmentId; set { _departmentId = value; OnPropertyChanged(nameof(DepartmentId)); } }
 
         public EmployeeAddUserVM()
         {
@@ -130,12 +134,14 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 canExecute = false;
             if (Avatar == null & Avatar == "")
                 canExecute = false;
+            if (DepartmentId == null & DepartmentId == "")
+                canExecute = false;
             return canExecute;
         }
 
         private void ExecuteAddCommand(object? obj)
         {
-            addUserRepository.AddUser(UserName, LoginName, Password, IsAdmin, PhoneNumber, DateOfBirth, Country, Education, Gender, JoinDate, Role, Payroll, Facebook, Twitter, LinkedIn, Email, FileName);
+            addUserRepository.AddUser(UserName, LoginName, Password, IsAdmin, PhoneNumber, DateOfBirth, Country, Education, Gender, JoinDate, Role, Payroll, Facebook, Twitter, LinkedIn, Email, FileName,DepartmentId);
             if (!File.Exists(NewPath))
                 File.Copy(FilePath, NewPath);
             Application.Current.MainWindow.Close();
