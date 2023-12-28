@@ -133,6 +133,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             Country ="";
             RoleId="";
             PayrollId="";
+            Education = "";
             changeProfileRepository.ChangeProfile(MyApp.currentUser.loginName, UserName, Password,IsAdmin, PhoneNumber, DateOfBirth,Country,Education, Gender,JoinDate,RoleId,PayrollId, Facebook, Twitter, LinkedIn, Email, FileName, DepartmentId);
             if(NewPath == null)
             {
