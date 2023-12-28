@@ -70,6 +70,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public string? DepartmentId { get => _departmentId; set { _departmentId = value; OnPropertyChanged(nameof(DepartmentId)); } }
         public string? PayrollId { get => _payrollId; set { _payrollId = value; OnPropertyChanged(nameof(PayrollId)); } }
         public IAdmin_ChangeProfileRepository changeProfileRepository;
+
         public ViewModelCommand ChangeCommand { get; }
         public ViewModelCommand CancelCommand { get; }
         public ViewModelCommand UploadImageCommand { get; }
@@ -97,6 +98,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             _payrollId= User.payrollId;
             _email=User.email;
             _avatar=User.avatar;
+            
             changeProfileRepository = new Admin_ChangeProfileRepository();
             ChangeCommand = new ViewModelCommand(ExcuteChangeCommand,CanExcuteChangeCommand);
             CancelCommand = new ViewModelCommand(ExcuteCancelCommand);
@@ -132,9 +134,15 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             RoleId="";
             PayrollId="";
             changeProfileRepository.ChangeProfile(MyApp.currentUser.loginName, UserName, Password,IsAdmin, PhoneNumber, DateOfBirth,Country,Education, Gender,JoinDate,RoleId,PayrollId, Facebook, Twitter, LinkedIn, Email, FileName, DepartmentId);
-            if (!File.Exists(NewPath))
+            if(NewPath == null)
+            {
+                FilePath = User.avatar;
+            }
+            else if (!File.Exists(NewPath))
                 File.Copy(FilePath, NewPath);
             MyApp.currentUser.avatar = FilePath;
+           
+
             Application.Current.MainWindow.Close();
         }
         private bool CanExcuteChangeCommand(object? obj)
