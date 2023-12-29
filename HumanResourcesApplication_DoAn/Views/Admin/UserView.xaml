@@ -48,7 +48,7 @@
                           CornerRadius="200">
                         <Ellipse>
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="{Binding Avatar}" Stretch="UniformToFill"></ImageBrush>
+                                <ImageBrush ImageSource="{Binding User.avatar}" Stretch="UniformToFill"></ImageBrush>
                             </Ellipse.Fill>
                         </Ellipse>
                     </Border>
@@ -188,7 +188,7 @@
                      Width="150"
                      VerticalAlignment="Top"
                      HorizontalAlignment="Left"
-                     Text="{Binding DepartmentId}"
+                     Text="{Binding User.departmentId}"
                      FontSize="20"
                      TextAlignment="Left"
                      Foreground="Black"

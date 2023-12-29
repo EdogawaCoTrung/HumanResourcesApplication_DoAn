@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Employee"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        WindowStartupLocation="CenterOwner"
+        WindowStartupLocation="CenterScreen"
         
         xmlns:fa="http://schemas.fontawesome.io/icons/"
-        Title="EmployeeMainView" Height="1000" Width="1440"
+        Title="EmployeeMainView" Height="1000" Width="1500"
         xmlns:ViewModel="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.EmployeeVM">
 
     <Window.Resources>
@@ -49,7 +49,7 @@
                     <StackPanel>
                         <Image Source="{Binding Icon}"/>
                         <TextBlock Width="50" TextAlignment="Center" Margin="0,0,0,36.35">
-                        
+
                         </TextBlock>
                         <RadioButton Style="{StaticResource BlueSideBarButton}">
                             <StackPanel>
@@ -128,9 +128,9 @@
             <!--Content page -->
             <Grid Background="{StaticResource Color3}" Grid.Column="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="80" 
+                    <RowDefinition Height="13*" 
                                     />
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="151*"/>
                 </Grid.RowDefinitions>
                 <StackPanel  Grid.Row="0"
                     Orientation="Vertical">

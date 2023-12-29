@@ -142,8 +142,6 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             else if (!File.Exists(NewPath))
                 File.Copy(FilePath, NewPath);
             MyApp.currentUser.avatar = FilePath;
-           
-
             Application.Current.MainWindow.Close();
         }
         private bool CanExcuteChangeCommand(object? obj)
