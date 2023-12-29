@@ -139,7 +139,7 @@
                     </StackPanel>
                 </Grid>
                 <!--Datagrid-->
-                <Grid Height="380" Margin="0,0,0,0">
+                <Grid Margin="0,0,0,0">
                     <Border BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                         <StackPanel Orientation="Vertical">
                             <Grid Height="50" Background="White">
@@ -162,7 +162,7 @@
                                       SelectedItem="{Binding SelectedItem}"
                                       
                                       Margin="0,0,0,10"
-                                      Height="400" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
+                                      Height="500" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
                                 <DataGrid.Columns>
                                     <DataGridCheckBoxColumn Width="0.3*" ElementStyle="{StaticResource CheckBoxStyle1}">
                                     </DataGridCheckBoxColumn>
