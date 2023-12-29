@@ -48,7 +48,7 @@
                           CornerRadius="200">
                         <Ellipse>
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="{Binding user.avatar}" Stretch="UniformToFill"></ImageBrush>
+                                <ImageBrush ImageSource="{Binding User.avatar}" Stretch="UniformToFill"></ImageBrush>
                             </Ellipse.Fill>
                         </Ellipse>
                     </Border>
@@ -59,11 +59,11 @@
                         <TextBlock Margin="60,20,20,0"
                                  Height="60"
                                  FontSize="40"
-                                 Text="{Binding user.userName}"
+                                 Text="{Binding UserName}"
                                  TextAlignment="Center">
 
                         </TextBlock>
-                        <TextBlock Text="{Binding user.roleId}"
+                        <TextBlock Text="{Binding RoleId}"
                                  TextAlignment="Center"
                                  Width="400"
                                    
@@ -188,7 +188,7 @@
                      Width="150"
                      VerticalAlignment="Top"
                      HorizontalAlignment="Left"
-                     Text="{Binding user.departmentId}"
+                     Text="{Binding User.departmentId}"
                      FontSize="20"
                      TextAlignment="Left"
                      Foreground="Black"
@@ -208,7 +208,7 @@
                      Width="200"
                      VerticalAlignment="Top"
                      HorizontalAlignment="Left"
-                     Text="{Binding user.email}"
+                     Text="{Binding Email}"
                      FontSize="20"
                      TextAlignment="Left"
                      Foreground="Black"
@@ -228,7 +228,7 @@
                      Width="310"
                      VerticalAlignment="Top"
                      HorizontalAlignment="Left"
-                     Text="{Binding user.educationId}"
+                     Text="{Binding Education}"
                      FontSize="20"
                      TextWrapping="Wrap"
                      TextAlignment="Left"
@@ -257,7 +257,7 @@
                       Width="150"
                       VerticalAlignment="Top"
                       HorizontalAlignment="Left"
-                      Text="{Binding user.gender}"
+                      Text="{Binding Gender}"
                       FontSize="20"
                       TextAlignment="Left"
                       Foreground="Black"
@@ -277,7 +277,7 @@
                       Width="150"
                       VerticalAlignment="Top"
                       HorizontalAlignment="Left"
-                      Text="{Binding user.countryId}"
+                      Text="{Binding Country}"
                       FontSize="20"
                       TextAlignment="Left"
                       Foreground="Black"
@@ -297,7 +297,7 @@
                      Width="310"
                      VerticalAlignment="Top"
                      HorizontalAlignment="Left"
-                     Text="{Binding user.roleId}"
+                     Text="{Binding RoleId}"
                      FontSize="20"
                      TextWrapping="Wrap"
                      TextAlignment="Left"
@@ -324,7 +324,7 @@
                        Width="150"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
-                       Text="{Binding user.dateOfBirth}"
+                       Text="{Binding DateOfBirth}"
                        FontSize="20"
                        TextAlignment="Left"
                        Foreground="Black"
@@ -344,7 +344,7 @@
                        Width="150"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
-                       Text="{Binding user.payrollId}"
+                       Text="{Binding PayrollId}"
                        FontSize="20"
                        TextAlignment="Left"
                        Foreground="Black"
@@ -366,7 +366,7 @@
                       Width="310"
                       VerticalAlignment="Top"
                       HorizontalAlignment="Left"
-                      Text="{Binding user.joinDate}"
+                      Text="{Binding JoinDate}"
                       FontSize="20"
                       TextWrapping="Wrap"
                       TextAlignment="Left"
