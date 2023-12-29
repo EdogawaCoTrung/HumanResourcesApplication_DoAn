@@ -133,6 +133,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             Country ="";
             RoleId="";
             PayrollId="";
+            Education = "";
             changeProfileRepository.ChangeProfile(MyApp.currentUser.loginName, UserName, Password,IsAdmin, PhoneNumber, DateOfBirth,Country,Education, Gender,JoinDate,RoleId,PayrollId, Facebook, Twitter, LinkedIn, Email, FileName, DepartmentId);
             if(NewPath == null)
             {
@@ -141,8 +142,6 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             else if (!File.Exists(NewPath))
                 File.Copy(FilePath, NewPath);
             MyApp.currentUser.avatar = FilePath;
-           
-
             Application.Current.MainWindow.Close();
         }
         private bool CanExcuteChangeCommand(object? obj)
