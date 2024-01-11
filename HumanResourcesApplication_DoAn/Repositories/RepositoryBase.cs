@@ -16,7 +16,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
         protected MySqlConnection connection;
         public RepositoryBase()
         {
-            _connectionString = "server=sql12.freesqldatabase.com; user=sql12673450; password=2V44CuPRAw; database=sql12673450; convert zero datetime=True";
+            _connectionString = "server=sql12.freesqldatabase.com; user=sql12676122; password=IYbNwtxMnJ; database=sql12676122; convert zero datetime=True";
             connection = new MySqlConnection(_connectionString);
             try
             {
