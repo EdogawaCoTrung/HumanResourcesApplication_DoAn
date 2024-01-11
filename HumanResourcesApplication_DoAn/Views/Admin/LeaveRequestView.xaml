@@ -10,11 +10,7 @@
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              d:DesignHeight="750" d:DesignWidth="1100">
 
-    <UserControl.DataContext>
-        <viewModelAdmin:LeaveRequestsViewModel/>
-    </UserControl.DataContext>
- 
-    
+
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
         <Style TargetType="DataGrid">
@@ -171,36 +167,42 @@
                     </StackPanel>
                 </Grid>
                 <DataGrid Name ="LeaveRequestDatagrid"      
-                          Height="480"
+                          Height="470"
                           Margin="10"
                           RowStyle="{DynamicResource DataGridRowStyle1}" 
                           CellStyle="{DynamicResource DataGridCellTemplate}" 
                           ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
-                          ItemsSource="{Binding ListLeaveRequests}">
+                          ItemsSource="{Binding ListLeaveRequests}"
+                          SelectedItem="{Binding selectedItem}">
                     <DataGrid.Columns>
                         <DataGridTextColumn />
                         <DataGridTemplateColumn 
                                                 Header="Name"
                                                 IsReadOnly="True"
                                                 CanUserResize="False"
-                                                Width="200"
+                                                Width="1*"
                                                 >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel HorizontalAlignment="Left"
                                                 Orientation="Horizontal"
                                                 >
-                                        <!--<Border Width="30"
+                                        <Border Width="30"
                                                 Height="30"
-                                                Background="{Binding BgColor}"
                                                 CornerRadius="50"
                                                 BorderBrush="{StaticResource ButtonColor5}"
                                                 >
-                                            <TextBlock VerticalAlignment="Center" 
-                                                       HorizontalAlignment="Center" 
-                                                       Text="{Binding CharacterPicture}" />
-                                        </Border>-->
+                                            <Ellipse>
+                                                <Ellipse.Fill>
+                                                    <ImageBrush ImageSource="{Binding User.avatar}" Stretch="UniformToFill"></ImageBrush>
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                            
+                                        </Border>
                                         <TextBlock Name="Name" 
+                                                   VerticalAlignment="Center"
+                                                   Margin="10 0 0 0"
+                                                   TextWrapping="Wrap"
                                                    Background="Transparent" 
                                                    Text="{Binding User.userName}" 
                                                    Foreground="{StaticResource FontColor8}" 
@@ -214,34 +216,34 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                         <DataGridTextColumn Header="Employee ID" 
-                                            Binding="{Binding userId}"  
+                                            Binding="{Binding User.userId}"  
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="100" />
+                                            Width="1*" />
                         <DataGridTextColumn Header="Leave Type" 
                                             Binding="{Binding leaveType}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="157" />
+                                            Width="1*" />
                         <DataGridTextColumn Header="Start Date" 
                                             Binding="{Binding startDate}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="100" />
+                                            Width="1*" />
                         <DataGridTextColumn Header="End Date" 
                                             Binding="{Binding endDate}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="100" />
+                                            Width="1*" />
                         <DataGridTextColumn Header="Reason" 
                                             Binding="{Binding reason}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
-                                            Width="180" />
+                                            Width="1*" />
                         <DataGridTemplateColumn Header="Action" 
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 
-                                                Width="Auto">
+                                                Width="0.5*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Name="Button_Wrapper" 
@@ -249,17 +251,20 @@
                                         <Button  Width="30" 
                                                  Height="30"
                                                  Margin="0,0,10,0"
-                                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                 
                                                  Style="{StaticResource MaterialDesignIconForegroundButton}"
                                                  ToolTip="MaterialDesignIconForegroundButton"
-                                                 Command="{Binding }">
+                                                 Command="{Binding DataContext.AcceptCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                 CommandParameter="{Binding}">
                                                  
                                             <materialDesign:PackIcon Kind="CheckboxMarkedCircleOutline" Foreground="{StaticResource FontColor2}"/>
                                         </Button>
                                         <Button  Width="30" Height="30" Margin="0,0,10,0"
                                                           IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                                           Style="{StaticResource MaterialDesignIconForegroundButton}"
-                                                          ToolTip="MaterialDesignIconForegroundButton">
+                                                          ToolTip="MaterialDesignIconForegroundButton"
+                                                          Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                          CommandParameter="{Binding}">
                                             <materialDesign:PackIcon Kind="TrashCanOutline" Foreground="{StaticResource FontColor2}"/>
                                         </Button>
                                     </StackPanel>

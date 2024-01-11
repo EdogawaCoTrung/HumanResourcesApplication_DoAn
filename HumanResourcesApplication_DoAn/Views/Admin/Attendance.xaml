@@ -97,12 +97,6 @@
                     <RadioButton Style="{StaticResource TopBorderTriggerButton}">
                         <TextBlock Text="All"></TextBlock>
                     </RadioButton>
-                    <RadioButton Style="{StaticResource TopBorderTriggerButton}">
-                        <TextBlock Text="View"></TextBlock>
-                    </RadioButton>
-                    <RadioButton Style="{StaticResource TopBorderTriggerButton}">
-                        <TextBlock Text="Leave Request"></TextBlock>
-                    </RadioButton>
                 </StackPanel>
             </Grid>
             <!--PanelMain-->
@@ -162,15 +156,43 @@
 
                         </Grid>
 
-                        <DataGrid ItemsSource="{Binding Attendances}" Height="500" Name="Attendance_Users" RowStyle="{DynamicResource DataGridRowStyle2}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}">
+                        <DataGrid ItemsSource="{Binding Attendances}" Height="500" Name="Attendance_Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn CellStyle="{DynamicResource DataGridCellTemplate2}" Binding="{Binding userId}" IsReadOnly="True" CanUserResize="False" Width="150"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Date" Binding="{Binding date}" IsReadOnly="True" CanUserResize="False" Width="220">
+                                <DataGridTextColumn Header="Date" Binding="{Binding date}" IsReadOnly="True" CanUserResize="False" Width="1*">
                                 </DataGridTextColumn>
-                                <DataGridTextColumn Header="In time" Binding="{Binding inTime}"  IsReadOnly="True" CanUserResize="False" Width="180"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Out time" Binding="{Binding outTime}" IsReadOnly="True" CanUserResize="False" Width="180"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Hours" Binding="{Binding hours}" IsReadOnly="True" CanUserResize="False" Width="166"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Status" Binding="{Binding status}" IsReadOnly="True" CanUserResize="False" Width="150"></DataGridTextColumn>
+                                <DataGridTemplateColumn Header="In time" IsReadOnly="True" CanUserResize="False" Width="1*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding inTime}" Style="{StaticResource StatusTextBlock}">
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Out time" IsReadOnly="True" CanUserResize="False" Width="1*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding outTime}" Style="{StaticResource StatusTextBlock}">
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Hours" IsReadOnly="True" CanUserResize="False" Width="1*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding hours}" Style="{StaticResource StatusTextBlock}">
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Status" IsReadOnly="True" CanUserResize="False" Width="1*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding status}" FontWeight="SemiBold" Style="{StaticResource StatusTextBlock}">
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
                             </DataGrid.Columns>
                         </DataGrid>
                     </StackPanel>

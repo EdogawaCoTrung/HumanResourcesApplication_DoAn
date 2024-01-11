@@ -4,6 +4,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using HumanResourcesApplication_DoAn.Model;
 using MySql.Data.MySqlClient;
 using static HumanResourcesApplication_DoAn.Views.Admin.PayrollView;
@@ -29,8 +30,11 @@ namespace HumanResourcesApplication_DoAn.Repositories.DepartmentRepo
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
                 throw new Exception();
+                
             }
+            finally { connection.Close(); } 
         }
     }
 }

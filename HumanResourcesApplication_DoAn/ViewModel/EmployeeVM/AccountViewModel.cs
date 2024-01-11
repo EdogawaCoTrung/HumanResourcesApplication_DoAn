@@ -6,7 +6,10 @@ using HumanResourcesApplication_DoAn.Views.Employee;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,6 +24,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         User _user;
         public User user { get => _user; set { _user = value; OnPropertyChanged(nameof(user)); } }
 
+        public IUserRepository userRepository { get; }
         public ICommand LeaveCommand { get; }
         public ICommand ChangeCommand { get; }
         public ICommand FacebookCommand { get; }
@@ -33,7 +37,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         {
             user = new User();
             user = MyApp.currentUser;
-            MessageBox.Show(user.avatar);
+            userRepository = new UserRepository();
             LeaveCommand = new ViewModelCommand(ExecuteLeaveCommand, CanExecuteLeaveCommand);
             ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             FacebookCommand = new ViewModelCommand(ExecuteFacebookCommand, CanExecuteFacebookCommand);
@@ -51,7 +55,13 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         private void ExecuteChangeCommand(object? obj)
         {
             Employee_Account_ChangeView changeView = new Employee_Account_ChangeView();
-            changeView.ShowDialog();
+            string? oldAvatar = MyApp.currentUser.avatar;
+            changeView.ShowDialog();                     
+            user = userRepository.GetByLoginName(MyApp.currentUser.loginName);
+            //if (oldAvatar != MyApp.currentUser.avatar)
+            //{
+            //    File.Delete(oldAvatar);
+            //}
         }
 
         private void ExecuteLeaveCommand(object? obj)

@@ -6,25 +6,34 @@
         xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Employee"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        WindowStartupLocation="CenterScreen"
+        
         xmlns:fa="http://schemas.fontawesome.io/icons/"
-        Title="EmployeeMainView" Height="871" Width="1440"
+        Title="EmployeeMainView" Height="1000" Width="1500"
         xmlns:ViewModel="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.EmployeeVM">
 
     <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
+        <DataTemplate DataType="{x:Type ViewModel:DashboardViewModel}">
+            <local:DashboardEmployeeView />
+        </DataTemplate>
         <DataTemplate DataType="{x:Type ViewModel:AccountViewModel}">
             <local:Employee_AccountView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type ViewModel:AttendanceViewModel}">
             <local:Employee_AttendanceView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type ViewModel:DashboardViewModel}">
-            <local:Employee_DashBoardView />
+        <DataTemplate DataType="{x:Type ViewModel:PayrollViewModel}">
+            <local:Employee_Payroll/>
         </DataTemplate>
     </Window.Resources>
     <Window.DataContext>
         <ViewModel:MainViewViewModel />
     </Window.DataContext>
+    <Window.Visibility >
+        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}" />
+    </Window.Visibility>
 
     <Grid>
         <Grid>
@@ -38,8 +47,9 @@
             <Grid Grid.Column="0">
                 <Grid Background="{StaticResource Color1}">
                     <StackPanel>
+                        <Image Source="{Binding Icon}"/>
                         <TextBlock Width="50" TextAlignment="Center" Margin="0,0,0,36.35">
-                        <fa:FontAwesome Icon="CcStripe" FontSize="34" Foreground="White" TextAlignment="Center"></fa:FontAwesome>
+
                         </TextBlock>
                         <RadioButton Style="{StaticResource BlueSideBarButton}">
                             <StackPanel>
@@ -48,15 +58,28 @@
                         </RadioButton>
                     </StackPanel>
                     <StackPanel VerticalAlignment="Bottom">
-                        <RadioButton Style="{StaticResource BlueSideBarButton}">
+                        <RadioButton 
+                            Command="{Binding LogoutCommand}"
+                            Style="{StaticResource BlueSideBarButton}">
                             <StackPanel>
-                                <fa:FontAwesome Icon="Bars" Style="{StaticResource BlueSideBarIcon}" ></fa:FontAwesome>
+                                <materialDesign:PackIcon Kind="AccountArrowLeftOutline" HorizontalAlignment="Center" Height="30" Width="50" Margin="0,0,0,30"/>
                             </StackPanel>
                         </RadioButton>
-                        <RadioButton Style="{StaticResource BlueSideBarButton}">
+                        <RadioButton 
+                            Style="{StaticResource BlueSideBarButton}">
                             <StackPanel>
                                 <TextBlock Width="50" TextAlignment="Center" Margin="0,0,0,30">
-                        <Ellipse Width="20" Margin="0,0,0,0" Height="20" Fill="White"></Ellipse>
+                                <Border Height="30" Width="30" CornerRadius="50" 
+                                        Background="Transparent"
+                                        Margin="5,0,0,0"
+                                        BorderBrush="LightGray"
+                                        BorderThickness="1">
+                                       <Ellipse>
+                                         <Ellipse.Fill>
+                                             <ImageBrush ImageSource="{Binding User.avatar}" Stretch="UniformToFill"></ImageBrush>
+                                         </Ellipse.Fill>
+                                       </Ellipse>
+                                </Border>
                                 </TextBlock>
                             </StackPanel>
                         </RadioButton>
@@ -72,9 +95,9 @@
             <Grid Grid.Column="1" Background="{StaticResource Color2}">
                 <StackPanel Margin="0,87,0,0">
                     <RadioButton Style="{StaticResource SecondSideBarButton}"
-                                 Command="{Binding ShowDashboardViewCommand}">
+                 Command="{Binding ShowDashboardViewCommand}">
                         <TextBlock Margin="13.5,0,0,0">
-                        <fa:FontAwesome Icon="Dashboard" Margin="0,0,10,0"></fa:FontAwesome>
+                         <fa:FontAwesome Icon="Dashboard" Margin="0,0,10,0"></fa:FontAwesome>
                     Dashboard
                         </TextBlock>
                     </RadioButton>
@@ -93,14 +116,21 @@
                     Attendance
                         </TextBlock>
                     </RadioButton>
+                    <RadioButton Style="{StaticResource SecondSideBarButton}"
+                                 Command="{Binding ShowPayrollViewCommand}">
+                        <TextBlock Margin="13.5,0,0,0">
+                        <fa:FontAwesome Icon="CreditCard" Margin="0,0,10,0"></fa:FontAwesome>
+                               Payroll
+                        </TextBlock>
+                    </RadioButton>
                 </StackPanel>
             </Grid>
             <!--Content page -->
             <Grid Background="{StaticResource Color3}" Grid.Column="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="80" 
+                    <RowDefinition Height="13*" 
                                     />
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="151*"/>
                 </Grid.RowDefinitions>
                 <StackPanel  Grid.Row="0"
                     Orientation="Vertical">

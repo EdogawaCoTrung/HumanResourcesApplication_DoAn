@@ -32,5 +32,6 @@
         <SolidColorBrush x:Key="ButtonColor3" Color="#0095ff"></SolidColorBrush>
         <SolidColorBrush x:Key="ButtonColor4" Color="White"></SolidColorBrush>
         <SolidColorBrush x:Key="ButtonColor5" Color="#eff4fa"></SolidColorBrush>
+        <SolidColorBrush x:Key="ButtonColor6" Color="#623ED0"></SolidColorBrush>
     
 </ResourceDictionary>

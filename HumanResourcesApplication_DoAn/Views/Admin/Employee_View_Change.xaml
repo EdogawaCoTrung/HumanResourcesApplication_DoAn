@@ -7,15 +7,15 @@
         mc:Ignorable="d"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Employee_View_Change" Height="710" Width="670">
+        Title="Employee_View_Change" Height="800" Width="670">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
     </Window.Resources>
     <Grid Background="{StaticResource Color2}">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="56"/>
+            <RowDefinition Height="650"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Border BorderThickness="0,0,0,1" 
@@ -55,6 +55,7 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="USERNAME" 
+                                     Text="{Binding UserName}"
                                      BorderThickness="0"  
                                      Height="34" 
                                      Padding="10,8,10,0"  
@@ -75,6 +76,7 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="LOGINNAME" 
+                                     Text="{Binding LoginName}"
                                      BorderThickness="0"  
                                      Height="34" 
                                      Padding="10,8,10,0"  
@@ -98,7 +100,9 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="PASSWORD" 
+                                     Text="{Binding PassWord}"
                                      BorderThickness="0"  
+                                     
                                      Height="34" 
                                      Padding="10,8,10,0"  
                                      VerticalAlignment="Center" 
@@ -124,7 +128,8 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="ISADMIN" 
-                                     BorderThickness="0"  
+                                     BorderThickness="0" 
+                                     Text="{Binding IsAdmin}"
                                      Height="34" 
                                      Padding="10,8,10,0"  
                                      VerticalAlignment="Center" FontSize="13"
@@ -148,6 +153,7 @@
                                 CornerRadius="5">
                             <TextBox x:Name="PHONENUMBER" 
                                      BorderThickness="0"  
+                                     Text="{Binding PhoneNumber}"
                                      Height="34" 
                                      Padding="10,8,10,0"  
                                      VerticalAlignment="Center" FontSize="13"
@@ -170,7 +176,8 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="DATEOFBIRTH" 
-                                     BorderThickness="0"  
+                                     BorderThickness="0" 
+                                     Text="{Binding DateOfBirth}"
                                      Height="34" 
                                      Padding="10,8,10,0"  
                                      VerticalAlignment="Center" FontSize="13"
@@ -194,7 +201,8 @@
                         <Border BorderBrush="LightGray" 
                                 BorderThickness="1" 
                                 CornerRadius="5">
-                            <TextBox x:Name="COUNTRY_ID" 
+                            <TextBox x:Name="COUNTRY_ID"
+                                     Text="{Binding Country}"
                                      BorderThickness="0"  
                                      Height="34" 
                                      Padding="10,8,10,0"  
@@ -218,6 +226,7 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="EDUCATION_ID" 
+                                     Text="{Binding Education}"
                                      BorderThickness="0"  
                                      Height="34" 
                                      Padding="10,8,10,0" 
@@ -239,6 +248,7 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="GENDER" 
+                                     Text="{Binding Gender}"
                                      BorderThickness="0"  
                                      Height="34" 
                                      Padding="10,8,10,0"  
@@ -264,6 +274,7 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="JOIN_DATE" 
+                                     Text="{Binding JoinDate}"
                                      BorderThickness="0"  
                                      Height="34" 
                                      Padding="10,8,10,0"  
@@ -290,6 +301,7 @@
                             <TextBox x:Name="ROLE_ID" 
                                      BorderThickness="0"  
                                      Height="34" 
+                                     Text="{Binding RoleId}"
                                      Padding="10,8,10,0" 
                                      VerticalAlignment="Center" 
                                      FontSize="13"
@@ -312,12 +324,25 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="PAYROLL_ID" 
+                                     Text="{Binding PayrollId}"
                                      BorderThickness="0"  
                                      Height="34" 
                                      Padding="10,8,10,0"  
                                      VerticalAlignment="Center" 
                                      FontSize="13"
                                          ></TextBox>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+                <StackPanel>
+                    <Grid Width="630" Margin="0,0,15,15"  Height="34">
+                        <TextBlock Margin="10,5,5,5" Text="Department_Id" FontSize="13"
+                            Visibility="{Binding ElementName=DEPARTMENT_ID, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                            HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
+                            <TextBox x:Name="DEPARTMENT_ID" Text="{Binding DepartmentId}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                            ></TextBox>
                         </Border>
                     </Grid>
                 </StackPanel>
@@ -332,12 +357,15 @@
                                         HorizontalAlignment="Left" 
                                         CornerRadius="50" 
                                         BorderBrush="{StaticResource ButtonColor5}">
-                                    <TextBlock VerticalAlignment="Center" 
-                                               HorizontalAlignment="Center" 
-                                               FontWeight="SemiBold" 
-                                               Foreground="{StaticResource FontColor2}" 
-                                               FontSize="13" 
-                                               Text="Choose File"></TextBlock>
+                                    <Button VerticalAlignment="Center" 
+                                            HorizontalAlignment="Center" 
+                                            FontWeight="SemiBold" 
+                                            Background="Transparent"
+                                            BorderThickness="0"
+                                            Command="{Binding UploadImageCommand}"
+                                            Foreground="{StaticResource FontColor2}" 
+                                            FontSize="13" 
+                                            Content="Choose File"></Button>
                                 </Border>
                                 <TextBlock Margin="5,15,0,10" 
                                            Text="No file selected." 
@@ -373,6 +401,7 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="FACEBOOK" 
+                                     Text="{Binding Facebook}"
                                      BorderThickness="0"  
                                      Height="34" 
                                      Padding="10,8,10,0"  
@@ -396,6 +425,7 @@
                                 BorderThickness="1" 
                                 CornerRadius="5">
                             <TextBox x:Name="TWITTER" 
+                                      Text="{Binding Twitter}"
                                      BorderThickness="0"  
                                      Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                          ></TextBox>
@@ -420,6 +450,7 @@
                                 CornerRadius="5">
                             <TextBox x:Name="LINKEDIN" 
                                      BorderThickness="0"  
+                                      Text="{Binding LinkedIn}"
                                      Height="34" 
                                      Padding="10,8,10,0"  
                                      VerticalAlignment="Center" 
@@ -434,7 +465,7 @@
                       Height="34">
                         <TextBlock Margin="10,5,5,5" 
                            Text="Email" FontSize="13"
-                           Visibility="{Binding ElementName=TWITTER, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                           Visibility="{Binding ElementName=EMAIL, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
                           HorizontalAlignment="Left" 
                            VerticalAlignment="Center" 
                            Panel.ZIndex="1" 
@@ -446,7 +477,7 @@
                                 CornerRadius="5">
                             
                             <TextBox x:Name="EMAIL" 
-                                     
+                              Text="{Binding Email}"        
                              BorderThickness="0"  
                              Height="34" Padding="10,8,10,0"  
                              VerticalAlignment="Center" 
@@ -464,6 +495,7 @@
                 <Button Width="90" Height="30" 
                      Margin="28,10,30,10" 
                      Content="Cancel" 
+                     Command="{Binding ClickCancelCommand}"
                      Style="{StaticResource MaterialDesignFlatSecondaryButton}"
                      Background="{StaticResource Color2}" 
                      BorderBrush="{StaticResource Color2}"
@@ -472,7 +504,7 @@
                 <Button Width="90"
                      Height="30"
                      Margin="0,10,0,10"
-                    
+                     Command="{Binding ClickChangeEmployeeCommand}"
                      materialDesign:ButtonAssist.CornerRadius="10"
                      BorderBrush="#00E096"
                      Foreground="White"

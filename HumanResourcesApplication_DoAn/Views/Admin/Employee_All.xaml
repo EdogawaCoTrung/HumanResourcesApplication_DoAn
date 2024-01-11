@@ -16,6 +16,9 @@
         <DataTemplate DataType="{x:Type VM:EmployeeViewViewModel}">
             <local:Employee_View />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type VM:EmployeeChangeViewModel}">
+            <local:Employee_View_Change />
+        </DataTemplate>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
         <Style TargetType="DataGrid">
             <Setter Property="VerticalScrollBarVisibility" Value="Disabled"></Setter>
@@ -136,7 +139,7 @@
                     </StackPanel>
                 </Grid>
                 <!--Datagrid-->
-                <Grid Height="380" Margin="0,0,0,0">
+                <Grid Margin="0,0,0,0">
                     <Border BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                         <StackPanel Orientation="Vertical">
                             <Grid Height="50" Background="White">
@@ -159,17 +162,21 @@
                                       SelectedItem="{Binding SelectedItem}"
                                       
                                       Margin="0,0,0,10"
-                                      Height="400" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
+                                      Height="450" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
                                 <DataGrid.Columns>
-                                    <DataGridCheckBoxColumn Width="35" ElementStyle="{StaticResource CheckBoxStyle1}">
+                                    <DataGridCheckBoxColumn Width="0.3*" ElementStyle="{StaticResource CheckBoxStyle1}">
                                     </DataGridCheckBoxColumn>
-                                    <DataGridTemplateColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="150">
+                                    <DataGridTemplateColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="1*">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                                                    <!--<Border Width="30"  Background="{Binding BgColor}" Height="30" Margin="0,0,8,0" HorizontalAlignment="Left" CornerRadius="50" BorderBrush="{StaticResource ButtonColor5}">
-                                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding CharacterPicture}"></TextBlock>
-                                                    </Border>-->
+                                                    <Border Width="30" Height="30" Margin="0,0,8,0" BorderThickness="1" HorizontalAlignment="Left" CornerRadius="50" BorderBrush="{StaticResource FontColor2}">
+                                                        <Ellipse>
+                                                            <Ellipse.Fill>
+                                                                <ImageBrush ImageSource="{Binding avatar}" Stretch="UniformToFill"></ImageBrush>
+                                                            </Ellipse.Fill>
+                                                        </Ellipse>
+                                                    </Border>
                                                     <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
                                                         <TextBlock Name="Name" Background="Transparent" Text="{Binding userName, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>
                                                         <TextBlock Name="Email" Background="Transparent" Text="{Binding email, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor2}" FontSize="12"></TextBlock>
@@ -178,11 +185,11 @@
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-                                    <DataGridTextColumn Header="Employee ID" Binding="{Binding userId, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" CanUserResize="False" Width="130"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="Phone" Binding="{Binding phoneNumber, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="157"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="Join Date" Binding="{Binding joinDate, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="200"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="Role" Binding="{Binding roleId, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="180"></DataGridTextColumn>
-                                    <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="Auto">
+                                    <DataGridTextColumn Header="Employee ID" Binding="{Binding userId, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" CanUserResize="False" Width="1*"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Phone" Binding="{Binding phoneNumber, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="1*"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Join Date" Binding="{Binding joinDate, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="1*"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Role" Binding="{Binding roleId, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="1*"></DataGridTextColumn>
+                                    <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="0.6*">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel Name="Button_Wrapper" Orientation="Horizontal">
@@ -198,13 +205,14 @@
                                                     </Button>
                                                     <Button  Width="30" Height="30" Margin="0,0,10,0"
                                                              
-                                                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                          Command="{Binding DataContext.ChangeEmployeeCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                          CommandParameter="{Binding}"
                                                           Style="{StaticResource MaterialDesignIconForegroundButton}"
                                                           ToolTip="MaterialDesignIconForegroundButton">
                                                         <materialDesign:PackIcon Kind="PencilOutline" Foreground="{StaticResource FontColor2}"/>
                                                     </Button>
                                                     <Button  Width="30" Height="30"
-                                                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                          Command="{Binding DataContext.DeleteEmployeeCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
                                                           Style="{StaticResource MaterialDesignIconForegroundButton}"
                                                           ToolTip="MaterialDesignIconForegroundButton">
                                                         <materialDesign:PackIcon Foreground="{StaticResource FontColor2}" Kind="TrashCanOutline" />

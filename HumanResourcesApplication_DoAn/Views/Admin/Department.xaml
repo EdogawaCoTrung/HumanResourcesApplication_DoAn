@@ -181,29 +181,29 @@
                                   SelectedItem="{Binding Selectedtem}"
                                   Name="Users" 
                                   RowStyle="{DynamicResource DataGridRowStyle1}" 
-                                  CellStyle="{DynamicResource DataGridCellTemplate3}" 
+                                  CellStyle="{DynamicResource DataGridCellTemplate4}" 
                                   ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="#" 
                                                     Binding="{Binding departmentId}"  
                                                     IsReadOnly="True" 
                                                     CanUserResize="False" 
-                                                    Width="139"></DataGridTextColumn>
+                                                    Width="0.5*"></DataGridTextColumn>
                                 <DataGridTextColumn Header="Departments Name" 
                                                     Binding="{Binding departmentName}" 
                                                     IsReadOnly="True" 
                                                     CanUserResize="False" 
-                                                    Width="250"></DataGridTextColumn>
+                                                    Width="1*"></DataGridTextColumn>
                                 <DataGridTextColumn Header="Departments Head"
                                                     Binding="{Binding head}" 
                                                     IsReadOnly="True" 
                                                     CanUserResize="False" 
-                                                    Width="250"></DataGridTextColumn>
+                                                    Width="1*"></DataGridTextColumn>
                                 <DataGridTextColumn Header="Total Employee" 
                                                     Binding="{Binding totalEmployees}" 
                                                     IsReadOnly="True" 
-                                                    CanUserResize="False" Width="300"></DataGridTextColumn>
-                                <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="Auto">
+                                                    CanUserResize="False" Width="1*"></DataGridTextColumn>
+                                <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="0.5*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Name="Button_Wrapper" 
