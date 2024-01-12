@@ -380,36 +380,20 @@
                       FlowDirection="RightToLeft"
                       Orientation="Horizontal">
                 <Border BorderThickness="1"
-                      Background="#00E096"
-                      Height="40"
-                      Width="100"
-                      CornerRadius="10"
-                 
-                      
-                      Margin="100,0,0,0" >
+      Background="#00E096"
+      Height="40"
+      Width="100"
+      CornerRadius="10"
+ 
+      
+      Margin="100,0,0,0" >
                     <Button Height="40"
-                          Command="{Binding ChangeInformationCommand}"
-                          BorderThickness="0"
-                          Background="Transparent"
-                          Content="Change"
-                          FontSize="20"
-                          Width="100">
-
-                    </Button>
-                </Border>
-                <Border BorderThickness="1"
-                      Background="Red"
-                      Height="40"
-                      Width="100"
-                      CornerRadius="10"
-                      Margin="100,0,0,0" >
-                    <Button Height="40"
-                          Command="{Binding SendLeaveRequestCommand}"
-                          BorderThickness="0"
-                          Background="Transparent"
-                          Content="Leave"
-                          FontSize="20"
-                          Width="100">
+          Command="{Binding ChangeInformationCommand}"
+          BorderThickness="0"
+          Background="Transparent"
+          Content="Change"
+          FontSize="20"
+          Width="100">
 
                     </Button>
                 </Border>
