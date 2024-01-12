@@ -160,6 +160,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }
             else if (!File.Exists(NewPath))
                 File.Copy(FilePath, NewPath);
+            MessageBox.Show("Success!");
             MyApp.currentUser.avatar = FilePath;
             Application.Current.MainWindow.Close();
         }
