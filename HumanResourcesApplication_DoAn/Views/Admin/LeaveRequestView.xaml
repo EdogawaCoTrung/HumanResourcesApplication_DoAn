@@ -197,7 +197,7 @@
                                                     <ImageBrush ImageSource="{Binding User.avatar}" Stretch="UniformToFill"></ImageBrush>
                                                 </Ellipse.Fill>
                                             </Ellipse>
-                                            
+
                                         </Border>
                                         <TextBlock Name="Name" 
                                                    VerticalAlignment="Center"
@@ -256,7 +256,7 @@
                                                  ToolTip="MaterialDesignIconForegroundButton"
                                                  Command="{Binding DataContext.AcceptCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
                                                  CommandParameter="{Binding}">
-                                                 
+
                                             <materialDesign:PackIcon Kind="CheckboxMarkedCircleOutline" Foreground="{StaticResource FontColor2}"/>
                                         </Button>
                                         <Button  Width="30" Height="30" Margin="0,0,10,0"
@@ -273,30 +273,6 @@
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-            </StackPanel>
-            <StackPanel VerticalAlignment="Bottom" 
-                    Margin="0,0,0,25">
-            <Border
-                BorderBrush="{StaticResource ButtonColor2}" 
-                BorderThickness="0" 
-                CornerRadius="20">
-                <Button 
-                     Command="{Binding }"
-                     Margin="0,0,25,0"
-                     HorizontalAlignment="Right"
-                     Width="88"
-                     Height="34"
-                     Foreground="White"
-                     FontSize="13"
-                     FontWeight="SemiBold"
-                     Background="{StaticResource ButtonColor2}"
-                     BorderThickness="0"
-                     materialDesign:RippleAssist.Feedback="#DD000000"
-                     Content="Add New"
-                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                     Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
-                     ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
-            </Border>
             </StackPanel>
         </Grid>
     </Grid>

@@ -20,9 +20,9 @@ namespace HumanResourcesApplication_DoAn.Repositories
             command.Parameters.Add("@userId", MySqlDbType.VarString).Value = userId;
             MySqlDataReader reader = command.ExecuteReader();
             List<Attendance?> attendances = new List<Attendance?>();
-            Attendance _attendance = new Attendance();
             while (reader.Read())
             {
+                Attendance _attendance = new Attendance();
                 _attendance.userId = reader["ATTENDANCE_ID"].ToString();
                 _attendance.userId = reader["USERID"].ToString();
                 _attendance.date = DateOnly.FromDateTime(DateTime.Parse(reader["DATE_ATTENDANCE"].ToString()));

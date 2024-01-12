@@ -44,7 +44,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
             }
             if (country != null && country != "")
             {
-                command.CommandText += "UPDATE USERS SET USERS.COUNTRY_ID = COUNTRY.COUNTRY_ID WHERE LOGINNAME = @loginName AND COUNTRY_NAME = @country;";
+                command.CommandText += "UPDATE USERS SET USERS.COUNTRY_ID = COUNTRY.COUNTRY_ID WHERE LOGINNAME = @loginName AND COUNTRY.COUNTRY_ID = @country;";
                 command.Parameters.Add("@country", MySqlDbType.VarString).Value = country;
             }
             if (education != null && education != "")
