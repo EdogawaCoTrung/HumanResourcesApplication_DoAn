@@ -235,7 +235,9 @@
 
                         </Grid>
 
-                        <DataGrid ItemsSource="{Binding payrolls}"  Height="430" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate4}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
+                        <DataGrid ItemsSource="{Binding payrolls}"  
+                                  SelectedItem="{Binding SelectedPayroll}"
+                                  Height="430" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate4}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="1*">
                                     <DataGridTemplateColumn.CellTemplate>
@@ -273,14 +275,16 @@
                                         <DataTemplate>
                                             <StackPanel Name="Button_Wrapper" Orientation="Horizontal">
                                                 <Button  Width="30" Height="30" Margin="0,0,10,0"
-                                                         Command="{Binding DataContext.DeleteEmployeeCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
-                                                         CommandParameter="{Binding }"
+                                                         Command="{Binding DataContext.ShowInforSalary, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                         CommandParameter="{Binding SelectedPayroll}"
                                                           IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                                           Style="{StaticResource MaterialDesignIconForegroundButton}"
                                                           ToolTip="MaterialDesignIconForegroundButton">
                                                     <materialDesign:PackIcon Kind="EmailOutline" Foreground="{StaticResource FontColor2}"/>
                                                 </Button>
                                                 <Button  Width="30" Height="30"
+                                                         Command="{Binding DataContext.DeleteSalary, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                          CommandParameter="{Binding SelectedPayroll}"
                                                           IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                                           Style="{StaticResource MaterialDesignIconForegroundButton}"
                                                           ToolTip="MaterialDesignIconForegroundButton">

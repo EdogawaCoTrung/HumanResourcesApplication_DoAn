@@ -19,6 +19,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 {
     public class PayrollViewModel : ViewModelBase
     {
+        private Payroll _selectedPayroll;
         private List<string> monthSource;
         private List<string> yearSource;
         private string selectedMonth;
@@ -40,6 +41,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 OnPropertyChanged(nameof(payrolls));
             } 
         }
+        public ViewModelCommand ShowInforSalary { get; }
         public List<Attendance> listAttendance { get => _listAttendance; set { _listAttendance = value; OnPropertyChanged(nameof(listAttendance)); } }
 
         public List<salarySta> salSta { get => _salSta; set { _salSta = value; OnPropertyChanged(nameof(salSta)); } }
@@ -48,6 +50,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         public List<string> MonthSource { get => monthSource; set { monthSource = value; OnPropertyChanged(nameof(MonthSource)); } }
         public List<string> YearSource { get => yearSource; set { yearSource = value; OnPropertyChanged(nameof(YearSource)); } }
+        public Payroll SelectedPayroll { get => _selectedPayroll; set { _selectedPayroll = value; OnPropertyChanged(nameof(SelectedPayroll)); } }
         public string SelectedMonth { get => selectedMonth; set { 
                 selectedMonth = value; 
                 OnPropertyChanged(nameof(SelectedMonth));
@@ -64,6 +67,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 filterSalarySta();
             } 
         }
+
+   
 
         int convertTimespan(string _timeSpan)
         {
@@ -154,10 +159,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             payrolls = payrollRepository.ListPayrolls();
             attendanceRepository = new ListAttendanceRepository();
             listAttendance = attendanceRepository.ListAttendance();
+            ShowInforSalary = new ViewModelCommand(ExecuteShowInforSalaryCommand);
             salSta = new List<salarySta>();
             filterPayroll();
             filterSalarySta();
-            AddPayrollCommand = new ViewModelCommand(ExcutePayrollCommand);
             MonthSource = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
             YearSource = new List<string>() { };
             for(int i = 1980; i <= DateTime.Now.Year; i++)
@@ -166,12 +171,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }
         }
 
-        private void ExcutePayrollCommand(object? obj)
+        private void ExecuteShowInforSalaryCommand(object? obj)
         {
-            Payroll_Add payrollView = new Payroll_Add();
-            AddPayrollViewModel addPayrollViewModel = new AddPayrollViewModel();
-            payrollView.DataContext = addPayrollViewModel;
-            payrollView.ShowDialog();
+            SalaryDetail salaryDetail = new SalaryDetail(SelectedPayroll);
+            salaryDetail.ShowDialog();  
         }
     }
 }

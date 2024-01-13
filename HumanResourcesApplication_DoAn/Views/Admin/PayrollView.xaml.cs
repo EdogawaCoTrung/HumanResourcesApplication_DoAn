@@ -23,6 +23,7 @@ namespace HumanResourcesApplication_DoAn.Views.Admin
         public PayrollView()
         {
             InitializeComponent();
+            
         }
     }
 }
