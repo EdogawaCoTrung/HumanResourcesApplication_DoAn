@@ -56,6 +56,5 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             return true;
         }
 
-       
     }
 }

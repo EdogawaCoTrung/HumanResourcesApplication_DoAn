@@ -101,6 +101,9 @@
                     <RadioButton Style="{StaticResource TopBorderTriggerButton}">
                         <TextBlock Text="Payroll"></TextBlock>
                     </RadioButton>
+                    <RadioButton Style="{StaticResource TopBorderTriggerButton}">
+                        <TextBlock Text="Base Salary"></TextBlock>
+                    </RadioButton>
                 </StackPanel>
             </Grid>
             <!--PanelMain-->
@@ -192,24 +195,6 @@
             <Grid Margin="0,0,0,0">
                 <Border BorderBrush="{StaticResource ButtonColor5}" BorderThickness="0,1.5,0,1.5" CornerRadius="10">
                     <StackPanel Orientation="Vertical">
-                        <StackPanel Height="50"
-                                    Orientation="Horizontal"
-                                    FlowDirection="RightToLeft">
-                            <Button 
-                                 Width="88"
-                                 Command="{Binding AddPayrollCommand}"
-                                 Height="34"
-                                 Foreground="White"
-                                 FontSize="13"
-                                 FontWeight="SemiBold"
-                                 Background="{StaticResource ButtonColor2}"
-                                 BorderThickness="0"
-                                 materialDesign:RippleAssist.Feedback="#DD000000"
-                                 Content="Add New"
-                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                                 Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
-                                 ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
-                        </StackPanel>
                         <Grid Height="50" Background="White">
                             <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Payroll" FontSize="17" Foreground="{StaticResource FontColor8}" FontWeight="SemiBold" Background="White"></TextBlock>
                             <Grid HorizontalAlignment="Right" Width="300" Height="34" Margin="0,0,0,0">
@@ -280,12 +265,6 @@
                                                           Style="{StaticResource MaterialDesignIconForegroundButton}"
                                                           ToolTip="MaterialDesignIconForegroundButton">
                                                     <materialDesign:PackIcon Kind="EmailOutline" Foreground="{StaticResource FontColor2}"/>
-                                                </Button>
-                                                <Button  Width="30" Height="30" Margin="0,0,10,0"
-                                                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                                                          Style="{StaticResource MaterialDesignIconForegroundButton}"
-                                                          ToolTip="MaterialDesignIconForegroundButton">
-                                                    <materialDesign:PackIcon Kind="Fax"  Foreground="{StaticResource FontColor2}" />
                                                 </Button>
                                                 <Button  Width="30" Height="30"
                                                           IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
