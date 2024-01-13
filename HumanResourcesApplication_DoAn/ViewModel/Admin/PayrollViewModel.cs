@@ -35,14 +35,13 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         public PayrollMainViewViewModel MainView { get => mainView; set { mainView = value; OnPropertyChanged(nameof(MainView)); } }
 
-        public PayrollViewModel(PayrollMainViewViewModel mainView)
         int convertTimespan(string _timeSpan)
         {
             int timeSpan = 0;
             timeSpan += int.Parse(_timeSpan[0].ToString()) * 10 + int.Parse(_timeSpan[1].ToString());
             return timeSpan;
         }
-        public PayrollViewModel()
+        public PayrollViewModel(PayrollMainViewViewModel mainView)
         {
             this.mainView = mainView;
             payrollRepository = new ListPayrollRepository();
