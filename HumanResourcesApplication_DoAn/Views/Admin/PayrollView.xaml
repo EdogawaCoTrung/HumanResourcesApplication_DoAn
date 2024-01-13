@@ -184,18 +184,53 @@
                 <Border BorderBrush="{StaticResource ButtonColor5}" BorderThickness="0,1.5,0,1.5" CornerRadius="10">
                     <StackPanel Orientation="Vertical">
                         <Grid Height="50" Background="White">
+                            <StackPanel Orientation="Horizontal">
+                                
                             <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Payroll" FontSize="17" Foreground="{StaticResource FontColor8}" FontWeight="SemiBold" Background="White"></TextBlock>
-                            <Grid HorizontalAlignment="Right" Width="300" Height="34" Margin="0,0,0,0">
-                                <TextBlock Margin="15,5,5,5" Text="Search..." FontSize="13"
+                                <StackPanel Height="50" Orientation="Horizontal" FlowDirection="RightToLeft" Width="1030">
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <Grid HorizontalAlignment="Right" Width="300" Height="34" Margin="0,0,0,0">
+                                            <TextBlock Margin="15,5,5,5" Text="Search..." FontSize="13"
                                            Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
                                            HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
-                                </TextBlock>
-                                <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="7">
-                                    <TextBox x:Name="Attendancetxtfilter" Text="{Binding TextToFilter, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" Width="274" Height="34" Padding="0,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                            </TextBlock>
+                                            <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="7">
+                                                <TextBox x:Name="Attendancetxtfilter" Text="{Binding TextToFilter, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" Width="274" Height="34" Padding="0,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                             ></TextBox>
-                                </Border>
-                                <fa:FontAwesome Margin="0,0,5,0" VerticalAlignment="Center" HorizontalAlignment="Right" Icon="Search" Foreground="black" FontSize="13"></fa:FontAwesome>
-                            </Grid>
+                                            </Border>
+                                            <fa:FontAwesome Margin="0,0,5,0" VerticalAlignment="Center" HorizontalAlignment="Right" Icon="Search" Foreground="black" FontSize="13"></fa:FontAwesome>
+                                        </Grid>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <ComboBox 
+                                            Margin="50,0,0,0"
+                                            Width="100" 
+                                            ItemsSource="{Binding MonthSource}"
+                                            SelectedItem="{Binding SelectedMonth}"
+                                            >
+                                        
+                                        </ComboBox>
+                                        <TextBlock Margin="-70" Text="Month" FontSize="18"
+                                                     Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                                                     HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">   
+                                        </TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <ComboBox 
+                                            Margin="50,0,0,0"
+                                            Width="100" 
+                                            ItemsSource="{Binding YearSource}"
+                                            SelectedItem="{Binding SelectedYear}">
+                                           
+                                        </ComboBox>
+                                        <TextBlock Margin="-60" Text="Year" FontSize="18"
+                                                 Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                                                 HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">   
+                                        </TextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
 
                         </Grid>
 

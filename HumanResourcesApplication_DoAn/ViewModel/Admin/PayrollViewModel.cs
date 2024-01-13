@@ -16,6 +16,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 {
     public class PayrollViewModel : ViewModelBase
     {
+        private List<string> monthSource;
+        private List<string> yearSource;
+        private string selectedMonth;
+        private string selectedYear;
         private PayrollMainViewViewModel mainView;
         public struct salarySta
         {
@@ -34,6 +38,11 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public List<salarySta> salSta { get => _salSta; set { _salSta = value; OnPropertyChanged(nameof(salSta)); } }
 
         public PayrollMainViewViewModel MainView { get => mainView; set { mainView = value; OnPropertyChanged(nameof(MainView)); } }
+
+        public List<string> MonthSource { get => monthSource; set { monthSource = value; OnPropertyChanged(nameof(MonthSource)); } }
+        public List<string> YearSource { get => yearSource; set { yearSource = value; OnPropertyChanged(nameof(YearSource)); } }
+        public string SelectedMonth { get => selectedMonth; set { selectedMonth = value; OnPropertyChanged(nameof(SelectedMonth)); } }
+        public string SelectedYear { get => selectedYear; set { selectedYear = value; OnPropertyChanged(nameof(SelectedYear)); } }
 
         int convertTimespan(string _timeSpan)
         {
@@ -116,6 +125,12 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 }
             }
             AddPayrollCommand = new ViewModelCommand(ExcutePayrollCommand);
+            MonthSource = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
+            YearSource = new List<string>() { };
+            for(int i = 1980; i <= DateTime.Now.Year; i++)
+            {
+                YearSource.Add(i.ToString());
+            }
         }
 
         private void ExcutePayrollCommand(object? obj)
