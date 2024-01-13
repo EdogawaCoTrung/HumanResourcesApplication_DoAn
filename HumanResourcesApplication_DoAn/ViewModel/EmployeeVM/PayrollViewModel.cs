@@ -33,7 +33,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         {
             getPayrollByIdRepository = new GetPayrollByIdRepository();
             employeePayroll = getPayrollByIdRepository.GetPayrollById(MyApp.currentUser.userId);
-            int? temp = employeePayroll[0].Payroll.salary;
+            double? temp = employeePayroll[0].Payroll.salary;
             DateOnly? tempdate = employeePayroll[0].PayrollHistory.EndDate;
    
             foreach (EmployeePayroll item in employeePayroll )
@@ -63,7 +63,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
             }
             else
             {
-                int? temp1 = listEmp[0].Payroll.salary;
+                double? temp1 = listEmp[0].Payroll.salary;
                 DateOnly? tempdate1 = listEmp[0].PayrollHistory.EndDate;
                 foreach (EmployeePayroll item in listEmp)
                 {

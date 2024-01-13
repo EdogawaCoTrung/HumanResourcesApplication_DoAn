@@ -10,7 +10,7 @@ namespace HumanResourcesApplication_DoAn.Model
     {
         public string? payrollId { get; set; }
         public string? roleID { get; set; }
-        public int? salary { get; set; }
+        public double? salary { get; set; }
         public virtual User? user { get; set; }
         public virtual Role? role { get; set; }
         public virtual Department? department { get; set; }
