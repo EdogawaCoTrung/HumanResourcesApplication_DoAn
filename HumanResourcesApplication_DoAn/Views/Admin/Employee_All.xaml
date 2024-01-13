@@ -189,7 +189,7 @@
                                     <DataGridTextColumn Header="Phone" Binding="{Binding phoneNumber, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="1*"></DataGridTextColumn>
                                     <DataGridTextColumn Header="Join Date" Binding="{Binding joinDate, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="1*"></DataGridTextColumn>
                                     <DataGridTextColumn Header="Role" Binding="{Binding roleId, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" CanUserResize="False" Width="1*"></DataGridTextColumn>
-                                    <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="0.5*">
+                                    <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="0.6*">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel Name="Button_Wrapper" Orientation="Horizontal">

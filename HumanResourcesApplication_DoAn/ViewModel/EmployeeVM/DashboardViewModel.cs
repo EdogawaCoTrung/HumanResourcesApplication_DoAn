@@ -76,7 +76,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
                 MinLimit = 0,
                 NamePaint = new SolidColorPaint(SKColors.Black),
                 LabelsPaint = new SolidColorPaint(SKColors.Gray),
-                TextSize = 12,
+                TextSize = 18,
             }
         };
         public Axis[] XAxes2 { get; set; }
@@ -88,7 +88,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
                 Labels= new string[]{"2019","2020","2021","2022","2023"},
                 NamePaint = new SolidColorPaint(SKColors.Black),
                 LabelsPaint = new SolidColorPaint(SKColors.Gray),
-                TextSize = 12,
+                TextSize = 18,
             }
         };
     }
