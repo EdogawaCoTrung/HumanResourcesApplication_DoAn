@@ -56,6 +56,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 {
                     changeDepartment.DataContext = new ChangeDepartmentViewModel(Selectedtem);
                     changeDepartment.ShowDialog();
+                    ListDepartments = listDepartmentRepository.ListDepartment();
                 }
             }
             catch (Exception ex)
@@ -71,14 +72,15 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             if(MessageBox.Show("Bạn có chắc chắn muốn xóa phòng ban này?","Thông báo",MessageBoxButton.YesNo,MessageBoxImage.Warning,MessageBoxResult.No)== MessageBoxResult.Yes) 
             {
                 deleteDepartmentRepository.DeleteDepartment(Selectedtem.departmentId, Selectedtem.departmentName, Selectedtem.head, Selectedtem.totalEmployees);
-            }                
-            
+            }
+            ListDepartments = listDepartmentRepository.ListDepartment();
         }
 
         private void ExcuteAddDepartmentCommand(object? obj)
         {
             Department_Add addDepartment = new Department_Add();
             addDepartment.ShowDialog();
+            ListDepartments = listDepartmentRepository.ListDepartment();
         }
     }
 }

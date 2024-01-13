@@ -204,14 +204,15 @@
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <ComboBox 
+                                          
                                             Margin="50,0,0,0"
                                             Width="100" 
-                                            ItemsSource="{Binding MonthSource}"
+                                            ItemsSource="{Binding YearSource}"
                                             SelectedItem="{Binding SelectedMonth}"
                                             >
                                         
                                         </ComboBox>
-                                        <TextBlock Margin="-70" Text="Month" FontSize="18"
+                                        <TextBlock Margin="20,0,0,0" Text=":Year" FontSize="18"
                                                      Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
                                                      HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">   
                                         </TextBlock>
@@ -220,11 +221,11 @@
                                         <ComboBox 
                                             Margin="50,0,0,0"
                                             Width="100" 
-                                            ItemsSource="{Binding YearSource}"
+                                            ItemsSource="{Binding MonthSource}"
                                             SelectedItem="{Binding SelectedYear}">
                                            
                                         </ComboBox>
-                                        <TextBlock Margin="-60" Text="Year" FontSize="18"
+                                        <TextBlock Margin="20,0,0,0" Text=":Month" FontSize="18"
                                                  Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
                                                  HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">   
                                         </TextBlock>
