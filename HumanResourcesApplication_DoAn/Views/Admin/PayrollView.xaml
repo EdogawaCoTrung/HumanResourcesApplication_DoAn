@@ -208,7 +208,7 @@
                                             Margin="50,0,0,0"
                                             Width="100" 
                                             ItemsSource="{Binding YearSource}"
-                                            SelectedItem="{Binding SelectedMonth}"
+                                            SelectedItem="{Binding SelectedYear}" SelectionChanged="ComboBox_SelectionChanged_1"
                                             >
                                         
                                         </ComboBox>
@@ -222,7 +222,7 @@
                                             Margin="50,0,0,0"
                                             Width="100" 
                                             ItemsSource="{Binding MonthSource}"
-                                            SelectedItem="{Binding SelectedYear}">
+                                            SelectedItem="{Binding SelectedMonth}" SelectionChanged="ComboBox_SelectionChanged">
                                            
                                         </ComboBox>
                                         <TextBlock Margin="20,0,0,0" Text=":Month" FontSize="18"
