@@ -131,7 +131,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                     double? sum = 0;
                     for (int j = 0; j < payrolls.Count; j++)
                     {
-                        if (payrolls[i].department.departmentName == payrolls[j].department.departmentName)
+                        if (i!=j && payrolls[i].department.departmentName == payrolls[j].department.departmentName)
                         {
                             sum += payrolls[i].salary;
                         }
