@@ -6,6 +6,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ViewModel="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
              xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
              mc:Ignorable="d" 
              Background="{StaticResource Color3}"
@@ -13,9 +14,11 @@
     <UserControl.DataContext>
         <VM:ProjectMainViewModel />
     </UserControl.DataContext>
-    
     <UserControl.Resources>
-            <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
+        <DataTemplate DataType="{x:Type ViewModel:AddProjectViewModel}">
+            <local:Project_Add/>
+        </DataTemplate>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
             <Style TargetType="DataGrid">
             <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"></Setter>
                 <Setter Property="VerticalScrollBarVisibility" Value="Disabled"></Setter>
@@ -102,7 +105,7 @@
                 <Border BorderBrush="{StaticResource ButtonColor2}" BorderThickness="0" CornerRadius="20">
                     <Button 
                             Width="88"
-                            Command="{Binding AddDepartmentCommand}"
+                            Command="{Binding AddProjectCommand}"
                             Height="34"
                             Foreground="White"
                             FontSize="13"
