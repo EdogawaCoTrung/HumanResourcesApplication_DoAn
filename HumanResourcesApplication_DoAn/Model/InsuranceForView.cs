@@ -11,5 +11,7 @@ namespace HumanResourcesApplication_DoAn.Model
         public string _insuranceId { get; set; }
         public string _insuranceName { get; set; }
         public string _userName { set; get; }
+        public string startDate { set; get; }
+        public string endDate { set; get; }
     }
 }
