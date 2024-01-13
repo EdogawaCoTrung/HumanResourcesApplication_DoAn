@@ -35,11 +35,18 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private IListAttendanceRepository? attendanceRepository;
         private List<Payroll>? _payrolls;
         private List<salarySta> _salSta;
+        private salarySta _top1;
+        private salarySta _top2;
+        private salarySta _top3;
+        private salarySta _top4;
         private List<Attendance>? _listAttendance;
-        public List<Payroll> payrolls { get => _payrolls; set { 
-                _payrolls = value; 
+        public List<Payroll> payrolls
+        {
+            get => _payrolls; set
+            {
+                _payrolls = value;
                 OnPropertyChanged(nameof(payrolls));
-            } 
+            }
         }
         public ViewModelCommand ShowInforSalary { get; }
         public List<Attendance> listAttendance { get => _listAttendance; set { _listAttendance = value; OnPropertyChanged(nameof(listAttendance)); } }
@@ -50,25 +57,33 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         public List<string> MonthSource { get => monthSource; set { monthSource = value; OnPropertyChanged(nameof(MonthSource)); } }
         public List<string> YearSource { get => yearSource; set { yearSource = value; OnPropertyChanged(nameof(YearSource)); } }
+        public salarySta Top1 { get => _top1; set { _top1 = value; OnPropertyChanged(nameof(Top1)); } }
+        public salarySta Top2 { get => _top2; set { _top2 = value; OnPropertyChanged(nameof(Top2)); } }
+        public salarySta Top3 { get => _top3; set { _top3 = value; OnPropertyChanged(nameof(Top3)); } }
+        public salarySta Top4 { get => _top4; set { _top4 = value; OnPropertyChanged(nameof(Top4)); } }
         public Payroll SelectedPayroll { get => _selectedPayroll; set { _selectedPayroll = value; OnPropertyChanged(nameof(SelectedPayroll)); } }
-        public string SelectedMonth { get => selectedMonth; set { 
-                selectedMonth = value; 
+        public string SelectedMonth
+        {
+            get => selectedMonth; set
+            {
+                selectedMonth = value;
                 OnPropertyChanged(nameof(SelectedMonth));
                 salSta.Clear();
                 filterPayroll();
                 filterSalarySta();
-            } 
+            }
         }
-        public string SelectedYear { get => selectedYear; set { 
-                selectedYear = value; 
+        public string SelectedYear
+        {
+            get => selectedYear; set
+            {
+                selectedYear = value;
                 OnPropertyChanged(nameof(SelectedYear));
                 salSta.Clear();
                 filterPayroll();
                 filterSalarySta();
-            } 
+            }
         }
-
-   
 
         int convertTimespan(string _timeSpan)
         {
@@ -149,6 +164,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                     }
                 }
             }
+            Top1 = salSta[0];
+            Top2 = salSta[1];
+            Top3 = salSta[2];
+            Top4 = salSta[3];
         }
         public PayrollViewModel(PayrollMainViewViewModel mainView)
         {
@@ -161,11 +180,15 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             listAttendance = attendanceRepository.ListAttendance();
             ShowInforSalary = new ViewModelCommand(ExecuteShowInforSalaryCommand);
             salSta = new List<salarySta>();
+            Top1 = new salarySta();
+            Top2 = new salarySta();
+            Top3 = new salarySta();
+            Top4 = new salarySta();
             filterPayroll();
             filterSalarySta();
             MonthSource = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
             YearSource = new List<string>() { };
-            for(int i = 1980; i <= DateTime.Now.Year; i++)
+            for (int i = 1980; i <= DateTime.Now.Year; i++)
             {
                 YearSource.Add(i.ToString());
             }
@@ -174,7 +197,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private void ExecuteShowInforSalaryCommand(object? obj)
         {
             SalaryDetail salaryDetail = new SalaryDetail(SelectedPayroll);
-            salaryDetail.ShowDialog();  
+            salaryDetail.ShowDialog();
         }
     }
 }
