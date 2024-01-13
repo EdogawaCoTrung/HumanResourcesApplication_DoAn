@@ -96,16 +96,7 @@
     </UserControl.Resources>
     <Grid Background="{StaticResource Color3}">
         <StackPanel Orientation="Vertical">
-            <Grid>
-                <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
-                    <RadioButton Style="{StaticResource TopBorderTriggerButton}">
-                        <TextBlock Text="Payroll"></TextBlock>
-                    </RadioButton>
-                    <RadioButton Style="{StaticResource TopBorderTriggerButton}">
-                        <TextBlock Text="Base Salary"></TextBlock>
-                    </RadioButton>
-                </StackPanel>
-            </Grid>
+           
             <!--PanelMain-->
             <Grid Margin="0,37.5,0,30" Background="{StaticResource Color3}">
                 <StackPanel Orientation="Horizontal">
