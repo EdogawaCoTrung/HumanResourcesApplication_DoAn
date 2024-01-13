@@ -147,8 +147,8 @@
             <Border BorderBrush="{StaticResource ButtonColor2}" BorderThickness="0" CornerRadius="20" Margin="0,0,20,0">
                 <Button 
                 Width="150"
-                Command="{Binding AddDepartmentCommand}"
                 Height="50"
+                Command="{Binding AttendanceCommand}"
                 Foreground="White"
                 FontSize="15"
                 FontWeight="Bold"
@@ -159,7 +159,7 @@
                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                 Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
                 
-                ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
+                ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" Click="Button_Click" />
             </Border>
             </StackPanel>
         </Grid>
