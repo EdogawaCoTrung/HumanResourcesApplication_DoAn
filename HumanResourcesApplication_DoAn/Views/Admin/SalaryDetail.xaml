@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="SalaryDetail" Height="450" Width="500">
+        Title="SalaryDetail" Height="300" Width="550">
     <Window.Resources>
 
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
@@ -90,7 +90,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30*"/>
-            <RowDefinition Height="70*"/>
+            <RowDefinition Height="30*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.RowDefinitions>
@@ -119,9 +119,8 @@
                                    Margin="10,0,0,0"
                                    TextAlignment="Center"
                                    FontWeight="SemiBold" 
-                                  
-                            Width="385">
-                            Phạm Hoàng Tính
+                                   Text="{Binding SelectedItem.UserName}"
+                                   Width="385">
                         </TextBlock>
 
                     </StackPanel>
@@ -140,7 +139,7 @@
                            FontWeight="SemiBold" 
           
                             Width="385">
-                                    13/01/2024
+                                    17/01/2024
                         </TextBlock>
 
                     </StackPanel>
@@ -148,71 +147,32 @@
             </Grid>
         </Grid>
         <Grid Grid.Row="1">
-            <DataGrid ItemsSource="{Binding payrolls}"  Height="430" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate4}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
+
+            <DataGrid Height="150" 
+                                  ItemsSource="{Binding ListSalary}"
+                                  Name="Users" 
+                                  RowStyle="{DynamicResource DataGridRowStyle1}" 
+                                  CellStyle="{DynamicResource DataGridCellTemplate4}" 
+                                  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="1*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                                    <Border Width="30" Height="30" Margin="0,0,8,0" HorizontalAlignment="Left" BorderThickness="1" CornerRadius="50" BorderBrush="{StaticResource FontColor2}">
-                                        <Ellipse>
-                                            <Ellipse.Fill>
-                                                <ImageBrush ImageSource="{Binding user.avatar}" Stretch="UniformToFill"></ImageBrush>
-                                            </Ellipse.Fill>
-                                        </Ellipse>
-                                    </Border>
-                                    <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
-                                        <TextBlock Name="Name" Background="Transparent" Text="{Binding user.userName, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>
-                                        <TextBlock Name="Email" Background="Transparent" Text="{Binding user.email, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor2}" FontSize="12"></TextBlock>
-                                    </StackPanel>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Role" Binding="{Binding role.roleName, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" CanUserResize="False" Width="1*"></DataGridTextColumn>
-                    <DataGridTemplateColumn Header="Salary"  IsReadOnly="True" CanUserResize="False" Width="1*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <fa:FontAwesome Icon="Dollar"  VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontSize="12"></fa:FontAwesome>
-                                    <TextBlock  VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding salary, UpdateSourceTrigger=PropertyChanged}" x:Name="SALARYTEXTBLOCK" Foreground="Black" FontSize="12" ></TextBlock>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <!--<DataGridTemplateColumn Header="Status" IsReadOnly="True" CanUserResize="False" Width="200">
-            <DataGridTemplateColumn.CellTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Border Width="12" Height="12"  Background="{StaticResource FontColor3}" HorizontalAlignment="Left" CornerRadius="50" BorderBrush="{StaticResource ButtonColor5}">
-                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="SemiBold" Foreground="{StaticResource FontColor2}" FontSize="13"></TextBlock>
-                        </Border>
-                        <TextBlock Text="{Binding status, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource FontColor2}">
-                        </TextBlock>
-                    </StackPanel>
-                </DataTemplate>
-            </DataGridTemplateColumn.CellTemplate>
-        </DataGridTemplateColumn>-->
-                    <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="0.5*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Name="Button_Wrapper" Orientation="Horizontal">
-                                    <Button  Width="30" Height="30" Margin="0,0,10,0"
-                                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                                  Style="{StaticResource MaterialDesignIconForegroundButton}"
-                                  ToolTip="MaterialDesignIconForegroundButton">
-                                        <materialDesign:PackIcon Kind="EmailOutline" Foreground="{StaticResource FontColor2}"/>
-                                    </Button>
-                                    <Button  Width="30" Height="30"
-                                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                                  Style="{StaticResource MaterialDesignIconForegroundButton}"
-                                  ToolTip="MaterialDesignIconForegroundButton">
-                                        <materialDesign:PackIcon Foreground="{StaticResource FontColor2}" Kind="TrashCanOutline" />
-                                    </Button>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Base Salary" 
+                                                    Binding="{Binding departmentName}" 
+                                                    IsReadOnly="True" 
+                                                    CanUserResize="False" 
+                                                    Width="1*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Overtime"
+                                                    Binding="{Binding head}" 
+                                                    IsReadOnly="True" 
+                                                    CanUserResize="False" 
+                                                    Width="1*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Late" 
+                                                    Binding="{Binding totalEmployees}" 
+                                                    IsReadOnly="True" 
+                                                    CanUserResize="False" Width="1*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Absent" 
+                                Binding="{Binding totalEmployees}" 
+                                IsReadOnly="True" 
+                                CanUserResize="False" Width="1*"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
