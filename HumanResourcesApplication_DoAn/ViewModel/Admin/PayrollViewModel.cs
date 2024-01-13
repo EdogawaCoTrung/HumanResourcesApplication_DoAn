@@ -10,6 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Threading;
 using Attendance = HumanResourcesApplication_DoAn.Model.Attendance;
 
 namespace HumanResourcesApplication_DoAn.ViewModel.Admin
@@ -32,7 +35,11 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private List<Payroll>? _payrolls;
         private List<salarySta> _salSta;
         private List<Attendance>? _listAttendance;
-        public List<Payroll> payrolls { get => _payrolls; set { _payrolls = value; OnPropertyChanged(nameof(payrolls)); } }
+        public List<Payroll> payrolls { get => _payrolls; set { 
+                _payrolls = value; 
+                OnPropertyChanged(nameof(payrolls));
+            } 
+        }
         public List<Attendance> listAttendance { get => _listAttendance; set { _listAttendance = value; OnPropertyChanged(nameof(listAttendance)); } }
 
         public List<salarySta> salSta { get => _salSta; set { _salSta = value; OnPropertyChanged(nameof(salSta)); } }
@@ -41,8 +48,22 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         public List<string> MonthSource { get => monthSource; set { monthSource = value; OnPropertyChanged(nameof(MonthSource)); } }
         public List<string> YearSource { get => yearSource; set { yearSource = value; OnPropertyChanged(nameof(YearSource)); } }
-        public string SelectedMonth { get => selectedMonth; set { selectedMonth = value; OnPropertyChanged(nameof(SelectedMonth)); } }
-        public string SelectedYear { get => selectedYear; set { selectedYear = value; OnPropertyChanged(nameof(SelectedYear)); } }
+        public string SelectedMonth { get => selectedMonth; set { 
+                selectedMonth = value; 
+                OnPropertyChanged(nameof(SelectedMonth));
+                salSta.Clear();
+                filterPayroll();
+                filterSalarySta();
+            } 
+        }
+        public string SelectedYear { get => selectedYear; set { 
+                selectedYear = value; 
+                OnPropertyChanged(nameof(SelectedYear));
+                salSta.Clear();
+                filterPayroll();
+                filterSalarySta();
+            } 
+        }
 
         int convertTimespan(string _timeSpan)
         {
@@ -50,24 +71,18 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             timeSpan += int.Parse(_timeSpan[0].ToString()) * 10 + int.Parse(_timeSpan[1].ToString());
             return timeSpan;
         }
-        public PayrollViewModel(PayrollMainViewViewModel mainView)
+
+        void filterPayroll()
         {
-            this.mainView = mainView;
-            payrollRepository = new ListPayrollRepository();
-            payrolls = new List<Payroll>();
-            listAttendance = new List<Attendance>();
-            payrolls = payrollRepository.ListPayrolls();
-            attendanceRepository = new ListAttendanceRepository();
-            listAttendance = attendanceRepository.ListAttendance();
-            salSta = new List<salarySta>();
-            for (int i = 0; i < payrolls.Count; i++)
+            List<Payroll> temp = payrolls;
+            for (int i = 0; i < temp.Count; i++)
             {
                 int overtime = 0;
                 int late = 0;
                 int absence = 0;
                 for (int j = 0; j < listAttendance.Count; j++)
                 {
-                    if (payrolls[i].user.userName == listAttendance[j].userId && ((DateOnly)listAttendance[j].date).Month == DateOnly.FromDateTime(DateTime.Now).Month && ((DateOnly)listAttendance[j].date).Year == DateOnly.FromDateTime(DateTime.Now).Year)
+                    if (temp[i].user.userName == listAttendance[j].userId && ((DateOnly)listAttendance[j].date).Month.ToString() == SelectedMonth && ((DateOnly)listAttendance[j].date).Year.ToString() == SelectedYear)
                     {
                         if ((listAttendance[j].inTime - TimeSpan.Parse("07:00:00") > TimeSpan.Parse("00:30:00")) || (TimeSpan.Parse("17:00:00") - listAttendance[j].outTime > TimeSpan.Parse("00:30:00")))
                         {
@@ -84,8 +99,13 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                     }
 
                 }
-                payrolls[i].salary = payrolls[i].salary - (double)(late * 0.005 * payrolls[i].salary) - (double)(absence * 0.05 * payrolls[i].salary) + (double)(overtime * 0.0075 * payrolls[i].salary);
+                temp[i].salary = Math.Round((double)(temp[i].salary - (double)(late * 0.005 * temp[i].salary) - (double)(absence * 0.05 * temp[i].salary) + (double)(overtime * 0.0075 * temp[i].salary)), 2);
             }
+            payrolls = temp;
+        }
+
+        void filterSalarySta()
+        {
             for (int i = 0; i < payrolls.Count; i++)
             {
                 bool check = false;
@@ -124,6 +144,19 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                     }
                 }
             }
+        }
+        public PayrollViewModel(PayrollMainViewViewModel mainView)
+        {
+            this.mainView = mainView;
+            payrollRepository = new ListPayrollRepository();
+            payrolls = new List<Payroll>();
+            listAttendance = new List<Attendance>();
+            payrolls = payrollRepository.ListPayrolls();
+            attendanceRepository = new ListAttendanceRepository();
+            listAttendance = attendanceRepository.ListAttendance();
+            salSta = new List<salarySta>();
+            filterPayroll();
+            filterSalarySta();
             AddPayrollCommand = new ViewModelCommand(ExcutePayrollCommand);
             MonthSource = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
             YearSource = new List<string>() { };
