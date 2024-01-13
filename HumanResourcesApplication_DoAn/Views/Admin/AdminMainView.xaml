@@ -30,8 +30,8 @@
         <DataTemplate DataType="{x:Type ViewModel:UserViewModel}">
             <local:UserView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type ViewModel:PayrollViewModel }">
-            <local:PayrollView />
+        <DataTemplate DataType="{x:Type ViewModel:PayrollMainViewViewModel }">
+            <local:Payroll_MainView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type ViewModel:InsuranceMainViewModel}">
             <local:InsuranceMainView />

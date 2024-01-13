@@ -21,7 +21,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private UserViewModel _userViewModel;
         private EmployeeMainViewViewModel _employeeMainViewViewModel;
         private DashBoardViewModel _dashboardViewModel;
-        private PayrollViewModel _payrollViewModel;
+        private PayrollMainViewViewModel _payrollViewModel;
         private DepartmentViewModel _departmentViewModel;
         private ViewModelBase _currentChildView;
         private AttendanceViewModel _attendanceViewModel;
@@ -64,7 +64,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 OnPropertyChanged(nameof(DashboardViewModel));
             } 
         }
-        public PayrollViewModel PayrollViewModel
+        public PayrollMainViewViewModel PayrollViewModel
         {
             get => _payrollViewModel;
             set
@@ -251,7 +251,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private void ExcuteShowPayrollViewCommand(object? obj)
         {
             if(_payrollViewModel == null)
-                _payrollViewModel = new PayrollViewModel();
+                _payrollViewModel = new PayrollMainViewViewModel();
             CurrentChildView = _payrollViewModel;
             Caption = "Payroll";
         }

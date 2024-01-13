@@ -24,10 +24,12 @@
 
             <Grid>
                 <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
-                    <RadioButton Style="{StaticResource TopBorderTriggerButton}">
+                    <RadioButton Style="{StaticResource TopBorderTriggerButton}"
+                                 Command="{Binding ShowPayrollAllCommand}">
                         <TextBlock Text="Payroll"></TextBlock>
                     </RadioButton>
-                    <RadioButton Style="{StaticResource TopBorderTriggerButton}">
+                    <RadioButton Style="{StaticResource TopBorderTriggerButton}"
+                                 Command="{Binding ShowBaseSalaryCommand}">
                         <TextBlock Text="Base Salary"></TextBlock>
                     </RadioButton>
                 </StackPanel>

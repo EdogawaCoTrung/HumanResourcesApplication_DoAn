@@ -14,6 +14,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 {
     public class PayrollViewModel : ViewModelBase
     {
+        private PayrollMainViewViewModel mainView;
         public struct salarySta {
             public int? salary { get; set; }
             public string? departmentName { get; set; }
@@ -26,8 +27,11 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         public List<salarySta> salSta { get => _salSta; set { _salSta = value; OnPropertyChanged(nameof(salSta)); } }
 
-        public PayrollViewModel()
+        public PayrollMainViewViewModel MainView { get => mainView; set { mainView = value; OnPropertyChanged(nameof(MainView));} }
+
+        public PayrollViewModel(PayrollMainViewViewModel mainView)
         {
+            this.mainView = mainView;
             payrollRepository = new ListPayrollRepository();
             payrolls = new List<Payroll>();
             payrolls = payrollRepository.ListPayrolls();
