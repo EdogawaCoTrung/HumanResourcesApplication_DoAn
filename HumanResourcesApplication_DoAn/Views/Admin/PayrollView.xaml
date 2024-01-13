@@ -100,10 +100,10 @@
                     <StackPanel Margin="0,0,16,0">
                         <Border Background="White" Width="274" Height="116" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                             <StackPanel>
-                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding salSta[0].departmentName}" FontSize="13" Foreground="Black"></TextBlock>
+                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding Top1.departmentName}" FontSize="13" Foreground="Black"></TextBlock>
                                 <StackPanel Orientation="Horizontal">
                                     <fa:FontAwesome Icon="Dollar" VerticalAlignment="Center" Margin="20,12,0,0" FontWeight="Bold" FontSize="18"></fa:FontAwesome>
-                                    <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding salSta[0].salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
+                                    <TextBlock Panel.ZIndex="1" Name="top1" Margin="0,10,0,0" Text="{Binding Top1.salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
                                     </TextBlock>
                                 </StackPanel>
                                 <!--<StackPanel Orientation="Horizontal">
@@ -120,10 +120,10 @@
                     <StackPanel Margin="0,0,16,0">
                         <Border Background="White" Width="274" Height="116" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                             <StackPanel>
-                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding salSta[1].departmentName}" FontSize="13" Foreground="Black"></TextBlock>
+                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding Top2.departmentName}" FontSize="13" Foreground="Black"></TextBlock>
                                 <StackPanel Orientation="Horizontal">
                                     <fa:FontAwesome Icon="Dollar" VerticalAlignment="Center" Margin="20,12,0,0" FontWeight="Bold" FontSize="18"></fa:FontAwesome>
-                                    <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding salSta[1].salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
+                                    <TextBlock Panel.ZIndex="1" Name="top2" Margin="0,10,0,0" Text="{Binding Top2.salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
                                     </TextBlock>
                                 </StackPanel>
                                 <!--<StackPanel Orientation="Horizontal">
@@ -140,10 +140,10 @@
                     <StackPanel Margin="0,0,16,0">
                         <Border Background="White" Width="274" Height="116" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                             <StackPanel>
-                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding salSta[2].departmentName}" FontSize="13" Foreground="Black"></TextBlock>
+                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding Top3.departmentName}" FontSize="13" Foreground="Black"></TextBlock>
                                 <StackPanel Orientation="Horizontal">
                                     <fa:FontAwesome Icon="Dollar" VerticalAlignment="Center" Margin="20,12,0,0" FontWeight="Bold" FontSize="18"></fa:FontAwesome>
-                                    <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding salSta[2].salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
+                                    <TextBlock Panel.ZIndex="1" Name="top3" Margin="0,10,0,0" Text="{Binding Top3.salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
                                     </TextBlock>
                                 </StackPanel>
                                 <!--<StackPanel Orientation="Horizontal">
@@ -160,10 +160,10 @@
                     <StackPanel Margin="0,0,0,0">
                         <Border Background="White" Width="274" Height="116" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                             <StackPanel>
-                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding salSta[3].departmentName}" FontSize="13" Foreground="Black"></TextBlock>
+                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding Top4.departmentName}" FontSize="13" Foreground="Black"></TextBlock>
                                 <StackPanel Orientation="Horizontal">
                                     <fa:FontAwesome Icon="Dollar" VerticalAlignment="Center" Margin="20,12,0,0" FontWeight="Bold" FontSize="18"></fa:FontAwesome>
-                                    <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding salSta[3].salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
+                                    <TextBlock Panel.ZIndex="1" Name="top4" Margin="0,10,0,0" Text="{Binding Top4.salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
                                     </TextBlock>
                                 </StackPanel>
                                 <!--<StackPanel Orientation="Horizontal">

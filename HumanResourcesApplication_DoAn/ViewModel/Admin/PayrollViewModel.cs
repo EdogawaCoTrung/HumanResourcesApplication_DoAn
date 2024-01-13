@@ -34,6 +34,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private IListAttendanceRepository? attendanceRepository;
         private List<Payroll>? _payrolls;
         private List<salarySta> _salSta;
+        private salarySta _top1;
+        private salarySta _top2;
+        private salarySta _top3;
+        private salarySta _top4;
         private List<Attendance>? _listAttendance;
         public List<Payroll> payrolls { get => _payrolls; set { 
                 _payrolls = value; 
@@ -48,6 +52,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         public List<string> MonthSource { get => monthSource; set { monthSource = value; OnPropertyChanged(nameof(MonthSource)); } }
         public List<string> YearSource { get => yearSource; set { yearSource = value; OnPropertyChanged(nameof(YearSource)); } }
+        public salarySta Top1 { get => _top1; set { _top1 = value; OnPropertyChanged(nameof(Top1)); } }
+        public salarySta Top2 { get => _top2; set { _top2 = value; OnPropertyChanged(nameof(Top2)); } }
+        public salarySta Top3 { get => _top3; set { _top3 = value; OnPropertyChanged(nameof(Top3)); } }
+        public salarySta Top4 { get => _top4; set { _top4 = value; OnPropertyChanged(nameof(Top4)); } }
         public string SelectedMonth { get => selectedMonth; set { 
                 selectedMonth = value; 
                 OnPropertyChanged(nameof(SelectedMonth));
@@ -64,6 +72,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 filterSalarySta();
             } 
         }
+
 
         int convertTimespan(string _timeSpan)
         {
@@ -144,6 +153,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                     }
                 }
             }
+            Top1 = salSta[0];
+            Top2 = salSta[1];
+            Top3 = salSta[2];
+            Top4 = salSta[3];
         }
         public PayrollViewModel(PayrollMainViewViewModel mainView)
         {
@@ -155,6 +168,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             attendanceRepository = new ListAttendanceRepository();
             listAttendance = attendanceRepository.ListAttendance();
             salSta = new List<salarySta>();
+            Top1 = new salarySta();
+            Top2 = new salarySta();
+            Top3 = new salarySta();
+            Top4 = new salarySta();
             filterPayroll();
             filterSalarySta();
             AddPayrollCommand = new ViewModelCommand(ExcutePayrollCommand);

@@ -27,7 +27,6 @@ namespace HumanResourcesApplication_DoAn.Views.Admin
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
             Users.Items.Refresh();
         }
 
