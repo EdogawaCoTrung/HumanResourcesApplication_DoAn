@@ -235,7 +235,9 @@
 
                         </Grid>
 
-                        <DataGrid ItemsSource="{Binding payrolls}"  Height="430" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate4}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
+                        <DataGrid ItemsSource="{Binding payrolls}"  
+                                  SelectedItem="{Binding SelectedPayroll}"
+                                  Height="430" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate4}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="1*">
                                     <DataGridTemplateColumn.CellTemplate>
@@ -267,30 +269,22 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <!--<DataGridTemplateColumn Header="Status" IsReadOnly="True" CanUserResize="False" Width="200">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <Border Width="12" Height="12"  Background="{StaticResource FontColor3}" HorizontalAlignment="Left" CornerRadius="50" BorderBrush="{StaticResource ButtonColor5}">
-                                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="SemiBold" Foreground="{StaticResource FontColor2}" FontSize="13"></TextBlock>
-                                                </Border>
-                                                <TextBlock Text="{Binding status, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource FontColor2}">
-                                                </TextBlock>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>-->
+                              
                                 <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="0.5*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Name="Button_Wrapper" Orientation="Horizontal">
                                                 <Button  Width="30" Height="30" Margin="0,0,10,0"
+                                                         Command="{Binding DataContext.ShowInforSalary, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                         CommandParameter="{Binding SelectedPayroll}"
                                                           IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                                           Style="{StaticResource MaterialDesignIconForegroundButton}"
                                                           ToolTip="MaterialDesignIconForegroundButton">
                                                     <materialDesign:PackIcon Kind="EmailOutline" Foreground="{StaticResource FontColor2}"/>
                                                 </Button>
                                                 <Button  Width="30" Height="30"
+                                                         Command="{Binding DataContext.DeleteSalary, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                          CommandParameter="{Binding SelectedPayroll}"
                                                           IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                                           Style="{StaticResource MaterialDesignIconForegroundButton}"
                                                           ToolTip="MaterialDesignIconForegroundButton">
