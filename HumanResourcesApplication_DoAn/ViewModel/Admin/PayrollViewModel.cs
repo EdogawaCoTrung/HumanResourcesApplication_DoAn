@@ -16,12 +16,14 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 {
     public class PayrollViewModel : ViewModelBase
     {
-        public struct salarySta {
+        private PayrollMainViewViewModel mainView;
+        public struct salarySta
+        {
             public double? salary { get; set; }
             public string? departmentName { get; set; }
         };
         public ViewModelCommand AddPayrollCommand { get; }
-        public IListPayrollRepository? payrollRepository { get;}
+        public IListPayrollRepository? payrollRepository { get; }
         private IListAttendanceRepository? attendanceRepository;
         private List<Payroll>? _payrolls;
         private List<salarySta> _salSta;
@@ -31,14 +33,17 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         public List<salarySta> salSta { get => _salSta; set { _salSta = value; OnPropertyChanged(nameof(salSta)); } }
 
+        public PayrollMainViewViewModel MainView { get => mainView; set { mainView = value; OnPropertyChanged(nameof(MainView)); } }
+
         int convertTimespan(string _timeSpan)
         {
-            int timeSpan=0;
-                timeSpan += int.Parse(_timeSpan[0].ToString()) * 10 + int.Parse(_timeSpan[1].ToString());
+            int timeSpan = 0;
+            timeSpan += int.Parse(_timeSpan[0].ToString()) * 10 + int.Parse(_timeSpan[1].ToString());
             return timeSpan;
         }
-        public PayrollViewModel()
+        public PayrollViewModel(PayrollMainViewViewModel mainView)
         {
+            this.mainView = mainView;
             payrollRepository = new ListPayrollRepository();
             payrolls = new List<Payroll>();
             listAttendance = new List<Attendance>();
@@ -46,14 +51,15 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             attendanceRepository = new ListAttendanceRepository();
             listAttendance = attendanceRepository.ListAttendance();
             salSta = new List<salarySta>();
-            for(int i = 0; i < payrolls.Count; i++)
+            for (int i = 0; i < payrolls.Count; i++)
             {
                 int overtime = 0;
                 int late = 0;
                 int absence = 0;
-                for(int j = 0; j < listAttendance.Count; j++)
+                for (int j = 0; j < listAttendance.Count; j++)
                 {
-                    if(payrolls[i].user.userName == listAttendance[j].userId && ((DateOnly)listAttendance[j].date).Month == DateOnly.FromDateTime(DateTime.Now).Month && ((DateOnly)listAttendance[j].date).Year == DateOnly.FromDateTime(DateTime.Now).Year) {
+                    if (payrolls[i].user.userName == listAttendance[j].userId && ((DateOnly)listAttendance[j].date).Month == DateOnly.FromDateTime(DateTime.Now).Month && ((DateOnly)listAttendance[j].date).Year == DateOnly.FromDateTime(DateTime.Now).Year)
+                    {
                         if ((listAttendance[j].inTime - TimeSpan.Parse("07:00:00") > TimeSpan.Parse("00:30:00")) || (TimeSpan.Parse("17:00:00") - listAttendance[j].outTime > TimeSpan.Parse("00:30:00")))
                         {
                             late++;
@@ -62,12 +68,12 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                         {
                             absence++;
                         }
-                        if(listAttendance[j].outTime - TimeSpan.Parse("17:00:00") > TimeSpan.Parse("00:00:00"))
+                        if (listAttendance[j].outTime - TimeSpan.Parse("17:00:00") > TimeSpan.Parse("00:00:00"))
                         {
                             overtime += convertTimespan((listAttendance[j].outTime - TimeSpan.Parse("17:00:00")).ToString());
                         }
                     }
-                    
+
                 }
                 payrolls[i].salary = payrolls[i].salary - (double)(late * 0.005 * payrolls[i].salary) - (double)(absence * 0.05 * payrolls[i].salary) + (double)(overtime * 0.0075 * payrolls[i].salary);
             }
@@ -116,7 +122,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         {
             Payroll_Add payrollView = new Payroll_Add();
             AddPayrollViewModel addPayrollViewModel = new AddPayrollViewModel();
-            payrollView.DataContext= addPayrollViewModel;
+            payrollView.DataContext = addPayrollViewModel;
             payrollView.ShowDialog();
         }
     }

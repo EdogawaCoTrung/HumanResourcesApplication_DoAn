@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace HumanResourcesApplication_DoAn.Views.Admin
 {
     /// <summary>
-    /// Interaction logic for BaseSalary.xaml
+    /// Interaction logic for BaseSalaryView.xaml
     /// </summary>
-    public partial class BaseSalary : UserControl
+    public partial class BaseSalaryView : UserControl
     {
-        public BaseSalary()
+        public BaseSalaryView()
         {
             InitializeComponent();
         }

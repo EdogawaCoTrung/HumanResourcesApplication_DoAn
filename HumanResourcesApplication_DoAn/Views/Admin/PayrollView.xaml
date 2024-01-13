@@ -9,9 +9,6 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              d:DesignHeight="750" d:DesignWidth="1100">
-    <UserControl.DataContext>
-        <vm:PayrollViewModel/>
-    </UserControl.DataContext>
     <UserControl.Resources>
         
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
@@ -96,16 +93,7 @@
     </UserControl.Resources>
     <Grid Background="{StaticResource Color3}">
         <StackPanel Orientation="Vertical">
-            <Grid>
-                <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
-                    <RadioButton Style="{StaticResource TopBorderTriggerButton}">
-                        <TextBlock Text="Payroll"></TextBlock>
-                    </RadioButton>
-                    <RadioButton Style="{StaticResource TopBorderTriggerButton}">
-                        <TextBlock Text="Base Salary"></TextBlock>
-                    </RadioButton>
-                </StackPanel>
-            </Grid>
+           
             <!--PanelMain-->
             <Grid Margin="0,37.5,0,30" Background="{StaticResource Color3}">
                 <StackPanel Orientation="Horizontal">
@@ -280,6 +268,27 @@
                         </DataGrid>
                     </StackPanel>
                 </Border>
+            </Grid>
+            <Grid Height="90">
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Border BorderBrush="{StaticResource ButtonColor2}" BorderThickness="0" CornerRadius="20" Margin="0,0,15,0">
+                        <Button 
+                Width="200"
+                Command="{Binding AddDepartmentCommand}"
+                Height="34"
+                Foreground="White"
+                FontSize="13"
+                FontWeight="SemiBold"
+                Background="{StaticResource ButtonColor2}"
+                BorderThickness="0"
+                materialDesign:RippleAssist.Feedback="#DD000000"
+                Content="Calculate Salary for month"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
+                
+                ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
+                    </Border>
+                </StackPanel>
             </Grid>
         </StackPanel>
     </Grid>
