@@ -29,7 +29,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 _payroll.user.avatar = reader["AVATAR"].ToString();
                 _payroll.user.avatar = bindingImage.ConvertPath(_payroll.user.avatar);
                 _payroll.role.roleName = reader["ROLE_NAME"].ToString();
-                _payroll.salary = int.Parse(reader["SALARY"].ToString());
+                _payroll.salary = double.Parse(reader["SALARY"].ToString());
                 _payroll.department.departmentName = reader["DEPARTMENT_NAME"].ToString(); 
                 _payrolls.Add(_payroll);
             }
