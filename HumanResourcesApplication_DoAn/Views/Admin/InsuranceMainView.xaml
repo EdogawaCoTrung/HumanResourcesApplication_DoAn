@@ -189,12 +189,12 @@
                                                 CanUserResize="False" 
                                                 Width="1.5*"></DataGridTextColumn>
                                 <DataGridTextColumn Header="Start date" 
-                                                    Binding="{Binding _startDate}" 
+                                                    Binding="{Binding startDate}" 
                                                     IsReadOnly="True" 
                                                     CanUserResize="False" 
                                                     Width="1.5*"></DataGridTextColumn>
                                 <DataGridTextColumn Header="End date" 
-                                                    Binding="{Binding _endDate}" 
+                                                    Binding="{Binding endDate}" 
                                                     IsReadOnly="True" 
                                                     CanUserResize="False" 
                                                     Width="1.5*"></DataGridTextColumn>
