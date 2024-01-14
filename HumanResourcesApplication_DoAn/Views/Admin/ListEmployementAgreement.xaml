@@ -115,7 +115,7 @@
                             
                         </Grid>
                         <DataGrid ItemsSource="{Binding Users}" 
-                                      SelectedItem="{Binding SelectedItem}"
+                                      SelectedItem="{Binding selectedItem}"
                                       
                                       Margin="0,0,0,10"
                                       Height="490" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">

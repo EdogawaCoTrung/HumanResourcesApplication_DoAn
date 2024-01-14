@@ -17,6 +17,11 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private List<User?> listUsers;
         private List<Contract?> _Users;
         public List<Contract?> Users { get => _Users; set { _Users = value; } }
+
+        private Contract? _selectedItem;
+        public Contract? selectedItem { get => _selectedItem; set { _selectedItem = value; OnPropertyChanged(nameof(selectedItem)); } }
+
+
         public ContractViewModel()
         {
             listUsersRepository = new ListUsersRepository();
@@ -45,6 +50,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private void ExcuteViewContractCommand(object? obj)
         {
             EmploymentAgreementView employmentAgreementView = new EmploymentAgreementView();
+            EmployeeAgreementViewModel employeeAgreementViewModel = new EmployeeAgreementViewModel(selectedItem);
+            employmentAgreementView.DataContext = employeeAgreementViewModel;
             employmentAgreementView.ShowDialog();
         }
     }

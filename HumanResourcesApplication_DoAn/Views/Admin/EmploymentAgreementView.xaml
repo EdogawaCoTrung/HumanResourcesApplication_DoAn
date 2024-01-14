@@ -25,12 +25,12 @@
                                TextWrapping="Wrap" 
                                
                                FontWeight="Medium">
-                        This Employment Agreement (the 'Agreement') is made as of this 22 day of January, 2020, (the 'Effective Date') by and between <TextBlock Foreground="Red">Binding</TextBlock> ('Employee'), HumanResourceApplication Company, located at Han Thuyen Street, Thu Duc City, Ho Chi Minh City ('Employer'), (each, a 'Party' and collectively, the 'Parties'). The Parties agree and covenant to be bound by the terms set forth in this Agreement as follows:
+                        This Employment Agreement (the 'Agreement') is made as of this 22 day of January, 2020, (the 'Effective Date') by and between <TextBlock Foreground="Red" Text="{Binding userInfor.user.userName}"></TextBlock> ('Employee'), HumanResourceApplication Company, located at Han Thuyen Street, Thu Duc City, Ho Chi Minh City ('Employer'), (each, a 'Party' and collectively, the 'Parties'). The Parties agree and covenant to be bound by the terms set forth in this Agreement as follows:
                     </TextBlock>
                 </Grid>
                 <Grid Margin="0,0,0,20">
                     <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="" FontWeight="Medium">
-                    <Bold>1.Employment.</Bold> Employer shall employ Employee as a <TextBlock Foreground="Red" Text="{Binding}">Binding</TextBlock> on a full time basis under this Agreement. In this capacity, Employee shall have the following duties and undertake the following responsibilities:
+                    <Bold>1.Employment.</Bold> Employer shall employ Employee as a <TextBlock Foreground="Red" Text="{Binding userInfor.user.roleId}"></TextBlock> on a full time basis under this Agreement. In this capacity, Employee shall have the following duties and undertake the following responsibilities:
                     </TextBlock>
                 </Grid>
                 <Grid Margin="20,0,0,20">
@@ -59,7 +59,7 @@
                     <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="" FontWeight="Medium">
                     <Bold>4.Compensation.</Bold> <LineBreak></LineBreak>
                    <TextBlock TextWrapping="Wrap" TextAlignment="Justify" Margin="20,20,0,0">
-                       <Bold>A.Base Salary.</Bold> As compensation for the services provided by Employee under this Agreement, Employer will pay Employee <TextBlock Text="{Binding}" Foreground="Red">Binding</TextBlock>The amount will be paid to Employee once a month on the 7th day of each month. Employer shall deduct or withhold any and all federal income and social security taxes and state or local taxes as required by law.<LineBreak></LineBreak>
+                       <Bold>A.Base Salary.</Bold> As compensation for the services provided by Employee under this Agreement, Employer will pay Employee $<TextBlock Text="{Binding userInfor.user.payrollId}" Foreground="Red"></TextBlock>. The amount will be paid to Employee once a month on the 7th day of each month. Employer shall deduct or withhold any and all federal income and social security taxes and state or local taxes as required by law.<LineBreak></LineBreak>
                         <Bold>B.Overtime.</Bold>  Employee shall not receive overtime compensation for services performed as a salaried or exempt employee.<LineBreak></LineBreak>
                         <Bold>C.Additional Compensation.</Bold>  Any additional compensation or bonuses paid to Employee shall be paid at the sole discretion of Employer.<LineBreak></LineBreak>
                    </TextBlock> 
