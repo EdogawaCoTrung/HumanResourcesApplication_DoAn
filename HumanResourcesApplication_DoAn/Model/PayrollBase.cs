@@ -11,6 +11,9 @@ namespace HumanResourcesApplication_DoAn.Model
         public string payrollId { get; set; }
         public Role role { get; set; }
         public double salary { get; set; }
-        public PayrollBase() { }
+        public PayrollBase() 
+        {
+            role = new Role();  
+        }
     }
 }

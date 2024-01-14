@@ -6,6 +6,7 @@
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              xmlns:VM="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:ViewModel="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
              xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1100">
@@ -14,6 +15,9 @@
     </UserControl.DataContext>-->
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
+        <DataTemplate DataType="{x:Type ViewModel:AddInsuranceViewModel}">
+            <local:Insurance_Add />
+        </DataTemplate>
         <Style TargetType="DataGrid">
             <Setter Property="VerticalScrollBarVisibility" Value="Disabled"></Setter>
             <Setter Property="Background" Value="Transparent"/>
@@ -99,7 +103,7 @@
                 <Border BorderBrush="{StaticResource ButtonColor2}" BorderThickness="0" CornerRadius="20">
                     <Button 
                             Width="88"
-                            Command="{Binding AddDepartmentCommand}"
+                            Command="{Binding AddInsuranceCommand}"
                             Height="34"
                             Foreground="White"
                             FontSize="13"
