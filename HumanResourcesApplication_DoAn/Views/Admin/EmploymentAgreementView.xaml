@@ -11,44 +11,45 @@
         ResizeMode="NoResize"
         Title="EmploymentAgreementView" Height="880" Width="680">
     <Grid>
-        <StackPanel Margin="40">
-            <Grid Margin="0,20,0,10">
-                <Border BorderBrush="Black" BorderThickness="0,0,0,3">
-                    <TextBlock Text="EMPLOYMENT AGREEMENT" FontWeight="SemiBold" FontSize="20" HorizontalAlignment="Center"></TextBlock>
-                </Border>
-            </Grid>
-            <Grid Margin="0,0,0,20">
-                <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="This Employment Agreement (the 'Agreement') is made as of this 22 day of January, 2018, (the 'Effective Date') by and between Rudolph M Hettinger ('Employee'), located at 4488 Thomas Street, Springfield Center, NY 13468 and Susan C Clarke, located at 1493 Main Street, Seattle, WA 98161 ('Employer'), (each, a 'Party' and collectively, the 'Parties'). The Parties agree and covenant to be bound by the terms set forth in this Agreement as follows:" FontWeight="Medium"></TextBlock>
-            </Grid>
-            <Grid Margin="0,0,0,20">
-                <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="" FontWeight="Medium">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="40">
+                <Grid Margin="0,20,0,10">
+                    <Border BorderBrush="Black" BorderThickness="0,0,0,3">
+                        <TextBlock Text="EMPLOYMENT AGREEMENT" FontWeight="SemiBold" FontSize="20" HorizontalAlignment="Center"></TextBlock>
+                    </Border>
+                </Grid>
+                <Grid Margin="0,0,0,20">
+                    <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="This Employment Agreement (the 'Agreement') is made as of this 22 day of January, 2018, (the 'Effective Date') by and between Rudolph M Hettinger ('Employee'), located at 4488 Thomas Street, Springfield Center, NY 13468 and Susan C Clarke, located at 1493 Main Street, Seattle, WA 98161 ('Employer'), (each, a 'Party' and collectively, the 'Parties'). The Parties agree and covenant to be bound by the terms set forth in this Agreement as follows:" FontWeight="Medium"></TextBlock>
+                </Grid>
+                <Grid Margin="0,0,0,20">
+                    <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="" FontWeight="Medium">
                     <Bold>1.Employment.</Bold> Employer shall employ Employee as a Personal Assistant on a full time basis under this Agreement. In this capacity, Employee shall have the following duties and undertake the following responsibilities:
-                </TextBlock>
-            </Grid>
-            <Grid Margin="20,0,0,20">
-                <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="" FontWeight="Medium">
+                    </TextBlock>
+                </Grid>
+                <Grid Margin="20,0,0,20">
+                    <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="" FontWeight="Medium">
                     <fa:FontAwesome Margin="0,-2,10,0" FontSize="5" Icon="Circle"></fa:FontAwesome> Manage correspondence for the CEO <LineBreak></LineBreak>
                     <fa:FontAwesome Margin="0,-2,10,0" FontSize="5" Icon="Circle"></fa:FontAwesome> Sit in on meetings when the CEO is unable to attend <LineBreak></LineBreak>
                     <fa:FontAwesome Margin="0,-2,10,0" FontSize="5" Icon="Circle"></fa:FontAwesome> Offer valuable insight to company products
-                </TextBlock>
-            </Grid>
-            <Grid Margin="0,0,0,20">
-                <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="" FontWeight="Medium">
-                    Employee shall perform such other duties as are customarily performed by other persons in similar positions, including other duties as may arise from time to time and as may be assigned.                
-                </TextBlock>
-            </Grid>
-            <Grid Margin="0,0,0,20">
-                <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="" FontWeight="Medium">
-                    <Bold>2.Performance of Duties.</Bold> Employee shall perform assigned duties and responsibilities in a professional manner, in good faith, and to the best of Employee's skills, abilities, talents and experience.                
-                </TextBlock>
-            </Grid>
-            <Grid Margin="0,0,0,20">
-                <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="" FontWeight="Medium">
+                    </TextBlock>
+                </Grid>
+                <Grid Margin="0,0,0,20">
+                    <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="" FontWeight="Medium">
+                    Employee shall perform such other duties as are customarily performed by other persons in similar positions, including other duties as may arise from time to time and as may be assigned.
+                    </TextBlock>
+                </Grid>
+                <Grid Margin="0,0,0,20">
+                    <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="" FontWeight="Medium">
+                    <Bold>2.Performance of Duties.</Bold> Employee shall perform assigned duties and responsibilities in a professional manner, in good faith, and to the best of Employee's skills, abilities, talents and experience.
+                    </TextBlock>
+                </Grid>
+                <Grid Margin="0,0,0,20">
+                    <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="" FontWeight="Medium">
                     <Bold>3.Term.</Bold> Employee's employment under this Agreement shall begin on January 29, 2018 and be for an unspecified term on an "at will" basis.
-                </TextBlock>
-            </Grid>
-            <Grid Margin="0,0,0,20">
-                <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="" FontWeight="Medium">
+                    </TextBlock>
+                </Grid>
+                <Grid Margin="0,0,0,20">
+                    <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="" FontWeight="Medium">
                     <Bold>4.Compensation.</Bold> <LineBreak></LineBreak>
                    <TextBlock TextWrapping="Wrap" TextAlignment="Justify" Margin="20,20,0,0">
                        <Bold>A.Base Salary.</Bold> As compensation for the services provided by Employee under this Agreement, Employer will pay Employee $15.00 USD per hour. The amount will be paid to Employee once a month on the 7th day of each month. Employer shall deduct or withhold any and all federal income and social security taxes and state or local taxes as required by law.<LineBreak></LineBreak>
@@ -56,20 +57,30 @@
                         <Bold>C.Additional Compensation.</Bold>  Any additional compensation or bonuses paid to Employee shall be paid at the sole discretion of Employer.<LineBreak></LineBreak>
                    </TextBlock> 
                 </TextBlock>
-            </Grid>
-            <Grid Margin="0,0,0,20">
-                <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="" FontWeight="Medium">
+                </Grid>
+                <Grid Margin="0,0,0,20">
+                    <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="" FontWeight="Medium">
                     <Bold>5.Work Location.</Bold> Employee will primarily perform their employment duties at 1493 Main Street, Seattle, WA 98161.
-                </TextBlock>
-            </Grid>
-            <Grid Margin="0,0,0,20">
-                <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="" FontWeight="Medium">
+                    </TextBlock>
+                </Grid>
+                <Grid Margin="0,0,0,20">
+                    <TextBlock TextAlignment="Justify" TextWrapping="Wrap" Text="" FontWeight="Medium">
                     <Bold>6.Employee Benefits.</Bold> Both parties will comply with Employer policy regarding employee benefits or as required by law. <LineBreak></LineBreak>
                     <TextBlock Margin="20,20,0,0" TextWrapping="Wrap" TextAlignment="Justify">
                         <Bold>A. Paid Time Off.</Bold> Employee shall be entitled to paid time off in the amount of as required by state and local laws.
                     </TextBlock>
                 </TextBlock>
-            </Grid>
-        </StackPanel>
+                </Grid>
+                <Button
+                      HorizontalAlignment="Right"
+                      Width="100"
+                      Content="Cancel"
+                      FontWeight="Bold"
+                      Command="{Binding LogoutCommand}"
+                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                      Style="{StaticResource MaterialDesignRaisedLightButton}"
+                      ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="Button_Click" />   
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>
