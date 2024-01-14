@@ -120,7 +120,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                     }
 
                 }
-                temp[i].late = late.ToString(); temp[i].overtime=overtime.ToString(); temp[i].absence = absence.ToString();
+                temp[i].late = late.ToString(); temp[i].overtime=overtime.ToString(); temp[i].absence = absence.ToString(); temp[i].date = selectedMonth + "/" + selectedYear;
                 temp[i].salary = Math.Round((double)(temp[i].salary - (double)(late * 0.005 * temp[i].salary) - (double)(absence * 0.05 * temp[i].salary) + (double)(overtime * 0.0075 * temp[i].salary)), 2);
             }
             payrolls = temp;

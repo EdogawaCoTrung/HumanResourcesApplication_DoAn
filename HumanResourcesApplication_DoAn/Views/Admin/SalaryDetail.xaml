@@ -131,15 +131,15 @@
                                    Width="90"
                            TextAlignment="Left"
                            FontWeight="SemiBold">
-                            Effective Date:
+                            Date:
                         </TextBlock>
                         <TextBlock
                            Margin="10,0,0,0"
                            TextAlignment="Center"
                            FontWeight="SemiBold" 
           
-                            Width="385">
-                                    17/01/2024
+                            Width="385"
+                            Text="{Binding Payroll.date}">
                         </TextBlock>
 
                     </StackPanel>
