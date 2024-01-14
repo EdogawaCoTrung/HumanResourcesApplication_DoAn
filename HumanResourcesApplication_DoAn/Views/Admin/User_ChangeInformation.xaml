@@ -72,8 +72,8 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="ISADMIN" Text="{Binding IsAdmin}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
-                                    ></TextBox>
+                                <ComboBox x:Name="ISADMIN" Text="{Binding IsAdmin}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                    ></ComboBox>
                             </Border>
                         </Grid>
                         <Grid Width="200" Margin="0,0,15,15"  Height="34">
