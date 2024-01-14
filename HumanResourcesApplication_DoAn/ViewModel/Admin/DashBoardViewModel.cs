@@ -29,6 +29,9 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
     public class DashBoardViewModel:ViewModelBase
     {
         private User user;
+        private string image1;
+        private string image2;
+        private string image3;
         private ObservableCollection<PieSeries<long>> pieSeriesCollection;
         private ObservableCollection<ColumnSeries<int>> columnSeriesCollection;
         private ObservableCollection<LineSeries<double>> lineSeriesCollection;
@@ -43,9 +46,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public string ReferralProject { get => referralProject; set { referralProject = value; OnPropertyChanged(nameof(referralProject)); } }
         public string TotalEmployee { get => totalEmployee; set { totalEmployee = value; OnPropertyChanged(nameof(TotalEmployee)); } }
         public string TotalDepartment { get => totalDepartment; set { totalDepartment = value; OnPropertyChanged(nameof(TotalDepartment)); } }
+        public string Image1 { get => image1; set { image1 = value; OnPropertyChanged(nameof(image1)); } }
         public User User { get => user; set { user = value; OnPropertyChanged(nameof(User)); } }
-
-        
+        public string Image2 { get => image2; set { image2 = value; OnPropertyChanged(nameof(image2)); } }
+        public string Image3 { get => image3; set { image3 = value; OnPropertyChanged(nameof(image3)); } }
         public ObservableCollection<PieSeries<long>> PieSeriesCollection
         {
             get { return pieSeriesCollection; }
@@ -78,10 +82,15 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 OnPropertyChanged(nameof(RowSeriesCollection));
             }
         }
+        public BindingImage bindingImage;
         public DashBoardViewModel()
         {
+            bindingImage = new BindingImage();
             user = new User();
             user = MyApp.currentUser;
+            image1 = bindingImage.ConvertPath("HoangTinh.jpg");
+            image2 = bindingImage.ConvertPath("QuangTrung.jpg");
+            image3 = bindingImage.ConvertPath("Screenshot 2023-10-27 081404.png");
             ExcuteInitPieChartMonthCommand(null);
             ExcuteInitColumnChartCommand(null);
         }
@@ -149,7 +158,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public ViewModelCommand InitPieChartMonthCommand { get; }
         private void ExcuteInitPieChartMonthCommand(object? obj)
         {
-            string currentYear = (DateTime.Now.Year+1).ToString();
+            string currentYear = (DateTime.Now.Year).ToString();
             OrganicProject = (DashboarRepository.Instance.QueryOrganicPJInYear(currentYear)).ToString();
             DiretProject = (DashboarRepository.Instance.QueryDirectPJRevenueInYear(currentYear)).ToString();
             ReferralProject = (DashboarRepository.Instance.QueryReferralPJRevenueInYear(currentYear)).ToString();
@@ -323,6 +332,5 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 TextSize = 0
             }
         };
-
     }
 }

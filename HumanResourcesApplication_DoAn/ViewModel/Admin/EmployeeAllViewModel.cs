@@ -122,7 +122,6 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
                     EmployeeViewViewModel employeeViewViewModel = new EmployeeViewViewModel(SelectedItem, mainViewVM, this); 
                     mainViewVM.CurrentEmployeeChildView = employeeViewViewModel;
-                    
                 }
             }
             catch (Exception ex)

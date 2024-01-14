@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="HumanResourcesApplication_DoAn.Views.Admin.Payroll_MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
+             xmlns:VM="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="1100">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type VM:PayrollViewModel}">
+            <local:PayrollView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type VM:BaseSalaryViewModel}">
+            <local:BaseSalaryView/>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid Background="{StaticResource Color3}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="95*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical">
+
+            <Grid>
+                <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
+                    <RadioButton Style="{StaticResource TopBorderTriggerButton}"
+                                 Command="{Binding ShowPayrollAllCommand}">
+                        <TextBlock Text="Payroll"></TextBlock>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource TopBorderTriggerButton}"
+                                 Command="{Binding ShowBaseSalaryCommand}">
+                        <TextBlock Text="Base Salary"></TextBlock>
+                    </RadioButton>
+                </StackPanel>
+            </Grid>
+
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <ContentControl
+                        Content="{Binding CurrentPayrollChildView}"
+                        Margin="0,25,0,10" Grid.ColumnSpan="2"/>
+        </Grid>
+    </Grid>
+</UserControl>

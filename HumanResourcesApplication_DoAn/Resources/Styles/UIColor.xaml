@@ -25,8 +25,10 @@
         <SolidColorBrush x:Key="PanelColor4" Color="#ff2d55"></SolidColorBrush>
         <SolidColorBrush x:Key="PanelColor5" Color="#884dff"></SolidColorBrush>
         <SolidColorBrush x:Key="PanelColor6" Color="#1ee0b4"></SolidColorBrush>
+        <SolidColorBrush x:Key="PanelColor7" Color="#f5ebea"></SolidColorBrush>
+        <SolidColorBrush x:Key="PanelColor8" Color="#0ec43c"></SolidColorBrush> 
 
-        <!--ButtonColor-->
+    <!--ButtonColor-->
         <SolidColorBrush x:Key="ButtonColor1" Color="Black"></SolidColorBrush>
         <SolidColorBrush x:Key="ButtonColor2" Color="#00e096"></SolidColorBrush>
         <SolidColorBrush x:Key="ButtonColor3" Color="#0095ff"></SolidColorBrush>

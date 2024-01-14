@@ -18,6 +18,9 @@
         <DataTemplate DataType="{x:Type ViewModel:AttendanceViewModel}">
             <local:Attendance/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModel:ContractViewModel}">
+            <local:ListEmployementAgreement />
+        </DataTemplate>
         <DataTemplate DataType="{x:Type ViewModel:DashBoardViewModel}">
             <local:DashBoardView/>
         </DataTemplate>
@@ -30,8 +33,8 @@
         <DataTemplate DataType="{x:Type ViewModel:UserViewModel}">
             <local:UserView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type ViewModel:PayrollViewModel }">
-            <local:PayrollView />
+        <DataTemplate DataType="{x:Type ViewModel:PayrollMainViewViewModel }">
+            <local:Payroll_MainView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type ViewModel:InsuranceMainViewModel}">
             <local:InsuranceMainView />
@@ -117,6 +120,13 @@
                         <TextBlock Margin="13.5,0,0,0">
                     <fa:FontAwesome Icon="Dashboard" Margin="0,0,10,0"></fa:FontAwesome>
                 Dashboard
+                        </TextBlock>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource SecondSideBarButton}"
+                                 Command="{Binding ShowContractViewCommand}">
+                                    <TextBlock Margin="13.5,0,0,0">
+                    <fa:FontAwesome Icon="File" Margin="0,0,10,0"></fa:FontAwesome>
+                Contract
                         </TextBlock>
                     </RadioButton>
                     <RadioButton Style="{StaticResource SecondSideBarButton}"

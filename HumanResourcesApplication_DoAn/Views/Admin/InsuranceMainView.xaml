@@ -188,6 +188,16 @@
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 
                                                 Width="1.5*"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Start date" 
+                                                    Binding="{Binding startDate}" 
+                                                    IsReadOnly="True" 
+                                                    CanUserResize="False" 
+                                                    Width="1.5*"></DataGridTextColumn>
+                                <DataGridTextColumn Header="End date" 
+                                                    Binding="{Binding endDate}" 
+                                                    IsReadOnly="True" 
+                                                    CanUserResize="False" 
+                                                    Width="1.5*"></DataGridTextColumn>
                                 <DataGridTemplateColumn 
                                     Header="Action" IsReadOnly="True" CanUserResize="False" Width="1*">
 

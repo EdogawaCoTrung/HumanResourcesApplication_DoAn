@@ -9,5 +9,6 @@ namespace HumanResourcesApplication_DoAn.Model
     public interface IAttendanceRepository
     {
         List<Attendance?> GetAttendanceByUserId(string? userId);
+        void AddAttendance(string? userId);
     }
 }

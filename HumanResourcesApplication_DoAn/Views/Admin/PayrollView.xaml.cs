@@ -24,5 +24,15 @@ namespace HumanResourcesApplication_DoAn.Views.Admin
         {
             InitializeComponent();
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Users.Items.Refresh();
+        }
+
+        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            Users.Items.Refresh();
+        }
     }
 }

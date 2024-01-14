@@ -9,9 +9,6 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              d:DesignHeight="750" d:DesignWidth="1100">
-    <UserControl.DataContext>
-        <vm:PayrollViewModel/>
-    </UserControl.DataContext>
     <UserControl.Resources>
         
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
@@ -93,26 +90,23 @@
         <DataTemplate DataType="{x:Type vm:AddPayrollViewModel}">
             <local:Payroll_Add />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PayrollInforViewModel}">
+            <local:SalaryDetail />
+        </DataTemplate>
     </UserControl.Resources>
     <Grid Background="{StaticResource Color3}">
         <StackPanel Orientation="Vertical">
-            <Grid>
-                <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
-                    <RadioButton Style="{StaticResource TopBorderTriggerButton}">
-                        <TextBlock Text="Payroll"></TextBlock>
-                    </RadioButton>
-                </StackPanel>
-            </Grid>
+           
             <!--PanelMain-->
             <Grid Margin="0,37.5,0,30" Background="{StaticResource Color3}">
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Margin="0,0,16,0">
                         <Border Background="White" Width="274" Height="116" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                             <StackPanel>
-                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding salSta[0].departmentName}" FontSize="13" Foreground="Black"></TextBlock>
+                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding Top1.departmentName}" FontSize="13" Foreground="Black"></TextBlock>
                                 <StackPanel Orientation="Horizontal">
                                     <fa:FontAwesome Icon="Dollar" VerticalAlignment="Center" Margin="20,12,0,0" FontWeight="Bold" FontSize="18"></fa:FontAwesome>
-                                    <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding salSta[0].salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
+                                    <TextBlock Panel.ZIndex="1" Name="top1" Margin="0,10,0,0" Text="{Binding Top1.salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
                                     </TextBlock>
                                 </StackPanel>
                                 <!--<StackPanel Orientation="Horizontal">
@@ -129,10 +123,10 @@
                     <StackPanel Margin="0,0,16,0">
                         <Border Background="White" Width="274" Height="116" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                             <StackPanel>
-                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding salSta[1].departmentName}" FontSize="13" Foreground="Black"></TextBlock>
+                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding Top2.departmentName}" FontSize="13" Foreground="Black"></TextBlock>
                                 <StackPanel Orientation="Horizontal">
                                     <fa:FontAwesome Icon="Dollar" VerticalAlignment="Center" Margin="20,12,0,0" FontWeight="Bold" FontSize="18"></fa:FontAwesome>
-                                    <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding salSta[1].salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
+                                    <TextBlock Panel.ZIndex="1" Name="top2" Margin="0,10,0,0" Text="{Binding Top2.salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
                                     </TextBlock>
                                 </StackPanel>
                                 <!--<StackPanel Orientation="Horizontal">
@@ -149,10 +143,10 @@
                     <StackPanel Margin="0,0,16,0">
                         <Border Background="White" Width="274" Height="116" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                             <StackPanel>
-                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding salSta[2].departmentName}" FontSize="13" Foreground="Black"></TextBlock>
+                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding Top3.departmentName}" FontSize="13" Foreground="Black"></TextBlock>
                                 <StackPanel Orientation="Horizontal">
                                     <fa:FontAwesome Icon="Dollar" VerticalAlignment="Center" Margin="20,12,0,0" FontWeight="Bold" FontSize="18"></fa:FontAwesome>
-                                    <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding salSta[2].salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
+                                    <TextBlock Panel.ZIndex="1" Name="top3" Margin="0,10,0,0" Text="{Binding Top3.salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
                                     </TextBlock>
                                 </StackPanel>
                                 <!--<StackPanel Orientation="Horizontal">
@@ -169,10 +163,10 @@
                     <StackPanel Margin="0,0,0,0">
                         <Border Background="White" Width="274" Height="116" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
                             <StackPanel>
-                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding salSta[3].departmentName}" FontSize="13" Foreground="Black"></TextBlock>
+                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="{Binding Top4.departmentName}" FontSize="13" Foreground="Black"></TextBlock>
                                 <StackPanel Orientation="Horizontal">
                                     <fa:FontAwesome Icon="Dollar" VerticalAlignment="Center" Margin="20,12,0,0" FontWeight="Bold" FontSize="18"></fa:FontAwesome>
-                                    <TextBlock Panel.ZIndex="1" Margin="0,10,0,0" Text="{Binding salSta[3].salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
+                                    <TextBlock Panel.ZIndex="1" Name="top4" Margin="0,10,0,0" Text="{Binding Top4.salary}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}">
                                     </TextBlock>
                                 </StackPanel>
                                 <!--<StackPanel Orientation="Horizontal">
@@ -192,41 +186,61 @@
             <Grid Margin="0,0,0,0">
                 <Border BorderBrush="{StaticResource ButtonColor5}" BorderThickness="0,1.5,0,1.5" CornerRadius="10">
                     <StackPanel Orientation="Vertical">
-                        <StackPanel Height="50"
-                                    Orientation="Horizontal"
-                                    FlowDirection="RightToLeft">
-                            <Button 
-                                 Width="88"
-                                 Command="{Binding AddPayrollCommand}"
-                                 Height="34"
-                                 Foreground="White"
-                                 FontSize="13"
-                                 FontWeight="SemiBold"
-                                 Background="{StaticResource ButtonColor2}"
-                                 BorderThickness="0"
-                                 materialDesign:RippleAssist.Feedback="#DD000000"
-                                 Content="Add New"
-                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                                 Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
-                                 ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
-                        </StackPanel>
                         <Grid Height="50" Background="White">
+                            <StackPanel Orientation="Horizontal">
+                                
                             <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Payroll" FontSize="17" Foreground="{StaticResource FontColor8}" FontWeight="SemiBold" Background="White"></TextBlock>
-                            <Grid HorizontalAlignment="Right" Width="300" Height="34" Margin="0,0,0,0">
-                                <TextBlock Margin="15,5,5,5" Text="Search..." FontSize="13"
+                                <StackPanel Height="50" Orientation="Horizontal" FlowDirection="RightToLeft" Width="1030">
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <Grid HorizontalAlignment="Right" Width="300" Height="34" Margin="0,0,0,0">
+                                            <TextBlock Margin="15,5,5,5" Text="Search..." FontSize="13"
                                            Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
                                            HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
-                                </TextBlock>
-                                <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="7">
-                                    <TextBox x:Name="Attendancetxtfilter" Text="{Binding TextToFilter, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" Width="274" Height="34" Padding="0,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                            </TextBlock>
+                                            <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="7">
+                                                <TextBox x:Name="Attendancetxtfilter" Text="{Binding TextToFilter, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" Width="274" Height="34" Padding="0,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                             ></TextBox>
-                                </Border>
-                                <fa:FontAwesome Margin="0,0,5,0" VerticalAlignment="Center" HorizontalAlignment="Right" Icon="Search" Foreground="black" FontSize="13"></fa:FontAwesome>
-                            </Grid>
+                                            </Border>
+                                            <fa:FontAwesome Margin="0,0,5,0" VerticalAlignment="Center" HorizontalAlignment="Right" Icon="Search" Foreground="black" FontSize="13"></fa:FontAwesome>
+                                        </Grid>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <ComboBox 
+                                          
+                                            Margin="50,0,0,0"
+                                            Width="100" 
+                                            ItemsSource="{Binding YearSource}"
+                                            SelectedItem="{Binding SelectedYear}" SelectionChanged="ComboBox_SelectionChanged_1"
+                                            >
+                                        
+                                        </ComboBox>
+                                        <TextBlock Margin="20,0,0,0" Text=":Year" FontSize="18"
+                                                     Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                                                     HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">   
+                                        </TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <ComboBox 
+                                            Margin="50,0,0,0"
+                                            Width="100" 
+                                            ItemsSource="{Binding MonthSource}"
+                                            SelectedItem="{Binding SelectedMonth}" SelectionChanged="ComboBox_SelectionChanged">
+                                           
+                                        </ComboBox>
+                                        <TextBlock Margin="20,0,0,0" Text=":Month" FontSize="18"
+                                                 Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                                                 HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">   
+                                        </TextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
 
                         </Grid>
 
-                        <DataGrid ItemsSource="{Binding payrolls}"  Height="430" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate4}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
+                        <DataGrid ItemsSource="{Binding payrolls}"  
+                                  SelectedItem="{Binding SelectedPayroll}"
+                                  Height="430" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate4}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="1*">
                                     <DataGridTemplateColumn.CellTemplate>
@@ -258,36 +272,22 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <!--<DataGridTemplateColumn Header="Status" IsReadOnly="True" CanUserResize="False" Width="200">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <Border Width="12" Height="12"  Background="{StaticResource FontColor3}" HorizontalAlignment="Left" CornerRadius="50" BorderBrush="{StaticResource ButtonColor5}">
-                                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="SemiBold" Foreground="{StaticResource FontColor2}" FontSize="13"></TextBlock>
-                                                </Border>
-                                                <TextBlock Text="{Binding status, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource FontColor2}">
-                                                </TextBlock>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>-->
+                              
                                 <DataGridTemplateColumn Header="Action" IsReadOnly="True" CanUserResize="False" Width="0.5*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Name="Button_Wrapper" Orientation="Horizontal">
                                                 <Button  Width="30" Height="30" Margin="0,0,10,0"
+                                                         Command="{Binding DataContext.ShowInforSalary, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                         CommandParameter="{Binding SelectedPayroll}"
                                                           IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                                           Style="{StaticResource MaterialDesignIconForegroundButton}"
                                                           ToolTip="MaterialDesignIconForegroundButton">
                                                     <materialDesign:PackIcon Kind="EmailOutline" Foreground="{StaticResource FontColor2}"/>
                                                 </Button>
-                                                <Button  Width="30" Height="30" Margin="0,0,10,0"
-                                                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                                                          Style="{StaticResource MaterialDesignIconForegroundButton}"
-                                                          ToolTip="MaterialDesignIconForegroundButton">
-                                                    <materialDesign:PackIcon Kind="Fax"  Foreground="{StaticResource FontColor2}" />
-                                                </Button>
                                                 <Button  Width="30" Height="30"
+                                                         Command="{Binding DataContext.DeleteSalary, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                          CommandParameter="{Binding SelectedPayroll}"
                                                           IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                                           Style="{StaticResource MaterialDesignIconForegroundButton}"
                                                           ToolTip="MaterialDesignIconForegroundButton">
@@ -301,6 +301,27 @@
                         </DataGrid>
                     </StackPanel>
                 </Border>
+            </Grid>
+            <Grid Height="90">
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Border BorderBrush="{StaticResource ButtonColor2}" BorderThickness="0" CornerRadius="20" Margin="0,0,15,0">
+                        <Button 
+                Width="200"
+                Command="{Binding AddDepartmentCommand}"
+                Height="34"
+                Foreground="White"
+                FontSize="13"
+                FontWeight="SemiBold"
+                Background="{StaticResource ButtonColor2}"
+                BorderThickness="0"
+                materialDesign:RippleAssist.Feedback="#DD000000"
+                Content="Calculate Salary for month"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
+                
+                ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
+                    </Border>
+                </StackPanel>
             </Grid>
         </StackPanel>
     </Grid>
