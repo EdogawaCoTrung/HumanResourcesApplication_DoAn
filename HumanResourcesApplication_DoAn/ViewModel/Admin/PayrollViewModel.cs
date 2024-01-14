@@ -105,13 +105,13 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 {
                     if (temp[i].user.userName == listAttendance[j].userId && ((DateOnly)listAttendance[j].date).Month.ToString() == SelectedMonth && ((DateOnly)listAttendance[j].date).Year.ToString() == SelectedYear)
                     {
-                        if ((listAttendance[j].inTime - TimeSpan.Parse("07:00:00") > TimeSpan.Parse("00:30:00")) || (TimeSpan.Parse("17:00:00") - listAttendance[j].outTime > TimeSpan.Parse("00:30:00")))
-                        {
-                            late++;
-                        }
-                        else if (listAttendance[j].inTime == TimeSpan.Parse("00:00:00"))
+                        if (listAttendance[j].status == "Absent")
                         {
                             absence++;
+                        }
+                        else if ((listAttendance[j].inTime - TimeSpan.Parse("07:00:00") > TimeSpan.Parse("00:30:00")) || (TimeSpan.Parse("17:00:00") - listAttendance[j].outTime > TimeSpan.Parse("00:30:00")))
+                        {
+                            late++;
                         }
                         if (listAttendance[j].outTime - TimeSpan.Parse("17:00:00") > TimeSpan.Parse("00:00:00"))
                         {
