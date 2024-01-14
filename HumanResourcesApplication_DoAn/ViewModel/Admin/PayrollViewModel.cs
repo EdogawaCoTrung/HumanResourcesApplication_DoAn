@@ -143,7 +143,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                     double? sum = 0;
                     for (int j = 0; j < payrolls.Count; j++)
                     {
-                        if (payrolls[i].department.departmentName == payrolls[j].department.departmentName)
+                        if (i!=j && payrolls[i].department.departmentName == payrolls[j].department.departmentName)
                         {
                             sum += payrolls[i].salary;
                         }
@@ -197,9 +197,13 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         private void ExecuteShowInforSalaryCommand(object? obj)
         {
+<<<<<<< HEAD
             PayrollInforViewModel payrollInforViewModel = new PayrollInforViewModel(SelectedPayroll);
             SalaryDetail salaryDetail = new SalaryDetail();
             salaryDetail.DataContext = payrollInforViewModel;
+=======
+            SalaryDetail salaryDetail = new SalaryDetail();
+>>>>>>> 4143fd07b02f5079f08258062e18934823dfdb35
             salaryDetail.ShowDialog();
         }
     }

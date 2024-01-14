@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HumanResourcesApplication_DoAn.Model;
+using HumanResourcesApplication_DoAn.Repositories;
+using HumanResourcesApplication_DoAn.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +26,11 @@ namespace HumanResourcesApplication_DoAn.Views.Employee
         public Employee_AttendanceView()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Attendance_Users.Items.Refresh();
         }
     }
 }
