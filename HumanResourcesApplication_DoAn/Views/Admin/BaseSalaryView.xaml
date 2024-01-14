@@ -5,11 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:ViewModel="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1100">
     <UserControl.Resources>
-            
 
+        <DataTemplate DataType="{x:Type ViewModel:AddBaseSalaryViewModel}">
+            <local:Payroll_Add />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModel:ChangeBaseSalaryViewModel}">
+            <local:BaseSalary_Change />
+        </DataTemplate>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
         <Style TargetType="DataGrid">
             <Setter Property="VerticalScrollBarVisibility" Value="Disabled"></Setter>
