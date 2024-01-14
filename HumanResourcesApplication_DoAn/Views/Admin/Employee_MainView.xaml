@@ -43,11 +43,6 @@
                                            Text="All"></TextBlock>
                 </RadioButton>
                 <RadioButton Style="{StaticResource TopBorderTriggerButton}"
-                             IsEnabled="False" 
-                            Command="{Binding ShowEmployeeViewCommand}" >
-                    <TextBlock Text="View"></TextBlock>
-                </RadioButton>
-                <RadioButton Style="{StaticResource TopBorderTriggerButton}"
                              Command="{Binding ShowLeaveRequestViewCommand }">
                     <TextBlock Text="Leave Request"></TextBlock>
                 </RadioButton>
