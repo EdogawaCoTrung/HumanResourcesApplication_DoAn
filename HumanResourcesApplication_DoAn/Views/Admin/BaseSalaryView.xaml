@@ -146,7 +146,7 @@
                 <Border BorderBrush="{StaticResource ButtonColor2}" BorderThickness="0" CornerRadius="20" Margin="0,0,20,0">
                     <Button 
              Width="88"
-             Command="{Binding AddBaseSalarCommand}"
+             Command="{Binding AddBaseSalaryCommand}"
              Height="34"
              Foreground="White"
              FontSize="13"

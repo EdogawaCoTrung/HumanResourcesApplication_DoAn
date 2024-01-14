@@ -10,7 +10,7 @@
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              d:DesignHeight="750" d:DesignWidth="1100">
     <UserControl.Resources>
-        
+
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
         <Style TargetType="DataGrid">
             <Setter Property="VerticalScrollBarVisibility" Value="Disabled"></Setter>
@@ -182,6 +182,27 @@
                     </StackPanel>
                 </StackPanel>
             </Grid>
+            <Grid Height="60">
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Border BorderBrush="{StaticResource ButtonColor2}" BorderThickness="0" CornerRadius="20" Margin="0,0,15,0">
+                        <Button 
+    Width="200"
+    Command="{Binding AddDepartmentCommand}"
+    Height="34"
+    Foreground="White"
+    FontSize="13"
+    FontWeight="SemiBold"
+    Background="{StaticResource ButtonColor2}"
+    BorderThickness="0"
+    materialDesign:RippleAssist.Feedback="#DD000000"
+    Content="Calculate Salary for month"
+    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+    Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
+    
+    ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
+                    </Border>
+                </StackPanel>
+            </Grid>
             <!--Datagrid-->
             <Grid Margin="0,0,0,0">
                 <Border BorderBrush="{StaticResource ButtonColor5}" BorderThickness="0,1.5,0,1.5" CornerRadius="10">
@@ -302,27 +323,7 @@
                     </StackPanel>
                 </Border>
             </Grid>
-            <Grid Height="90">
-                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
-                    <Border BorderBrush="{StaticResource ButtonColor2}" BorderThickness="0" CornerRadius="20" Margin="0,0,15,0">
-                        <Button 
-                Width="200"
-                Command="{Binding AddDepartmentCommand}"
-                Height="34"
-                Foreground="White"
-                FontSize="13"
-                FontWeight="SemiBold"
-                Background="{StaticResource ButtonColor2}"
-                BorderThickness="0"
-                materialDesign:RippleAssist.Feedback="#DD000000"
-                Content="Calculate Salary for month"
-                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
-                
-                ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
-                    </Border>
-                </StackPanel>
-            </Grid>
+            
         </StackPanel>
     </Grid>
 </UserControl>
