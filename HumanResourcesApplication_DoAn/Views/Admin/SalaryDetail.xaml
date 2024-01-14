@@ -119,7 +119,7 @@
                                    Margin="10,0,0,0"
                                    TextAlignment="Center"
                                    FontWeight="SemiBold" 
-                                   Text="{Binding SelectedItem.UserName}"
+                                   Text="{Binding Payroll.user.userName}"
                                    Width="385">
                         </TextBlock>
 
@@ -149,28 +149,28 @@
         <Grid Grid.Row="1">
 
             <DataGrid Height="150" 
-                                  ItemsSource="{Binding ListSalary}"
+                                  ItemsSource="{Binding ListPayroll}"
                                   Name="Users" 
                                   RowStyle="{DynamicResource DataGridRowStyle1}" 
                                   CellStyle="{DynamicResource DataGridCellTemplate4}" 
                                   ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Base Salary" 
-                                                    Binding="{Binding departmentName}" 
+                                                    Binding="{Binding salary,UpdateSourceTrigger=PropertyChanged}" 
                                                     IsReadOnly="True" 
                                                     CanUserResize="False" 
                                                     Width="1*"></DataGridTextColumn>
                     <DataGridTextColumn Header="Overtime"
-                                                    Binding="{Binding head}" 
+                                                    Binding="{Binding overtime,UpdateSourceTrigger=PropertyChanged}" 
                                                     IsReadOnly="True" 
                                                     CanUserResize="False" 
                                                     Width="1*"></DataGridTextColumn>
                     <DataGridTextColumn Header="Late" 
-                                                    Binding="{Binding totalEmployees}" 
+                                                    Binding="{Binding late,UpdateSourceTrigger=PropertyChanged}" 
                                                     IsReadOnly="True" 
                                                     CanUserResize="False" Width="1*"></DataGridTextColumn>
                     <DataGridTextColumn Header="Absent" 
-                                Binding="{Binding totalEmployees}" 
+                                Binding="{Binding absence,UpdateSourceTrigger=PropertyChanged}" 
                                 IsReadOnly="True" 
                                 CanUserResize="False" Width="1*"></DataGridTextColumn>
                 </DataGrid.Columns>

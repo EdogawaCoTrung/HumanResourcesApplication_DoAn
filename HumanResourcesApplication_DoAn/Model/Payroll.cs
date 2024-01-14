@@ -14,6 +14,9 @@ namespace HumanResourcesApplication_DoAn.Model
         public virtual User? user { get; set; }
         public virtual Role? role { get; set; }
         public virtual Department? department { get; set; }
+        public string late {  get; set; }
+        public string overtime {  get; set; }
+        public string absence { get; set; }
         public Payroll()
         {
             user = new User();

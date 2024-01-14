@@ -175,6 +175,7 @@
 
                         <DataGrid Height="500" 
                               ItemsSource="{Binding ListProject}"
+                              SelectedItem="{Binding SelectedProject}"
                               Name="Users" 
                               RowStyle="{DynamicResource DataGridRowStyle1}" 
                               CellStyle="{DynamicResource DataGridCellTemplate3}" 
@@ -277,7 +278,7 @@
                                                                          Foreground="{StaticResource FontColor2}"/>
                                                 </Button>
                                                 <Button  Width="30" 
-                                                     Command="{Binding DataContext.DeleteDepartmentCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                     Command="{Binding DataContext.DeleteProjectCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
                                                      CommandParameter="{Binding}"
                                                      Height="30" 
                                                      Margin="0,0,10,0"

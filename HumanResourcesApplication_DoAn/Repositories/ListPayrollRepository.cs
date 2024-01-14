@@ -18,12 +18,13 @@ namespace HumanResourcesApplication_DoAn.Repositories
             List<Payroll> _payrolls = new List<Payroll>();
             MySqlCommand command = new MySqlCommand();
             command.Connection = connection;
-            command.CommandText = "SELECT USERS.USERNAME, USERS.EMAIL, USERS.AVATAR, ROLE.ROLE_NAME, PAYROLL.SALARY, DEPARTMENT.DEPARTMENT_NAME FROM USERS JOIN PAYROLL ON USERS.PAYROLL_ID = PAYROLL.PAYROLL_ID JOIN ROLE ON USERS.ROLE_ID = ROLE.ROLE_ID JOIN DEPARTMENT ON USERS.DEPARTMENT_ID = DEPARTMENT.DEPARTMENT_ID";
+            command.CommandText = "SELECT PAYROLL.PAYROLL_ID,USERS.USERNAME, USERS.EMAIL, USERS.AVATAR, ROLE.ROLE_NAME, PAYROLL.SALARY, DEPARTMENT.DEPARTMENT_NAME FROM USERS JOIN PAYROLL ON USERS.PAYROLL_ID = PAYROLL.PAYROLL_ID JOIN ROLE ON USERS.ROLE_ID = ROLE.ROLE_ID JOIN DEPARTMENT ON USERS.DEPARTMENT_ID = DEPARTMENT.DEPARTMENT_ID";
             MySqlDataReader reader = command.ExecuteReader();
             BindingImage bindingImage = new BindingImage();
             while (reader.Read())
             {
                 Payroll _payroll = new Payroll();
+                _payroll.payrollId = reader["PAYROLL_ID"].ToString();
                 _payroll.user.userName = reader["USERNAME"].ToString();
                 _payroll.user.email = reader["EMAIL"].ToString();
                 _payroll.user.avatar = reader["AVATAR"].ToString();
