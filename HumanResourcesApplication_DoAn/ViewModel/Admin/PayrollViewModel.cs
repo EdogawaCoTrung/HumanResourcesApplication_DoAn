@@ -197,13 +197,9 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         private void ExecuteShowInforSalaryCommand(object? obj)
         {
-<<<<<<< HEAD
             PayrollInforViewModel payrollInforViewModel = new PayrollInforViewModel(SelectedPayroll);
             SalaryDetail salaryDetail = new SalaryDetail();
             salaryDetail.DataContext = payrollInforViewModel;
-=======
-            SalaryDetail salaryDetail = new SalaryDetail();
->>>>>>> 4143fd07b02f5079f08258062e18934823dfdb35
             salaryDetail.ShowDialog();
         }
     }
