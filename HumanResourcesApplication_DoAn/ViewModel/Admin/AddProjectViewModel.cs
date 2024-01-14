@@ -57,11 +57,13 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         public IListUsersRepository userRepository;
         public IListDepartmentRepository departmentRepository;
+        public IAddProjectRepository addProjectRepository;
         public ChangeDate changeDate;
         public AddProjectViewModel () 
         {
             userRepository = new ListUsersRepository();
             departmentRepository = new ListDepartmentRepository();
+            addProjectRepository = new AddProjectRepository();
             users = userRepository.ListUsers();
             Departments = departmentRepository.ListDepartment(); 
             ProjectManagerSource = new List<string>();
@@ -102,8 +104,19 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                     break;
                 }
             }
+            foreach(Department department in Departments)
+            {
+                if(department.departmentName == SelectedDepartment)
+                {
+                    DepartmentId = department.departmentId;
+                    break;
+                }
+            }    
             TempStartDate = changeDate.ChangeDateFormat(StartDate);
-            MessageBox.Show(projectManagerId);
+            TempEndDate = changeDate.ChangeDateFormat(EndDate);
+            
+            addProjectRepository.AddProject(projectName, tempStartDate, tempEndDate, projectManagerId, departmentId, numOfMember, Description, Revenue, Type);
+            Application.Current.MainWindow.Close();
         }
         public ViewModelCommand AddProjectCommand { get; }
         public ViewModelCommand CancelCommand { get; }

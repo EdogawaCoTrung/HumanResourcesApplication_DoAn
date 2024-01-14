@@ -119,6 +119,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                     }
 
                 }
+                temp[i].late = late.ToString(); temp[i].overtime=overtime.ToString(); temp[i].absence = absence.ToString();
                 temp[i].salary = Math.Round((double)(temp[i].salary - (double)(late * 0.005 * temp[i].salary) - (double)(absence * 0.05 * temp[i].salary) + (double)(overtime * 0.0075 * temp[i].salary)), 2);
             }
             payrolls = temp;
@@ -196,7 +197,9 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         private void ExecuteShowInforSalaryCommand(object? obj)
         {
-            SalaryDetail salaryDetail = new SalaryDetail(SelectedPayroll);
+            PayrollInforViewModel payrollInforViewModel = new PayrollInforViewModel(SelectedPayroll);
+            SalaryDetail salaryDetail = new SalaryDetail();
+            salaryDetail.DataContext = payrollInforViewModel;
             salaryDetail.ShowDialog();
         }
     }

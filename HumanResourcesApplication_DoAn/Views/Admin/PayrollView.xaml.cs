@@ -23,7 +23,6 @@ namespace HumanResourcesApplication_DoAn.Views.Admin
         public PayrollView()
         {
             InitializeComponent();
-            
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

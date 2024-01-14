@@ -90,6 +90,9 @@
         <DataTemplate DataType="{x:Type vm:AddPayrollViewModel}">
             <local:Payroll_Add />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PayrollInforViewModel}">
+            <local:SalaryDetail />
+        </DataTemplate>
     </UserControl.Resources>
     <Grid Background="{StaticResource Color3}">
         <StackPanel Orientation="Vertical">
