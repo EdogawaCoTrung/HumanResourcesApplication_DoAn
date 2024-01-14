@@ -94,18 +94,9 @@
     </UserControl.Resources>
     <Grid Background="#F9FBFD">
         <StackPanel Orientation="Vertical">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" Height="34" Margin="0,29,0,25">
-                <Grid Width="100" Height="34"  Margin="0,0,15,0">
-                    <StackPanel Width="100" Height="34" Orientation="Horizontal">
-                        <RadioButton Width="50" Height="34" Style="{StaticResource GridButtonLeft}">
-                            <fa:FontAwesome Icon="Bars"></fa:FontAwesome>
-                        </RadioButton>
-                        <RadioButton Width="50" Height="34" Style="{StaticResource GridButtonRight}">
-                            <fa:FontAwesome Icon="Table"></fa:FontAwesome>
-                        </RadioButton>
-                    </StackPanel>
-                </Grid>
-                <Border BorderBrush="{StaticResource ButtonColor2}" BorderThickness="0" CornerRadius="20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Width="88" Height="34" Margin="0,29,0,25">
+                
+                <Border HorizontalAlignment="Right" BorderBrush="{StaticResource ButtonColor2}" BorderThickness="0" CornerRadius="20">
                     <Button 
                                 Width="88"
                                 Command="{Binding AddDepartmentCommand}"
@@ -141,38 +132,7 @@
                                        Foreground="{StaticResource FontColor8}" 
                                        FontWeight="SemiBold" 
                                        Background="White"></TextBlock>
-                            <Grid HorizontalAlignment="Right" 
-                                  Width="300" 
-                                  Height="34" 
-                                  Margin="0,0,20,0">
-                                <TextBlock Margin="15,5,5,5" 
-                                           Text="Search..." 
-                                           FontSize="13"
-                                           Visibility="{Binding ElementName=txtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
-                                           HorizontalAlignment="Left" 
-                                           VerticalAlignment="Center" 
-                                           Panel.ZIndex="1" 
-                                           IsHitTestVisible="False">
-                                </TextBlock>
-                                <Border BorderBrush="LightGray" 
-                                        BorderThickness="1" 
-                                        CornerRadius="7">
-                                    <TextBox x:Name="txtfilter" 
-                                             BorderThickness="0" 
-                                             Width="274" 
-                                             Height="34" 
-                                             Padding="0,8,10,0"  
-                                             VerticalAlignment="Center" 
-                                             FontSize="13"
-                                            ></TextBox>
-                                </Border>
-                                <fa:FontAwesome Margin="0,0,5,0" 
-                                                VerticalAlignment="Center" 
-                                                HorizontalAlignment="Right" 
-                                                Icon="Search" 
-                                                Foreground="black" 
-                                                FontSize="13"></fa:FontAwesome>
-                            </Grid>
+                            
 
                         </Grid>
 
