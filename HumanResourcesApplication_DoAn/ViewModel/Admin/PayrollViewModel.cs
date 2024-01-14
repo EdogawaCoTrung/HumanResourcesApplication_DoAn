@@ -209,7 +209,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             {
                 sum += payrolls[i].salary;
             }
-            MessageBox.Show("Total salary of employees in " + selectedMonth + "/" + selectedYear + " is " + sum.ToString());
+            MessageBox.Show("Total salary of employees in " + selectedMonth + "/" + selectedYear + " is $" + sum.ToString());
         }
 
         private void ExecuteShowInforSalaryCommand(object? obj)
