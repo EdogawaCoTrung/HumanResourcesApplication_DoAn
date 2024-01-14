@@ -20,7 +20,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private string? _password;
         private string? _isAdmin; 
         private string? _phoneNumber;
-        private DateOnly? _dateOfBirth;
+        private DateOnly _dateOfBirth;
+        private List<Country> _countries;
         private List<string> _sourceCountry;
         private string? _gender;
         private string? _country;
@@ -29,7 +30,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private string? _facebook;
         private string? _twitter;
         private string? _linkedIn;
-        private string? _joinDate;
+        private DateOnly _joinDate;
         private string? _departmentId;
         private string? _payrollId;
         private string? _email;
@@ -37,7 +38,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private string? _filePath;
         private string? _newPath;
         private string? _fileName;
-
+        public ChangeDate changeDate;
         private User _user;
         public User User
         {
@@ -52,7 +53,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public string? LoginName { get => _loginName; set { _loginName = value; OnPropertyChanged(nameof(LoginName)); } }
         public string? Password { get => _password; set { _password = value; OnPropertyChanged(nameof(Password)); } }
         public string? PhoneNumber { get => _phoneNumber; set { _phoneNumber = value; OnPropertyChanged(nameof(PhoneNumber)); } }
-        public DateOnly? DateOfBirth { get => _dateOfBirth; set { _dateOfBirth = value; OnPropertyChanged(nameof(DateOfBirth)); } }
+        public DateOnly DateOfBirth { get => _dateOfBirth; set { _dateOfBirth = value; OnPropertyChanged(nameof(DateOfBirth)); } }
         public string? Gender { get => _gender; set { _gender = value; OnPropertyChanged(nameof(Gender)); } }
         public string? Country { get => _country; set { _country = value; OnPropertyChanged(nameof(Country)); } }
         public string? Education { get => _education; set { _education = value; OnPropertyChanged(nameof(Education)); } }
@@ -67,7 +68,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public string? FileName { get => _fileName; set { _fileName = value; OnPropertyChanged(nameof(FileName)); } }
         public string? IsAdmin { get => _isAdmin; set { _isAdmin = value; OnPropertyChanged(nameof(IsAdmin)); } }
 
-        public string? JoinDate { get => _joinDate; set { _joinDate = value; OnPropertyChanged(nameof(JoinDate)); } }
+        public DateOnly JoinDate { get => _joinDate; set { _joinDate = value; OnPropertyChanged(nameof(JoinDate)); } }
         public string? DepartmentId { get => _departmentId; set { _departmentId = value; OnPropertyChanged(nameof(DepartmentId)); } }
         public string? PayrollId { get => _payrollId; set { _payrollId = value; OnPropertyChanged(nameof(PayrollId)); } }
         public IAdmin_ChangeProfileRepository changeProfileRepository;
@@ -75,7 +76,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public ViewModelCommand ChangeCommand { get; }
         public ViewModelCommand CancelCommand { get; }
         public ViewModelCommand UploadImageCommand { get; }
-        public List<string> SourceCountry { get => _sourceCountry; set { _sourceCountry = value; } }
+        public IListCountry listCountry { get; }
+        public List<string> SourceCountry { get => _sourceCountry; set { _sourceCountry = value; OnPropertyChanged(nameof(SourceCountry)); } }
+
+        public List<Country> Countries { get => _countries; set { _countries = value; OnPropertyChanged(nameof(Countries)); } }
 
         public User_ChangeInformation_ViewModel()
         {
@@ -94,12 +98,12 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             _facebook = User.facebook;
             _twitter = User.twitter;
             _linkedIn=User.linkedIn;
-            _joinDate = User.joinDate.ToString();
+            _joinDate = User.joinDate;
             _departmentId= User.departmentId;
             _payrollId= User.payrollId;
             _email=User.email;
             _avatar=User.avatar;
-            
+            changeDate = new ChangeDate();
             changeProfileRepository = new Admin_ChangeProfileRepository();
             ChangeCommand = new ViewModelCommand(ExcuteChangeCommand,CanExcuteChangeCommand);
             CancelCommand = new ViewModelCommand(ExcuteCancelCommand);
@@ -129,8 +133,9 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         }
         private void ExcuteChangeCommand(object? obj)
         {
-            
-            changeProfileRepository.ChangeProfile(MyApp.currentUser.loginName, UserName, Password,IsAdmin, PhoneNumber, DateOfBirth,Country,Education, Gender,JoinDate,RoleId,PayrollId, Facebook, Twitter, LinkedIn, Email, FileName, DepartmentId);
+            string tempJoinDate = changeDate.ChangeDateFormatDateOnly(JoinDate);
+            string tempDateOfBirth = changeDate.ChangeDateFormatDateOnly(DateOfBirth);
+            changeProfileRepository.ChangeProfile(MyApp.currentUser.loginName, UserName, Password,IsAdmin, PhoneNumber, tempDateOfBirth,Country,Education, Gender,tempJoinDate,RoleId,PayrollId, Facebook, Twitter, LinkedIn, Email, FileName, DepartmentId);
             if(NewPath == null)
             {
                 FilePath = User.avatar;
@@ -150,7 +155,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 canExecute = true;
             if (PhoneNumber != null && PhoneNumber != "")
                 canExecute = true;
-            if (DateOfBirth != null && DateOfBirth != "")
+            if (DateOfBirth != null)
                 canExecute = true;
             if (Gender != null && Gender != "")
                 canExecute = true;
@@ -170,7 +175,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 canExecute = true;
             if (DepartmentId!=null && DepartmentId !="")
                 canExecute = true;
-            if(JoinDate!=null && JoinDate !="")
+            if(JoinDate!=null)
                 canExecute = true;
             if(PayrollId!=null && PayrollId!="")
                 canExecute = true;
