@@ -20,12 +20,13 @@ namespace HumanResourcesApplication_DoAn.Repositories
             }
             MySqlCommand command = new MySqlCommand();
             command.Connection = connection;
-            command.CommandText = "SELECT PAYROLL.PAYROLL_ID, ROLE.ROLE_NAME, SALARY FROM PAYROLL JOIN ROLE ON PAYROLL.ROLE_ID = ROLE.ROLE_ID";
+            command.CommandText = "SELECT PAYROLL.PAYROLL_ID, ROLE.ROLE_ID, ROLE.ROLE_NAME, SALARY FROM PAYROLL JOIN ROLE ON PAYROLL.ROLE_ID = ROLE.ROLE_ID";
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read()) 
             {
                 PayrollBase payroll = new PayrollBase();
                 payroll.payrollId = reader["PAYROLL_ID"].ToString();
+                payroll.role.roleId = reader["ROLE_ID"].ToString();
                 payroll.role.roleName = reader["ROLE_NAME"].ToString();
                 payroll.salary = Double.Parse(reader["SALARY"].ToString()) ;
                 listPayrollBase.Add(payroll);

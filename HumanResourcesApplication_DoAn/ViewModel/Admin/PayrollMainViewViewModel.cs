@@ -36,15 +36,12 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 _baseSalaryiewModel = new BaseSalaryViewModel();
             }
             CurrentPayrollChildView = _baseSalaryiewModel;
+            PayrollAllViewModel = new PayrollViewModel(this);
         }
 
         private void ExecuteShowPayrollAllCommand(object? obj)
         {
-            if(_payrollAllViewModel == null)
-            {
-                _payrollAllViewModel = new PayrollViewModel(this);
-            }
-            CurrentPayrollChildView= _payrollAllViewModel;
+            CurrentPayrollChildView= PayrollAllViewModel;
         }
     }
 

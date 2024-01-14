@@ -375,7 +375,7 @@
                         FlowDirection="RightToLeft"
                         Orientation="Horizontal">
                 <Border BorderThickness="1"
-                        Background="#00E096"
+                        Background="#0ec43c"
                         Height="40"
                         Width="100"
                         CornerRadius="10"
