@@ -24,5 +24,4 @@ namespace HumanResourcesApplication_DoAn.Utils
             return year + "-" + month + "-" + day;
         }
     }
-    }
-}
+}  

@@ -30,7 +30,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private string? _facebook;
         private string? _twitter;
         private string? _linkedIn;
-        private DateOnly _joinDate;
+        private DateOnly? _joinDate;
         private string? _departmentId;
         private string? _payrollId;
         private string? _email;
@@ -68,7 +68,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public string? FileName { get => _fileName; set { _fileName = value; OnPropertyChanged(nameof(FileName)); } }
         public string? IsAdmin { get => _isAdmin; set { _isAdmin = value; OnPropertyChanged(nameof(IsAdmin)); } }
 
-        public DateOnly JoinDate { get => _joinDate; set { _joinDate = value; OnPropertyChanged(nameof(JoinDate)); } }
+        public DateOnly? JoinDate { get => _joinDate; set { _joinDate = value; OnPropertyChanged(nameof(JoinDate)); } }
         public string? DepartmentId { get => _departmentId; set { _departmentId = value; OnPropertyChanged(nameof(DepartmentId)); } }
         public string? PayrollId { get => _payrollId; set { _payrollId = value; OnPropertyChanged(nameof(PayrollId)); } }
         public IAdmin_ChangeProfileRepository changeProfileRepository;
@@ -90,7 +90,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             _password = User.password;
             _isAdmin = User.isAdmin.ToString();
             _phoneNumber = User.phoneNumber;
-            _dateOfBirth = User.dateOfBirth;
+            //_dateOfBirth = User.dateOfBirth;
             _gender = User.gender;
             _country = User.countryId;
             _education =  User.educationId;
@@ -133,9 +133,9 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         }
         private void ExcuteChangeCommand(object? obj)
         {
-            string tempJoinDate = changeDate.ChangeDateFormatDateOnly(JoinDate);
+            //string tempJoinDate = changeDate.ChangeDateFormatDateOnly(JoinDate);
             string tempDateOfBirth = changeDate.ChangeDateFormatDateOnly(DateOfBirth);
-            changeProfileRepository.ChangeProfile(MyApp.currentUser.loginName, UserName, Password,IsAdmin, PhoneNumber, tempDateOfBirth,Country,Education, Gender,tempJoinDate,RoleId,PayrollId, Facebook, Twitter, LinkedIn, Email, FileName, DepartmentId);
+            //changeProfileRepository.ChangeProfile(MyApp.currentUser.loginName, UserName, Password,IsAdmin, PhoneNumber, tempDateOfBirth,Country,Education, Gender,tempJoinDate,RoleId,PayrollId, Facebook, Twitter, LinkedIn, Email, FileName, DepartmentId);
             if(NewPath == null)
             {
                 FilePath = User.avatar;

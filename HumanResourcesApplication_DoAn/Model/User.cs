@@ -14,7 +14,7 @@ namespace HumanResourcesApplication_DoAn.Model
         public string? password { get; set;}
         public bool isAdmin { get; set;}
         public string? phoneNumber { get; set;}
-        public DateOnly dateOfBirth { get; set;}
+        public DateOnly? dateOfBirth { get; set;}
         public string? countryId { get; set;}
         public string? educationId { get; set;}
         public string? email { get; set;}
@@ -22,7 +22,7 @@ namespace HumanResourcesApplication_DoAn.Model
         public string? twitter { get; set;}
         public string? linkedIn { get; set;}
         public string? departmentId { get; set;}
-        public DateOnly joinDate { get; set;}
+        public DateOnly? joinDate { get; set;}
         public string? roleId { get; set;}
         public string? payrollId { get; set; }
         public string? avatar { get; set;}
