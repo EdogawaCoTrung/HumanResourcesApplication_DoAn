@@ -143,7 +143,7 @@
                                       SelectedItem="{Binding SelectedItem}"
                                       
                                       Margin="0,0,0,10"
-                                      Height="450" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
+                                      Height="490" Name="Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
                             <DataGrid.Columns>
                                 <DataGridCheckBoxColumn Width="0.3*" ElementStyle="{StaticResource CheckBoxStyle1}">
                                 </DataGridCheckBoxColumn>
@@ -159,9 +159,10 @@
                                                     </Ellipse>
                                                 </Border>
                                                 <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
-                                                    <TextBlock Name="Name" Background="Transparent" Text="{Binding user.userName, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>
+                                                    <TextBlock Name="Name" Background="Transparent" Text="{Binding user.userName, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor8}" FontSize="14" FontWeight="DemiBold"></TextBlock>
                                                     <StackPanel Orientation="Horizontal">
                                                         <TextBlock Name="EmployeeID" Background="Transparent" Margin="0,0,5,0" Text="{Binding user.userId, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor2}" FontSize="11" FontWeight="SemiBold"></TextBlock>
+                                                        <TextBlock Text="-" Margin="0,0,5,0" Foreground="{StaticResource FontColor2}" FontSize="11"></TextBlock>
                                                         <TextBlock Name="Role" Background="Transparent" Text="{Binding user.roleId, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor2}" FontSize="11" FontWeight="SemiBold"></TextBlock>
                                                     </StackPanel>
                                                 </StackPanel>
@@ -173,9 +174,10 @@
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
-                                                <TextBlock Name="AgreementName" Background="Transparent" Text="{Binding contractName, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>
+                                                <TextBlock Name="AgreementName" Background="Transparent" Text="{Binding contractName, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor8}" FontSize="14" FontWeight="SemiBold"></TextBlock>
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock Name="StartDate" Background="Transparent" Margin="0,0,5,0" Text="{Binding startDate, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor2}" FontSize="11" FontWeight="Medium"></TextBlock>
+                                                    <TextBlock Text="-" Margin="0,0,5,0" Foreground="{StaticResource FontColor2}" FontSize="11"></TextBlock>
                                                     <TextBlock Name="EndDate" Background="Transparent" Text="{Binding endDate, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor2}" FontSize="11" FontWeight="Medium"></TextBlock>
                                                 </StackPanel>
                                             </StackPanel>
@@ -185,9 +187,7 @@
                                 <DataGridTemplateColumn Header="Status" IsReadOnly="True" CanUserResize="False" Width="1*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
-                                                <TextBlock Name="AgreementName" Background="Transparent" Style="{StaticResource StatusAgreement}" Text="{Binding status, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>
-                                            </StackPanel>
+                                            <TextBlock Name="AgreementName" Width="70" Padding="4,5,4,5" VerticalAlignment="Center" TextAlignment="Center" Text="{Binding status, UpdateSourceTrigger=PropertyChanged}" FontSize="13" FontWeight="Bold" Style="{StaticResource StatusAgreement}"></TextBlock>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
