@@ -187,7 +187,7 @@
                                 <DataGridTemplateColumn Header="Status" IsReadOnly="True" CanUserResize="False" Width="1*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBlock Name="AgreementName" Width="70" Padding="4,5,4,5" VerticalAlignment="Center" TextAlignment="Center" Text="{Binding status, UpdateSourceTrigger=PropertyChanged}" FontSize="13" FontWeight="Bold" Style="{StaticResource StatusAgreement}"></TextBlock>
+                                            <TextBlock Name="AgreementName" VerticalAlignment="Center" TextAlignment="Center" Text="{Binding status, UpdateSourceTrigger=PropertyChanged}" FontSize="13" FontWeight="Bold" Style="{StaticResource StatusAgreement}"></TextBlock>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>

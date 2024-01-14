@@ -338,12 +338,12 @@
     <Style x:Key="StatusAgreement" TargetType="TextBlock">
         <Style.Triggers>
             <Trigger Property="Text" Value="Expired">
-                <Setter Property="Background" Value="{StaticResource PanelColor7}"></Setter>
+                
                 <Setter Property="Foreground" Value="{StaticResource FontColor5}"></Setter>
             </Trigger>
             <Trigger Property="Text" Value="Signed">
-                <Setter Property="Background" Value="{StaticResource PanelColor8}"></Setter>
-                <Setter Property="Foreground" Value="White"></Setter>
+              
+                <Setter Property="Foreground" Value="{StaticResource PanelColor8}"></Setter>
             </Trigger>
         </Style.Triggers>
     </Style>
