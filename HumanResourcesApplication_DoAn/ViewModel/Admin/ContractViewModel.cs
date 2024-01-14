@@ -1,5 +1,6 @@
 ﻿using HumanResourcesApplication_DoAn.Model;
 using HumanResourcesApplication_DoAn.Repositories;
+using HumanResourcesApplication_DoAn.Views.Admin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
     public class ContractViewModel:ViewModelBase
     {
         private IListUsersRepository listUsersRepository;
+        public ViewModelCommand ViewContractCommand { get; }
+
         private List<User?> listUsers;
         private List<Contract?> _Users;
         public List<Contract?> Users { get => _Users; set { _Users = value; } }
@@ -20,7 +23,9 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             listUsers = new List<User>();
             listUsers = listUsersRepository.ListUsers();
             Users = new List<Contract?>();
-            for(int i=0;i<listUsers.Count; i++)
+            ViewContractCommand = new ViewModelCommand(ExcuteViewContractCommand, CanExcuteViewContractCommand);
+
+            for (int i=0;i<listUsers.Count; i++)
             {
                 Contract temp = new Contract();
                 temp.user = listUsers[i];
@@ -32,5 +37,15 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }
         }
 
+        private bool CanExcuteViewContractCommand(object? obj)
+        {
+            return true;
+        }
+
+        private void ExcuteViewContractCommand(object? obj)
+        {
+            EmploymentAgreementView employmentAgreementView = new EmploymentAgreementView();
+            employmentAgreementView.ShowDialog();
+        }
     }
 }
