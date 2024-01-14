@@ -33,6 +33,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public ViewModelCommand AddPayrollCommand { get; }
         public IListPayrollRepository? payrollRepository { get; }
         private IListAttendanceRepository? attendanceRepository;
+        public ViewModelCommand CaculateCommand { get; }
         private List<Payroll>? _payrolls;
         private List<salarySta> _salSta;
         private salarySta _top1;
@@ -143,13 +144,13 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                     double? sum = 0;
                     for (int j = 0; j < payrolls.Count; j++)
                     {
-                        if (i!=j && payrolls[i].department.departmentName == payrolls[j].department.departmentName)
+                        if (payrolls[i].department.departmentName == payrolls[j].department.departmentName)
                         {
-                            sum += payrolls[i].salary;
+                            sum += payrolls[j].salary;
                         }
                     }
                     temp.departmentName = payrolls[i].department.departmentName;
-                    temp.salary = sum;
+                    temp.salary = Math.Round((double)sum, 2);
                     salSta.Add(temp);
                 }
             }
@@ -180,6 +181,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             attendanceRepository = new ListAttendanceRepository();
             listAttendance = attendanceRepository.ListAttendance();
             ShowInforSalary = new ViewModelCommand(ExecuteShowInforSalaryCommand);
+            CaculateCommand = new ViewModelCommand(ExcuteCaculateCommand, CanExcuteCaculateCommand);
             salSta = new List<salarySta>();
             Top1 = new salarySta();
             Top2 = new salarySta();
@@ -189,10 +191,25 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             filterSalarySta();
             MonthSource = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
             YearSource = new List<string>() { };
-            for (int i = 1980; i <= DateTime.Now.Year; i++)
+            for (int i = 2020; i <= DateTime.Now.Year; i++)
             {
                 YearSource.Add(i.ToString());
             }
+        }
+
+        private bool CanExcuteCaculateCommand(object? obj)
+        {
+            return true;
+        }
+
+        private void ExcuteCaculateCommand(object? obj)
+        {
+            double? sum = 0;
+            for(int i = 0; i < payrolls.Count; i++)
+            {
+                sum += payrolls[i].salary;
+            }
+            MessageBox.Show("Total salary of employees in " + selectedMonth + "/" + selectedYear + " is " + sum.ToString());
         }
 
         private void ExecuteShowInforSalaryCommand(object? obj)

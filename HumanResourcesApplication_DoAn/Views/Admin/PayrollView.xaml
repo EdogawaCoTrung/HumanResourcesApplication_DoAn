@@ -187,7 +187,7 @@
                     <Border BorderBrush="{StaticResource ButtonColor2}" BorderThickness="0" CornerRadius="20" Margin="0,0,15,0">
                         <Button 
     Width="200"
-    Command="{Binding AddDepartmentCommand}"
+    Command="{Binding CaculateCommand}"
     Height="34"
     Foreground="White"
     FontSize="13"
