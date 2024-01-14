@@ -23,7 +23,6 @@ namespace HumanResourcesApplication_DoAn.Repositories
             while (reader.Read())
             {
                 Attendance _attendance = new Attendance();
-                _attendance.userId = reader["ATTENDANCE_ID"].ToString();
                 _attendance.userId = reader["USERNAME"].ToString();
                 _attendance.date = DateOnly.FromDateTime(DateTime.Parse(reader["DATE_ATTENDANCE"].ToString()));
                 _attendance.inTime = TimeSpan.Parse(reader["INTIME"].ToString() == "" ? "00:00:00" : reader["INTIME"].ToString());

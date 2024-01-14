@@ -105,13 +105,13 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 {
                     if (temp[i].user.userName == listAttendance[j].userId && ((DateOnly)listAttendance[j].date).Month.ToString() == SelectedMonth && ((DateOnly)listAttendance[j].date).Year.ToString() == SelectedYear)
                     {
-                        if ((listAttendance[j].inTime - TimeSpan.Parse("07:00:00") > TimeSpan.Parse("00:30:00")) || (TimeSpan.Parse("17:00:00") - listAttendance[j].outTime > TimeSpan.Parse("00:30:00")))
-                        {
-                            late++;
-                        }
-                        else if (listAttendance[j].inTime == TimeSpan.Parse("00:00:00"))
+                        if (listAttendance[j].status == "Absent")
                         {
                             absence++;
+                        }
+                        else if ((listAttendance[j].inTime - TimeSpan.Parse("07:00:00") > TimeSpan.Parse("00:30:00")) || (TimeSpan.Parse("17:00:00") - listAttendance[j].outTime > TimeSpan.Parse("00:30:00")))
+                        {
+                            late++;
                         }
                         if (listAttendance[j].outTime - TimeSpan.Parse("17:00:00") > TimeSpan.Parse("00:00:00"))
                         {
@@ -120,7 +120,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                     }
 
                 }
-                temp[i].late = late.ToString(); temp[i].overtime=overtime.ToString(); temp[i].absence = absence.ToString();
+                temp[i].late = late.ToString(); temp[i].overtime=overtime.ToString(); temp[i].absence = absence.ToString(); temp[i].date = selectedMonth + "/" + selectedYear;
                 temp[i].salary = Math.Round((double)(temp[i].salary - (double)(late * 0.005 * temp[i].salary) - (double)(absence * 0.05 * temp[i].salary) + (double)(overtime * 0.0075 * temp[i].salary)), 2);
             }
             payrolls = temp;
@@ -209,7 +209,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             {
                 sum += payrolls[i].salary;
             }
-            MessageBox.Show("Total salary of employees in " + selectedMonth + "/" + selectedYear + " is " + sum.ToString());
+            MessageBox.Show("Total salary of employees in " + selectedMonth + "/" + selectedYear + " is $" + sum.ToString());
         }
 
         private void ExecuteShowInforSalaryCommand(object? obj)

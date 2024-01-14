@@ -17,6 +17,9 @@ namespace HumanResourcesApplication_DoAn.Model
         public string late {  get; set; }
         public string overtime {  get; set; }
         public string absence { get; set; }
+        public string date { get; set; }
+        public string stt { get; set; }
+
         public Payroll()
         {
             user = new User();
