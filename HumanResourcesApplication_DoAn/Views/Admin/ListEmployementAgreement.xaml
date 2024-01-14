@@ -154,15 +154,15 @@
                                                 <Border Width="30" Height="30" Margin="0,0,8,0" BorderThickness="1" HorizontalAlignment="Left" CornerRadius="50" BorderBrush="{StaticResource FontColor2}">
                                                     <Ellipse>
                                                         <Ellipse.Fill>
-                                                            <ImageBrush ImageSource="{Binding avatar}" Stretch="UniformToFill"></ImageBrush>
+                                                            <ImageBrush ImageSource="{Binding user.avatar}" Stretch="UniformToFill"></ImageBrush>
                                                         </Ellipse.Fill>
                                                     </Ellipse>
                                                 </Border>
                                                 <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
-                                                    <TextBlock Name="Name" Background="Transparent" Text="{Binding userName, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>
+                                                    <TextBlock Name="Name" Background="Transparent" Text="{Binding user.userName, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>
                                                     <StackPanel Orientation="Horizontal">
-                                                        <TextBlock Name="EmployeeID" Background="Transparent" Margin="0,0,5,0" Text="{Binding userId, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor2}" FontSize="11" FontWeight="SemiBold"></TextBlock>
-                                                        <TextBlock Name="Role" Background="Transparent" Text="{Binding roleId, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor2}" FontSize="11" FontWeight="SemiBold"></TextBlock>
+                                                        <TextBlock Name="EmployeeID" Background="Transparent" Margin="0,0,5,0" Text="{Binding user.userId, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor2}" FontSize="11" FontWeight="SemiBold"></TextBlock>
+                                                        <TextBlock Name="Role" Background="Transparent" Text="{Binding user.roleId, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor2}" FontSize="11" FontWeight="SemiBold"></TextBlock>
                                                     </StackPanel>
                                                 </StackPanel>
                                             </StackPanel>
@@ -173,10 +173,10 @@
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
-                                                <TextBlock Name="AgreementName" Background="Transparent" Text="{Binding userName, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>
+                                                <TextBlock Name="AgreementName" Background="Transparent" Text="{Binding contractName, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>
                                                 <StackPanel Orientation="Horizontal">
-                                                    <TextBlock Name="StartDate" Background="Transparent" Margin="0,0,5,0" Text="{Binding joinDate, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor2}" FontSize="11" FontWeight="Medium"></TextBlock>
-                                                    <TextBlock Name="EndDate" Background="Transparent" Text="{Binding joinDate, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor2}" FontSize="11" FontWeight="Medium"></TextBlock>
+                                                    <TextBlock Name="StartDate" Background="Transparent" Margin="0,0,5,0" Text="{Binding startDate, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor2}" FontSize="11" FontWeight="Medium"></TextBlock>
+                                                    <TextBlock Name="EndDate" Background="Transparent" Text="{Binding endDate, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor2}" FontSize="11" FontWeight="Medium"></TextBlock>
                                                 </StackPanel>
                                             </StackPanel>
                                         </DataTemplate>
@@ -186,7 +186,7 @@
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
-                                                <TextBlock Name="AgreementName" Background="Transparent" Style="{StaticResource StatusAgreement}" Text="{Binding userName, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>
+                                                <TextBlock Name="AgreementName" Background="Transparent" Style="{StaticResource StatusAgreement}" Text="{Binding status, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource FontColor8}" FontSize="13" FontWeight="SemiBold"></TextBlock>
                                             </StackPanel>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
