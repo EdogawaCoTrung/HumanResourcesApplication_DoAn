@@ -19,12 +19,23 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         public PayrollBase SelectedItem { get => selectedItem; set { selectedItem = value; OnPropertyChanged(nameof(SelectedItem)); } }
         public ViewModelCommand AddBaseSalaryCommand {get;}
+        public ViewModelCommand ChangeBaseSalaryCommand {  get; }
         public BaseSalaryViewModel() 
         {
             listPayrollBaseRepos = new ListPayrollBase();
             ListPayrollBase = listPayrollBaseRepos.ListPayrollBaseFunc();
             AddBaseSalaryCommand = new ViewModelCommand(ExecuteAddBaseSalaryCommand);
-           
+            ChangeBaseSalaryCommand = new ViewModelCommand(ExecuteChangeBaseSalaryCommand);
+
+
+        }
+
+        private void ExecuteChangeBaseSalaryCommand(object? obj)
+        {
+            BaseSalary_Change baseSalary_Change = new BaseSalary_Change();
+            baseSalary_Change.DataContext = new ChangeBaseSalaryViewModel(SelectedItem);
+            baseSalary_Change.ShowDialog();
+            ListPayrollBase = listPayrollBaseRepos.ListPayrollBaseFunc();
         }
 
         private void ExecuteAddBaseSalaryCommand(object? obj)
@@ -33,6 +44,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             payroll_Add.DataContext = new AddBaseSalaryViewModel();
             payroll_Add.ShowDialog();
             ListPayrollBase = listPayrollBaseRepos.ListPayrollBaseFunc();
+            
         }
     }
 }

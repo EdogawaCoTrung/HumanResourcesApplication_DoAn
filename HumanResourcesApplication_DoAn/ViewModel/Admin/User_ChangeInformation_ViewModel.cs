@@ -20,7 +20,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private string? _password;
         private string? _isAdmin; 
         private string? _phoneNumber;
-        private string? _dateOfBirth;
+        private DateOnly? _dateOfBirth;
+        private List<string> _sourceCountry;
         private string? _gender;
         private string? _country;
         private string? _education;
@@ -51,7 +52,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public string? LoginName { get => _loginName; set { _loginName = value; OnPropertyChanged(nameof(LoginName)); } }
         public string? Password { get => _password; set { _password = value; OnPropertyChanged(nameof(Password)); } }
         public string? PhoneNumber { get => _phoneNumber; set { _phoneNumber = value; OnPropertyChanged(nameof(PhoneNumber)); } }
-        public string? DateOfBirth { get => _dateOfBirth; set { _dateOfBirth = value; OnPropertyChanged(nameof(DateOfBirth)); } }
+        public DateOnly? DateOfBirth { get => _dateOfBirth; set { _dateOfBirth = value; OnPropertyChanged(nameof(DateOfBirth)); } }
         public string? Gender { get => _gender; set { _gender = value; OnPropertyChanged(nameof(Gender)); } }
         public string? Country { get => _country; set { _country = value; OnPropertyChanged(nameof(Country)); } }
         public string? Education { get => _education; set { _education = value; OnPropertyChanged(nameof(Education)); } }
@@ -74,7 +75,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public ViewModelCommand ChangeCommand { get; }
         public ViewModelCommand CancelCommand { get; }
         public ViewModelCommand UploadImageCommand { get; }
-        
+        public List<string> SourceCountry { get => _sourceCountry; set { _sourceCountry = value; } }
 
         public User_ChangeInformation_ViewModel()
         {
@@ -85,7 +86,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             _password = User.password;
             _isAdmin = User.isAdmin.ToString();
             _phoneNumber = User.phoneNumber;
-            _dateOfBirth = User.dateOfBirth.ToString();
+            _dateOfBirth = User.dateOfBirth;
             _gender = User.gender;
             _country = User.countryId;
             _education =  User.educationId;
@@ -128,12 +129,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         }
         private void ExcuteChangeCommand(object? obj)
         {
-            DateOfBirth = "";
-            JoinDate ="";
-            Country ="";
-            RoleId="";
-            PayrollId="";
-            Education = "";
+            
             changeProfileRepository.ChangeProfile(MyApp.currentUser.loginName, UserName, Password,IsAdmin, PhoneNumber, DateOfBirth,Country,Education, Gender,JoinDate,RoleId,PayrollId, Facebook, Twitter, LinkedIn, Email, FileName, DepartmentId);
             if(NewPath == null)
             {
