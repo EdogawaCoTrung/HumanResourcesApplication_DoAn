@@ -65,20 +65,21 @@
                         <Border BorderBrush="LightGray" 
                                     BorderThickness="1" 
                                     CornerRadius="7">
-                            <TextBox x:Name="EmployeeID" 
+                            <TextBlock x:Name="EmployeeID" 
                                         Text="{Binding UserId}"
-                                         BorderThickness="0" 
+                                        Background="LightGray"
                                          Width="200" 
                                          Height="34" 
                                          Padding="10,8,10,0"  
                                          VerticalAlignment="Center" 
                                          FontSize="13"
-                                ></TextBox>
+                                ></TextBlock>
                         </Border>
                     </Grid>
                     <Grid Width="200" Height="34" Margin="0,0,15,0">
                         <TextBlock Margin="10,5,5,5" 
                                Text="Name *" 
+                                   
                                FontSize="13"
                                Visibility="{Binding ElementName=Name, 
                                             Path=Text.IsEmpty,
@@ -91,16 +92,16 @@
                         <Border BorderBrush="LightGray" 
                                     BorderThickness="1" 
                                     CornerRadius="7">
-                            <TextBox x:Name="Name"
+                            <TextBlock x:Name="Name"
                                  Text="{Binding UserName}"
-                                 BorderThickness="0" 
+                                 Background="LightGray"
                                  Width="200" 
                                  Height="34" 
                                  Padding="10,8,10,0"  
                                  VerticalAlignment="Center" 
                                  FontSize="13"
                                 >
-                            </TextBox>
+                            </TextBlock>
                         </Border>
                     </Grid>
                     <Grid Height="34" Width="200">
@@ -141,7 +142,7 @@
                             <Border BorderBrush="LightGray" 
                                     BorderThickness="1" 
                                     CornerRadius="7">
-                                <TextBox x:Name="StartDay" 
+                                <DatePicker x:Name="StartDay" 
                                      Text="{Binding StartDate}"
                                      BorderThickness="0" 
                                      Width="200" 
@@ -151,7 +152,7 @@
                                      FontSize="13"
                                      
                                 >           
-                                </TextBox>
+                                </DatePicker>
                             </Border>
                         </Grid>
                         <Grid Width="200" Height="34" Margin="0,0,15,0">
@@ -169,7 +170,7 @@
                             <Border BorderBrush="LightGray" 
                                     BorderThickness="1" 
                                     CornerRadius="7">
-                                <TextBox x:Name="EndDate" 
+                                <DatePicker x:Name="EndDate" 
                                          Text="{Binding EndDate}"
                                          BorderThickness="0" 
                                          Width="200" 
@@ -178,7 +179,7 @@
                                          VerticalAlignment="Center" 
                                          FontSize="13"
 >
-                                </TextBox>
+                                </DatePicker>
                             </Border>
                         </Grid>
                     </StackPanel>
