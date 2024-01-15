@@ -62,8 +62,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
 
         private void ExcuteChangeDepartmentCommand(object? obj)
         {
-            MessageBox.Show("Change");
-
+            Insurance_Change insurance_Change = new Insurance_Change();
+            insurance_Change.DataContext = new ChangeInsuranceViewModel(SelectedItem);
+            insurance_Change.ShowDialog();
+            ListInsurances = insuranceRepository.GetByAll();
         }
     }
 }

@@ -12,11 +12,14 @@
              d:DesignHeight="750" d:DesignWidth="1100">
     <!--<UserControl.DataContext>
         <VM:InsuranceMainViewModel />
-    </UserControl.DataContext>-->
+    <UserControl.DataContext>-->
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
         <DataTemplate DataType="{x:Type ViewModel:AddInsuranceViewModel}">
             <local:Insurance_Add />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModel:ChangeInsuranceViewModel}">
+            <local:Insurance_Change />
         </DataTemplate>
         <Style TargetType="DataGrid">
             <Setter Property="VerticalScrollBarVisibility" Value="Disabled"></Setter>
@@ -140,7 +143,7 @@
                         </Grid>
                         <DataGrid Height="500" 
                               ItemsSource="{Binding ListInsurances}"
-                              SelectedItem="{Binding Selectedtem}"
+                              SelectedItem="{Binding SelectedItem}"
                               Name="Users" 
                               RowStyle="{DynamicResource DataGridRowStyle1}" 
                               CellStyle="{DynamicResource DataGridCellTemplate4}" 
@@ -188,16 +191,6 @@
                                                      ToolTip="MaterialDesignIconForegroundButton">
                                                     <materialDesign:PackIcon Kind="PencilOutline" 
                                                                          Foreground="{StaticResource FontColor2}"/>
-                                                </Button>
-                                                <Button  Width="30" 
-                                                     Command="{Binding DataContext.DeleteInsuranceCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
-                                                     CommandParameter="{Binding}"
-                                                     Height="30" 
-                                                     Margin="0,0,10,0"
-                                                    
-                                                     Style="{StaticResource MaterialDesignIconForegroundButton}"
-                                                     ToolTip="MaterialDesignIconForegroundButton">
-                                                    <materialDesign:PackIcon Kind="TrashCanOutline" Foreground="{StaticResource FontColor2}"/>
                                                 </Button>
                                             </StackPanel>
                                         </DataTemplate>

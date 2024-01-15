@@ -4,9 +4,122 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Insurance_Change" Height="450" Width="800">
+        Title="Insurance_Change" Height="450" Width="500">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="280"/>
+            <RowDefinition Height="56"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+            <Border BorderThickness="0,0,0,1" 
+     BorderBrush="{StaticResource FontColor2}">
+                <Grid>
+                    <TextBlock Margin="16,16,0,0" 
+                Text="Change Insurance"
+                FontWeight="SemiBold"
+                FontSize="20" />
+
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid Margin="20,0,0,0" Grid.Row="1" Grid.ColumnSpan="2">
+            <StackPanel Margin="0,0,0,0" Orientation="Vertical">
+                <TextBlock Margin="0,20,0,15" Text="Informations" FontWeight="SemiBold" Foreground="Black" FontSize="15"></TextBlock>
+                <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                    <Grid Width="460" Margin="0,0,15,15"  Height="34">
+                        <TextBlock Margin="10,5,5,5" Text="Insurance Name*" FontSize="13"
+                        Visibility="{Binding ElementName=INSURANCE_NAME, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                        HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
+                            <ComboBox 
+                                IsEnabled="False"
+                         x:Name="INSURANCE_NAME"
+                         SelectedItem="{Binding InsuranceName}"
+                        ItemsSource="{Binding SourceInsurance}"
+                         BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                    ></ComboBox>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                    <Grid Width="460" Margin="0,0,15,15"  Height="34">
+                        <TextBlock Margin="10,5,5,5" Text="User Name*" FontSize="13"
+                        Visibility="{Binding ElementName=USER_NAME, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                        HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
+                            <ComboBox 
+                                IsEnabled="False"
+                             x:Name="USER_NAME"
+                             SelectedItem="{Binding UserName}"
+                             ItemsSource="{Binding SourceUser}"
+                             BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                            ></ComboBox>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                    <Grid Width="460" Margin="0,0,15,15"  Height="34">
+                        <TextBlock Margin="10,5,5,5" Text="Start Date*" FontSize="13"
+                        Visibility="{Binding ElementName=START_DATE, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                        HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
+                            <DatePicker 
+                             x:Name="START_DATE"
+                             SelectedDate="{Binding StartDate}"
+                             BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                            ></DatePicker>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                    <Grid Width="460" Margin="0,0,15,15"  Height="34">
+                        <TextBlock Margin="10,5,5,5" Text="End Date*" FontSize="13"
+            Visibility="{Binding ElementName=END_DATE, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                        </TextBlock>
+                        <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
+                            <DatePicker 
+                 x:Name="END_DATE"
+                 SelectedDate="{Binding EndDate}"
+                 BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                ></DatePicker>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                <Button Width="90" Height="30" 
+ Margin="28,10,30,10" 
+ Content="Cancel" 
+ Command="{Binding CancelCommand}"
+ Style="{StaticResource MaterialDesignFlatSecondaryButton}"
+ Background="{StaticResource Color2}" 
+ BorderBrush="{StaticResource Color2}"
+ 
+ Foreground="#8F9BB3"/>
+                <Button Width="90"
+     Height="30"
+     Margin="0,10,0,10"
+     Command="{Binding ChangeCommand}"
+     materialDesign:ButtonAssist.CornerRadius="10"
+     BorderBrush="#0095FF"
+     Foreground="White"
+     Background="#0095FF"
+     Content="Change">
+                </Button>
+            </StackPanel>
+
+        </Grid>
     </Grid>
 </Window>

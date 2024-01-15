@@ -108,6 +108,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này", "Thông báo", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
             {
                 userRepository.Remove(SelectedItem.userId);
+                Users = listUsers.ListUsers();
             }
             else return;
             
