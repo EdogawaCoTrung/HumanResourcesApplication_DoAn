@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesApplication_DoAn.Model
 {
-    public interface IListCountry
+    public interface IListEducation
     {
-        public List<Country> ListCountry();
+        public List<Education> ListEducations();
     }
 }

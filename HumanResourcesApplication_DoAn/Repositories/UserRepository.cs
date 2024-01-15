@@ -90,7 +90,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 _user.payrollId = reader["SALARY"].ToString();
                 _user.avatar = reader["AVATAR"].ToString();
                 _user.avatar = bindingImage.ConvertPath(_user.avatar);
-                _user.gender = reader["GENDER"].ToString() == "0" ? "Female" : "Male";
+                _user.gender = reader["GENDER"].ToString() == "0" ? "Nữ" : "Nam";
             }
             connection.Close();
             return _user;
@@ -128,7 +128,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 _user.payrollId = reader["SALARY"].ToString();
                 _user.avatar = reader["AVATAR"].ToString();
                 _user.avatar = bindingImage.ConvertPath(_user.avatar);
-                _user.gender = reader["GENDER"].ToString() == "0" ? "Female" : "Male";
+                _user.gender = reader["GENDER"].ToString() == "0" ? "Nữ" : "Nam";
             }
             connection.Close();
             return _user;

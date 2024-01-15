@@ -106,8 +106,8 @@
                                          BorderThickness="0"  
                                          Height="34" 
                                          Padding="10,8,10,0"  
-                                         VerticalAlignment="Center" 
-                                         FontSize="13"
+                                         VerticalAlignment="Bottom" 
+                                         FontSize="13" Margin="0,0,0,-1"
                                     ></DatePicker>
                             </Border>
                         </Grid>

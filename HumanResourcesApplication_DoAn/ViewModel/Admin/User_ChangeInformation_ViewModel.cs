@@ -3,6 +3,7 @@ using HumanResourcesApplication_DoAn.Repositories;
 using HumanResourcesApplication_DoAn.Utils;
 using HumanResourcesApplication_DoAn.Views.Admin;
 using Microsoft.Win32;
+using Org.BouncyCastle.Bcpg;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,9 +21,16 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private string? _password;
         private string? _isAdmin; 
         private string? _phoneNumber;
-        private DateOnly _dateOfBirth;
+        private DateTime _dateOfBirth;
         private List<Country> _countries;
         private List<string> _sourceCountry;
+        private List<Education> _listEducation;
+        private List<string> _sourceEducation;
+        private List<string> _sourceGender;
+        private List<PayrollBase> _listRole;
+        private List<string> _sourceRoleId;
+        private List<Model.Department> _listDepartment;
+        private List<string> _sourceDepartment;
         private string? _gender;
         private string? _country;
         private string? _education;
@@ -30,7 +38,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private string? _facebook;
         private string? _twitter;
         private string? _linkedIn;
-        private DateOnly? _joinDate;
+        private DateTime _joinDate;
         private string? _departmentId;
         private string? _payrollId;
         private string? _email;
@@ -53,7 +61,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public string? LoginName { get => _loginName; set { _loginName = value; OnPropertyChanged(nameof(LoginName)); } }
         public string? Password { get => _password; set { _password = value; OnPropertyChanged(nameof(Password)); } }
         public string? PhoneNumber { get => _phoneNumber; set { _phoneNumber = value; OnPropertyChanged(nameof(PhoneNumber)); } }
-        public DateOnly DateOfBirth { get => _dateOfBirth; set { _dateOfBirth = value; OnPropertyChanged(nameof(DateOfBirth)); } }
+        public DateTime DateOfBirth { get => _dateOfBirth; set { _dateOfBirth = value; OnPropertyChanged(nameof(DateOfBirth)); } }
         public string? Gender { get => _gender; set { _gender = value; OnPropertyChanged(nameof(Gender)); } }
         public string? Country { get => _country; set { _country = value; OnPropertyChanged(nameof(Country)); } }
         public string? Education { get => _education; set { _education = value; OnPropertyChanged(nameof(Education)); } }
@@ -68,41 +76,83 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public string? FileName { get => _fileName; set { _fileName = value; OnPropertyChanged(nameof(FileName)); } }
         public string? IsAdmin { get => _isAdmin; set { _isAdmin = value; OnPropertyChanged(nameof(IsAdmin)); } }
 
-        public DateOnly? JoinDate { get => _joinDate; set { _joinDate = value; OnPropertyChanged(nameof(JoinDate)); } }
+        public DateTime JoinDate { get => _joinDate; set { _joinDate = value; OnPropertyChanged(nameof(JoinDate)); } }
         public string? DepartmentId { get => _departmentId; set { _departmentId = value; OnPropertyChanged(nameof(DepartmentId)); } }
         public string? PayrollId { get => _payrollId; set { _payrollId = value; OnPropertyChanged(nameof(PayrollId)); } }
         public IAdmin_ChangeProfileRepository changeProfileRepository;
-
+        public IUserRepository userRepository;
         public ViewModelCommand ChangeCommand { get; }
         public ViewModelCommand CancelCommand { get; }
         public ViewModelCommand UploadImageCommand { get; }
-        public IListCountry listCountry { get; }
+        public IListPayrollBase listPayrollBase;
+        public IListCountry listCountry;
+        public IListEducation listEducation;
+        public IListDepartmentRepository departmentRepository;
         public List<string> SourceCountry { get => _sourceCountry; set { _sourceCountry = value; OnPropertyChanged(nameof(SourceCountry)); } }
 
         public List<Country> Countries { get => _countries; set { _countries = value; OnPropertyChanged(nameof(Countries)); } }
 
+        public List<Education> ListEducation { get => _listEducation; set { _listEducation = value; OnPropertyChanged(nameof(ListEducation)); } }
+        public List<string> SourceEducation { get => _sourceEducation; set { _sourceEducation = value; OnPropertyChanged(nameof(SourceEducation)); } }
+
+        public List<string> SourceGender { get => _sourceGender; set { _sourceGender = value; OnPropertyChanged(nameof(SourceGender)); } }
+
+        public List<PayrollBase> ListRole { get => _listRole; set { _listRole = value; OnPropertyChanged(nameof(ListRole)); } }
+        public List<string> SourceRoleId { get => _sourceRoleId; set { _sourceRoleId = value; OnPropertyChanged(nameof(SourceRoleId)); } }
+        public List<Model.Department> ListDepartment { get => _listDepartment; set { _listDepartment = value; OnPropertyChanged(nameof(ListDepartment)); } }
+        public List<string> SourceDepartment { get => _sourceDepartment; set { _sourceDepartment = value; OnPropertyChanged(nameof(SourceDepartment)); } }
+
         public User_ChangeInformation_ViewModel()
         {
-            
-            User = MyApp.currentUser;
-            _userName = User.userName;
-            _loginName = User.loginName;
-            _password = User.password;
-            _isAdmin = User.isAdmin.ToString();
-            _phoneNumber = User.phoneNumber;
-            //_dateOfBirth = User.dateOfBirth;
-            _gender = User.gender;
-            _country = User.countryId;
-            _education =  User.educationId;
-            _roleId = User.roleId;
-            _facebook = User.facebook;
-            _twitter = User.twitter;
-            _linkedIn=User.linkedIn;
-            _joinDate = User.joinDate;
-            _departmentId= User.departmentId;
-            _payrollId= User.payrollId;
-            _email=User.email;
-            _avatar=User.avatar;
+            userRepository = new UserRepository(); 
+            departmentRepository = new ListDepartmentRepository();
+            ListDepartment = departmentRepository.ListDepartment();
+            SourceDepartment = new List<string> { };
+            foreach(Model.Department department in ListDepartment)
+            {
+                SourceDepartment.Add(department.departmentName);
+            }
+            SourceGender = new List<string>() {"Nam","Nữ"};
+            listEducation = new ListEducation();
+            ListEducation = listEducation.ListEducations();
+            SourceEducation = new List<string>();
+            foreach (Education education in ListEducation)
+            {
+                SourceEducation.Add(education.educationName);
+            }
+            listPayrollBase = new ListPayrollBase();
+            ListRole = listPayrollBase.ListPayrollBaseFunc();
+            listCountry = new ListCountryRepository();
+            Countries = listCountry.ListCountry();
+            SourceCountry = new List<string>();
+            foreach (Country country in Countries)
+            {
+                SourceCountry.Add(country.countryName);
+            }
+            SourceRoleId = new List<string>();
+            foreach(PayrollBase payrollBase in ListRole)
+            {
+                SourceRoleId.Add(payrollBase.role.roleName);
+            }
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
+            UserName = User.userName;
+            LoginName = User.loginName;
+            Password = User.password;
+            IsAdmin = User.isAdmin.ToString();
+            PhoneNumber = User.phoneNumber;
+            DateOfBirth = DateTime.Parse(User.dateOfBirth.Value.ToString());
+            Gender = User.gender;
+            Country = User.countryId;
+            Education =  User.educationId;
+            RoleId = User.roleId;
+            Facebook = User.facebook;
+            Twitter = User.twitter;
+            LinkedIn=User.linkedIn;
+            JoinDate = DateTime.Parse(User.joinDate.Value.ToString());
+            DepartmentId= User.departmentId;
+            PayrollId= User.payrollId;
+            Email=User.email;
+            Avatar=User.avatar;
             changeDate = new ChangeDate();
             changeProfileRepository = new Admin_ChangeProfileRepository();
             ChangeCommand = new ViewModelCommand(ExcuteChangeCommand,CanExcuteChangeCommand);
@@ -133,9 +183,46 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         }
         private void ExcuteChangeCommand(object? obj)
         {
-            //string tempJoinDate = changeDate.ChangeDateFormatDateOnly(JoinDate);
-            string tempDateOfBirth = changeDate.ChangeDateFormatDateOnly(DateOfBirth);
-            //changeProfileRepository.ChangeProfile(MyApp.currentUser.loginName, UserName, Password,IsAdmin, PhoneNumber, tempDateOfBirth,Country,Education, Gender,tempJoinDate,RoleId,PayrollId, Facebook, Twitter, LinkedIn, Email, FileName, DepartmentId);
+            string tempJoinDate = changeDate.ChangeDateFormat(JoinDate);
+            string tempDateOfBirth = changeDate.ChangeDateFormat(DateOfBirth);
+            foreach(Model.Department department in ListDepartment)
+            {
+                if(DepartmentId == department.departmentName)
+                {
+                    DepartmentId = department.departmentId;
+                }
+            }
+            if (Gender == "Nam") Gender = "1";
+            else Gender = "0";
+            foreach(Country country in Countries)
+            {
+                if(Country ==  country.countryName)
+                {
+                    Country = country.countryId;
+                }
+            }
+            foreach(Education education in ListEducation)
+            {
+                if(Education == education.educationName)
+                {
+                    Education = education.educationId;
+                }
+            }
+            foreach(PayrollBase payrollBase in ListRole)
+            {
+                if(payrollBase.role.roleName == RoleId)
+                {
+                    RoleId = payrollBase.role.roleId;
+                }
+            }
+            foreach(PayrollBase payrollBase1 in ListRole)
+            {
+                if(PayrollId  == payrollBase1.salary.ToString())
+                {
+                    PayrollId = payrollBase1.payrollId;
+                }
+            }
+            changeProfileRepository.ChangeProfile(MyApp.currentUser.loginName, UserName, Password,IsAdmin, PhoneNumber, tempDateOfBirth,Country,Education, Gender,tempJoinDate,RoleId,PayrollId, Facebook, Twitter, LinkedIn, Email, FileName, DepartmentId);
             if(NewPath == null)
             {
                 FilePath = User.avatar;

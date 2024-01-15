@@ -112,24 +112,24 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 changeUser.DataContext = new User_ChangeInformation_ViewModel();
                 changeUser.ShowDialog();
                 User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
-                _userName = User.userName;
-                _loginName = User.loginName;
-                _password = User.password;
-                _isAdmin = User.isAdmin.ToString();
-                _phoneNumber = User.phoneNumber;
-                _dateOfBirth = User.dateOfBirth.ToString();
-                _gender = User.gender;
-                _country = User.countryId;
-                _education = User.educationId;
-                _roleId = User.roleId;
-                _facebook = User.facebook;
-                _twitter = User.twitter;
-                _linkedIn = User.linkedIn;
-                _joinDate = User.joinDate.ToString();
-                _departmentId = User.departmentId;
-                _payrollId = User.payrollId;
-                _email = User.email;
-                _avatar = User.avatar;
+                UserName = User.userName;
+                LoginName = User.loginName;
+                Password = User.password;
+                IsAdmin = User.isAdmin.ToString();
+                PhoneNumber = User.phoneNumber;
+                DateOfBirth = User.dateOfBirth.ToString();
+                Gender = User.gender;
+                Country = User.countryId;
+                Education = User.educationId;
+                RoleId = User.roleId;
+                Facebook = User.facebook;
+                Twitter = User.twitter;
+                LinkedIn = User.linkedIn;
+                JoinDate = User.joinDate.ToString();
+                DepartmentId = User.departmentId;
+                PayrollId = User.payrollId;
+                Email = User.email;
+                Avatar = User.avatar;
 
             }
             catch (Exception ex)
