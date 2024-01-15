@@ -5,12 +5,22 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Employee"
              mc:Ignorable="d" 
+             xmlns:VM="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.EmployeeVM"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              d:DesignHeight="750" d:DesignWidth="1100"
              Background="{StaticResource Color2}"
              xmlns:vm="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.EmployeeVM"
              >
     <UserControl.Resources>
+        <DataTemplate DataType="{x:Type VM:AddLeaveRequestVM }">
+            <local:AddLeaveRequest />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type VM:ChangeProfileVM}">
+            <local:Employee_Account_ChangeView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type VM:ContractViewModel}">
+            <local:Employee_Contract />
+        </DataTemplate>
     </UserControl.Resources>
     <Border CornerRadius="20" 
             BorderThickness="1" 
@@ -407,6 +417,25 @@
                             Width="100">
 
                     </Button>
+                    
+                </Border>
+                <Border BorderThickness="1"
+                Background="Blue"
+                Height="40"
+                Width="200"
+                CornerRadius="10"
+                Margin="100,0,0,0" >
+                    <Button Height="40"
+            Command="{Binding ViewContractCommand}"
+            BorderThickness="0"
+                            
+            Background="Transparent"
+            Content="View Contract"
+            FontSize="20"
+            Width="200">
+
+                    </Button>
+
                 </Border>
             </StackPanel>
         </Grid>

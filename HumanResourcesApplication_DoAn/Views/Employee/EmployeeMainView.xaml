@@ -101,6 +101,7 @@
                     Dashboard
                         </TextBlock>
                     </RadioButton>
+                    
                     <RadioButton Style="{StaticResource SecondSideBarButton}"
                                  Command="{Binding ShowAccountViewCommand}">
                         <TextBlock 

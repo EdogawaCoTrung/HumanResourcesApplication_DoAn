@@ -17,7 +17,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 connection.Open();
             MySqlCommand command = new MySqlCommand();
             command.Connection = connection;
-            command.Parameters.Add("@loginName", MySqlDbType.VarString).Value = loginName;
+            
             if (userName != null && userName != "")
             {
                 command.CommandText += "UPDATE USERS SET USERNAME = @userName WHERE LOGINNAME = @loginName;";
@@ -40,16 +40,16 @@ namespace HumanResourcesApplication_DoAn.Repositories
             if (gender != null && gender != "")
             {
                 command.CommandText += "UPDATE USERS SET GENDER = @gender WHERE LOGINNAME = @loginName;";
-                command.Parameters.Add("@gender", MySqlDbType.Bit).Value = gender == "Male" ?   "1" :   "0";
+                command.Parameters.Add("@gender", MySqlDbType.Bit).Value = gender;
             }
             if (country != null && country != "")
             {
-                command.CommandText += "UPDATE USERS SET USERS.COUNTRY_ID = COUNTRY.COUNTRY_ID WHERE LOGINNAME = @loginName AND COUNTRY.COUNTRY_ID = @country;";
+                command.CommandText += "UPDATE USERS SET COUNTRY_ID = @country WHERE LOGINNAME = @loginName;";
                 command.Parameters.Add("@country", MySqlDbType.VarString).Value = country;
             }
             if (education != null && education != "")
             {
-                command.CommandText += "UPDATE USERS SET USERS.EDUCATION_ID = EDUCATION.EDUCATION_ID WHERE LOGINNAME = @loginName AND EDUCATION_NAME = @education;";
+                command.CommandText += "UPDATE USERS SET EDUCATION_ID = @education WHERE LOGINNAME = @loginName;";
                 command.Parameters.Add("@education", MySqlDbType.VarString).Value = education;
             }
             if (facebook != null && facebook != "")
@@ -77,8 +77,8 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 command.CommandText += "UPDATE USERS SET AVATAR = @avatar WHERE LOGINNAME = @loginName;";
                 command.Parameters.Add("@avatar", MySqlDbType.VarString).Value = avatar;
             }
+            command.Parameters.Add("@loginName", MySqlDbType.VarString).Value = loginName;
             MySqlDataReader reader = command.ExecuteReader();
-            reader.Read();
             connection.Close();
         }
     }

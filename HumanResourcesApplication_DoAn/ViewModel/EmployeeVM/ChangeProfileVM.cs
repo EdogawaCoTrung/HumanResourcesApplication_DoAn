@@ -15,11 +15,12 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
 {
     public class ChangeProfileVM : ViewModelBase
     {
+        private User _user;
         private string? _userName;
         private string? _loginName;
         private string? _password;
         private string? _phoneNumber;
-        private string? _dateOfBirth;
+        private DateTime _dateOfBirth;
         private string? _gender;
         private string? _country;
         private string? _education;
@@ -32,17 +33,28 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         private string? _filePath;
         private string? _newPath;
         private string? _fileName;
+        private List<Country> _listCountry;
+        private List<string> _sourceCountry;
+        private List<Education> _listEducation;
+        private List<string> _sourceEducation;
+        private List<string> _sourceGender;
         public ICommand ChangeCommand { get; }
         public ICommand CancelCommand { get; }
         public ICommand UploadImageCommand { get; }
+        public IUserRepository userRepository;
 
         private IChangeProfileRepository changeProfileRepository;
+        public List<Country> ListCountry { get => _listCountry; set { _listCountry = value; OnPropertyChanged(nameof(ListCountry)); } }
+        public List<string> SourceCountry { get => _sourceCountry; set { _sourceCountry = value; OnPropertyChanged(nameof(SourceCountry)); } }
+        public List<Education> ListEducation { get => _listEducation; set { _listEducation = value; OnPropertyChanged(nameof(ListEducation)); } }
+        public List<string> SourceEducation { get => _sourceEducation; set { _sourceEducation = value; OnPropertyChanged(nameof(SourceEducation)); } }
+        public List<string> SourceGender { get => _sourceGender; set { _sourceGender = value; OnPropertyChanged(nameof(SourceGender)); } }
 
         public string? UserName { get => _userName; set { _userName = value; OnPropertyChanged(nameof(UserName)); } }
         public string? LoginName { get => _loginName; set { _loginName = value; OnPropertyChanged(nameof(LoginName)); } }
         public string? Password { get => _password; set { _password = value; OnPropertyChanged(nameof(Password)); } }
         public string? PhoneNumber { get => _phoneNumber; set { _phoneNumber = value; OnPropertyChanged(nameof(PhoneNumber)); } }
-        public string? DateOfBirth { get => _dateOfBirth; set { _dateOfBirth = value; OnPropertyChanged(nameof(DateOfBirth)); } }
+        public DateTime DateOfBirth { get => _dateOfBirth; set { _dateOfBirth = value; OnPropertyChanged(nameof(DateOfBirth)); } }
         public string? Gender { get => _gender; set { _gender = value; OnPropertyChanged(nameof(Gender)); } }
         public string? Country { get => _country; set { _country = value; OnPropertyChanged(nameof(Country)); } }
         public string? Education { get => _education; set { _education = value; OnPropertyChanged(nameof(Education)); } }
@@ -55,13 +67,52 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         public string? FilePath { get => _filePath; set { _filePath = value; OnPropertyChanged(nameof(FilePath)); } }
         public string? NewPath { get => _newPath; set { _newPath = value; OnPropertyChanged(nameof(NewPath)); } }
         public string? FileName { get => _fileName; set { _fileName = value; OnPropertyChanged(nameof(FileName)); } }
-
+        public ChangeDate changeDate;
+        public User User { get => _user; set { _user = value; OnPropertyChanged(nameof(User)); } }
+        public IListCountry listCountry;
+        public IListEducation listEducation;
         public ChangeProfileVM()
         {
+            changeDate = new ChangeDate();
+            listCountry = new ListCountryRepository();
+            listEducation = new ListEducation();
+            userRepository = new UserRepository();
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
+            UserName = User.userName;
+            LoginName = User.loginName;
+            Password = User.password;
+            PhoneNumber = User.phoneNumber;
+            DateOfBirth = DateTime.Parse(User.dateOfBirth.Value.ToString());
+            Gender = User.gender;
+            Country = User.countryId;
+            Education = User.educationId;
+            Role = User.roleId;
+            Facebook=User.facebook;
+            LinkedIn = User.linkedIn;
+            Email = User.email;
+            Twitter = User.twitter;
+            Avatar = User.avatar;
             ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             UploadImageCommand = new ViewModelCommand(ExecuteUploadImageCommand, CanExecuteUploadImageCommand);
             changeProfileRepository = new ChangeProfileRepository();
+            SourceGender = new List<string> { "Nam", "Nữ" };
+            //List country
+            listCountry = new ListCountryRepository();
+            ListCountry = listCountry.ListCountry();
+            SourceCountry = new List<string>();
+            foreach (Country country in ListCountry)
+            {
+                SourceCountry.Add(country.countryName);
+            }
+
+            listEducation = new ListEducation();
+            ListEducation = listEducation.ListEducations();
+            SourceEducation = new List<string>();
+            foreach (Education e in ListEducation)
+            {
+                SourceEducation.Add(e.educationName);
+            }
         }
 
         private bool CanExecuteUploadImageCommand(object? obj)
@@ -96,7 +147,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
                 canExecute = true;
             if (PhoneNumber != null && PhoneNumber != "")
                 canExecute = true;
-            if(DateOfBirth != null && DateOfBirth != "")
+            if(DateOfBirth != null)
                 canExecute = true;
             if (Gender != null && Gender != "")
                 canExecute = true;
@@ -119,9 +170,30 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
 
         private void ExecuteChangeCommand(object? obj)
         {
-            changeProfileRepository.ChangeProfile(MyApp.currentUser.loginName, UserName, Password, PhoneNumber, DateOfBirth, Gender, Country, Education, Facebook, Twitter, LinkedIn, Email, FileName);
-            if(!File.Exists(NewPath))
-                File.Copy(FilePath, NewPath);
+            string tempDateOfBirth = changeDate.ChangeDateFormat(DateOfBirth);
+            if (Gender == "Nam") Gender = "1";
+            else Gender = "0";
+            foreach (Country country in ListCountry)
+            {
+                if (Country == country.countryName)
+                {
+                    Country = country.countryId;
+                }
+            }
+            foreach (Education education in ListEducation)
+            {
+                if (Education == education.educationName)
+                {
+                    Education = education.educationId;
+                }
+            }
+            changeProfileRepository.ChangeProfile(MyApp.currentUser.loginName, UserName, Password, PhoneNumber, tempDateOfBirth, Gender, Country, Education, Facebook, Twitter, LinkedIn, Email, FileName);
+            if (NewPath == null)
+            {
+                NewPath = User.avatar;
+            }
+            if (!File.Exists(NewPath))
+                 File.Copy(FilePath, NewPath);
             MyApp.currentUser.avatar = FilePath;
             Application.Current.MainWindow.Close();
         }
