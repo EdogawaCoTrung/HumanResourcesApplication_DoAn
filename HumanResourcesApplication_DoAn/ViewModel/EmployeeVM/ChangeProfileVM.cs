@@ -188,7 +188,11 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
                 }
             }
             changeProfileRepository.ChangeProfile(MyApp.currentUser.loginName, UserName, Password, PhoneNumber, tempDateOfBirth, Gender, Country, Education, Facebook, Twitter, LinkedIn, Email, FileName);
-            if(!File.Exists(NewPath))
+            if (NewPath == null)
+            {
+                NewPath = User.avatar;
+            }
+            if (!File.Exists(NewPath))
                  File.Copy(FilePath, NewPath);
             MyApp.currentUser.avatar = FilePath;
             Application.Current.MainWindow.Close();
