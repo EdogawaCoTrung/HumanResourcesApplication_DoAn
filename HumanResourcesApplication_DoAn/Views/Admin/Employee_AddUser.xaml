@@ -76,7 +76,7 @@
                                        HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <ComboBox x:Name="ISADMIN" SelectedItem="{Binding IsAdmin}" ItemsSource="{Binding AdminSource}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <ComboBox x:Name="ISADMIN" SelectedItem="{Binding IsAdmin}" ItemsSource="{Binding SourceIsAdmin}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                         ></ComboBox>
                             </Border>
                         </Grid>
@@ -118,7 +118,7 @@
                                        HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <ComboBox x:Name="EDUCATION_ID" SelectedItem="{Binding Education}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <ComboBox x:Name="EDUCATION_ID" SelectedItem="{Binding Education}" ItemsSource="{Binding SourceEducation}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                         ></ComboBox>
                             </Border>
                         </Grid>
@@ -160,8 +160,8 @@
                                        HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <ComboBox x:Name="PAYROLL_ID" SelectedItem="{Binding Payroll}" ItemsSource="{Binding SourcePayroll}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
-                                        ></ComboBox>
+                                <TextBlock x:Name="PAYROLL_ID" Text="{Binding Payroll}" Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                        ></TextBlock>
                             </Border>
                         </Grid>
                     </StackPanel>
@@ -172,7 +172,8 @@
                                        HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <ComboBox x:Name="DEPARTMENT_ID" SelectedItem="{Binding DepartmentId}" ItemsSource="{Binding SourceDepartment}" BorderThickness="0"  Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
+                                <ComboBox x:Name="DEPARTMENT_ID" SelectedItem="{Binding DepartmentId}"
+                                          ItemsSource="{Binding SourceDepartment}" Height="34" Padding="10,8,10,0"  VerticalAlignment="Center" FontSize="13"
                                         ></ComboBox>
                             </Border>
                         </Grid>

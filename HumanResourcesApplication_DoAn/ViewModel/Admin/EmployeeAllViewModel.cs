@@ -25,7 +25,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private IListUsersRepository? listUsers;
         public IUserRepository? userRepository;
         private User _selectedItem;
-        public ICommand AddUserCommand { get; }
+       
         private List<User>? users;
         
         public List<User>? Users { get => users;
@@ -40,8 +40,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public int Male { get => _male; set { _male = value; OnPropertyChanged(nameof(Male)); } }
         public int Female { get => _female; set { _female = value; OnPropertyChanged(nameof(Female)); } }
         public User SelectedItem { get => _selectedItem; set { _selectedItem = value; OnPropertyChanged(nameof(SelectedItem)); } }
-        
 
+        public ViewModelCommand AddUserCommand { get; }
         public ViewModelCommand ShowEmployeeViewCommand { get; }
         public ViewModelCommand ChangeEmployeeCommand { get; }
         public ViewModelCommand DeleteEmployeeCommand { get; }
@@ -64,7 +64,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 {
                     if (Users[i].joinDate.Value.Year == DateTime.Now.Year)
                         NewEmployee++;
-                    if (Users[i].gender == "Female")
+                    if (Users[i].gender == "Nữ")
                         Female++;
                     else
                         Male++;
@@ -94,6 +94,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 {
                     changeEmployee.DataContext = new  EmployeeChangeViewModel(SelectedItem);
                     changeEmployee.ShowDialog();
+                    Users= listUsers.ListUsers();
                 }
             }
             catch (Exception ex)

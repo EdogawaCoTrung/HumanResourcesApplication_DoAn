@@ -1,4 +1,5 @@
 ﻿using HumanResourcesApplication_DoAn.Model;
+using HumanResourcesApplication_DoAn.Repositories;
 using HumanResourcesApplication_DoAn.Utils;
 using HumanResourcesApplication_DoAn.ViewModel.EmployeeVM;
 using HumanResourcesApplication_DoAn.ViewModel.Login;
@@ -37,6 +38,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         
 
         //properties
+        public IUserRepository userRepository;
         public UserViewModel UserViewModel 
         { 
             get => _userViewModel; 
@@ -159,6 +161,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             Icon = bindingIcon.ConvertPath("favicon.ico");
             _user = new User();
             isViewVisible = true;
+            userRepository = new UserRepository();
             _user = MyApp.currentUser; 
             ShowAccountViewCommand = new ViewModelCommand(ExcuteShowAccountViewCommand);
             ShowContractViewCommand = new ViewModelCommand(ExecuteShowContractViewCommand);
@@ -183,6 +186,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }
             CurrentChildView = _contractViewModel;
             Caption = "Contract";
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
         }
 
         private void ExcuteLogoutCommand(object? obj)
@@ -206,6 +210,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }
             CurrentChildView =  _projectMainViewModel;
             Caption = "Project";
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
         }
 
         private void ExcuteShowInsureanceMainViewCommand(object? obj)
@@ -216,6 +221,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }    
             CurrentChildView = _insuranceViewModel;
             Caption = "Insurance";
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
         }
 
         private void ExcuteShowEmployeeMainViewCommand(object? obj)
@@ -226,6 +232,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }
             CurrentChildView = _employeeMainViewViewModel;
             Caption = "Employee";
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
         }
 
         private void ExcuteShowDepartmentViewCommand(object? obj)
@@ -236,7 +243,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }
             CurrentChildView = _departmentViewModel;
             Caption = "Department";
-            
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
+
         }
 
         private void ExcuteShowDashBoardViewCommand(object? obj)
@@ -247,6 +255,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }
             CurrentChildView = _dashboardViewModel;
             Caption = "Dashboard";
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
         }
 
         private void ExcuteShowAttendanceViewCommand(object? obj)
@@ -255,6 +264,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 _attendanceViewModel = new AttendanceViewModel();
             CurrentChildView=_attendanceViewModel;
             Caption = "Attendance";
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
         }
 
         private void ExcuteShowAccountViewCommand(object? obj)
@@ -263,6 +273,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 _userViewModel = new UserViewModel();
             CurrentChildView = _userViewModel;
             Caption = "User";
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
         }
         private void ExcuteShowPayrollViewCommand(object? obj)
         {
@@ -270,6 +281,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 _payrollViewModel = new PayrollMainViewViewModel();
             CurrentChildView = _payrollViewModel;
             Caption = "Payroll";
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
         }
     }
 }

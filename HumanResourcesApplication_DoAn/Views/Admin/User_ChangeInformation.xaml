@@ -72,7 +72,8 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBlock x:Name="ISADMIN" 
+                                <TextBlock Background="LightGray"
+                                           x:Name="ISADMIN" 
                                           Text="{Binding IsAdmin}"  
                                           Height="34" Padding="10,8,10,0"  
                                           VerticalAlignment="Center" FontSize="13"
@@ -204,7 +205,8 @@
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                             </TextBlock>
                             <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                                <TextBox x:Name="PAYROLL_ID" 
+                                <TextBox Background="LightGray"
+                                        x:Name="PAYROLL_ID" 
                                          IsEnabled="False"
                                          Text="{Binding PayrollId}" 
                                          BorderThickness="0" 
