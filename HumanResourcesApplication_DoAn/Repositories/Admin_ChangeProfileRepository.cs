@@ -10,7 +10,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
 {
     public class Admin_ChangeProfileRepository : RepositoryBase, IAdmin_ChangeProfileRepository
     {
-        public void ChangeProfile(string? loginName, string? userName, string? password, string? isAdmin, string? phoneNumber, string? dateOfBirth, string? country, string? education, string? gender, string? joinDate, string? role, string? payroll, string? facebook, string? twitter, string? linkedIn, string? email, string? avatar, string? departmentId)
+        public void ChangeProfile(string? loginName, string? userName, string? password, string? isAdmin, string? phoneNumber, string dateOfBirth, string? country, string? education, string? gender, string joinDate, string? role, string? payroll, string? facebook, string? twitter, string? linkedIn, string? email, string? avatar, string? departmentId)
         {
             if (connection.State.ToString() == "Closed")
                 connection.Open();
@@ -34,7 +34,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
             }
             if (payroll != null && payroll != "")
             {
-                command.CommandText += "UPDATE USERS SET ROPAYROLL_ID = @payroll WHERE LOGINNAME = @loginName;";
+                command.CommandText += "UPDATE USERS SET PAYROLL_ID = @payroll WHERE LOGINNAME = @loginName;";
                 command.Parameters.Add("@payroll", MySqlDbType.VarString).Value = payroll;
             }
             if (isAdmin!=null && isAdmin !="")
@@ -49,23 +49,23 @@ namespace HumanResourcesApplication_DoAn.Repositories
             }
             if (dateOfBirth != null && dateOfBirth != "")
             {
-                command.CommandText += "UPDATE USERS SET JOINDATE = @dateOfBirth WHERE LOGINNAME = @loginName;";
+                command.CommandText += "UPDATE USERS SET DATEOFBIRTH = @dateOfBirth WHERE LOGINNAME = @loginName;";
                 command.Parameters.Add("@dateOfBirth", MySqlDbType.Date).Value = dateOfBirth;
             }
             if (joinDate != null && joinDate != "")
             {
-                command.CommandText += "UPDATE USERS SET JOINDATE = @joinDate WHERE LOGINNAME = @loginName;";
+                command.CommandText += "UPDATE USERS SET JOIN_DATE = @joinDate WHERE LOGINNAME = @loginName;";
                 command.Parameters.Add("@joinDate", MySqlDbType.Date).Value = joinDate;
             }
             
             if (gender != null && gender != "")
             {
                 command.CommandText += "UPDATE USERS SET GENDER = @gender WHERE LOGINNAME = @loginName;";
-                command.Parameters.Add("@gender", MySqlDbType.Bit).Value = gender == "Male" ? "1" : "0";
+                command.Parameters.Add("@gender", MySqlDbType.Bit).Value = gender;
             }
             if (country != null && country != "")
             {
-                command.CommandText += "UPDATE USERS SET USERS.COUNTRY_ID = COUNTRY.COUNTRY_ID WHERE LOGINNAME = @loginName AND COUNTRY_NAME = @country;";
+                command.CommandText += "UPDATE USERS SET COUNTRY_ID = @country WHERE LOGINNAME = @loginName;";
                 command.Parameters.Add("@country", MySqlDbType.VarString).Value = country;
             }
             if (education != null && education != "")
