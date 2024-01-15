@@ -37,6 +37,15 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             listProject = listProjectRepository.ListProject();
             AddProjectCommand = new ViewModelCommand(ExecuteAddProjectCommand);
             DeleteProjectCommand = new ViewModelCommand(ExecuteDeleteProjectCommand);
+            ChangeProjectCommand = new ViewModelCommand(ExecuteChangeProjectCommand);
+        }
+
+        private void ExecuteChangeProjectCommand(object? obj)
+        {
+            Project_Change project_Change = new Project_Change();
+            project_Change.DataContext = new ChangeProjectViewModel(selectedProject);
+            project_Change.ShowDialog();
+            ListProject = listProjectRepository.ListProject();  
         }
 
         private void ExecuteDeleteProjectCommand(object? obj)
@@ -71,7 +80,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public ViewModelCommand AddProjectCommand { get;}
   
         public ViewModelCommand DeleteProjectCommand { get;}
-        public ViewModelCommand EditProjectCommand { get;}
+        public ViewModelCommand ChangeProjectCommand { get;}
         
     }
 }

@@ -18,6 +18,9 @@
         <DataTemplate DataType="{x:Type ViewModel:AddProjectViewModel}">
             <local:Project_Add/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModel:ChangeProjectViewModel}">
+            <local:Project_Change/>
+        </DataTemplate>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
             <Style TargetType="DataGrid">
             <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"></Setter>
@@ -236,7 +239,7 @@
                                             <StackPanel Name="Button_Wrapper" 
                                                     Orientation="Horizontal">
                                                 <Button  Width="30" 
-                                                     Command="{Binding DataContext.ChangeDepartmentCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                     Command="{Binding DataContext.ChangeProjectCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
                                                      CommandParameter="{Binding}"
                                                      Height="30" 
                                                      Margin="0,0,10,0"
