@@ -61,6 +61,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public ChangeDate changeDate;
         public AddProjectViewModel () 
         {
+            StartDate = DateTime.Now;
+            EndDate = DateTime.Now;
             userRepository = new ListUsersRepository();
             departmentRepository = new ListDepartmentRepository();
             addProjectRepository = new AddProjectRepository();
