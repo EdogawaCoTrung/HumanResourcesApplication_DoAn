@@ -20,10 +20,7 @@
                 <TextBlock Width="500" Text="{Binding User.userName}" FontSize="22" Foreground="Black"></TextBlock>
               
             </StackPanel>
-            <StackPanel Margin="0,16,0,0" Orientation="Horizontal">
-                <TextBlock Text="Measure how fast you're growing monthly recurring revenue." FontSize="13" Foreground="Black"></TextBlock>
-                <TextBlock Margin="5,0,0,0" Foreground="{StaticResource FontColor3}" FontSize="13" Text="Learn More"></TextBlock>
-            </StackPanel>
+            
             <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
                 <Grid Background="White"
        Width="178"
@@ -108,11 +105,8 @@
                     <Grid>
                         <TextBlock Margin="10,0,0,0" Padding="10" Text="Total Department and Employee" FontWeight="SemiBold" FontSize="17"></TextBlock>
                         <StackPanel Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
-                            <TextBlock Text="Last year comparison:" Margin="0,0,15,0" FontSize="13" Foreground="{StaticResource FontColor2}"></TextBlock>
-                            <ToggleButton
-                             IsChecked="True"
-                             Style="{StaticResource MaterialDesignSwitchSecondaryToggleButton}"
-                             ToolTip="MaterialDesignSwitchSecondaryToggleButton" />
+                            
+                            
                         </StackPanel><Border BorderBrush="{StaticResource ButtonColor3}" BorderThickness="0,0,0,1">
                         </Border>
                     </Grid>
