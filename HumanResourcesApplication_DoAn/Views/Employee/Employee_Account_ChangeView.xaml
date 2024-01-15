@@ -82,6 +82,7 @@
                              CornerRadius="5">
                             <TextBlock x:Name="LOGINNAME"
                                    IsEnabled="False"
+                                       Text="{Binding LoginName}"
                                    Background="LightGray"
                                   Height="34" 
                                   Padding="10,8,10,0"  
@@ -157,13 +158,13 @@
                         <Border BorderBrush="LightGray" 
                              BorderThickness="1" 
                              CornerRadius="5">
-                            <TextBox x:Name="DATEOFBIRTH"
-                                  Text="{Binding DateOfBirth}"
+                            <DatePicker x:Name="DATEOFBIRTH"
+                                  SelectedDate="{Binding DateOfBirth}"
                                   BorderThickness="0"  
                                   Height="34" 
                                   Padding="10,8,10,0"  
                                   VerticalAlignment="Center" FontSize="13"
-                                      ></TextBox>
+                                      ></DatePicker>
                         </Border>
                     </Grid>
                     <Grid Width="200" 
@@ -179,13 +180,14 @@
                         <Border BorderBrush="LightGray" 
                                  BorderThickness="1" 
                                  CornerRadius="5">
-                            <TextBox x:Name="GENDER"
-                                     Text="{Binding Gender}"
+                            <ComboBox x:Name="GENDER"
+                                     SelectedItem="{Binding Gender}"
+                                      ItemsSource="{Binding SourceGender}"
                                       BorderThickness="0"  
                                       Height="34" 
                                       Padding="10,8,10,0"  
                                       VerticalAlignment="Center" FontSize="13" 
-                            ></TextBox>
+                            ></ComboBox>
                         </Border>
                     </Grid>
                 </StackPanel>
@@ -205,13 +207,14 @@
                         <Border BorderBrush="LightGray" 
                              BorderThickness="1" 
                              CornerRadius="5">
-                            <TextBox x:Name="COUNTRY_ID" 
-                                  Text="{Binding Country}"
+                            <ComboBox x:Name="COUNTRY_ID" 
+                                  SelectedItem="{Binding Country}"
+                                  ItemsSource="{Binding SourceCountry}"
                                   BorderThickness="0"  
                                   Height="34" 
                                   Padding="10,8,10,0"  
                                   VerticalAlignment="Center" FontSize="13"
-                                      ></TextBox>
+                                      ></ComboBox>
                         </Border>
                     </Grid>
                     <Grid Width="200" 
@@ -229,13 +232,14 @@
                         <Border BorderBrush="LightGray" 
                              BorderThickness="1" 
                              CornerRadius="5">
-                            <TextBox x:Name="EDUCATION_ID"
-                                  Text="{Binding Education}"
+                            <ComboBox x:Name="EDUCATION_ID"
+                                  SelectedItem="{Binding Education}"
+                                  ItemsSource="{Binding SourceEducation}"
                                   BorderThickness="0"  
                                   Height="34" 
                                   Padding="10,8,10,0" 
                                   VerticalAlignment="Center" FontSize="13"
-                                      ></TextBox>
+                                      ></ComboBox>
                         </Border>
                     </Grid>
                     <Grid Width="200" 
@@ -256,6 +260,7 @@
                             <TextBlock x:Name="ROLE_ID" 
                                       Background="LightGray" 
                                       Height="34" 
+                                       Text="{Binding Role}"
                                       Padding="10,8,10,0" 
                                       VerticalAlignment="Center" 
                                       FontSize="13" 

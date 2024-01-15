@@ -147,27 +147,6 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
-        <Grid Grid.Row="1">
-            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
-                <Border BorderBrush="{StaticResource ButtonColor2}" BorderThickness="0" CornerRadius="20" Margin="0,0,20,0">
-                    <Button 
-             Width="88"
-             Command="{Binding AddBaseSalaryCommand}"
-             Height="34"
-             Foreground="White"
-             FontSize="13"
-             FontWeight="SemiBold"
-             Background="{StaticResource ButtonColor2}"
-             BorderThickness="0"
-             materialDesign:RippleAssist.Feedback="#DD000000"
-             Content="Add New"
-             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-             Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
-             
-             ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
-                </Border>
-
-            </StackPanel>
-        </Grid>
+        
     </Grid>
 </UserControl>
