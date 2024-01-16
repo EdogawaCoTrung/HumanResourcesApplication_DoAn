@@ -20,10 +20,6 @@
                 <TextBlock Width="500" Text="{Binding User.userName}" FontSize="22" Foreground="Black"></TextBlock>
 
             </StackPanel>
-            <StackPanel Margin="0,16,0,0" Orientation="Horizontal">
-                <TextBlock Text="Measure how fast you're growing monthly recurring revenue." FontSize="13" Foreground="Black"></TextBlock>
-                <TextBlock Margin="5,0,0,0" Foreground="{StaticResource FontColor3}" FontSize="13" Text="Learn More"></TextBlock>
-            </StackPanel>
             <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
                 <Grid Background="White"
                   Width="178"
@@ -37,44 +33,20 @@
                       Style="{StaticResource MaterialDesignRaisedLightButton}"
                       ToolTip="MaterialDesignRaisedLightButton with Round Corners">
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <fa:FontAwesome Icon="UserCircleOutline" FontSize="30"></fa:FontAwesome>
-                            <TextBlock Margin="7" Text="Users" FontSize="15" Foreground="{StaticResource FontColor2}"></TextBlock>
+                            <Border Height="50" 
+                                Width="50"
+                                CornerRadius="50">      
+                                <Ellipse >
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="{Binding User.avatar}" Stretch="UniformToFill"></ImageBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                            </Border>
+                            <TextBlock Margin="7" Text="{Binding User.userName}" FontSize="15" Foreground="{StaticResource FontColor2}"></TextBlock>
                         </StackPanel>
                     </Button>
                 </Grid>
-                <Grid Background="White"
-                  Width="178"
-                  Margin="0,0,28,0">
-                    <Button
-                      Height="100"
-                      Background="White"
-                      BorderThickness="0"
-                      materialDesign:ButtonAssist.CornerRadius="5"
-                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                      Style="{StaticResource MaterialDesignRaisedLightButton}"
-                      ToolTip="MaterialDesignRaisedLightButton with Round Corners">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <fa:FontAwesome Icon="UserCircleOutline" FontSize="30"></fa:FontAwesome>
-                            <TextBlock Margin="7" Text="Users" FontSize="15" Foreground="{StaticResource FontColor2}"></TextBlock>
-                        </StackPanel>
-                    </Button>
-                </Grid>
-                <Grid Background="White"
-                  Width="178">
-                    <Button
-                      Height="100"
-                      Background="White"
-                      BorderThickness="0"
-                      materialDesign:ButtonAssist.CornerRadius="5"
-                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                      Style="{StaticResource MaterialDesignRaisedLightButton}"
-                      ToolTip="MaterialDesignRaisedLightButton with Round Corners">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <fa:FontAwesome Icon="UserCircleOutline" FontSize="30"></fa:FontAwesome>
-                            <TextBlock Margin="7" Text="Users" FontSize="15" Foreground="{StaticResource FontColor2}"></TextBlock>
-                        </StackPanel>
-                    </Button>
-                </Grid>
+                
             </StackPanel>
             
             <StackPanel Background="White" Margin="0 10 0 0" Orientation="Horizontal">

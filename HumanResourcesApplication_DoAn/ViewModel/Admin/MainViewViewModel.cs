@@ -1,4 +1,5 @@
 ﻿using HumanResourcesApplication_DoAn.Model;
+using HumanResourcesApplication_DoAn.Repositories;
 using HumanResourcesApplication_DoAn.Utils;
 using HumanResourcesApplication_DoAn.ViewModel.EmployeeVM;
 using HumanResourcesApplication_DoAn.ViewModel.Login;
@@ -21,12 +22,13 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private UserViewModel _userViewModel;
         private EmployeeMainViewViewModel _employeeMainViewViewModel;
         private DashBoardViewModel _dashboardViewModel;
-        private PayrollViewModel _payrollViewModel;
+        private PayrollMainViewViewModel _payrollViewModel;
         private DepartmentViewModel _departmentViewModel;
         private ViewModelBase _currentChildView;
         private AttendanceViewModel _attendanceViewModel;
         private InsuranceMainViewModel _insuranceViewModel;
         private ProjectMainViewModel _projectMainViewModel;
+        private ContractViewModel _contractViewModel;
         private string _caption;
         private bool isViewVisible;
         private string icon;
@@ -36,6 +38,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         
 
         //properties
+        public IUserRepository userRepository;
         public UserViewModel UserViewModel 
         { 
             get => _userViewModel; 
@@ -64,7 +67,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 OnPropertyChanged(nameof(DashboardViewModel));
             } 
         }
-        public PayrollViewModel PayrollViewModel
+        public PayrollMainViewViewModel PayrollViewModel
         {
             get => _payrollViewModel;
             set
@@ -131,8 +134,11 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public User User { get => _user; set { _user = value; OnPropertyChanged(nameof(User)); }}
 
         public bool IsViewVisible { get => isViewVisible; set { isViewVisible = value; OnPropertyChanged(nameof(IsViewVisible)); } }
+        public ContractViewModel ContractViewModel { get => _contractViewModel; set { _contractViewModel = value; OnPropertyChanged(nameof(ContractViewModel)); } }
+
         //Command
         public ViewModelCommand ShowDashBoardViewCommand { get; }
+        public ViewModelCommand ShowContractViewCommand {  get; }
         public ViewModelCommand ShowDepartmentViewCommand {  get; }
         public ViewModelCommand ShowAccountViewCommand { get; }
         public ViewModelCommand ShowEmployeeMainViewCommand { get; }
@@ -142,7 +148,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public ViewModelCommand ShowProjectMainViewCommand { get; }
 
         public ViewModelCommand LogoutCommand { get; }
-        
+      
+
 
 
         //Constructor
@@ -154,8 +161,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             Icon = bindingIcon.ConvertPath("favicon.ico");
             _user = new User();
             isViewVisible = true;
+            userRepository = new UserRepository();
             _user = MyApp.currentUser; 
             ShowAccountViewCommand = new ViewModelCommand(ExcuteShowAccountViewCommand);
+            ShowContractViewCommand = new ViewModelCommand(ExecuteShowContractViewCommand);
             ShowAttendanceViewCommand = new ViewModelCommand(ExcuteShowAttendanceViewCommand);
             ShowDashBoardViewCommand = new ViewModelCommand(ExcuteShowDashBoardViewCommand);
             ShowDepartmentViewCommand = new ViewModelCommand(ExcuteShowDepartmentViewCommand);
@@ -167,6 +176,17 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             //default view
             ExcuteShowDashBoardViewCommand(null);
             
+        }
+
+        private void ExecuteShowContractViewCommand(object? obj)
+        {
+            if(_contractViewModel == null)
+            {
+                _contractViewModel = new ContractViewModel();
+            }
+            CurrentChildView = _contractViewModel;
+            Caption = "Contract";
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
         }
 
         private void ExcuteLogoutCommand(object? obj)
@@ -190,6 +210,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }
             CurrentChildView =  _projectMainViewModel;
             Caption = "Project";
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
         }
 
         private void ExcuteShowInsureanceMainViewCommand(object? obj)
@@ -200,6 +221,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }    
             CurrentChildView = _insuranceViewModel;
             Caption = "Insurance";
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
         }
 
         private void ExcuteShowEmployeeMainViewCommand(object? obj)
@@ -210,6 +232,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }
             CurrentChildView = _employeeMainViewViewModel;
             Caption = "Employee";
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
         }
 
         private void ExcuteShowDepartmentViewCommand(object? obj)
@@ -220,7 +243,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }
             CurrentChildView = _departmentViewModel;
             Caption = "Department";
-            
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
+
         }
 
         private void ExcuteShowDashBoardViewCommand(object? obj)
@@ -231,6 +255,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             }
             CurrentChildView = _dashboardViewModel;
             Caption = "Dashboard";
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
         }
 
         private void ExcuteShowAttendanceViewCommand(object? obj)
@@ -239,6 +264,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 _attendanceViewModel = new AttendanceViewModel();
             CurrentChildView=_attendanceViewModel;
             Caption = "Attendance";
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
         }
 
         private void ExcuteShowAccountViewCommand(object? obj)
@@ -247,13 +273,15 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 _userViewModel = new UserViewModel();
             CurrentChildView = _userViewModel;
             Caption = "User";
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
         }
         private void ExcuteShowPayrollViewCommand(object? obj)
         {
             if(_payrollViewModel == null)
-                _payrollViewModel = new PayrollViewModel();
+                _payrollViewModel = new PayrollMainViewViewModel();
             CurrentChildView = _payrollViewModel;
             Caption = "Payroll";
+            User = userRepository.GetByLoginName(MyApp.currentUser.loginName);
         }
     }
 }

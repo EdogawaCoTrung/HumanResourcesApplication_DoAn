@@ -6,14 +6,21 @@
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              xmlns:VM="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:ViewModel="clr-namespace:HumanResourcesApplication_DoAn.ViewModel.Admin"
              xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Admin"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1100">
     <!--<UserControl.DataContext>
         <VM:InsuranceMainViewModel />
-    </UserControl.DataContext>-->
+    <UserControl.DataContext>-->
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
+        <DataTemplate DataType="{x:Type ViewModel:AddInsuranceViewModel}">
+            <local:Insurance_Add />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModel:ChangeInsuranceViewModel}">
+            <local:Insurance_Change />
+        </DataTemplate>
         <Style TargetType="DataGrid">
             <Setter Property="VerticalScrollBarVisibility" Value="Disabled"></Setter>
             <Setter Property="Background" Value="Transparent"/>
@@ -99,7 +106,7 @@
                 <Border BorderBrush="{StaticResource ButtonColor2}" BorderThickness="0" CornerRadius="20">
                     <Button 
                             Width="88"
-                            Command="{Binding AddDepartmentCommand}"
+                            Command="{Binding AddInsuranceCommand}"
                             Height="34"
                             Foreground="White"
                             FontSize="13"
@@ -132,42 +139,11 @@
                                    Foreground="{StaticResource FontColor8}" 
                                    FontWeight="SemiBold" 
                                    Background="White"></TextBlock>
-                            <Grid HorizontalAlignment="Right" 
-                              Width="300" 
-                              Height="34" 
-                              Margin="0,0,20,0">
-                                <TextBlock Margin="15,5,5,5" 
-                                       Text="Search..." 
-                                       FontSize="13"
-                                       Visibility="{Binding ElementName=txtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
-                                       HorizontalAlignment="Left" 
-                                       VerticalAlignment="Center" 
-                                       Panel.ZIndex="1" 
-                                       IsHitTestVisible="False">
-                                </TextBlock>
-                                <Border BorderBrush="LightGray" 
-                                    BorderThickness="1" 
-                                    CornerRadius="7">
-                                    <TextBox x:Name="txtfilter" 
-                                         BorderThickness="0" 
-                                         Width="274" 
-                                         Height="34" 
-                                         Padding="0,8,10,0"  
-                                         VerticalAlignment="Center" 
-                                         FontSize="13"
-                                        ></TextBox>
-                                </Border>
-                                <fa:FontAwesome Margin="0,0,5,0" 
-                                            VerticalAlignment="Center" 
-                                            HorizontalAlignment="Right" 
-                                            Icon="Search" 
-                                            Foreground="black" 
-                                            FontSize="13"></fa:FontAwesome>
-                            </Grid>
+                            
                         </Grid>
                         <DataGrid Height="500" 
                               ItemsSource="{Binding ListInsurances}"
-                              SelectedItem="{Binding Selectedtem}"
+                              SelectedItem="{Binding SelectedItem}"
                               Name="Users" 
                               RowStyle="{DynamicResource DataGridRowStyle1}" 
                               CellStyle="{DynamicResource DataGridCellTemplate4}" 
@@ -188,6 +164,16 @@
                                                 IsReadOnly="True" 
                                                 CanUserResize="False" 
                                                 Width="1.5*"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Start date" 
+                                                    Binding="{Binding startDate}" 
+                                                    IsReadOnly="True" 
+                                                    CanUserResize="False" 
+                                                    Width="1.5*"></DataGridTextColumn>
+                                <DataGridTextColumn Header="End date" 
+                                                    Binding="{Binding endDate}" 
+                                                    IsReadOnly="True" 
+                                                    CanUserResize="False" 
+                                                    Width="1.5*"></DataGridTextColumn>
                                 <DataGridTemplateColumn 
                                     Header="Action" IsReadOnly="True" CanUserResize="False" Width="1*">
 
@@ -205,16 +191,6 @@
                                                      ToolTip="MaterialDesignIconForegroundButton">
                                                     <materialDesign:PackIcon Kind="PencilOutline" 
                                                                          Foreground="{StaticResource FontColor2}"/>
-                                                </Button>
-                                                <Button  Width="30" 
-                                                     Command="{Binding DataContext.DeleteInsuranceCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
-                                                     CommandParameter="{Binding}"
-                                                     Height="30" 
-                                                     Margin="0,0,10,0"
-                                                    
-                                                     Style="{StaticResource MaterialDesignIconForegroundButton}"
-                                                     ToolTip="MaterialDesignIconForegroundButton">
-                                                    <materialDesign:PackIcon Kind="TrashCanOutline" Foreground="{StaticResource FontColor2}"/>
                                                 </Button>
                                             </StackPanel>
                                         </DataTemplate>

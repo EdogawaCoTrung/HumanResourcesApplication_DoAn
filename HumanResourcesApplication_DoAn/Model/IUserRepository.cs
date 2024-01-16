@@ -13,7 +13,7 @@ namespace HumanResourcesApplication_DoAn.Model
         void Add(User user);
         void Edit(User user);
         void Remove(string? userid);
-        User GetById(int id);
+        User GetById(string id);
         User GetByLoginName(string loginName);
         IEnumerable<User> GetByAll();
 

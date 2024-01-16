@@ -94,123 +94,26 @@
         <Grid Background="{StaticResource Color3}" Grid.Column="2">
             <StackPanel Orientation="Vertical">
                 <!--HeaderView-->
-                <Grid Margin="0,37.5,0,30" Background="{StaticResource Color3}">
-                    <StackPanel Orientation="Horizontal">
-                        <StackPanel Margin="0,0,59,0">
-                            <Border Background="White" 
-                                    Width="338" 
-                                    Height="90" 
-                                    BorderBrush="{StaticResource ButtonColor5}" 
-                                    BorderThickness="1.5" CornerRadius="10">
-                                <StackPanel>
-                                    <TextBlock Panel.ZIndex="1" 
-                                               Margin="20,20,0,0" 
-                                               Text="Current" 
-                                               FontSize="13" 
-                                               Foreground="{StaticResource FontColor2}" />
-                                    <TextBlock Panel.ZIndex="1" 
-                                               Margin="20,10,0,0" 
-                                               Text="{Binding Current}" 
-                                               FontSize="20" 
-                                               FontWeight="Bold" 
-                                               Foreground="{StaticResource FontColor8}" />
-                                </StackPanel>
-                            </Border>
-                        </StackPanel>
-                        <StackPanel Margin="0,0,59,0">
-                            <Border Background="White" 
-                                    Width="338" 
-                                    Height="90" 
-                                    BorderBrush="{StaticResource ButtonColor5}" 
-                                    BorderThickness="1.5" 
-                                    CornerRadius="10">
-                                <StackPanel>
-                                    <TextBlock Panel.ZIndex="1" 
-                                               Margin="20,20,0,0" 
-                                               Text="Previous" 
-                                               FontSize="13" 
-                                               Foreground="{StaticResource FontColor2}" />
-                                    <TextBlock Panel.ZIndex="1" 
-                                               Margin="20,10,0,0" 
-                                               Text="{Binding Previous}" 
-                                               FontSize="20" 
-                                               FontWeight="Bold" 
-                                               Foreground="{StaticResource FontColor8}"/>
-                                </StackPanel>
-                            </Border>
-                        </StackPanel>
-                        <StackPanel Margin="0,0,8,0">
-                            <Border Background="White" 
-                                    Width="338" 
-                                    Height="90" 
-                                    BorderBrush="{StaticResource ButtonColor5}" 
-                                    BorderThickness="1.5" 
-                                    CornerRadius="10">
-                                <StackPanel>
-                                    <TextBlock Panel.ZIndex="1" 
-                                               Margin="20,20,0,0" 
-                                               Text="Difference from last month" 
-                                               FontSize="13" 
-                                               Foreground="{StaticResource FontColor2}"
-                                               />
-                                    <TextBlock Panel.ZIndex="1" 
-                                               Margin="20,10,0,0" 
-                                               Text="{Binding Different}" 
-                                               FontSize="20" 
-                                               FontWeight="Bold" 
-                                               Foreground="{StaticResource FontColor8}" />
-                                </StackPanel>
-                            </Border>
-                        </StackPanel>
-                    </StackPanel>
-                </Grid>
                 <DataGrid Name ="LeaveRequestDatagrid"      
                           Height="470"
                           Margin="10"
                           RowStyle="{DynamicResource DataGridRowStyle1}" 
                           CellStyle="{DynamicResource DataGridCellTemplate}" 
                           ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
-                          ItemsSource="{Binding EmployeePayroll}">
+                          ItemsSource="{Binding Payrolls}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn />
-                        <DataGridTemplateColumn 
-                                                Header="Name"
-                                                IsReadOnly="True"
-                                                CanUserResize="False"
-                                                Width="1.5*"
-                                                CellStyle="{DynamicResource DataGridCellTemplate5}">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Name="Name" 
-                                                   VerticalAlignment="Center"
-                                                   Margin="10 0 0 0"
-                                                   TextWrapping="Wrap"
-                                                   Background="Transparent" 
-                                                   Text="{Binding User.userName}" 
-                                                   Width="170"
-                                                   TextAlignment="Left">
-                                    </TextBlock>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="Employee ID" 
-                                            Binding="{Binding User.userId}"  
+                        <DataGridTextColumn Header="#" 
+                                            Binding="{Binding stt}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
                                             Width="1*" />
-                        
-                        <DataGridTextColumn Header="Start Date" 
-                                            Binding="{Binding PayrollHistory.StartDate}" 
-                                            IsReadOnly="True" 
-                                            CanUserResize="False" 
-                                            Width="1*" />
-                        <DataGridTextColumn Header="End Date" 
-                                            Binding="{Binding PayrollHistory.EndDate}" 
+                        <DataGridTextColumn Header="Date" 
+                                            Binding="{Binding date}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
                                             Width="1*" />
                         <DataGridTextColumn Header="Salary" 
-                                            Binding="{Binding Payroll.salary}" 
+                                            Binding="{Binding salary}" 
                                             IsReadOnly="True" 
                                             CanUserResize="False" 
                                             Width="1*" />

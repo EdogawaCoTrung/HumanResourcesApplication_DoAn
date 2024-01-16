@@ -50,6 +50,19 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             Absence = 0;
             for(int i = 0; i < listAttendance.Count; i++)
             {
+                for(int j = i + 1; j < listAttendance.Count; j++)
+                {
+                    if(listAttendance[i].date < listAttendance[j].date)
+                    {
+                        Attendance? temp = new Attendance();
+                        temp = listAttendance[i];
+                        listAttendance[i] = listAttendance[j];
+                        listAttendance[j] = temp;
+                    }
+                }
+            }
+            for(int i = 0; i < listAttendance.Count; i++)
+            {
                 if (listAttendance[i].date == DateOnly.FromDateTime(DateTime.Now))
                 {
                     if (listAttendance[i].status == "Present")
@@ -63,8 +76,14 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 Attendances.Add(attendanceForView);
                 Attendances[i].userId = listAttendance[i].userId;
                 Attendances[i].date = listAttendance[i].date;
-                Attendances[i].inTime = listAttendance[i].inTime.ToString();
-                Attendances[i].outTime = listAttendance[i].outTime.ToString();
+                if (listAttendance[i].inTime - TimeSpan.Parse("07:00:00") > TimeSpan.Parse("00:00:00"))
+                    Attendances[i].inTime = listAttendance[i].inTime.ToString() + " (" + (listAttendance[i].inTime - TimeSpan.Parse("07:00:00")) + ")";
+                else
+                    Attendances[i].inTime = listAttendance[i].inTime.ToString();
+                if (TimeSpan.Parse("17:00:00") - listAttendance[i].outTime > TimeSpan.Parse("00:00:00"))
+                    Attendances[i].outTime = listAttendance[i].outTime.ToString() + " (" + (TimeSpan.Parse("17:00:00") - listAttendance[i].outTime) + ")";
+                else
+                    Attendances[i].outTime = listAttendance[i].outTime.ToString();
                 Attendances[i].hours = listAttendance[i].hours.ToString();
                 Attendances[i].status = listAttendance[i].status;
                 if (listAttendance[i].inTime.ToString() == "00:00:00")

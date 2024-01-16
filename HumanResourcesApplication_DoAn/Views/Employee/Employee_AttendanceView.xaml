@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:HumanResourcesApplication_DoAn.Views.Employee"
              mc:Ignorable="d" 
              Background="{StaticResource Color3}"
@@ -85,6 +86,11 @@
         </Style>
     </UserControl.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="650"/>
+            <RowDefinition  Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
         <DataGrid Margin="0,10,10,10"
                   ItemsSource="{Binding attendances}" 
                   Name="Attendance_Users" 
@@ -134,5 +140,28 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                
+            <Border BorderBrush="{StaticResource ButtonColor2}" BorderThickness="0" CornerRadius="20" Margin="0,0,20,0">
+                <Button 
+                Width="150"
+                Height="50"
+                Command="{Binding AttendanceCommand}"
+                Foreground="White"
+                FontSize="15"
+                FontWeight="Bold"
+                Background="{StaticResource ButtonColor2}"
+                BorderThickness="0"
+                materialDesign:RippleAssist.Feedback="#DD000000"
+                Content="Attendance"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
+                
+                ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" Click="Button_Click" />
+            </Border>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

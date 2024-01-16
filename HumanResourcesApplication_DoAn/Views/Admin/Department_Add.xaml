@@ -64,14 +64,15 @@
                            HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                         </TextBlock>
                         <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
-                            <TextBox x:Name="HEAD"
+                            <ComboBox x:Name="HEAD"
                                     BorderThickness="0"  
                                      Height="34" 
-                                     Text="{Binding Head}"
+                                     ItemsSource="{Binding ListHeadDepartment}"
+                                     SelectedItem="{Binding Head}"
                                      Padding="10,8,10,0"  
                                      VerticalAlignment="Center" 
                                      FontSize="13"
-                            ></TextBox>
+                            ></ComboBox>
                         </Border>
                     </Grid>
 

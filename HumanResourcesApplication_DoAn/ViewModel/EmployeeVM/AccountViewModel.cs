@@ -23,7 +23,6 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
 
         User _user;
         public User user { get => _user; set { _user = value; OnPropertyChanged(nameof(user)); } }
-
         public IUserRepository userRepository { get; }
         public ICommand LeaveCommand { get; }
         public ICommand ChangeCommand { get; }
@@ -31,7 +30,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
         public ICommand TwitterCommand { get; }
         public ICommand LinkedInCommand {get; }
         public ICommand PhoneNumberCommand { get; }
-
+        public ViewModelCommand ViewContractCommand { get; }
 
         public AccountViewModel()
         {
@@ -44,8 +43,15 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
             TwitterCommand = new ViewModelCommand(ExecuteTwitterCommand, CanExecuteTwitterCommand);
             LinkedInCommand = new ViewModelCommand(ExecuteLinkedInCommand, CanExecuteLinkedInCommand);
             PhoneNumberCommand = new ViewModelCommand(ExecutePhoneNumberCommand, CanExecutePhoneNumberCommand);
+            ViewContractCommand = new ViewModelCommand(ExecuteShowViewContractCommand);
         }
 
+        private void ExecuteShowViewContractCommand(object? obj)
+        {
+            Employee_Contract employee_Contract = new Employee_Contract();
+            employee_Contract.DataContext = new ContractViewModel(user);
+            employee_Contract.ShowDialog();
+        }
 
         private bool CanExecuteChangeCommand(object? obj)
         {

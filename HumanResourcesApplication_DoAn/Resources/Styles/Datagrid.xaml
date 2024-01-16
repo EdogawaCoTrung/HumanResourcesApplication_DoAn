@@ -10,6 +10,11 @@
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
         <Setter Property="Margin" Value="0,10,0,10"></Setter>
         <Setter Property="Background" Value="Transparent"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Foreground" Value="Black"></Setter>
+            </Trigger>
+        </Style.Triggers>
     </Style>
     <Style x:Key="DataGridColumnHeaderStyle1" TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="Background" Value="{DynamicResource PanelColor2}"/>
@@ -52,12 +57,12 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Background" Value="{DynamicResource ButtonColor3}"/>
-                <Setter Property="Foreground" Value="#ffffff"/>
+                <Setter Property="Background" Value="{DynamicResource FontColor7}"/>
+                <Setter Property="Foreground" Value="Black"></Setter>
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource ButtonColor3}"/>
-                <Setter Property="Foreground" Value="#ffffff"/>
+                <Setter Property="Background" Value="{DynamicResource FontColor7}"/>
+                
             </Trigger>
             <Trigger Property="IsNewItem" Value="True">
                 <Setter Property="Margin" Value="{Binding NewItemMargin, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
@@ -115,6 +120,11 @@
         <Setter Property="Margin" Value="0,10,0,10"></Setter>
         <Setter Property="Foreground" Value="{DynamicResource FontColor3}"></Setter>
         <Setter Property="Background" Value="Transparent"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Foreground" Value="Black"></Setter>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="DataGridRowStyle2" TargetType="{x:Type DataGridRow}">
@@ -196,7 +206,11 @@
         <Setter Property="Margin" Value="25,10,0,10"></Setter>
         <Setter Property="FontSize" Value="12"></Setter>
         <Setter Property="Background" Value="Transparent"></Setter>
-        
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Foreground" Value="Black"></Setter>
+            </Trigger>
+        </Style.Triggers>
     </Style>
     <Style x:Key="DataGridCellTemplate5" TargetType="DataGridCell">
         <Setter Property="BorderThickness" Value="0"></Setter>
@@ -206,7 +220,11 @@
         <Setter Property="Margin" Value="-10,10,0,10"></Setter>
         <Setter Property="FontSize" Value="12"></Setter>
         <Setter Property="Background" Value="Transparent"></Setter>
-
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Foreground" Value="Black"></Setter>
+            </Trigger>
+        </Style.Triggers>
     </Style>
     <Style x:Key="DataGridCellTemplate4" TargetType="DataGridCell">
         <Setter Property="BorderThickness" Value="0"></Setter>
@@ -215,5 +233,10 @@
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
         <Setter Property="Margin" Value="28,10,0,10"></Setter>
         <Setter Property="Background" Value="Transparent"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Foreground" Value="Black"></Setter>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>

@@ -1,4 +1,5 @@
 ﻿using HumanResourcesApplication_DoAn.Model;
+using HumanResourcesApplication_DoAn.Repositories;
 using HumanResourcesApplication_DoAn.Repositories.DepartmentRepo;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,9 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private string? _head;
         private string? _totalEmployees;
         private Department _selectedItem;
-
+        private List<string> _listHeadDepartment;
+        private List<User> _listHeadDepartmentUser;
+        public IListUsersRepository listUsersRepository;
         //command
         public ViewModelCommand ChangeCommand { get; }
         public ViewModelCommand CancelCommand { get; }
@@ -26,7 +29,9 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public string? TotalEmployees { get => _totalEmployees; set { _totalEmployees = value; OnPropertyChanged(nameof(TotalEmployees)); } }
 
         public string DepartmentId { get => _departmentID; set { _departmentID = value; OnPropertyChanged(nameof(DepartmentId)); } }
+        public List<string> ListHeadDepartment { get => _listHeadDepartment; set { _listHeadDepartment = value; OnPropertyChanged(nameof(ListHeadDepartment)); } }
 
+        public List<User> ListHeadDepartmentUser { get => _listHeadDepartmentUser; set { _listHeadDepartmentUser = value; OnPropertyChanged(nameof(ListHeadDepartmentUser)); } }
         public Department SelectedItem { get => _selectedItem; set { _selectedItem = value; OnPropertyChanged(nameof(SelectedItem)); } }
         public ChangeDepartmentViewModel()
         {
@@ -39,15 +44,29 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             changeDepertmentRepository = new ChangeRepository();
             ChangeCommand = new ViewModelCommand(ExcuteChangeCommand, CanExcuteAddCommand);
             CancelCommand = new ViewModelCommand(ExcuteCancelCommand, CanExcuteCancelCommand);
+            listUsersRepository = new ListUsersRepository();
+            _listHeadDepartment = new List<string>();
+            ListHeadDepartmentUser = listUsersRepository.ListUsers();
+            foreach (User user in ListHeadDepartmentUser)
+            {
+                ListHeadDepartment.Add(user.userName);
+            }
             _departmentID = SelectedItem.departmentId;
             _departmentName = SelectedItem.departmentName;
             _head = SelectedItem.head;
             _totalEmployees = SelectedItem.totalEmployees.ToString();
 
-
         }
         private void ExcuteChangeCommand(object? obj)
         {
+            foreach (User user in ListHeadDepartmentUser)
+            {
+                if (user.userName == Head)
+                {
+                    Head = user.userId;
+                    break;
+                }
+            }
             changeDepertmentRepository.ChangeDepartment(DepartmentId,DepartmentName, Head, int.Parse(TotalEmployees));
             Application.Current.MainWindow.Close();
         }

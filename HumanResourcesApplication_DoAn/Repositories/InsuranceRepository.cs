@@ -37,6 +37,14 @@ namespace HumanResourcesApplication_DoAn.Repositories
                 element._insuranceId = reader["INSURANCE_ID"].ToString();
                 element._insuranceName = reader["INSURANCE_TYPE"].ToString();
                 element._userName = reader["USERNAME"].ToString();
+                if (reader["START_DATE"].ToString() != "")
+                    element.startDate = DateOnly.FromDateTime(DateTime.Parse(reader["START_DATE"].ToString())).ToString();
+                else
+                    element.startDate = "000-00-00";
+                if (reader["END_DATE"].ToString() != "")
+                    element.endDate = DateOnly.FromDateTime(DateTime.Parse(reader["END_DATE"].ToString())).ToString();
+                else
+                    element.endDate = "000-00-00";
                 _listInsuranceForView.Add(element);
             }
             connection.Close();
