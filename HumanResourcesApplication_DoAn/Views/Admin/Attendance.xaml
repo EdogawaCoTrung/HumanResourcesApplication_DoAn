@@ -140,11 +140,69 @@
             <Grid Height="480" Margin="0,0,0,0">
                 <Border BorderBrush="{StaticResource ButtonColor5}" BorderThickness="0,1.5,0,1.5" CornerRadius="10">
                     <StackPanel Orientation="Vertical">
+                        <Grid>
+                            
                         <Grid Height="50" Background="White">
                             <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Employee List" FontSize="17" Foreground="{StaticResource FontColor8}" FontWeight="SemiBold" Background="White"></TextBlock>
                             
 
                         </Grid>
+                            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                                    <ComboBox 
+        Margin="50,0,0,0"
+        Width="100" 
+        ItemsSource="{Binding MonthSource}"
+        SelectedItem="{Binding SelectedMonth}" SelectionChanged="ComboBox_SelectionChanged">
+
+                                    </ComboBox>
+                                    <TextBlock Margin="20,0,0,0" Text=":Department" FontSize="18"
+             Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+             HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                                    </TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                                    <ComboBox 
+Margin="50,0,0,0"
+Width="100" 
+ItemsSource="{Binding MonthSource}"
+SelectedItem="{Binding SelectedMonth}" SelectionChanged="ComboBox_SelectionChanged">
+
+                                    </ComboBox>
+                                    <TextBlock Margin="20,0,0,0" Text=":Year" FontSize="18"
+     Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+     HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                                    </TextBlock>
+                                    <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                                        <ComboBox 
+Margin="50,0,0,0"
+Width="100" 
+ItemsSource="{Binding MonthSource}"
+SelectedItem="{Binding SelectedMonth}" SelectionChanged="ComboBox_SelectionChanged">
+
+                                        </ComboBox>
+                                        <TextBlock Margin="20,0,0,0" Text=":Month" FontSize="18"
+     Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+     HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                                        </TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                                        <ComboBox 
+Margin="50,0,0,0"
+Width="100" 
+ItemsSource="{Binding MonthSource}"
+SelectedItem="{Binding SelectedMonth}" SelectionChanged="ComboBox_SelectionChanged">
+
+                                        </ComboBox>
+                                        <TextBlock Margin="20,0,0,0" Text=":Day" FontSize="18"
+     Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+     HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                                        </TextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                        
 
                         <DataGrid ItemsSource="{Binding Attendances}" Height="500" Name="Attendance_Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}">
                             <DataGrid.Columns>

@@ -16,7 +16,7 @@ namespace HumanResourcesApplication_DoAn.Repositories
         protected MySqlConnection connection;
         public RepositoryBase()
         {
-            _connectionString = "server=sql12.freesqldatabase.com; user=sql12676122; password=IYbNwtxMnJ; database=sql12676122; convert zero datetime=True";
+            _connectionString = "server=sql12.freesqldatabase.com; user=sql12677850; password=11ech2V5Y2; database=sql12677850; convert zero datetime=True";
             connection = new MySqlConnection(_connectionString);
             try
             {
@@ -26,6 +26,8 @@ namespace HumanResourcesApplication_DoAn.Repositories
             {
                 MessageBox.Show(exc.Message);
             }
-        } 
+        }
+
+        public string ConnectionString => _connectionString;
     }
 }

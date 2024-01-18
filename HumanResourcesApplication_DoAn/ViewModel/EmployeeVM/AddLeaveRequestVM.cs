@@ -44,6 +44,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
             UserName = user.userName;
             changeDate = new ChangeDate();
             StartDate = DateTime.Now;
+            EndDate = StartDate.AddDays(1);
 
             ListLeaveRequest = new List<string?>();
             ListLeaveRequest.Add("Annual Leave");
