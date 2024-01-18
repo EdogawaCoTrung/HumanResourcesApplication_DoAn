@@ -80,6 +80,8 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             listUsers = new ListUsersRepository();
             Attendances = new List<AttendanceForView>();
             TotalEmployee = listUsers.ListUsers() != null ? listUsers.ListUsers().Count : 0;
+            StartDate= DateTime.Now;   
+            EndDate = DateTime.Now.AddDays(1);  
             LateAttend = 0;
             Attend = 0;
             Absence = 0;

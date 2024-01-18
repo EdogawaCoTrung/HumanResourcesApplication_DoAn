@@ -92,26 +92,22 @@
     </UserControl.Resources>
     <Grid Background="{StaticResource Color3}">
         <StackPanel Orientation="Vertical">
-            <Grid>
-                <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
-                    <RadioButton Style="{StaticResource TopBorderTriggerButton}">
-                        <TextBlock Text="All"></TextBlock>
-                    </RadioButton>
-                </StackPanel>
-            </Grid>
+         
             <!--PanelMain-->
-            <Grid Margin="0,37.5,0,30" Background="{StaticResource Color3}">
+            <Grid Margin="0,37.5,0,30" Background="{StaticResource Color3}"
+                  Height="100">
                 <StackPanel Orientation="Horizontal">
-                    
+                    <TextBlock Width="100" Text="{Binding StartDate}"></TextBlock>
+                    <TextBlock Width="100" Text="{Binding EndDate}"></TextBlock>
                 </StackPanel>
+                
             </Grid>
             <!--Datagrid-->
             <Grid Height="480" Margin="0,0,0,0">
                 <Border BorderBrush="{StaticResource ButtonColor5}" BorderThickness="0,1.5,0,1.5" CornerRadius="10">
                     <StackPanel Orientation="Vertical">
                         <Grid>
-                            
-                        <Grid Height="50" Background="White">
+                            <Grid Height="50" Background="White">
                             <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Employee List" FontSize="17" Foreground="{StaticResource FontColor8}" FontWeight="SemiBold" Background="White"></TextBlock>
                             
 
@@ -132,32 +128,34 @@
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
                                     
-                                    <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
-                                        <DatePicker 
-                                                Margin="50,0,0,0"
-                                                Width="100" 
-                                                SelectedDate="{Binding EndDate}"
-                                                > 
-
-                                        </DatePicker>
-                                        <TextBlock Margin="20,0,0,0" Text=":End Date " FontSize="18"
+                                    <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight">
+                                       
+                                        <TextBlock Margin="20,0,0,0" Text="End Date: " FontSize="18"
      Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
      HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                                         </TextBlock>
+                                        <DatePicker 
+         Margin="20,0,0,0"
+         Width="100" 
+         SelectedDate="{Binding EndDate}"
+         >
+
+                                        </DatePicker>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
-                                        <DatePicker 
-                                            Margin="50,0,0,0"
-                                            Width="100" 
-                                            SelectedDate="{Binding StartDate}"
-                                            
-                                        >
-
-                                        </DatePicker>
-                                        <TextBlock Margin="20,0,0,0" Text=":Start Date" FontSize="18"
+                                    <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight">
+                                        
+                                        <TextBlock Margin="20,0,0,0" Text="Start Date:" FontSize="18"
      Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
      HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                                          
                                         </TextBlock>
+                                        <DatePicker 
+                                                Margin="20,0,0,0"
+                                                Width="100" 
+                                                SelectedDate="{Binding StartDate}"
+>
+
+                                        </DatePicker>
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>
