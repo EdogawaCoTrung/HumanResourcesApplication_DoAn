@@ -150,6 +150,7 @@
                                             Margin="50,0,0,0"
                                             Width="100" 
                                             SelectedDate="{Binding StartDate}"
+                                            
                                         >
 
                                         </DatePicker>
