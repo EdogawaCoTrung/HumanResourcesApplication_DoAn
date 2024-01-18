@@ -4,6 +4,7 @@ using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -21,6 +22,11 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private int _attend;
         private int _lateAttend;
         private int _absence;
+        private List<Department> _listDepartment;
+        private string _selectedDepartment;
+        private List<string> _sourceDepartment;
+        private DateTime _startDate;
+        private DateTime _endDate;
         public List<Attendance>? ListAttendance { get => listAttendance; set { listAttendance = value; OnPropertyChanged(nameof(ListAttendance)); } }
         public List<AttendanceForView>? Attendances { get => _attendances; set { _attendances = value; OnPropertyChanged(nameof(Attendances)); } }
 
@@ -36,9 +42,38 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         public int LateAttend { get => _lateAttend; set { _lateAttend = value; OnPropertyChanged(nameof(LateAttend)); } }
         public int Absence { get => _absence; set { _absence = value; OnPropertyChanged(nameof(Absence)); } }
 
+        public List<Department> ListDepartment { get => _listDepartment; set { _listDepartment = value; OnPropertyChanged(nameof(ListDepartment)); } }
+        public string SelectedDepartment { get => _selectedDepartment; set { _selectedDepartment = value; OnPropertyChanged(nameof(SelectedDepartment)); } }
+        public List<string> SourceDepartment { get => _sourceDepartment; set { _sourceDepartment = value; OnPropertyChanged(nameof(SourceDepartment)); } }
+        public DateTime StartDate { get => _startDate; set { _startDate = value; OnPropertyChanged(nameof(StartDate)); filter(); } }
+        public DateTime EndDate { get => _endDate; set { _endDate = value; OnPropertyChanged(nameof(EndDate)); filter(); } }
+        
+        public IListDepartmentRepository departmentRepository;
+        public void filter()
+        { 
+            List<AttendanceForView> temp = new List<AttendanceForView>();
 
+            foreach(AttendanceForView attendance in Attendances)
+            {
+
+                if(DateOnly.FromDateTime(StartDate)<= attendance.date && attendance.date <= DateOnly.FromDateTime(EndDate))
+                {
+                    temp.Add(attendance);
+                }
+               
+            }
+            Attendances = temp; 
+        }
         public AttendanceViewModel()
         {
+            departmentRepository= new ListDepartmentRepository();
+            ListDepartment = new List<Department>();
+            ListDepartment = departmentRepository.ListDepartment();
+            SourceDepartment = new List<string>();
+            foreach(Department department in ListDepartment)
+            {
+                SourceDepartment.Add(department.departmentName);
+            }
             attendanceRepository = new ListAttendanceRepository();
             listAttendance = new List<Attendance>();
             listAttendance = attendanceRepository.ListAttendance();
