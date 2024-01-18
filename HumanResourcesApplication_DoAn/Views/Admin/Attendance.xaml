@@ -102,49 +102,76 @@
             <!--PanelMain-->
             <Grid Margin="0,37.5,0,30" Background="{StaticResource Color3}">
                 <StackPanel Orientation="Horizontal">
-                    <StackPanel Margin="0,0,16,0">
-                        <Border Background="White" Width="274" Height="90" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
-                            <StackPanel>
-                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="Total Employee" FontSize="13" Foreground="{StaticResource FontColor2}"></TextBlock>
-                                <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="{Binding TotalEmployee}" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
-                            </StackPanel>
-                        </Border>
-                    </StackPanel>
-                    <StackPanel Margin="0,0,16,0">
-                        <Border Background="White" Width="274" Height="90" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
-                            <StackPanel>
-                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="Attend" FontSize="13" Foreground="{StaticResource FontColor2}"></TextBlock>
-                                <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="{Binding Attend}" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
-                            </StackPanel>
-                        </Border>
-                    </StackPanel>
-                    <StackPanel Margin="0,0,16,0">
-                        <Border Background="White" Width="274" Height="90" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
-                            <StackPanel>
-                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="Late Attend" FontSize="13" Foreground="{StaticResource FontColor2}"></TextBlock>
-                                <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="{Binding LateAttend}" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
-                            </StackPanel>
-                        </Border>
-                    </StackPanel>
-                    <StackPanel Margin="0,0,0,0">
-                        <Border Background="White" Width="274" Height="90" BorderBrush="{StaticResource ButtonColor5}" BorderThickness="1.5" CornerRadius="10">
-                            <StackPanel>
-                                <TextBlock Panel.ZIndex="1" Margin="20,20,0,0" Text="Absence" FontSize="13" Foreground="{StaticResource FontColor2}"></TextBlock>
-                                <TextBlock Panel.ZIndex="1" Margin="20,10,0,0" Text="{Binding Absence}" FontSize="20" FontWeight="Bold" Foreground="{StaticResource FontColor8}"></TextBlock>
-                            </StackPanel>
-                        </Border>
-                    </StackPanel>
+                    
                 </StackPanel>
             </Grid>
             <!--Datagrid-->
             <Grid Height="480" Margin="0,0,0,0">
                 <Border BorderBrush="{StaticResource ButtonColor5}" BorderThickness="0,1.5,0,1.5" CornerRadius="10">
                     <StackPanel Orientation="Vertical">
+                        <Grid>
+                            
                         <Grid Height="50" Background="White">
                             <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Employee List" FontSize="17" Foreground="{StaticResource FontColor8}" FontWeight="SemiBold" Background="White"></TextBlock>
                             
 
                         </Grid>
+                            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                                    <ComboBox 
+        Margin="50,0,0,0"
+        Width="100" 
+        ItemsSource="{Binding MonthSource}"
+        SelectedItem="{Binding SelectedMonth}">
+
+                                    </ComboBox>
+                                    <TextBlock Margin="20,0,0,0" Text=":Department" FontSize="18"
+             Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+             HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                                    </TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                                    <ComboBox 
+Margin="50,0,0,0"
+Width="100" 
+ItemsSource="{Binding MonthSource}"
+SelectedItem="{Binding SelectedMonth}">
+
+                                    </ComboBox>
+                                    <TextBlock Margin="20,0,0,0" Text=":Year" FontSize="18"
+     Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+     HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                                    </TextBlock>
+                                    <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                                        <ComboBox 
+Margin="50,0,0,0"
+Width="100" 
+ItemsSource="{Binding MonthSource}"
+SelectedItem="{Binding SelectedMonth}" >
+
+                                        </ComboBox>
+                                        <TextBlock Margin="20,0,0,0" Text=":Month" FontSize="18"
+     Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+     HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                                        </TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                                        <ComboBox 
+Margin="50,0,0,0"
+Width="100" 
+ItemsSource="{Binding MonthSource}"
+SelectedItem="{Binding SelectedMonth}">
+
+                                        </ComboBox>
+                                        <TextBlock Margin="20,0,0,0" Text=":Day" FontSize="18"
+     Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+     HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                                        </TextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                        
 
                         <DataGrid ItemsSource="{Binding Attendances}" Height="500" Name="Attendance_Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}">
                             <DataGrid.Columns>

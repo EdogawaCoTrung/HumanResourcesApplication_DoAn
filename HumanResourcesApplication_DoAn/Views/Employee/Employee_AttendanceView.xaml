@@ -122,7 +122,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Hours" IsReadOnly="True" CanUserResize="False" Width="1*">
+                <DataGridTemplateColumn Header="Overtime" IsReadOnly="True" CanUserResize="False" Width="1*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding hours}" Style="{StaticResource StatusTextBlock}">
