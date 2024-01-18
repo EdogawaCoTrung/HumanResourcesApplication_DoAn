@@ -121,49 +121,39 @@
                                     <ComboBox 
         Margin="50,0,0,0"
         Width="100" 
-        ItemsSource="{Binding MonthSource}"
-        SelectedItem="{Binding SelectedMonth}">
+        ItemsSource="{Binding SourceDepartment}"
+        SelectedItem="{Binding SelectedDepartment}">
 
                                     </ComboBox>
                                     <TextBlock Margin="20,0,0,0" Text=":Department" FontSize="18"
-             Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
-             HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                         Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+                         HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                                     </TextBlock>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
-                                    <ComboBox 
-Margin="50,0,0,0"
-Width="100" 
-ItemsSource="{Binding MonthSource}"
-SelectedItem="{Binding SelectedMonth}">
-
-                                    </ComboBox>
-                                    <TextBlock Margin="20,0,0,0" Text=":Year" FontSize="18"
-     Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
-     HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
-                                    </TextBlock>
+                                    
                                     <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
-                                        <ComboBox 
-Margin="50,0,0,0"
-Width="100" 
-ItemsSource="{Binding MonthSource}"
-SelectedItem="{Binding SelectedMonth}" >
+                                        <DatePicker 
+                                                Margin="50,0,0,0"
+                                                Width="100" 
+                                                SelectedDate="{Binding EndDate}"
+                                                > 
 
-                                        </ComboBox>
-                                        <TextBlock Margin="20,0,0,0" Text=":Month" FontSize="18"
+                                        </DatePicker>
+                                        <TextBlock Margin="20,0,0,0" Text=":End Date " FontSize="18"
      Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
      HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                                         </TextBlock>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
-                                        <ComboBox 
-Margin="50,0,0,0"
-Width="100" 
-ItemsSource="{Binding MonthSource}"
-SelectedItem="{Binding SelectedMonth}">
+                                        <DatePicker 
+                                            Margin="50,0,0,0"
+                                            Width="100" 
+                                            SelectedDate="{Binding StartDate}"
+                                        >
 
-                                        </ComboBox>
-                                        <TextBlock Margin="20,0,0,0" Text=":Day" FontSize="18"
+                                        </DatePicker>
+                                        <TextBlock Margin="20,0,0,0" Text=":Start Date" FontSize="18"
      Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
      HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                                         </TextBlock>
