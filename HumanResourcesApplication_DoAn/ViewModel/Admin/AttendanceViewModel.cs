@@ -36,33 +36,51 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             get { return _lstAttendance; }       
         }
 
-        
+        private ObservableCollection<AttendanceForView>? _lstAttendanceForView;
         public int TotalEmployee { get => _totalEmployee; set { _totalEmployee = value; OnPropertyChanged(nameof(TotalEmployee)); } }
         public int Attend { get => _attend; set { _attend = value; OnPropertyChanged(nameof(Attend)); } }
         public int LateAttend { get => _lateAttend; set { _lateAttend = value; OnPropertyChanged(nameof(LateAttend)); } }
         public int Absence { get => _absence; set { _absence = value; OnPropertyChanged(nameof(Absence)); } }
 
         public List<Department> ListDepartment { get => _listDepartment; set { _listDepartment = value; OnPropertyChanged(nameof(ListDepartment)); } }
-        public string SelectedDepartment { get => _selectedDepartment; set { _selectedDepartment = value; OnPropertyChanged(nameof(SelectedDepartment)); } }
+        public string SelectedDepartment { get => _selectedDepartment; set { _selectedDepartment = value; OnPropertyChanged(nameof(SelectedDepartment)); filter(); } }
         public List<string> SourceDepartment { get => _sourceDepartment; set { _sourceDepartment = value; OnPropertyChanged(nameof(SourceDepartment)); } }
         public DateTime StartDate { get => _startDate; set { _startDate = value; OnPropertyChanged(nameof(StartDate)); filter(); } }
         public DateTime EndDate { get => _endDate; set { _endDate = value; OnPropertyChanged(nameof(EndDate)); filter(); } }
-        
+
+        public ObservableCollection<AttendanceForView>? LstAttendanceForView { get => _lstAttendanceForView; set { _lstAttendanceForView = value; OnPropertyChanged(nameof(LstAttendanceForView)); } }
+
         public IListDepartmentRepository departmentRepository;
         public void filter()
         { 
-            List<AttendanceForView> temp = new List<AttendanceForView>();
+            ObservableCollection<AttendanceForView> temp = new ObservableCollection<AttendanceForView>();
 
-            foreach(AttendanceForView attendance in Attendances)
+            if (SelectedDepartment != null)
             {
-
-                if(DateOnly.FromDateTime(StartDate)<= attendance.date && attendance.date <= DateOnly.FromDateTime(EndDate))
+                foreach (AttendanceForView attendance in Attendances)
                 {
-                    temp.Add(attendance);
+
+                    if ((DateOnly.FromDateTime(StartDate) <= attendance.date && attendance.date <= DateOnly.FromDateTime(EndDate) && attendance.departmentName == SelectedDepartment))
+                    {
+                        temp.Add(attendance);
+                    }
+
                 }
-               
+                LstAttendanceForView = temp;
             }
-            Attendances = temp; 
+            else
+            {
+                foreach (AttendanceForView attendance in Attendances)
+                {
+
+                    if ((DateOnly.FromDateTime(StartDate) <= attendance.date && attendance.date <= DateOnly.FromDateTime(EndDate)))
+                    {
+                        temp.Add(attendance);
+                    }
+
+                }
+                LstAttendanceForView = temp;
+            }
         }
         public AttendanceViewModel()
         {
@@ -111,7 +129,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 }
                 AttendanceForView attendanceForView = new AttendanceForView();
                 Attendances.Add(attendanceForView);
-                Attendances[i].userId = listAttendance[i].userId;
+                Attendances[i].userId.userId = listAttendance[i].userId.userId;
+                Attendances[i].userId.userName = listAttendance[i].userId.userName;
+                Attendances[i].userId.departmentId = listAttendance[i].userId.departmentId;
+                Attendances[i].departmentName = listAttendance[i].departmentName;
                 Attendances[i].date = listAttendance[i].date;
                 if (listAttendance[i].inTime - TimeSpan.Parse("07:00:00") > TimeSpan.Parse("00:00:00"))
                     Attendances[i].inTime = listAttendance[i].inTime.ToString() + " (" + (listAttendance[i].inTime - TimeSpan.Parse("07:00:00")) + ")";
@@ -129,6 +150,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                     Attendances[i].outTime = "--:--:--";
                 if (listAttendance[i].hours.ToString() == "00:00:00")
                     Attendances[i].hours = "--:--:--";
+            }
+            foreach (var attendance in Attendances)
+            {
+                LstAttendanceForView.Add(attendance);
             }
             Absence = TotalEmployee - Attend;
         }

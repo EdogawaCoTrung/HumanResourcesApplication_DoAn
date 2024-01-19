@@ -46,7 +46,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.EmployeeVM
                     int absence = 0;
                     for (int i = 0; i < listAttendance.Count; i++)
                     {
-                        if (listAttendance[i].userId == MyApp.currentUser.userName && ((DateOnly)listAttendance[i].date).Month == month && ((DateOnly)listAttendance[i].date).Year == year)
+                        if (listAttendance[i].userId.userName == MyApp.currentUser.userName && ((DateOnly)listAttendance[i].date).Month == month && ((DateOnly)listAttendance[i].date).Year == year)
                         {
                             if (listAttendance[i].status == "Absent")
                             {
