@@ -4,6 +4,7 @@ using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -21,6 +22,11 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
         private int _attend;
         private int _lateAttend;
         private int _absence;
+        private List<Department> _listDepartment;
+        private string _selectedDepartment;
+        private List<string> _sourceDepartment;
+        private DateTime _startDate;
+        private DateTime _endDate;
         public List<Attendance>? ListAttendance { get => listAttendance; set { listAttendance = value; OnPropertyChanged(nameof(ListAttendance)); } }
         public List<AttendanceForView>? Attendances { get => _attendances; set { _attendances = value; OnPropertyChanged(nameof(Attendances)); } }
 
@@ -30,21 +36,70 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
             get { return _lstAttendance; }       
         }
 
-        
+        private ObservableCollection<AttendanceForView>? _lstAttendanceForView;
         public int TotalEmployee { get => _totalEmployee; set { _totalEmployee = value; OnPropertyChanged(nameof(TotalEmployee)); } }
         public int Attend { get => _attend; set { _attend = value; OnPropertyChanged(nameof(Attend)); } }
         public int LateAttend { get => _lateAttend; set { _lateAttend = value; OnPropertyChanged(nameof(LateAttend)); } }
         public int Absence { get => _absence; set { _absence = value; OnPropertyChanged(nameof(Absence)); } }
 
+        public List<Department> ListDepartment { get => _listDepartment; set { _listDepartment = value; OnPropertyChanged(nameof(ListDepartment)); } }
+        public string SelectedDepartment { get => _selectedDepartment; set { _selectedDepartment = value; OnPropertyChanged(nameof(SelectedDepartment)); filter(); } }
+        public List<string> SourceDepartment { get => _sourceDepartment; set { _sourceDepartment = value; OnPropertyChanged(nameof(SourceDepartment)); } }
+        public DateTime StartDate { get => _startDate; set { _startDate = value; OnPropertyChanged(nameof(StartDate)); filter(); } }
+        public DateTime EndDate { get => _endDate; set { _endDate = value; OnPropertyChanged(nameof(EndDate)); filter(); } }
 
+        public ObservableCollection<AttendanceForView>? LstAttendanceForView { get => _lstAttendanceForView; set { _lstAttendanceForView = value; OnPropertyChanged(nameof(LstAttendanceForView)); } }
+
+        public IListDepartmentRepository departmentRepository;
+        public void filter()
+        { 
+            ObservableCollection<AttendanceForView> temp = new ObservableCollection<AttendanceForView>();
+
+            if (SelectedDepartment != null)
+            {
+                foreach (AttendanceForView attendance in Attendances)
+                {
+
+                    if ((DateOnly.FromDateTime(StartDate) <= attendance.date && attendance.date <= DateOnly.FromDateTime(EndDate) && attendance.departmentName == SelectedDepartment))
+                    {
+                        temp.Add(attendance);
+                    }
+
+                }
+                LstAttendanceForView = temp;
+            }
+            else
+            {
+                foreach (AttendanceForView attendance in Attendances)
+                {
+
+                    if ((DateOnly.FromDateTime(StartDate) <= attendance.date && attendance.date <= DateOnly.FromDateTime(EndDate)))
+                    {
+                        temp.Add(attendance);
+                    }
+
+                }
+                LstAttendanceForView = temp;
+            }
+        }
         public AttendanceViewModel()
         {
+            departmentRepository= new ListDepartmentRepository();
+            ListDepartment = new List<Department>();
+            ListDepartment = departmentRepository.ListDepartment();
+            SourceDepartment = new List<string>();
+            foreach(Department department in ListDepartment)
+            {
+                SourceDepartment.Add(department.departmentName);
+            }
             attendanceRepository = new ListAttendanceRepository();
             listAttendance = new List<Attendance>();
             listAttendance = attendanceRepository.ListAttendance();
             listUsers = new ListUsersRepository();
             Attendances = new List<AttendanceForView>();
             TotalEmployee = listUsers.ListUsers() != null ? listUsers.ListUsers().Count : 0;
+            StartDate= DateTime.Now;   
+            EndDate = DateTime.Now.AddDays(1);  
             LateAttend = 0;
             Attend = 0;
             Absence = 0;
@@ -74,7 +129,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 }
                 AttendanceForView attendanceForView = new AttendanceForView();
                 Attendances.Add(attendanceForView);
-                Attendances[i].userId = listAttendance[i].userId;
+                Attendances[i].userId.userId = listAttendance[i].userId.userId;
+                Attendances[i].userId.userName = listAttendance[i].userId.userName;
+                Attendances[i].userId.departmentId = listAttendance[i].userId.departmentId;
+                Attendances[i].departmentName = listAttendance[i].departmentName;
                 Attendances[i].date = listAttendance[i].date;
                 if (listAttendance[i].inTime - TimeSpan.Parse("07:00:00") > TimeSpan.Parse("00:00:00"))
                     Attendances[i].inTime = listAttendance[i].inTime.ToString() + " (" + (listAttendance[i].inTime - TimeSpan.Parse("07:00:00")) + ")";
@@ -92,6 +150,10 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                     Attendances[i].outTime = "--:--:--";
                 if (listAttendance[i].hours.ToString() == "00:00:00")
                     Attendances[i].hours = "--:--:--";
+            }
+            foreach (var attendance in Attendances)
+            {
+                LstAttendanceForView.Add(attendance);
             }
             Absence = TotalEmployee - Attend;
         }

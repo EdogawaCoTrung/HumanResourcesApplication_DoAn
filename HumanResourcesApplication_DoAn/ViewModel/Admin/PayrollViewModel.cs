@@ -103,7 +103,7 @@ namespace HumanResourcesApplication_DoAn.ViewModel.Admin
                 int absence = 0;
                 for (int j = 0; j < listAttendance.Count; j++)
                 {
-                    if (temp[i].user.userName == listAttendance[j].userId && ((DateOnly)listAttendance[j].date).Month.ToString() == SelectedMonth && ((DateOnly)listAttendance[j].date).Year.ToString() == SelectedYear)
+                    if (temp[i].user.userName == listAttendance[j].userId.userName && ((DateOnly)listAttendance[j].date).Month.ToString() == SelectedMonth && ((DateOnly)listAttendance[j].date).Year.ToString() == SelectedYear)
                     {
                         if (listAttendance[j].status == "Absent")
                         {
