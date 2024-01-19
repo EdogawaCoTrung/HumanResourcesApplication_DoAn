@@ -18,12 +18,15 @@ namespace HumanResourcesApplication_DoAn.Repositories
             List<Attendance> _listAttendance = new List<Attendance>();
             MySqlCommand command = new MySqlCommand();
             command.Connection = connection;
-            command.CommandText = "SELECT * FROM ATTENDANCE JOIN USERS ON USERS.USERID = ATTENDANCE.USERID";
+            command.CommandText = "SELECT * FROM ATTENDANCE JOIN USERS ON USERS.USERID = ATTENDANCE.USERID JOIN DEPARTMENT ON USERS.DEPARTMENT_ID=DEPARTMENT.DEPARTMENT_ID";
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 Attendance _attendance = new Attendance();
-                _attendance.userId = reader["USERNAME"].ToString();
+                _attendance.userId.userId = reader["USERID"].ToString();
+                _attendance.userId.userName = reader["USERNAME"].ToString();
+                _attendance.userId.departmentId = reader["DEPARTMENT_ID"].ToString();
+                _attendance.departmentName = reader["DEPARTMENT_NAME"].ToString() ;
                 _attendance.date = DateOnly.FromDateTime(DateTime.Parse(reader["DATE_ATTENDANCE"].ToString()));
                 _attendance.inTime = TimeSpan.Parse(reader["INTIME"].ToString() == "" ? "00:00:00" : reader["INTIME"].ToString());
                 _attendance.outTime = TimeSpan.Parse(reader["OUTTIME"].ToString() == "" ? "00:00:00" : reader["OUTTIME"].ToString());

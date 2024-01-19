@@ -9,9 +9,6 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              d:DesignHeight="750" d:DesignWidth="1100">
-    <UserControl.DataContext>
-        <viewModelAdmin:AttendanceViewModel/>
-    </UserControl.DataContext>
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
         <Style TargetType="DataGrid">
@@ -97,8 +94,7 @@
             <Grid Margin="0,37.5,0,30" Background="{StaticResource Color3}"
                   Height="100">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Width="100" Text="{Binding StartDate}"></TextBlock>
-                    <TextBlock Width="100" Text="{Binding EndDate}"></TextBlock>
+                    
                 </StackPanel>
                 
             </Grid>
@@ -113,20 +109,21 @@
 
                         </Grid>
                             <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
-                                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                                <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight">
+                                    <TextBlock Margin="20,0,0,0" Text="Department:" FontSize="18"
+Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
+HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
+                                    </TextBlock>
                                     <ComboBox 
-        Margin="50,0,0,0"
+        Margin="20,0,0,0"
         Width="100" 
         ItemsSource="{Binding SourceDepartment}"
         SelectedItem="{Binding SelectedDepartment}">
 
                                     </ComboBox>
-                                    <TextBlock Margin="20,0,0,0" Text=":Department" FontSize="18"
-                         Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
-                         HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
-                                    </TextBlock>
+                                    
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0,0,30,0">
                                     
                                     <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight">
                                        
@@ -144,7 +141,7 @@
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight">
                                         
-                                        <TextBlock Margin="20,0,0,0" Text="Start Date:" FontSize="18"
+                                        <TextBlock Margin="10,0,0,0" Text="Start Date:" FontSize="18"
      Visibility="{Binding ElementName=Attendancetxtfilter, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"
      HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1" IsHitTestVisible="False">
                                           
@@ -162,9 +159,14 @@
                         </Grid>
                         
 
-                        <DataGrid ItemsSource="{Binding Attendances}" Height="500" Name="Attendance_Users" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}">
+                        <DataGrid ItemsSource="{Binding LstAttendanceForView}"
+                                  
+                                  Height="500" 
+                                  Name="Attendance_Users" 
+                                  RowStyle="{DynamicResource DataGridRowStyle1}" 
+                                  CellStyle="{DynamicResource DataGridCellTemplate}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}">
                             <DataGrid.Columns>
-                                <DataGridTextColumn CellStyle="{DynamicResource DataGridCellTemplate2}" Binding="{Binding userId}" IsReadOnly="True" CanUserResize="False" Width="150"></DataGridTextColumn>
+                                <DataGridTextColumn CellStyle="{DynamicResource DataGridCellTemplate2}" Binding="{Binding userId.userName}" IsReadOnly="True" CanUserResize="False" Width="150"></DataGridTextColumn>
                                 <DataGridTextColumn Header="Date" Binding="{Binding date}" IsReadOnly="True" CanUserResize="False" Width="1*">
                                 </DataGridTextColumn>
                                 <DataGridTemplateColumn Header="In time" IsReadOnly="True" CanUserResize="False" Width="1*">
